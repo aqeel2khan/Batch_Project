@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/trainer_navigation"
+    app:startDestination="@id/trainerFragment">
+
+    <fragment
+        android:id="@+id/trainerFragment"
+        android:name="com.example.bottomanimationmydemo.view.fragments.TrainingFragment"
+        android:label="fragment_trainer"
+        tools:layout="@layout/fragment_training" >
+    </fragment>
+
+
+</navigation>

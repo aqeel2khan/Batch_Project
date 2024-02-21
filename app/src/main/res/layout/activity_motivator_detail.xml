@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.MotivatorDetailActivity">
+
+    <LinearLayout
+        android:id="@+id/exercise_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/background_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/exercise_image" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/back_shape"
+            android:padding="8dp"
+            android:src="@drawable/arrow_back" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/exercise_image"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/rounded_bg_main">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:orientation="vertical">
+
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:id="@+id/txt_trainer_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/outfit_extra_bold"
+                            android:text="Bessie Cooper"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp" />
+
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:id="@+id/txt_profesion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="123 followers"
+                            android:textColor="@color/gry"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_follow"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_weight="0.4"
+                        android:background="@drawable/rectangle_follow_btn"
+                        android:text="@string/txt_follow"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8sdp" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_following"
+                        android:visibility="gone"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_weight="0.4"
+                        android:background="@drawable/border_button"
+                        android:text="Following"
+                        android:textColor="@color/terms_color"
+                        android:textSize="@dimen/_8sdp" />
+                </LinearLayout>
+
+                <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/outfit_bold"
+                    android:text="@string/txt_trainer_content"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/_10ssp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_keyPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radius_shape">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/_5sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:text="Yoga"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9ssp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:background="@drawable/radius_shape">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/_5sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Stretching"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9ssp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:background="@drawable/radius_shape">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/_5sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Palates"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9ssp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:background="@drawable/radius_shape">
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/_5sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Mobility"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_9ssp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@color/gry2"/>
+
+                <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/outfit_extra_bold"
+                    android:text="Trainings Packages"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/recycler_batches"/>
+
+                <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/outfit_extra_bold"
+                    android:text="@string/txt_recommended_product"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/recycler_recommended_product"/>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</RelativeLayout>

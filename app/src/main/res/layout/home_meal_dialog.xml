@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:behavior_hideable="true"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    app:behavior_peekHeight="@dimen/_50sdp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:fontFamily="@font/outfit_regular"
+            android:text="@string/txt_change_plan"
+            android:layout_gravity="center"
+            android:id="@+id/txt_title_change"
+            android:textColor="@color/welcome_txt"
+            android:textSize="@dimen/_14ssp" />
+
+        <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
+            android:id="@+id/txt_change_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:fontFamily="@font/outfit_regular"
+            android:text="@string/txt_change_plan_content"
+            android:textColor="@color/welcome_txt_gry"
+            android:textSize="@dimen/_10ssp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_go_meal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@drawable/rectangle_button"
+            android:fontFamily="@font/outfit_regular"
+            android:outlineSpotShadowColor="#516634"
+            android:text="@string/txt_go_to_meal"
+            android:padding="@dimen/_3sdp"
+            android:elevation="@dimen/_2sdp"
+            android:textSize="@dimen/_12ssp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@drawable/border_button"
+            android:fontFamily="@font/outfit_regular"
+            android:outlineSpotShadowColor="#516634"
+            android:text="@string/change_course_cancel"
+            android:padding="@dimen/_3sdp"
+            android:elevation="@dimen/_2sdp"
+            android:textSize="@dimen/_12ssp"
+            android:textAllCaps="false"
+            android:textColor="@color/terms_color"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute" />
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_freeze"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:fontFamily="@font/outfit_regular"
+            android:text="@string/txt_freeze_plan"
+            android:layout_gravity="center"
+            android:id="@+id/txt_title"
+            android:textColor="@color/welcome_txt"
+            android:textSize="@dimen/_14ssp" />
+
+        <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
+            android:id="@+id/txt_log_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:fontFamily="@font/outfit_regular"
+            android:text="@string/txt_freeze_plan_content"
+            android:textColor="@color/welcome_txt_gry"
+            android:textSize="@dimen/_10ssp" />
+
+        <RelativeLayout
+            android:id="@+id/ll_freeze_plan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:backgroundTint="#F5F6F4"
+            android:padding="@dimen/_2sdp"
+            android:elevation="@dimen/_2sdp"
+            android:background="@drawable/radius_shape">
+
+            <ImageView
+                android:id="@+id/im_gender"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/_10sdp"
+                android:src="@drawable/arrow_down" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinner_freeze"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txt_freeze"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:text="Select the freezing duration"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@drawable/rectangle_button"
+            android:fontFamily="@font/outfit_regular"
+            android:outlineSpotShadowColor="#516634"
+            android:text="Confirm"
+            android:padding="@dimen/_3sdp"
+            android:elevation="@dimen/_2sdp"
+            android:textSize="@dimen/_12ssp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/icon_down"
+                android:id="@+id/img_down"/>
+
+            <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
+                android:id="@+id/txt_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="@string/txt_title_heart"
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_12ssp" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:id="@+id/ll_heart_rate">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/heart_btn"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_80sdp"
+                android:src="@drawable/heart_rate"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/ll_steps"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/heart_btn"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/_10sdp">
+                <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Average:"
+                    android:textColor="@color/welcome_txt_gry"
+                    android:textSize="@dimen/_12ssp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                        android:id="@+id/txt_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3884"
+                        android:textColor="@color/welcome_txt"
+                        android:textSize="@dimen/_12ssp"/>
+                    <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" steps"
+                        android:textColor="@color/welcome_txt"
+                        android:textSize="@dimen/_10ssp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/ll_sleep"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/heart_btn"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/_10sdp">
+                <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Average bedtime"
+                    android:textColor="@color/welcome_txt_gry"
+                    android:textSize="@dimen/_12ssp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                        android:id="@+id/txt_value_sleep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7h 33m"
+                        android:textColor="@color/welcome_txt"
+                        android:textSize="@dimen/_12ssp"/>
+                    <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" steps"
+                        android:visibility="gone"
+                        android:textColor="@color/welcome_txt"
+                        android:textSize="@dimen/_10ssp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/ll_calories"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/heart_btn"
+                android:layout_marginHorizontal="@dimen/_10sdp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/_10sdp">
+                <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Average Calories"
+                    android:textColor="@color/welcome_txt_gry"
+                    android:textSize="@dimen/_12ssp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                        android:id="@+id/txt_value_calories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1650"
+                        android:textColor="@color/welcome_txt"
+                        android:textSize="@dimen/_12ssp"/>
+                    <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" cal"
+                        android:textColor="@color/welcome_txt"
+                        android:textSize="@dimen/_10ssp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_okay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/rectangle_button"
+            android:fontFamily="@font/outfit_regular"
+            android:outlineSpotShadowColor="#516634"
+            android:text="@string/txt_okay"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:padding="@dimen/_3sdp"
+            android:elevation="@dimen/_2sdp"
+            android:textSize="@dimen/_12ssp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute" />
+    </LinearLayout>
+</LinearLayout>

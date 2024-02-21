@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_160sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_20sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/food" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_80sdp"
+                android:background="@color/work_color"
+                android:padding="@dimen/_10sdp">
+
+                <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                    android:id="@+id/tv_workout_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Batch Meal Plan"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    android:textFontWeight="500"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/workOutBath"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="from"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:layout_marginEnd="@dimen/_2sdp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$35"
+                        android:textSize="@dimen/_10ssp"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/workOutBatchRelative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/workOutBath"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_marginEnd="@dimen/_3sdp"
+                            android:src="@drawable/flash_icon"
+                            app:tint="@color/white" />
+
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1700 - 1800"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            android:textStyle="bold" />
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:id="@+id/tv_boost_kcal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="kcal"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_second"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_toRightOf="@id/ll_one"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:src="@drawable/meal_sm_icon" />
+
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:text="3-4"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            android:textStyle="bold" />
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:id="@+id/tv_snacks_kcal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="meal"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_toRightOf="@id/ll_second"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:src="@drawable/meal_sm_icon" />
+
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:text="1-2"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            android:textStyle="bold" />
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:id="@+id/tv_meal_kcal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="snacks"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

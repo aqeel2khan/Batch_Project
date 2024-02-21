@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".view.activity.ExploreActivity">
+    <ImageView
+        android:id="@+id/backButton_back"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_gravity="start"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:src="@drawable/app_back_icon" />
+
+    <LinearLayout
+        android:id="@+id/genderLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backButton_back"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+            android:id="@+id/welcomeBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/outfit_regular"
+            android:text="@string/welcome_back_bath"
+            android:textAllCaps="false"
+            android:textColor="@color/welcome_txt"
+            android:textSize="@dimen/_21ssp"
+            android:textFontWeight="500"/>
+
+        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+            android:id="@+id/signInAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:fontFamily="@font/outfit_regular"
+            android:gravity="center_horizontal"
+            android:text="@string/before_we_start"
+            android:textAllCaps="false"
+            android:textColor="@color/welcome_txt_gry"
+            android:textSize="@dimen/_14ssp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_boy_frame"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:elevation="@dimen/_2sdp"
+                android:padding="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/boy"/>
+
+            <ImageView
+                android:id="@+id/img_girl_frame"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:elevation="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:padding="@dimen/_2sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/girl"/>
+
+            <!--      <LinearLayout
+                      android:layout_width="@dimen/_130sdp"
+                      android:layout_height="@dimen/_100sdp"
+                      android:layout_gravity="center"
+                      android:layout_margin="@dimen/_5sdp"
+                      android:background="@drawable/form_shape"
+                      android:gravity="center"
+                      android:orientation="vertical">
+
+                      <ImageView
+                          android:layout_width="@dimen/_50sdp"
+                          android:layout_height="@dimen/_50sdp"
+                          android:fontFamily="@font/outfit_regular"
+                          android:src="@drawable/boy"
+                          tools:ignore="ContentDescription" />
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/outfit_regular"
+                          android:text="@string/male"
+                          android:textColor="@color/black"
+                          android:textSize="@dimen/_14ssp"
+                          android:textStyle="bold" />
+
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="@dimen/_130sdp"
+                      android:layout_height="@dimen/_100sdp"
+                      android:layout_gravity="center"
+                      android:layout_margin="@dimen/_5sdp"
+                      android:background="@drawable/form_shape"
+                      android:gravity="center"
+                      android:orientation="vertical">
+
+                      <ImageView
+                          android:layout_width="@dimen/_50sdp"
+                          android:layout_height="@dimen/_50sdp"
+                          android:src="@drawable/girl" />
+
+                      <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:fontFamily="@font/outfit_regular"
+                          android:text="@string/female"
+                          android:textColor="@color/black"
+                          android:textSize="@dimen/_14ssp"
+                          android:textStyle="bold" />
+
+                  </LinearLayout>-->
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="@dimen/_25sdp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/continueButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_button"
+            android:fontFamily="@font/outfit_regular"
+            android:outlineSpotShadowColor="#516634"
+            android:text="@string/continue_text"
+            android:padding="@dimen/_10sdp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/_12ssp"
+            android:textFontWeight="500"
+            tools:ignore="UnusedAttribute" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                android:id="@+id/signTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/outfit_regular"
+                android:text="@string/already_account"
+                android:textColor="@color/welcome_txt_gry"
+                android:textSize="@dimen/_12ssp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    
+
+
+</RelativeLayout>

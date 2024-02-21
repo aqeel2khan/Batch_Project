@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.PlayWorkoutVideoActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/video_img"
+        android:scaleType="fitXY"/>
+
+    <LinearLayout
+        android:id="@+id/ll_start_workout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_finish_workout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_button"
+            android:backgroundTint="#516634"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_10ssp"
+            android:text="@string/finish_workout"
+            android:textColor="@color/white" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_8sdp">
+
+            <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                android:id="@+id/txt_change_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/start_next_workout"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp" />
+        </RelativeLayout>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:id="@+id/recycler_video_workout"/>
+</RelativeLayout>

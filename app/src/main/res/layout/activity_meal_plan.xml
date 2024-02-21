@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".view.activity.MealPlanActivity">
+
+    <LinearLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_color"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp">
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/app_back_icon" />
+
+            <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_meal_planning"
+                android:textColor="@color/welcome_txt"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/_14ssp"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/img_cal"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/black_calendar" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/weekdaysList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp"/>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/rl_bottom_layout"
+        android:layout_below="@id/rl_header"
+        android:layout_marginTop="-23dp">
+
+        <LinearLayout
+            android:id="@+id/ll_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/rounded_bg_main"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_meal_plan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp" />
+
+            <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:text="Selected 0/1"
+                android:textColor="@color/welcome_txt_gry"
+                android:textSize="@dimen/_12ssp" />
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/ll_breakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rectangle_button"
+                        android:gravity="center">
+
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:id="@+id/tv_breakfast"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/outfit_regular"
+                            android:padding="@dimen/_8sdp"
+                            android:singleLine="true"
+                            android:text="@string/txt_meal_breakfast"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_lunch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:background="@drawable/rectangle_button"
+                        android:gravity="center">
+
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:id="@+id/tv_lunch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/outfit_regular"
+                            android:padding="@dimen/_8sdp"
+                            android:singleLine="true"
+                            android:text="@string/txt_meal_lunch_dinner"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_snack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:background="@drawable/rectangle_button"
+                        android:gravity="center">
+
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:id="@+id/tv_snack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/outfit_regular"
+                            android:padding="@dimen/_8sdp"
+                            android:text="@string/txt_meal_snack"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_desserts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rectangle_button"
+                        android:gravity="center">
+
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:id="@+id/tv_desserts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/outfit_regular"
+                            android:padding="@dimen/_8sdp"
+                            android:text="@string/txt_meal_desserts"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_all_meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_10sdp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_bg_main">
+        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selected meals"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/welcome_txt"/>
+        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4/4"
+            android:id="@+id/selected_item"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:textSize="@dimen/_14ssp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/welcome_txt"/>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_below="@id/selected_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/rectangle_button"
+            android:fontFamily="@font/outfit_regular"
+            android:outlineSpotShadowColor="#516634"
+            android:text="@string/txt_next"
+            android:textSize="@dimen/_12ssp"
+            android:padding="@dimen/_2sdp"
+            android:elevation="@dimen/_2sdp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute" />
+    </RelativeLayout>
+
+</RelativeLayout>
