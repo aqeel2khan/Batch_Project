@@ -230,6 +230,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:text="Beginner"
+                                        android:id="@+id/tv_level"
                                         android:layout_marginStart="@dimen/_2sdp"
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/_8ssp" />

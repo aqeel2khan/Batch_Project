@@ -139,8 +139,16 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     private val _courseOrderListResponse: MutableLiveData<Resource<CourseOrderList>> = MutableLiveData()
     val courseOrderListResponse: LiveData<Resource<CourseOrderList>> get() = _courseOrderListResponse
 
-    fun courseOrderListApiCall() = viewModelScope.launch {
+    fun courseOrderListApiCall(token: String) = viewModelScope.launch {
         _courseOrderListResponse.value = Resource.Loading
-        _courseOrderListResponse.value = repository.courseOrderList()
+        _courseOrderListResponse.value = repository.courseOrderList(token)
+    }
+        //course start api
+    private val _courseStartResponse: MutableLiveData<Resource<OrederCreateResponse>> = MutableLiveData()
+    val courseStartResponse: LiveData<Resource<OrederCreateResponse>> get() = _courseOrderCreateResponse
+
+    fun courseStartApiCall(token: String, jsonObject: JsonObject) = viewModelScope.launch {
+        _courseStartResponse.value = Resource.Loading
+        _courseStartResponse.value = repository.courseOrderCreate(token, jsonObject)
     }
 }
