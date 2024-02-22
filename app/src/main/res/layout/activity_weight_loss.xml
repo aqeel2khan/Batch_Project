@@ -14,27 +14,46 @@
         android:background="@drawable/exercise_image"
         android:orientation="horizontal">
 
-        <FrameLayout
-            android:id="@+id/video_layout"
-            android:layout_width="fill_parent"
-            android:layout_height="250dp"
-            android:background="@android:color/black">
-
-            <com.example.vimeoplayer2.UniversalVideoView
-                android:id="@+id/videoView"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:visibility="gone"
+                android:id="@+id/video_layout"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"
-                app:uvv_autoRotation="true"
-                app:uvv_fitXY="false" />
+                android:layout_height="220dp"
+                android:background="@android:color/black">
 
-            <com.example.vimeoplayer2.UniversalMediaController
-                android:id="@+id/media_controller"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                app:uvv_scalable="true" />
+                <com.example.vimeoplayer2.UniversalVideoView
+                    android:id="@+id/videoView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    app:uvv_autoRotation="true"
+                    app:uvv_fitXY="false" />
 
-        </FrameLayout>
+                <com.example.vimeoplayer2.UniversalMediaController
+                    android:id="@+id/media_controller"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    app:uvv_scalable="true" />
+
+            </FrameLayout>
+            <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView
+                android:id="@+id/vimeoPlayerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:autoPlay="false"
+                app:backgroundColor="@android:color/transparent"
+                app:loop="false"
+                app:muted="false"
+                app:quality="auto"
+                app:showFullscreenOption="false"
+                app:showMenuOption="false"
+                app:showOriginalControls="false"
+                app:showTitle="true"
+                app:topicColor="#FFFF00" />
+        </RelativeLayout>
 
         <ImageView
             android:id="@+id/img_back"
@@ -54,7 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/exercise_image"
-        android:layout_marginTop="-50dp"
+        android:layout_marginTop="-30dp"
         android:background="@drawable/rounded_bg_main">
 
         <ScrollView

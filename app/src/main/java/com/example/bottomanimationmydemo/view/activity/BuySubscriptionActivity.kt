@@ -14,7 +14,6 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.bottomanimationmydemo.R
-import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
 import com.example.bottomanimationmydemo.databinding.ActivityBuySubscriptionBinding
 import com.example.bottomanimationmydemo.model.StatusModel
 import com.example.bottomanimationmydemo.model.course_detail.Data
@@ -43,6 +42,7 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
     var grand_total: String? = null
 //    var course_id: String? = null
     lateinit var myObject: Data
+    val durationList: ArrayList<String> = ArrayList()
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
@@ -55,6 +55,7 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
             StatusModel(id = 0, status = "Weekly"),
             StatusModel(id = 1, status = "Monthly"),
         )
+
         getCourseDetailData(sharedPreferences.myCourseId)
     }
 
@@ -98,12 +99,13 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
     @SuppressLint("SetTextI18n")
     private fun setUpDetails(courseData: Data) {
         binding.courseName.text = courseData.courseName
-        binding.coursePrice.text = MyConstant.DOLLER_SIGN + courseData.coursePrice
+        binding.coursePrice.text = courseData.coursePrice + "KWD"
         binding.coachName.text = courseData.coachDetail.name
         MyUtils.loadImage(binding.coachProfile, MyConstant.IMAGE_BASE_URL + courseData.coachDetail.profilePhotoPath)
         MyUtils.loadBackgroundImage(binding.backgroundBg, MyConstant.IMAGE_BASE_URL + courseData.courseImage)
         binding.tvDuration.text = courseData.duration + " mins"
-        binding.dollerText2.text = MyConstant.DOLLER_SIGN + courseData.coursePrice
+        binding.dollerText2.text = courseData.coursePrice + "KWD"
+        durationList.add(courseData.duration)
     }
 
     private fun buttonClicks() {
@@ -141,12 +143,13 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
         ll_bottom_change_course!!.visibility = View.GONE
         ll_save_plan_layout!!.visibility = View.VISIBLE
         ll_plan_duration!!.setOnClickListener {
-            selectPlanDurationAdapter(statusList, sp_plan_duration, textPlanDuration)
+            selectPlanDurationAdapter(durationList, sp_plan_duration, textPlanDuration)
+//            selectPlanDurationAdapter(statusList, sp_plan_duration, textPlanDuration)
         }
         btn_save!!.setOnClickListener {
             //code for save week price
             binding.setPlanData.visibility = View.VISIBLE
-            binding.setPlanData.text = planName
+            binding.setPlanData.text = planName.toString()
             dialog.dismiss()
         }
         img_down!!.setOnClickListener {
@@ -156,7 +159,7 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
     }
 
     private fun selectPlanDurationAdapter(
-        statusList: ArrayList<StatusModel>,
+        statusList: ArrayList<String>,
         sp_plan_duration: Spinner?,
         textPlanDuration: TextView?
     ) {
@@ -169,8 +172,8 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
 //        Information.add("Select Status")
 //        indId.add(0)
         for (items in informationData) {
-            Information.add(items.status.toString())
-            indId.add(items.id!!.toInt())
+            Information.add(items.toString())
+//            indId.add(items.id!!.toInt())
         }
         val activityAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Information)
         activityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -186,7 +189,8 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
                                 status_id = indId[p2]
                                 Log.d("status_id", status_id.toString())
                                 planName = Information[p2]
-                                textPlanDuration!!.text = planName
+                                textPlanDuration!!.text = planName + "days"
+                                Log.d("mmmm", planName.toString())
                                 sp_plan_duration.visibility = View.GONE
                                 txtData.visibility = View.VISIBLE
                             } else {

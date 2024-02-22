@@ -40,5 +40,5 @@ object MyConstant {
     const val COURSEORDERLIST = "course/order/list"
     const val STARTWORKOUTSTATUS = "/course/order/workout/status"
 
-    const val DOLLER_SIGN = "$"
+//    const val DOLLER_SIGN = "$"
 }

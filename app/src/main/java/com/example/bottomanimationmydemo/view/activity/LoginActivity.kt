@@ -64,6 +64,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         binding.signButton.setOnClickListener {
             validation()
         }
+        binding.createAccount.setOnClickListener {
+            startActivity(Intent(this, RegistrationActivity::class.java))
+        }
         binding.passHideShow.setOnClickListener {
             MyUtils.passwordShowHide(binding, MyConstant.newPassword)
         }

@@ -13,6 +13,8 @@
     <string name="txt_home">Batchboard</string>
     <string name="agree_and_continue">Agree And Continue</string>
     <string name="log_in">Log in</string>
+    <string name="select_country">Select Country</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account ? <font color='#516634'>Signup</font></string>
     <string name="male">Male</string>
     <string name="i_want_look">I want to look around</string>
     <string name="female">Female</string>
