@@ -4,10 +4,15 @@ import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.SeekBar
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerReadyListener
+import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerStateListener
+import com.ct7ct7ct7.androidvimeoplayer.model.TextTrack
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.adapter.AllBatchesAdapter
 import com.example.bottomanimationmydemo.adapter.RecommendedProductListAdapter
@@ -145,9 +150,58 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
     }
 
     private fun setUpDetails(coachData: Data) {
-        MyUtils.loadBackgroundImage(binding.backgroundImg, MyConstant.IMAGE_BASE_URL + coachData.profilePhotoPath)
+       MyUtils.loadBackgroundImage(binding.backgroundImg, MyConstant.IMAGE_BASE_URL + coachData.profilePhotoPath)
+//        loadVimeoPromoVideo()
         binding.txtTrainerName.text = coachData.name
     }
+
+//    private fun loadVimeoPromoVideo() {
+//
+////        ifecycle.addObserver(binding.vimeoPlayerView)
+////        binding.backgroundImg
+//        binding.vimeoPlayerView.initialize(true, 913068229)
+//        //vimeoPlayerView.initialize(true, {YourPrivateVideoId}, "SettingsEmbeddedUrl")
+//        //vimeoPlayerView.initialize(true, {YourPrivateVideoId},"VideoHashKey", "SettingsEmbeddedUrl")
+//
+//        binding.vimeoPlayerView.addTimeListener { second ->
+////            binding.playerCurrentTimeTextView.text =
+////                getString(R.string.player_current_time, second.toString())
+//        }
+//
+//        binding.vimeoPlayerView.addErrorListener { message, method, name ->
+//            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+//        }
+//
+//        binding.vimeoPlayerView.addReadyListener(object : VimeoPlayerReadyListener {
+//            override fun onReady(
+//                title: String?,
+//                duration: Float,
+//                textTrackArray: Array<TextTrack>
+//            ) {
+//               // binding.playerStateTextView.text = getString(R.string.player_state, "onReady")
+//            }
+//
+//            override fun onInitFailed() {
+//             //   binding.playerStateTextView.text = getString(R.string.player_state, "onInitFailed")
+//            }
+//        })
+//
+//        binding.vimeoPlayerView.addStateListener(object : VimeoPlayerStateListener {
+//            override fun onPlaying(duration: Float) {
+//              //  binding.playerStateTextView.text = getString(R.string.player_state, "onPlaying")
+//            }
+//
+//            override fun onPaused(seconds: Float) {
+//               // binding.playerStateTextView.text = getString(R.string.player_state, "onPaused")
+//            }
+//
+//            override fun onEnded(duration: Float) {
+//               // binding.playerStateTextView.text = getString(R.string.player_state, "onEnded")
+//            }
+//        })
+//
+//
+//    }
 
     private fun buttonClicks() {
         binding.btnFollow.setOnClickListener {
