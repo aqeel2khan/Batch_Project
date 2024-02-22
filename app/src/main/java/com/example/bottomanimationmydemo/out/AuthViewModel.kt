@@ -149,6 +149,6 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
 
     fun courseStartApiCall(token: String, jsonObject: JsonObject) = viewModelScope.launch {
         _courseStartResponse.value = Resource.Loading
-        _courseStartResponse.value = repository.courseOrderCreate(token, jsonObject)
+        _courseStartResponse.value = repository.courseStart(token, jsonObject)
     }
 }
