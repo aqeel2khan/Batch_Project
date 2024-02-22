@@ -22,5 +22,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "BottomAnimationMyDemo"
-include(":app", ":vimeoplayer2")
+include(":app", ":vimeoplayer2", ":library")
  

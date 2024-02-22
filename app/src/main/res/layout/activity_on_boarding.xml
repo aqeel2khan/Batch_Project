@@ -104,7 +104,7 @@
             android:background="@drawable/rectangle_button"
             android:fontFamily="@font/outfit_regular"
             android:outlineSpotShadowColor="#516634"
-            android:text="@string/log_in"
+            android:text="@string/select_country"
             android:textSize="@dimen/_12ssp"
             android:padding="@dimen/_12sdp"
             android:elevation="@dimen/_2sdp"

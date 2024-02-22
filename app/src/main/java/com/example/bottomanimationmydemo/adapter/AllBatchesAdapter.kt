@@ -21,7 +21,7 @@ class AllBatchesAdapter(val context: Context?, var courseList: ArrayList<ListDat
             MyUtils.loadBackgroundImage(binding.backgroundImg, IMAGE_BASE_URL+courseData.courseImage)
 
             binding.tvCourseName.text = courseData.courseName
-            binding.tvCoursePrice.text = MyConstant.DOLLER_SIGN+courseData.coursePrice
+            binding.tvCoursePrice.text = courseData.coursePrice+" KWD"
             val workoutType = courseData.workoutType
             for (i in workoutType){
                 binding.workType.text = i.workoutdetail.workoutType

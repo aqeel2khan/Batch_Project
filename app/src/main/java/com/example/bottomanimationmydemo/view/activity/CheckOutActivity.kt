@@ -99,9 +99,9 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     @SuppressLint("SetTextI18n")
     private fun setUpDetails(courseData: Data) {
         binding.courseName.text = courseData.courseName
-        binding.coursePrice.text = MyConstant.DOLLER_SIGN + courseData.coursePrice
-        binding.tvSubtotalValue.text = MyConstant.DOLLER_SIGN + courseData.coursePrice
-        binding.tvTotalValue.text = MyConstant.DOLLER_SIGN + courseData.coursePrice
+        binding.coursePrice.text = courseData.coursePrice + "KWD"
+        binding.tvSubtotalValue.text = courseData.coursePrice + "KWD"
+        binding.tvTotalValue.text = courseData.coursePrice + "KWD"
         binding.coachName.text = courseData.coachDetail.name
         MyUtils.loadImage(
             binding.coachProfile,
