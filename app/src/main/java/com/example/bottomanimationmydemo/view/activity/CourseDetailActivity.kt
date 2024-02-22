@@ -3,6 +3,8 @@ package com.example.bottomanimationmydemo.view.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -27,7 +29,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import net.simplifiedcoding.data.network.Resource
-import java.io.Serializable
 
 @AndroidEntryPoint
 class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
@@ -36,6 +37,7 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
     private var course_id: String? = null
     private var course_price: String? = null
    private lateinit var courseDetailData: Data
+    val durationList: ArrayList<String> = ArrayList()
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
@@ -46,6 +48,26 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
         startRelativeAnimation(binding.relWeightLayout)
         course_id = intent.getStringExtra("course_id")
         getCourseDetailData(course_id)
+        setSpinnerData()
+    }
+
+    private fun setSpinnerData() {
+        if (binding.spinner != null) {
+            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, durationList)
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.spinner.adapter = adapter
+
+            binding.spinner.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                    val item = parent.getItemAtPosition(position).toString()
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                }
+            }
+        }
     }
 
     private fun getCourseDetailData(course_id: String?) {
@@ -90,7 +112,7 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
     @SuppressLint("SetTextI18n")
     private fun setUpDetails(courseData: Data) {
 
-        course_price = MyConstant.DOLLER_SIGN + courseData.coursePrice
+        course_price = courseData.coursePrice + "KWD"
         binding.courseName.text = courseData.courseName
         binding.courseDescription.text = courseData.description
         binding.coursePrice.text = course_price
@@ -100,9 +122,10 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
         binding.trainingDay.text = "${courseData.perDayWorkout} trainings"
         binding.validateMin.text = courseData.duration + " min"
         binding.levelType.text = courseData.courseLevel.levelName
-        binding.dollerText2.text = MyConstant.DOLLER_SIGN + courseData.coursePrice
+        binding.dollerText2.text = courseData.coursePrice + "KWD"
         setWorkoutType(courseData.workoutType)
         setWorkoutTypeAdapter(courseData.courseDuration)
+        durationList.add(courseData.duration)
     }
 
     private fun setWorkoutType(workoutType: List<WorkoutType>) {

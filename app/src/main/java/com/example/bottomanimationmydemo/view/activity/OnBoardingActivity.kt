@@ -12,6 +12,7 @@ import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.bottomanimationmydemo.MainActivity
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.databinding.ActivityOnBoardingBinding
 import com.example.bottomanimationmydemo.view.BaseActivity
@@ -30,7 +31,7 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
 
     override fun initUi() {
         binding.loginButton.setOnClickListener {
-            startActivity(Intent(this@OnBoardingActivity, LoginActivity::class.java))
+            startActivity(Intent(this@OnBoardingActivity, MainActivity::class.java))
         }
     }
 

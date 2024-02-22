@@ -1,6 +1,7 @@
 package com.example.bottomanimationmydemo.view.activity
 
 import android.content.Intent
+import android.graphics.Color
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
@@ -10,8 +11,13 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
+import android.widget.SeekBar
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerReadyListener
+import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerStateListener
+import com.ct7ct7ct7.androidvimeoplayer.model.TextTrack
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.adapter.WorkoutTypeAdapter
 import com.example.bottomanimationmydemo.databinding.ActivityWeightLossBinding
@@ -54,13 +60,11 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>(),
         val aniSlide: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
         binding.relWeightLayout.startAnimation(aniSlide)
         setWorkoutTypeAdapter()
-        setVideoViewData()
+//        setVideoViewData()
+        setupView()
     }
 
     private fun setVideoViewData() {
-        binding.videoView.setMediaController(binding.mediaController)
-        setVideoAreaSize()
-        binding.videoView.setVideoViewCallback(this)
         binding.videoView.setOnCompletionListener(MediaPlayer.OnCompletionListener {
             Log.d(TAG, "onCompletion ")
         })
@@ -111,7 +115,8 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>(),
          showBottomSheetDialog()
       }
       binding.startWorkout.setOnClickListener {
-         startActivity(Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java))
+         startActivity(Intent(this@WeightLossActivity, RecyclerViewActivity::class.java))
+//         startActivity(Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java))
       }
     }
 
@@ -202,6 +207,65 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>(),
             binding.videoView.setFullscreen(false)
         } else {
             super.onBackPressed()
+        }
+    }
+
+    private fun setupView() {
+        lifecycle.addObserver(binding.vimeoPlayerView)
+        binding.vimeoPlayerView.initialize(true, 911682135)
+
+        binding.vimeoPlayerView.addTimeListener { second ->
+//            binding.playerCurrentTimeTextView.text = getString(R.string.player_current_time, second.toString())
+        }
+
+        binding.vimeoPlayerView.addErrorListener { message, method, name ->
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+        }
+
+        binding.vimeoPlayerView.addReadyListener(object : VimeoPlayerReadyListener {
+            override fun onReady(
+                title: String?,
+                duration: Float,
+                textTrackArray: Array<TextTrack>
+            ) {
+//                binding.playerStateTextView.text = getString(R.string.player_state, "onReady")
+            }
+
+            override fun onInitFailed() {
+//                binding.playerStateTextView.text = getString(R.string.player_state, "onInitFailed")
+            }
+        })
+
+        binding.vimeoPlayerView.addStateListener(object : VimeoPlayerStateListener {
+            override fun onPlaying(duration: Float) {
+//                binding.playerStateTextView.text = getString(R.string.player_state, "onPlaying")
+            }
+
+            override fun onPaused(seconds: Float) {
+//                binding.playerStateTextView.text = getString(R.string.player_state, "onPaused")
+            }
+
+            override fun onEnded(duration: Float) {
+//                binding.playerStateTextView.text = getString(R.string.player_state, "onEnded")
+            }
+        })
+
+      /*  binding.volumeSeekBar.progress = 100
+        binding.volumeSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                var volume = progress.toFloat() / 100
+                binding.vimeoPlayerView.setVolume(volume)
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+            }
+        })*/
+
+        binding.vimeoPlayerView.addVolumeListener { volume ->
+//            binding.playerVolumeTextView.text = getString(R.string.player_volume, volume.toString())
         }
     }
 

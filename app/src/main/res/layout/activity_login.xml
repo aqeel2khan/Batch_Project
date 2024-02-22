@@ -211,6 +211,17 @@
                     tools:ignore="UnusedAttribute" />
             </RelativeLayout>
 
+            <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                android:id="@+id/create_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/don_t_have_an_account_sign_up"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp" />
+
 
             <ImageView
                 android:visibility="gone"

@@ -97,4 +97,5 @@ dependencies {
     implementation("com.github.whilu:AndroidTagView:1.1.7")
     // Dependency on a local library module
     implementation(project(":vimeoplayer2"))
+    implementation(project(":library"))
 }
