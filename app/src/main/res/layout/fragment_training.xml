@@ -70,12 +70,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/workout_batchs"
                 android:textSize="@dimen/_14ssp"
+                android:layout_centerVertical="true"
                 android:textColor="@color/welcome_txt"
                 android:fontFamily="@font/outfit_regular"/>
             <ImageView
                 android:id="@+id/icon_workout_filter"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/ic_workout_filter" />
         </RelativeLayout>

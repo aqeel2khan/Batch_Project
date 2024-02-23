@@ -22,5 +22,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "BottomAnimationMyDemo"
-include(":app", ":vimeoplayer2", ":library")
+include(":app", ":vimeoplayer2", ":library", ":flowlayout-lib")
  

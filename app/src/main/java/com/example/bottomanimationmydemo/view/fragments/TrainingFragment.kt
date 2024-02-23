@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
@@ -16,23 +17,28 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.adapter.AllBatchesAdapter
 import com.example.bottomanimationmydemo.adapter.MotivatorListAdapter
-import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
 import com.example.bottomanimationmydemo.databinding.FilterDialogBinding
 import com.example.bottomanimationmydemo.databinding.FragmentTrainingBinding
 import com.example.bottomanimationmydemo.`interface`.CoachListItemPosition
 import com.example.bottomanimationmydemo.`interface`.CourseListItemPosition
 import com.example.bottomanimationmydemo.model.coach_list_model.Data
+import com.example.bottomanimationmydemo.model.course_filter_model.BatchGoal
+import com.example.bottomanimationmydemo.model.course_filter_model.BatchLevel
+import com.example.bottomanimationmydemo.model.course_filter_model.WorkoutType
 import com.example.bottomanimationmydemo.model.course_model.ListData
 import com.example.bottomanimationmydemo.out.AuthViewModel
 import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
 import com.example.bottomanimationmydemo.utils.MyConstant
 import com.example.bottomanimationmydemo.utils.MyCustom
+import com.example.bottomanimationmydemo.utils.showToast
 import com.example.bottomanimationmydemo.view.BaseFragment
 import com.example.bottomanimationmydemo.view.activity.MotivatorDetailActivity
 import com.example.bottomanimationmydemo.view.activity.CourseDetailActivity
 import com.example.bottomanimationmydemo.viewmodel.AllViewModel
 import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.gson.JsonObject
+import com.zhy.view.flowlayout.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import net.simplifiedcoding.data.network.Resource
@@ -48,6 +54,9 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         Arrays.asList(
             "Workout Batch", "Weight Loss", "Workout Batch" )
     )
+    var typeId: Int = 0
+    var goalId: Int = 0
+    var levelId: Int = 0
 
     private val viewModel: AllViewModel by viewModels()
 
@@ -206,20 +215,67 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         if (filterType.equals("workoutFilter")){
             getCourseFilter(dialogBinding)
             dialogBinding.llWorkoutFilter.visibility = View.VISIBLE
-            dialogBinding.btnShowResult.setOnClickListener {
+            val count = typeId + goalId + levelId
+            dialogBinding.btnApply.text = "Apply"+"("+ count + ")"
+            dialogBinding.btnApply.setOnClickListener {
                 //code for save week price
+//                dialogBinding.btnApply.text = "Apply()"
+                //course filter by list
+                MyConstant.jsonObject.addProperty("course_level","2")
+                MyConstant.jsonObject.addProperty("workout_type_id","2")
+                MyConstant.jsonObject.addProperty("goal_id","2")
+                searchCourseListByFilterApi(MyConstant.jsonObject, dialogBinding)
                 dialog.dismiss()
             }
         }else{
             getCoachFilter(dialogBinding)
             dialogBinding.llMotivatorFilter.visibility = View.VISIBLE
-            dialogBinding.btnShowResult.setOnClickListener {
+            dialogBinding.btnApply.setOnClickListener {
                 //code for save week price
                 dialog.dismiss()
             }
         }
         dialog.show()
     }
+
+    private fun searchCourseListByFilterApi(jsonObject: JsonObject, dialogBinding: FilterDialogBinding) {
+        if (CheckNetworkConnection.isConnection(requireContext(),binding.root, true)) {
+            showLoader()
+            authViewModel.searchCourseFilterListApiCall(jsonObject)
+            authViewModel.searchCourseFilterListResponse.observe(this){
+                when(it){
+                    is Resource.Success->{
+                        hideLoader()
+                        authViewModel.searchCourseFilterListResponse.removeObservers(this)
+                        if (authViewModel.searchCourseFilterListResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                Log.d("filterData", response.toString())
+                                if (response.status == MyConstant.status){
+                                    requireActivity().showToast(response.message)
+                                }
+                            }
+                        }
+                    }
+                    is Resource.Loading-> {
+                        hideLoader()
+                    }
+                    is Resource.Failure-> {
+                        dialogBinding.btnApply.text = "Apply"+"("+ 0 + ")"
+                        authViewModel.searchCourseFilterListResponse.removeObservers(this)
+                        if (authViewModel.searchCourseFilterListResponse.hasObservers()) return@observe
+                        hideLoader()
+//                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        }else{
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
 
     private fun getCoachFilter(dialogBinding: FilterDialogBinding) {
         if (CheckNetworkConnection.isConnection(requireContext(),binding.root, true)) {
@@ -278,15 +334,9 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                                 val response = it.value
                                 Log.d("filterData", response.toString())
                                 if (response.status == MyConstant.status){
-                                    val response_workoutType = response.data.workout_types
-                                    val tagList: ArrayList<String> = ArrayList(response_workoutType.map { it.workout_type!! })
-                                    dialogBinding.TagWorkoutType.tags = tagList
-                                    val response_level = response.data.batch_levels
-                                    val tagList_level: ArrayList<String> = ArrayList(response_level.map { it.level_name!! })
-                                    dialogBinding.TagLevel.tags = tagList_level
-                                    val response_goal = response.data.batch_goals
-                                    val tagList_goal: ArrayList<String> = ArrayList(response_goal.map { it.goal_name!! })
-                                    dialogBinding.TagGoal.tags = tagList_goal
+                                    setWorkTypeList(response.data.workout_types, dialogBinding)
+                                    setLevelList(response.data.batch_levels, dialogBinding)
+                                    setGoalList(response.data.batch_goals, dialogBinding)
                                 }
                             }
                         }
@@ -307,6 +357,146 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
             binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
         }
     }
+
+    private fun setWorkTypeList(workoutTypes: java.util.ArrayList<WorkoutType>, dialogBinding: FilterDialogBinding) {
+        val mInflater = LayoutInflater.from(activity)
+        //multiple check
+        dialogBinding.idFlowlayout.setAdapter(object : TagAdapter<WorkoutType>(workoutTypes) {
+            override fun getView(parent: FlowLayout?, position: Int, t: WorkoutType?): View {
+                val tv = mInflater.inflate(R.layout.tv, dialogBinding.idFlowlayout, false) as TextView
+                tv.text = t!!.workout_type
+                return tv
+            }
+
+            fun setSelected(position: Int, s: String): Boolean {
+                return s == "Android"
+            }
+        })
+
+        dialogBinding.idFlowlayout.setOnTagClickListener(TagFlowLayout.OnTagClickListener { view, position, parent ->
+            typeId = workoutTypes[position].id
+            requireActivity().showToast(workoutTypes[position].id.toString())
+            //view.setVisibility(View.GONE);
+            true
+        })
+
+        dialogBinding.idFlowlayout.setOnSelectListener(TagFlowLayout.OnSelectListener { selectPosSet ->
+            activity!!.title = "choose:$selectPosSet"
+        })
+
+        /*//sigle check
+        dialogBinding.idFlowlayout.setAdapter(object : TagAdapter<WorkoutType>(workoutTypes) {
+            override fun getView(parent: FlowLayout?, position: Int, s: WorkoutType): View {
+                val tv = mInflater.inflate(R.layout.tv, dialogBinding.idFlowlayout, false) as TextView
+                tv.text = workoutTypes[position].workout_type
+                return tv
+            }
+        })
+
+        dialogBinding.idFlowlayout.setOnTagClickListener(TagFlowLayout.OnTagClickListener { view, position, parent ->
+            requireActivity().showToast(workoutTypes[position].id.toString())
+            //view.setVisibility(View.GONE);
+            true
+        })
+
+        dialogBinding.idFlowlayout.setOnSelectListener(TagFlowLayout.OnSelectListener { selectPosSet ->
+            activity!!.title = "choose:$selectPosSet"
+        })*/
+    }
+
+    private fun setLevelList(batchLevel: ArrayList<BatchLevel>, dialogBinding: FilterDialogBinding) {
+        val mInflater = LayoutInflater.from(activity)
+        //multiple check
+        dialogBinding.idFlowlayoutLevel.setAdapter(object : LevelTagAdapter<BatchLevel>(batchLevel) {
+            override fun getView(parent: FlowLayout?, position: Int, t: BatchLevel?): View {
+                val tv = mInflater.inflate(R.layout.tv, dialogBinding.idFlowlayoutLevel, false) as TextView
+                tv.text = t!!.level_name
+                return tv
+            }
+
+            fun setSelected(position: Int, s: String): Boolean {
+                return s == "Android"
+            }
+        })
+
+        dialogBinding.idFlowlayoutLevel.setOnTagClickListener(LevelTagFlowLayout.OnTagClickListener { view, position, parent ->
+            levelId = batchLevel[position].id
+            requireActivity().showToast(batchLevel[position].id.toString())
+            //view.setVisibility(View.GONE);
+            true
+        })
+
+        dialogBinding.idFlowlayoutLevel.setOnSelectListener(LevelTagFlowLayout.OnSelectListener { selectPosSet ->
+            activity!!.title = "choose:$selectPosSet"
+        })
+
+      /*  //sigle check
+        dialogBinding.idFlowlayout.setAdapter(object : TagAdapter<WorkoutType>(workoutTypes) {
+            override fun getView(parent: FlowLayout?, position: Int, s: WorkoutType): View {
+                val tv = mInflater.inflate(R.layout.tv, dialogBinding.idFlowlayout, false) as TextView
+                tv.text = workoutTypes[position].workout_type
+                return tv
+            }
+        })
+
+        dialogBinding.idFlowlayout.setOnTagClickListener(TagFlowLayout.OnTagClickListener { view, position, parent ->
+            requireActivity().showToast(workoutTypes[position].id.toString())
+            //view.setVisibility(View.GONE);
+            true
+        })
+
+        dialogBinding.idFlowlayout.setOnSelectListener(TagFlowLayout.OnSelectListener { selectPosSet ->
+            activity!!.title = "choose:$selectPosSet"
+        })*/
+    }
+
+    private fun setGoalList(batchGoal: ArrayList<BatchGoal>, dialogBinding: FilterDialogBinding) {
+        val mInflater = LayoutInflater.from(activity)
+        //multiple check
+        dialogBinding.idFlowlayoutGole.setAdapter(object : GoalTagAdapter<BatchGoal>(batchGoal) {
+            override fun getView(parent: FlowLayout?, position: Int, t: BatchGoal?): View {
+                val tv = mInflater.inflate(R.layout.tv, dialogBinding.idFlowlayoutGole, false) as TextView
+                tv.text = t!!.goal_name
+                return tv
+            }
+
+            fun setSelected(position: Int, s: String): Boolean {
+                return s == "Android"
+            }
+        })
+
+        dialogBinding.idFlowlayoutGole.setOnTagClickListener(GoalTagFlowLayout.OnTagClickListener { view, position, parent ->
+            goalId = batchGoal[position].id
+            requireActivity().showToast(batchGoal[position].id.toString())
+            //view.setVisibility(View.GONE);
+            true
+        })
+
+        dialogBinding.idFlowlayoutGole.setOnSelectListener(GoalTagFlowLayout.OnSelectListener { selectPosSet ->
+            activity!!.title = "choose:$selectPosSet"
+        })
+
+       /* //sigle check
+        dialogBinding.idFlowlayout.setAdapter(object : TagAdapter<WorkoutType>(workoutTypes) {
+            override fun getView(parent: FlowLayout?, position: Int, s: WorkoutType): View {
+                val tv = mInflater.inflate(R.layout.tv, dialogBinding.idFlowlayout, false) as TextView
+                tv.text = workoutTypes[position].workout_type
+                return tv
+            }
+        })
+
+        dialogBinding.idFlowlayout.setOnTagClickListener(TagFlowLayout.OnTagClickListener { view, position, parent ->
+            requireActivity().showToast(workoutTypes[position].id.toString())
+            //view.setVisibility(View.GONE);
+            true
+        })
+
+        dialogBinding.idFlowlayout.setOnSelectListener(TagFlowLayout.OnSelectListener { selectPosSet ->
+            activity!!.title = "choose:$selectPosSet"
+        })*/
+    }
+
+
 
     private fun setAllBatchesAdapter(courseList: ArrayList<ListData>) {
         binding.recyclerAllBatch.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)

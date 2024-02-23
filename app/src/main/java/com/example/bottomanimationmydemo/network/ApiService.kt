@@ -12,6 +12,7 @@ import com.example.bottomanimationmydemo.model.courseorderlist.CourseOrderList
 import com.example.bottomanimationmydemo.model.login_model.LoginResponseModel
 import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
 import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
+import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
 import com.example.bottomanimationmydemo.utils.MyConstant
 import com.example.bottomanimationmydemo.utils.MyConstant.AUTHORIZATION
 import com.example.bottomanimationmydemo.utils.MyConstant.COACH
@@ -71,4 +72,7 @@ interface ApiService {
 
     @POST(COURSEORDERLIST)
     suspend fun courseOrderList(): CourseOrderList
+
+    @POST(COURSE)
+    suspend fun searchCourseListByFilter(@Body jsonObject: JsonObject): SearchCourseListByFilterResponse
 }

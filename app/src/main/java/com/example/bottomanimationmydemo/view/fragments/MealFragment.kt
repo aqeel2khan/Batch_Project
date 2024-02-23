@@ -64,7 +64,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
 
         dialogBinding.llMotivatorFilter.visibility = View.GONE
         dialogBinding.llMealFilter.visibility = View.VISIBLE
-        dialogBinding.btnShowResult.setOnClickListener {
+        dialogBinding.btnApply.setOnClickListener {
             //code for save week price
             dialog.dismiss()
         }

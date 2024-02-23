@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
     <LinearLayout
@@ -39,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ll_motivator_filter"
-            android:visibility="visible"
+            android:visibility="gone"
             android:orientation="vertical">
             <LinearLayout
                 android:id="@+id/new_card"
@@ -107,7 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
        <!--     <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,6 +133,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:layout_marginTop="@dimen/_7sdp"
                         app:container_background_color="@color/item_bg_color"
                         app:container_enable_drag="false"
@@ -139,6 +141,14 @@
                         app:vertical_interval="10dp"
                         app:tag_clickable="true"
                         app:tag_theme="pure_teal"/>
+                    <com.zhy.view.flowlayout.TagFlowLayout
+                        android:id="@+id/id_flowlayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        zhy:max_select="-1"
+                        >
+                    </com.zhy.view.flowlayout.TagFlowLayout>
                     <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -151,6 +161,7 @@
                         android:textSize="@dimen/_10ssp" />
                     <co.lujun.androidtagview.TagContainerLayout
                         android:id="@+id/Tag_level"
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -161,6 +172,13 @@
                         app:vertical_interval="10dp"
                         app:tag_clickable="true"
                         app:tag_theme="pure_teal"/>
+                    <com.zhy.view.flowlayout.LevelTagFlowLayout
+                        android:id="@+id/id_flowlayout_level"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        zhy:max_select="-1"
+                        />
                     <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -173,6 +191,7 @@
                         android:textSize="@dimen/_10ssp" />
                     <co.lujun.androidtagview.TagContainerLayout
                         android:id="@+id/Tag_goal"
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -183,6 +202,13 @@
                         app:vertical_interval="10dp"
                         app:tag_clickable="true"
                         app:tag_theme="pure_teal"/>
+                    <com.zhy.view.flowlayout.GoalTagFlowLayout
+                        android:id="@+id/id_flowlayout_gole"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        zhy:max_select="-1"
+                        />
 
 
                 </LinearLayout>
@@ -394,7 +420,7 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_show_result"
+            android:id="@+id/btn_apply"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_10sdp"
@@ -402,7 +428,7 @@
             android:background="@drawable/rectangle_button"
             android:fontFamily="@font/outfit_regular"
             android:outlineSpotShadowColor="#516634"
-            android:text="Show Results (12)"
+            android:text="Apply (0)"
             android:layout_marginBottom="@dimen/_10sdp"
             android:padding="@dimen/_3sdp"
             android:elevation="@dimen/_2sdp"
