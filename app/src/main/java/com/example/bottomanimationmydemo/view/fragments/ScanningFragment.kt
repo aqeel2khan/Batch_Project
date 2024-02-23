@@ -172,7 +172,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                     Intent(
                         requireContext(),
                         WeightLossActivity::class.java
-                    ).putExtra("order_list",   gson.toJson(item) )
+                    ).putExtra("order_list", gson.toJson(item))
                 )
             }
         })
