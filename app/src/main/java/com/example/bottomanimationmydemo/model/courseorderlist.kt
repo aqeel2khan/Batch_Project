@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 
-data class CourseOrderList (
+data class CourseOrderList(
     @SerializedName("data")
     val `data`: Data,
     @SerializedName("error")
@@ -20,17 +20,18 @@ data class Data(
     @SerializedName("list") val list: ArrayList<OrderList>,
     @SerializedName("count") val count: Int
 )
+
 data class OrderList(
 
     @SerializedName("id") val id: Int,
     @SerializedName("user_id") val user_id: Int,
     @SerializedName("course_id") val course_id: Int,
-    @SerializedName("subtotal") val subtotal: Double,
-    @SerializedName("discount") val discount: Double,
-    @SerializedName("tax") val tax: Double,
-    @SerializedName("total") val total: Double,
+    @SerializedName("subtotal") val subtotal: String,
+    @SerializedName("discount") val discount: String,
+    @SerializedName("tax") val tax: String,
+    @SerializedName("total") val total: String,
     @SerializedName("payment_type") val payment_type: String,
-    @SerializedName("transaction_id") val transaction_id: Int,
+    @SerializedName("transaction_id") val transaction_id: String,
     @SerializedName("payment_status") val payment_status: String,
     @SerializedName("status") val status: String,
     @SerializedName("created_at") val created_at: String,
@@ -44,22 +45,22 @@ data class Course_detail(
     @SerializedName("user_id") val user_id: Int,
     @SerializedName("course_name") val course_name: String,
     @SerializedName("course_image") val course_image: String,
-    @SerializedName("course_promo_video") val course_promo_video: Int,
+    @SerializedName("course_promo_video") val course_promo_video: String,
     @SerializedName("course_repetition") val course_repetition: String,
-    @SerializedName("course_validity") val course_validity: Int,
+    @SerializedName("course_validity") val course_validity: String,
     @SerializedName("description") val description: String,
-    @SerializedName("per_day_workout") val per_day_workout: Int,
+    @SerializedName("per_day_workout") val per_day_workout: String,
     @SerializedName("weight_required") val weight_required: String,
-    @SerializedName("course_price") val course_price: Double,
+    @SerializedName("course_price") val course_price: String,
     @SerializedName("discount_price") val discount_price: String,
-    @SerializedName("duration") val duration: Int,
+    @SerializedName("duration") val duration: String,
     @SerializedName("course_level") val course_level: Course_level,
     @SerializedName("status") val status: Int,
     @SerializedName("created_at") val created_at: String,
     @SerializedName("updated_at") val updated_at: String,
     @SerializedName("coach_detail") val coach_detail: Coach_detail,
     @SerializedName("course_duration") val course_duration: ArrayList<Course_duration>,
-    @SerializedName("goals") val goals:ArrayList<Goals>,
+    @SerializedName("goals") val goals: ArrayList<Goals>,
     @SerializedName("workout_type") val workout_type: ArrayList<Workout_type>
 )
 
@@ -78,18 +79,17 @@ data class Coach_detail(
 )
 
 data class Course_duration_exercise(
-
-    @SerializedName("course_duration_exercise_id") val course_duration_exercise_id: Int,
-    @SerializedName("course_duration_id") val course_duration_id: Int,
-    @SerializedName("video_id") val video_id: Int,
-    @SerializedName("title") val title: String,
-    @SerializedName("description") val description: String,
-    @SerializedName("instruction") val instruction: String,
-    @SerializedName("exercise_set") val exercise_set: Int,
-    @SerializedName("exercise_wraps") val exercise_wraps: Int,
-    @SerializedName("exercise_time") val exercise_time: String,
-    @SerializedName("created_at") val created_at: String,
-    @SerializedName("updated_at") val updated_at: String,
+    @SerializedName("course_duration_exercise_id") val course_duration_exercise_id : Int,
+    @SerializedName("course_duration_id") val course_duration_id : Int,
+    @SerializedName("video_id") val video_id : String,
+    @SerializedName("title") val title : String,
+    @SerializedName("description") val description : String,
+    @SerializedName("instruction") val instruction : String,
+    @SerializedName("exercise_set") val exercise_set : String,
+    @SerializedName("exercise_wraps") val exercise_wraps : String,
+    @SerializedName("exercise_time") val exercise_time : String,
+    @SerializedName("created_at") val created_at : String,
+    @SerializedName("updated_at") val updated_at : String,
     @SerializedName("video_detail") val video_detail: Video_detail
 )
 
@@ -100,10 +100,10 @@ data class Video_detail(
     @SerializedName("folder_id") val folder_id: Int,
     @SerializedName("video_title") val video_title: String,
     @SerializedName("video_description") val video_description: String,
-    @SerializedName("video_id") val video_id: Int,
-    @SerializedName("duration") val duration: Int,
-    @SerializedName("width") val width: Int,
-    @SerializedName("height") val height: Int,
+    @SerializedName("video_id") val video_id: String,
+    @SerializedName("duration") val duration: String,
+    @SerializedName("width") val width: String,
+    @SerializedName("height") val height: String,
     @SerializedName("status") val status: Int,
     @SerializedName("player_embed_url") val player_embed_url: String,
     @SerializedName("created_at") val created_at: String,
@@ -112,44 +112,44 @@ data class Video_detail(
 
 data class Goals(
 
-    @SerializedName("id") val id: Int,
-    @SerializedName("course_id") val course_id: Int,
-    @SerializedName("goal_id") val goal_id: Int,
-    @SerializedName("batchgoal") val batchgoal: kotlin.collections.List<Batchgoal>
+    @SerializedName("id") val id : Int,
+    @SerializedName("course_id") val course_id : Int,
+    @SerializedName("goal_id") val goal_id : Int,
+    @SerializedName("batchgoal") val batchgoal : ArrayList<Batchgoal>
 )
 
 data class Course_duration(
 
-    @SerializedName("course_duration_id") val course_duration_id: Int,
-    @SerializedName("course_id") val course_id: Int,
-    @SerializedName("day_name") val day_name: String,
-    @SerializedName("description") val description: String,
-    @SerializedName("no_of_exercise") val no_of_exercise: Int,
-    @SerializedName("calorie_burn") val calorie_burn: Int,
-    @SerializedName("workout_time") val workout_time: Int,
-    @SerializedName("status") val status: Int,
-    @SerializedName("created_at") val created_at: String,
-    @SerializedName("updated_at") val updated_at: String,
-    @SerializedName("course_duration_exercise") val course_duration_exercise: kotlin.collections.List<Course_duration_exercise>
+    @SerializedName("course_duration_id") val course_duration_id : Int,
+    @SerializedName("course_id") val course_id : Int,
+    @SerializedName("day_name") val day_name : String,
+    @SerializedName("description") val description : String,
+    @SerializedName("no_of_exercise") val no_of_exercise : Int,
+    @SerializedName("calorie_burn") val calorie_burn : String,
+    @SerializedName("workout_time") val workout_time : String,
+    @SerializedName("status") val status : Int,
+    @SerializedName("created_at") val created_at : String,
+    @SerializedName("updated_at") val updated_at : String,
+    @SerializedName("course_duration_exercise") val course_duration_exercise : ArrayList<Course_duration_exercise>
 )
 
 data class Batchgoal(
 
-    @SerializedName("id") val id: Int,
-    @SerializedName("goal_name") val goal_name: String,
-    @SerializedName("status") val status: Int
+    @SerializedName("id") val id : Int,
+    @SerializedName("goal_name") val goal_name : String,
+    @SerializedName("status") val status : Int
 )
 
 data class Workout_type(
 
-    @SerializedName("id") val id: Int,
-    @SerializedName("course_id") val course_id: Int,
-    @SerializedName("workout_type_id") val workout_type_id: Int,
-    @SerializedName("workoutdetail") val workoutdetail: Workoutdetail
+    @SerializedName("id") val id : Int,
+    @SerializedName("course_id") val course_id : Int,
+    @SerializedName("workout_type_id") val workout_type_id : Int,
+    @SerializedName("workoutdetail") val workoutdetail : Workoutdetail
 )
 
 data class Workoutdetail(
 
-    @SerializedName("id") val id: Int,
-    @SerializedName("workout_type") val workout_type: String
+    @SerializedName("id") val id : Int,
+    @SerializedName("workout_type") val workout_type : String
 )
