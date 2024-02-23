@@ -13,7 +13,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_15sdp"
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
@@ -22,6 +21,7 @@
                 android:layout_height="@dimen/_160sdp"
                 android:layout_gravity="center"
                 app:cardElevation="@dimen/_2sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
                 android:elevation="@dimen/_2sdp"
                 android:padding="@dimen/_2sdp"
                 android:layout_marginTop="@dimen/_20sdp"
@@ -119,6 +119,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="@dimen/_2sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:padding="@dimen/_10sdp"
                 android:background="@drawable/meal_cal_bg">
@@ -255,11 +256,13 @@
                 android:text="@string/txt_apple_health"
                 android:textColor="@color/welcome_txt"
                 android:textSize="@dimen/_16ssp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_20sdp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_10sdp">
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_heart_rate"
@@ -389,6 +392,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_160sdp"
                 android:id="@+id/ll_sleep"
+                android:layout_marginHorizontal="@dimen/_15sdp"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/_10sdp">
                 <ImageView
@@ -402,6 +406,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_160sdp"
                 android:id="@+id/ll_caloriece"
+                android:layout_marginHorizontal="@dimen/_15sdp"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/_10sdp">
                 <ImageView
@@ -417,6 +422,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:elevation="@dimen/_2sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:padding="@dimen/_10sdp"
                 android:background="@drawable/meal_cal_bg">
@@ -449,4 +455,4 @@
 
 
 </LinearLayout>
-<!--android:thumb="@drawable/seekbar_thumb_shape"-->
+    <!--android:thumb="@drawable/seekbar_thumb_shape"-->

@@ -28,6 +28,7 @@ class BatchMealPlanActivity : BaseActivity<ActivityBatchMealPlanBinding>() {
     var str: String? = null
     var name = ArrayList(
         Arrays.asList("Breakfast", "Lunch & Dinner", "Snack", "Desserts" ))
+    /*main Act*/
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
