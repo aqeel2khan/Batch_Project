@@ -38,6 +38,7 @@ object MyConstant {
     const val COACHFILTERENTITY = "coach/filter/entity"
     const val ORDERCREATE = "course/order/create"
     const val COURSEORDERLIST = "course/order/list"
+    const val STARTWORKOUTSTATUS = "/course/order/workout/status"
 
 //    const val DOLLER_SIGN = "$"
 }

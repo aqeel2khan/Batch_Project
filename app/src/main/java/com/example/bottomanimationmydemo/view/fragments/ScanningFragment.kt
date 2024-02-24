@@ -122,7 +122,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
     private fun getCourseOrderListApi() {
         if (CheckNetworkConnection.isConnection(requireContext(), binding.root, true)) {
             showLoader()
-            authViewModel.courseOrderListApiCall()
+            authViewModel.courseOrderListApiCall("Bearer " + sharedPreferences.token)
             authViewModel.courseOrderListResponse.observe(this) {
                 when (it) {
                     is Resource.Success -> {
@@ -132,10 +132,10 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                         lifecycleScope.launch {
                             it.let {
                                 val response = it.value
+                                print(response.data)
                                 if (response.status == MyConstant.success) {
                                     courseList = response.data.list
                                     courseData = response.data
-                                    Log.d("list", courseList.toString())
                                     setAllCourseOrderAdapter(courseList)
                                 }
                             }
@@ -160,7 +160,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
 
     private fun setAllCourseOrderAdapter(courseList: ArrayList<OrderList>) {
         binding.recyclerCourseOrder.layoutManager =
-            LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerCourseOrder.adapter = CourseOrderAdapter(context, courseList, object :
             CourseOrderListItemPosition<Int> {
             override fun onCourseOrderListItemPosition(item: OrderList, position: Int) {
@@ -168,12 +168,11 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
 //                courseDetailData as Serializable
 //                activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
                 val gson = Gson()
-
                 requireContext().startActivity(
                     Intent(
                         requireContext(),
                         WeightLossActivity::class.java
-                    ).putExtra("order_list",   gson.toJson(item) )
+                    ).putExtra("order_list", gson.toJson(item))
                 )
             }
         })

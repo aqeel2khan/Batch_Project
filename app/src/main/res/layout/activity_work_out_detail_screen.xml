@@ -31,7 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/exercise_image"
         android:layout_marginTop="-30dp"
-        android:background="@drawable/rounded_bg_main">
+        android:background="@drawable/rounded_bg_main"
+        tools:ignore="NotSibling">
 
         <RelativeLayout
             android:layout_width="match_parent"

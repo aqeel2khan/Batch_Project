@@ -27,6 +27,7 @@ import com.example.bottomanimationmydemo.utils.MyConstant.COURSEWORKOUTLIST
 import com.example.bottomanimationmydemo.utils.MyConstant.LOGIN
 import com.example.bottomanimationmydemo.utils.MyConstant.ORDERCREATE
 import com.example.bottomanimationmydemo.utils.MyConstant.SIGNUP
+import com.example.bottomanimationmydemo.utils.MyConstant.STARTWORKOUTSTATUS
 import com.google.gson.JsonObject
 import retrofit2.http.*
 
@@ -71,7 +72,10 @@ interface ApiService {
     suspend fun courseOrderCreate(@Header(AUTHORIZATION) token: String, @Body jsonObject: JsonObject): OrederCreateResponse
 
     @POST(COURSEORDERLIST)
-    suspend fun courseOrderList(): CourseOrderList
+    suspend fun courseOrderList(@Header(AUTHORIZATION) token: String): CourseOrderList
+
+    @POST(STARTWORKOUTSTATUS)
+    suspend fun startWorkout(@Header(AUTHORIZATION) token: String, @Body jsonObject: JsonObject): OrederCreateResponse
 
     @POST(COURSE)
     suspend fun searchCourseListByFilter(@Body jsonObject: JsonObject): SearchCourseListByFilterResponse
