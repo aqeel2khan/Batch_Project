@@ -59,9 +59,10 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
             workout_duration_detail.course_duration_exercise.get(0).course_duration_exercise_id
         )
         MyConstant.jsonObject.addProperty("exercise_status", "started")
-        startWorkoutApi(MyConstant.jsonObject)
+
 
         binding.btnStartWorkout.setOnClickListener {
+            startWorkoutApi(MyConstant.jsonObject)
             startActivity(Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java))
         }
 
