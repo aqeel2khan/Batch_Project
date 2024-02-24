@@ -208,6 +208,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         }
     }
 
+    /* comment code */
     private fun showFilterDialog(filterType: String) {
         dialogBinding = FilterDialogBinding.inflate(layoutInflater)
         val dialog = BottomSheetDialog(requireContext())
