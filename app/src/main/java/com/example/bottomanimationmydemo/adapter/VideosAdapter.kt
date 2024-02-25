@@ -9,13 +9,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomanimationmydemo.databinding.ItemAllBatchesBinding
 import com.example.bottomanimationmydemo.databinding.ItemVideoPlayBinding
+import com.example.bottomanimationmydemo.`interface`.ItemVideoFinishClick
+import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
 import com.example.bottomanimationmydemo.model.VideoItem
 import com.example.vimeoplayer2.vimeoextractor.OnVimeoExtractionListener
 import com.example.vimeoplayer2.vimeoextractor.VimeoExtractor
 import com.example.vimeoplayer2.vimeoextractor.VimeoVideo
 
-class VideosAdapter(val videoItems: MutableList<VideoItem>): RecyclerView.Adapter<VideosAdapter.ViewHolder>() {
-    inner class ViewHolder(val binding: ItemVideoPlayBinding): RecyclerView.ViewHolder(binding.root) {
+class VideosAdapter(
+    val videoItems: MutableList<VideoItem>,
+    var listener: ItemVideoFinishClick<Int>
+) : RecyclerView.Adapter<VideosAdapter.ViewHolder>() {
+    inner class ViewHolder(val binding: ItemVideoPlayBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(videoItem: VideoItem, position: Int) {
             binding.videoView.setOnCompletionListener(MediaPlayer.OnCompletionListener {
                 Log.d("TAG", "onCompletion ")
@@ -45,12 +51,16 @@ class VideosAdapter(val videoItems: MutableList<VideoItem>): RecyclerView.Adapte
                     //Error handling here
                 }
             })
+            binding.btnFinishWorkout.setOnClickListener {
+                listener.onPositionItemVideoFinish(videoItem, position)
+            }
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemVideoPlayBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemVideoPlayBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

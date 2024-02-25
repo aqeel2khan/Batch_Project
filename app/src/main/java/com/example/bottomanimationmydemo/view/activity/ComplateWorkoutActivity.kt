@@ -24,7 +24,12 @@ class ComplateWorkoutActivity : BaseActivity<ActivityComplateWorkoutBinding>() {
 
     private fun buttonClicks() {
         binding.btnContinue.setOnClickListener {
-            startActivity(Intent(this@ComplateWorkoutActivity, SelectWorkoutTimeActivity::class.java))
+            startActivity(
+                Intent(
+                    this@ComplateWorkoutActivity,
+                    SelectWorkoutTimeActivity::class.java
+                )
+            )
         }
 
     }

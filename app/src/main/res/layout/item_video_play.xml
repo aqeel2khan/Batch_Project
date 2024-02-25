@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <FrameLayout
             android:id="@+id/video_layout"
             android:layout_width="fill_parent"
@@ -25,24 +26,45 @@
                 android:id="@+id/media_controller"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:layout_marginBottom="@dimen/_50sdp"
                 app:uvv_scalable="true" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_finish_workout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/border_button"
+                android:backgroundTint="#516634"
+                android:text="@string/finish_workout"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp" />
+
+
         </FrameLayout>
+
+
         <ImageView
             android:id="@+id/img_play"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
+            android:layout_centerInParent="true"
             android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_centerInParent="true"/>
+            android:layout_marginTop="@dimen/_20sdp" />
+
         <ImageView
-            android:visibility="gone"
             android:id="@+id/img_pause"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
+            android:layout_centerInParent="true"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:layout_centerInParent="true"/>
+            android:visibility="gone" />
     </RelativeLayout>
 
 </LinearLayout>

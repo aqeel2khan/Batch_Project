@@ -74,45 +74,6 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
         setWorkoutTypeAdapter()
     }
 
-    private fun getCourseDetailData(course_id: String?) {
-        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
-            showLoader()
-            authViewModel.courseDetailApiCall(course_id!!)
-            authViewModel.courseDetailResponse.observe(this) {
-                when (it) {
-                    is Resource.Success -> {
-                        hideLoader()
-                        authViewModel.courseDetailResponse.removeObservers(this)
-                        if (authViewModel.courseDetailResponse.hasObservers()) return@observe
-                        lifecycleScope.launch {
-                            it.let {
-                                val response = it.value
-                                if (response.status == MyConstant.success) {
-                                    courseDetailData = response.data
-                                    sharedPreferences.saveCourseId(response.data.courseId.toString())
-//                                    setUpDetails(courseDetailData)
-                                }
-                            }
-                        }
-                    }
-
-                    is Resource.Loading -> {
-                        hideLoader()
-                    }
-
-                    is Resource.Failure -> {
-                        authViewModel.courseDetailResponse.removeObservers(this)
-                        if (authViewModel.courseDetailResponse.hasObservers()) return@observe
-                        hideLoader()
-                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
-                    }
-                }
-            }
-        } else {
-            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
-        }
-    }
-
 
     private fun setWorkoutTypeAdapter() {
         binding.recyclerWorkoutType.layoutManager =
@@ -148,7 +109,8 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
                 Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java).putExtra(
                     "duration_work_position",
                     gson.toJson(courseData.course_detail.course_duration.get(0))
-                ).putExtra("course_data",gson.toJson(courseData)))
+                ).putExtra("course_data", gson.toJson(courseData))
+            )
         }
     }
 
