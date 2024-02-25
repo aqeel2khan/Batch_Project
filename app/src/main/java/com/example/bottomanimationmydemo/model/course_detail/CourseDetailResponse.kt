@@ -19,7 +19,7 @@ data class Data(
     @SerializedName("coach_detail")
     val coachDetail: CoachDetail,
     @SerializedName("course_duration")
-    val courseDuration: List<CourseDuration>,
+    val courseDuration: List<CourseDuration?>,
     @SerializedName("course_id")
     val courseId: Int,
     @SerializedName("course_image")
@@ -57,7 +57,7 @@ data class Data(
     @SerializedName("weight_required")
     val weightRequired: String,
     @SerializedName("workout_type")
-    val workoutType: List<WorkoutType>
+    val workoutType: List<WorkoutType?>
 )
 data class CoachDetail(
     @SerializedName("id")

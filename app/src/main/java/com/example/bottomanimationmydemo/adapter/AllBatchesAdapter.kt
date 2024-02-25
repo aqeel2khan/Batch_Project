@@ -4,17 +4,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.databinding.ItemAllBatchesBinding
 import com.example.bottomanimationmydemo.`interface`.CourseListItemPosition
 import com.example.bottomanimationmydemo.model.course_model.ListData
-import com.example.bottomanimationmydemo.utils.MyConstant
 import com.example.bottomanimationmydemo.utils.MyConstant.IMAGE_BASE_URL
 import com.example.bottomanimationmydemo.utils.MyUtils
 import kotlin.collections.ArrayList
 
-class AllBatchesAdapter(val context: Context?, var courseList: ArrayList<ListData>, var listener: CourseListItemPosition<Int>) : RecyclerView.Adapter<AllBatchesAdapter.ViewHolder>(){
+class AllBatchesAdapter(val context: Context?, /*var courseList: ArrayList<ListData>,*/ var listener: CourseListItemPosition<Int>) : RecyclerView.Adapter<AllBatchesAdapter.ViewHolder>(){
+    var courseList: ArrayList<ListData> = ArrayList()
     inner class ViewHolder(val binding: ItemAllBatchesBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(courseData: ListData, position: Int) {
 
@@ -51,5 +49,14 @@ class AllBatchesAdapter(val context: Context?, var courseList: ArrayList<ListDat
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(courseList[position], position)
+    }
+
+    fun setdata(data: ArrayList<ListData>) {
+        courseList!!.addAll(data)
+        notifyDataSetChanged()
+    }
+    fun clearData() {
+        courseList!!.clear()
+        notifyDataSetChanged()
     }
 }
