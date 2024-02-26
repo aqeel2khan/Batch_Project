@@ -105,7 +105,10 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
         MyUtils.loadBackgroundImage(binding.backgroundBg, MyConstant.IMAGE_BASE_URL + courseData.courseImage)
         binding.tvDuration.text = courseData.duration + " mins"
         binding.dollerText2.text = courseData.coursePrice + "KWD"
-        durationList.add(courseData.duration)
+        if (!courseData.duration.isNullOrEmpty()){
+            durationList.add(courseData.duration)
+        }
+
     }
 
     private fun buttonClicks() {
@@ -113,9 +116,9 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
             showBottomSheetDialog()
         }
         binding.btnCheckout.setOnClickListener {
-            if (binding.setPlanData.text.toString().isNullOrEmpty()){
+          /*  if (binding.setPlanData.text.toString().isNullOrEmpty()){
                 showToast("Please select plan duration")
-            }else{
+            }else{*/
                 if (sharedPreferences.token != "") {
                     startActivity(
                         Intent(this@BuySubscriptionActivity, CheckOutActivity::class.java).putExtra("course_id", sharedPreferences.myCourseId)
@@ -125,7 +128,7 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
                         Intent(this@BuySubscriptionActivity, LoginActivity::class.java)
                     )
                 }
-            }
+//            }
         }
     }
 

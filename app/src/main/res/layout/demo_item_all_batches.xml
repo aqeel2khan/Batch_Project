@@ -12,8 +12,6 @@
         android:padding="@dimen/_2sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_20sdp">
 
         <LinearLayout
@@ -24,7 +22,7 @@
                 android:id="@+id/background_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 android:src="@drawable/food" />
 
         </LinearLayout>
@@ -55,8 +53,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_95sdp"
-                android:background="@color/light_gry"
+                android:layout_marginTop="@dimen/_85sdp"
+                android:background="@color/txt_light2"
                 android:padding="@dimen/_10sdp">
 
                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
@@ -130,16 +128,33 @@
                             android:layout_width="@dimen/_12sdp"
                             android:layout_height="@dimen/_14sdp"
                             android:layout_marginEnd="@dimen/_3sdp"
-                            android:src="@drawable/calender" />
+                            android:src="@drawable/calendar" />
 
-                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_2sdp"
-                            android:text="from 1 week"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_10ssp"
-                            android:textStyle="bold" />
+                            android:layout_height="wrap_content">
+                            <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="from"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+                            <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10ssp"
+                                android:textStyle="bold" />
+                            <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="week"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout

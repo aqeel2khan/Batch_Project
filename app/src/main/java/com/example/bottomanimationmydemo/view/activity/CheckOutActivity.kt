@@ -76,7 +76,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
             binding.cardWorkout.visibility = View.VISIBLE
         }
         getCourseDetailData(sharedPreferences.myCourseId)
-        initiateSession()
+       /* initiateSession()
 
         MFSDK.setUpActionBar("MyFatoorah Payment", R.color.white, R.color.item_title_bg, true)
         // initiatePayment
@@ -104,7 +104,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
                 else -> {}
             }
         }
-        directPayment()
+        directPayment()*/
     }
 
     private fun initiateSession() {

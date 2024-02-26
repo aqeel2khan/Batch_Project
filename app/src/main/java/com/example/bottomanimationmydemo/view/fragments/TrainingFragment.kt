@@ -139,7 +139,6 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                         authViewModel.courseListResponse.removeObservers(this)
                         if (authViewModel.courseListResponse.hasObservers()) return@observe
                         hideLoader()
-//                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
                         MyCustom.errorBody(binding.root.context, it.errorBody, "")
                     }
                 }

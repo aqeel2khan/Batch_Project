@@ -15,12 +15,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <ImageView
-                android:id="@+id/background_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
+                android:id="@+id/background_img"
                 android:src="@drawable/exercise_image" />
 
         </LinearLayout>
@@ -75,7 +74,7 @@
                     android:text="$35"
                     android:textColor="@color/black"
                     android:textFontWeight="500"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_10ssp" />
 
                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
                     android:id="@+id/fromText"
@@ -86,7 +85,7 @@
                     android:layout_toLeftOf="@id/course_price"
                     android:text="from"
                     android:textColor="#101215"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_8ssp" />
 
                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
                     android:id="@+id/course_description"
@@ -434,7 +433,7 @@
                 android:text="$35"
                 android:textColor="@color/black"
                 android:textFontWeight="500"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="@dimen/_10ssp" />
         </RelativeLayout>
 
         <androidx.appcompat.widget.AppCompatButton
