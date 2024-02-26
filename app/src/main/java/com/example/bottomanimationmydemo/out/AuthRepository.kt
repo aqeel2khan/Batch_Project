@@ -66,4 +66,12 @@ class AuthRepository @Inject constructor(private val api: ApiService) : SafeApiC
     suspend fun courseStart(token: String, jsonObject: JsonObject) = safeApiCall {
         api.startWorkout(token, jsonObject)
     }
+
+    suspend fun searchCourseListByFilterApi(jsonObject: JsonObject) = safeApiCall {
+        api.searchCourseListByFilter(jsonObject)
+    }
+
+ /*   suspend fun getMealList() = safeApiCall {
+        api.getMealList()
+    }*/
 }

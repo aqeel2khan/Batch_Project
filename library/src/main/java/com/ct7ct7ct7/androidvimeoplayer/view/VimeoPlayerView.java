@@ -38,7 +38,7 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
     private JsBridge jsBridge;
     private VimeoPlayer vimeoPlayer;
     private ProgressBar progressBar;
-    private DefaultControlPanelView defaultControlPanelView;
+    public DefaultControlPanelView defaultControlPanelView;
     private String title;
     private int videoId;
     private String hashKey;

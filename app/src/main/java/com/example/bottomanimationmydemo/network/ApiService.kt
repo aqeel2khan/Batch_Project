@@ -10,8 +10,10 @@ import com.example.bottomanimationmydemo.model.course_promocode.CousePromocodeRe
 import com.example.bottomanimationmydemo.model.course_workout_list.CourseWorkoutListResponse
 import com.example.bottomanimationmydemo.model.courseorderlist.CourseOrderList
 import com.example.bottomanimationmydemo.model.login_model.LoginResponseModel
+import com.example.bottomanimationmydemo.model.meal_list.MealListResponse
 import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
 import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
+import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
 import com.example.bottomanimationmydemo.utils.MyConstant
 import com.example.bottomanimationmydemo.utils.MyConstant.AUTHORIZATION
 import com.example.bottomanimationmydemo.utils.MyConstant.COACH
@@ -76,4 +78,12 @@ interface ApiService {
     @POST(STARTWORKOUTSTATUS)
     suspend fun startWorkout(@Header(AUTHORIZATION) token: String, @Body jsonObject: JsonObject): OrederCreateResponse
 
+    @POST(COURSE)
+    suspend fun searchCourseListByFilter(@Body jsonObject: JsonObject): SearchCourseListByFilterResponse
+/*
+    @POST(MEALLIST)
+    suspend fun getMealList(): MealListResponse
+
+    @GET(MEALDETAILS)
+    suspend fun mealDetails(@Path("id") id: String): CourseDetailResponse*/
 }

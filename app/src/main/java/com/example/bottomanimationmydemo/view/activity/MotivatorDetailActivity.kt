@@ -64,7 +64,11 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
         binding.rlMainLayout.startAnimation(aniSlide)
 
         getCoachDetailApi(coach_id)
-        getCourseListApi("7")
+       // getCourseListApi("7")
+        if(coach_id!=null){
+            getCourseListApi(coach_id.toString())
+        }
+
 
     }
 
@@ -127,7 +131,7 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
                                 if (response.status == MyConstant.success){
                                     val courseList = response.data.list
                                     Log.d("list", courseList.toString())
-                                    setAllBatchesAdapter(courseList)
+//                                    setAllBatchesAdapter(courseList)
                                 }
                             }
                         }
@@ -221,7 +225,7 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
                 })
     }
 
-    private fun setAllBatchesAdapter(courseList: ArrayList<ListData>) {
+  /*  private fun setAllBatchesAdapter(courseList: ArrayList<ListData>) {
         binding.recyclerBatches.apply {
             layoutManager = LinearLayoutManager(this@MotivatorDetailActivity, LinearLayoutManager.VERTICAL, false)
             adapter = AllBatchesAdapter(context, courseList, object :
@@ -231,7 +235,7 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
 //                    activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
                 }
             })
-            /* WorkoutBatchAdapter(this@MotivatorDetailActivity, courseList, object : PositionItemClickListener<Int> {
+            *//* WorkoutBatchAdapter(this@MotivatorDetailActivity, courseList, object : PositionItemClickListener<Int> {
                     override fun onPositionItemSelected(item: String, postions: Int) {
                         startActivity(
                             Intent(
@@ -241,9 +245,9 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
                         )
                     }
 
-                })*/
+                })*//*
         }
-    }
+    }*/
 
     override fun getViewBinding() = ActivityMotivatorDetailBinding.inflate(layoutInflater)
 }

@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.databinding.ActivityCheckoutBinding
@@ -23,7 +24,22 @@ import com.example.bottomanimationmydemo.view.BaseActivity
 import com.example.bottomanimationmydemo.viewmodel.AllViewModel
 import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.gson.Gson
 import com.google.gson.JsonObject
+import com.myfatoorah.sdk.entity.executepayment.MFExecutePaymentRequest
+import com.myfatoorah.sdk.entity.executepayment_cardinfo.MFCardInfo
+import com.myfatoorah.sdk.entity.executepayment_cardinfo.MFDirectPaymentResponse
+import com.myfatoorah.sdk.entity.initiatepayment.MFInitiatePaymentRequest
+import com.myfatoorah.sdk.entity.initiatepayment.MFInitiatePaymentResponse
+import com.myfatoorah.sdk.entity.initiatesession.MFInitiateSessionRequest
+import com.myfatoorah.sdk.entity.paymentstatus.MFGetPaymentStatusResponse
+import com.myfatoorah.sdk.entity.sendpayment.MFSendPaymentRequest
+import com.myfatoorah.sdk.entity.sendpayment.MFSendPaymentResponse
+import com.myfatoorah.sdk.enums.MFAPILanguage
+import com.myfatoorah.sdk.enums.MFCurrencyISO
+import com.myfatoorah.sdk.enums.MFNotificationOption
+import com.myfatoorah.sdk.views.MFResult
+import com.myfatoorah.sdk.views.MFSDK
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import net.simplifiedcoding.data.network.Resource
@@ -38,11 +54,14 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     lateinit var calendarView: CalendarView
     lateinit var dialogBinding: BottomSheetBinding
 //    var course_id: String? = null
+
+    val request = MFInitiatePaymentRequest(0.100, MFCurrencyISO.KUWAIT_KWD)
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
 
     override fun initUi() {
+
         strValue = intent.getStringExtra("screen")
 //        course_id = intent.getStringExtra("course_id")
         buttonClicks()
@@ -57,6 +76,89 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
             binding.cardWorkout.visibility = View.VISIBLE
         }
         getCourseDetailData(sharedPreferences.myCourseId)
+        initiateSession()
+
+        MFSDK.setUpActionBar("MyFatoorah Payment", R.color.white, R.color.item_title_bg, true)
+        // initiatePayment
+        MFSDK.initiatePayment(request, MFAPILanguage.EN) { result: MFResult<MFInitiatePaymentResponse> ->
+            when (result) {
+                is MFResult.Success ->
+                    Log.d("CheckoutActivity", "Response: " + Gson().toJson(result.response))
+                is MFResult.Fail ->
+                    Log.d("CheckoutActivity", "Fail: " + Gson().toJson(result.error))
+                else -> {}
+            }
+        }
+
+        // executePayment
+        val request = MFExecutePaymentRequest(1, 0.100)
+        MFSDK.executePayment(this, request, MFAPILanguage.EN, onInvoiceCreated = {
+                Log.d("CheckoutActivity", "invoiceId: $it")
+            }
+        ) { invoiceId: String, result: MFResult<MFGetPaymentStatusResponse> ->
+            when (result) {
+                is MFResult.Success ->
+                    Log.d("CheckoutActivity", "Response: " + Gson().toJson(result.response))
+                is MFResult.Fail ->
+                    Log.d("CheckoutActivity", "Fail: " + Gson().toJson(result.error))
+                else -> {}
+            }
+        }
+        directPayment()
+    }
+
+    private fun initiateSession() {
+        /**
+         * If you want to use saved card option with embedded payment, send the parameter
+         * "customerIdentifier" with a unique value for each customer. This value cannot be used
+         * for more than one Customer.
+         */
+        val mfInitiateSessionRequest = MFInitiateSessionRequest(customerIdentifier = "12332212")
+        MFSDK.initiateSession(request = null) {
+            when (it) {
+                is MFResult.Success -> {
+                    binding.mfPaymentView.load(
+                        it.response,
+                        onCardBinChanged = { bin ->
+                            Log.d("CheckoutActivity", "bin: $bin")
+                        }
+                    )
+                }
+                is MFResult.Fail -> {
+                    Log.d("CheckoutActivity", "Fail: " + Gson().toJson(it.error))
+                    showAlertDialog(Gson().toJson(it.error))
+                }
+                else -> {}
+            }
+        }
+    }
+
+    private fun showAlertDialog(text: String) {
+        AlertDialog.Builder(this)
+            .setMessage(text)
+            .setPositiveButton(android.R.string.ok) { _, _ -> }
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .show()
+    }
+
+    private fun directPayment() {
+        val request = MFExecutePaymentRequest(2, 0.100)
+
+// val mfCardInfo = MFCardInfo("Your token here")
+        val mfCardInfo = MFCardInfo("5123450000000008", "09", "21", "100", "yeda")
+
+        MFSDK.executeDirectPayment(this, request, mfCardInfo, MFAPILanguage.EN, onInvoiceCreated = {
+                Log.d("CheckoutActivity", "invoiceId: $it")
+            }
+        ) { invoiceId: String, result: MFResult<MFDirectPaymentResponse> ->
+            when (result) {
+                is MFResult.Success ->
+                    Log.d("CheckoutActivity", "Response: " + Gson().toJson(result.response))
+                is MFResult.Fail ->
+                    Log.d("CheckoutActivity", "Fail: " + Gson().toJson(result.error))
+                else -> {}
+            }
+        }
     }
 
     private fun getCourseDetailData(course_id: String?) {
@@ -115,6 +217,19 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     }
 
     private fun buttonClicks() {
+        binding.btnPayNow.setOnClickListener {
+            //send payment
+            val request = MFSendPaymentRequest(0.100, "yeda", MFNotificationOption.LINK)
+            MFSDK.sendPayment(request, MFAPILanguage.EN) { result: MFResult<MFSendPaymentResponse> ->
+                when(result){
+                    is MFResult.Success ->
+                        Log.d("CheckoutActivity", "Response: " + Gson().toJson(result.response))
+                    is MFResult.Fail ->
+                        Log.d("CheckoutActivity", "Fail: " + Gson().toJson(result.error))
+                    else -> {}
+                }
+            }
+        }
         binding.llPaymentMethod.setOnClickListener {
             showPaymentMethodDialog()
         }
@@ -368,4 +483,19 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     }
 
     override fun getViewBinding() = ActivityCheckoutBinding.inflate(layoutInflater)
+
+   /* override fun onResume() {
+        super.onResume()
+        mfPaymentView.enableCardNFC(this)
+    }
+
+    public override fun onPause() {
+        super.onPause()
+        mfPaymentView.disableCardNFC(this)
+    }
+
+    public override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        mfPaymentView.readCard(intent)
+    }*/
 }

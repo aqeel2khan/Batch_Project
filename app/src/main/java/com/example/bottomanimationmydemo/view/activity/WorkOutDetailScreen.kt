@@ -59,10 +59,15 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
             workout_duration_detail.course_duration_exercise.get(0).course_duration_exercise_id
         )
         MyConstant.jsonObject.addProperty("exercise_status", "started")
-        startWorkoutApi(MyConstant.jsonObject)
+
 
         binding.btnStartWorkout.setOnClickListener {
-            startActivity(Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java))
+            val gson = Gson()
+            startWorkoutApi(MyConstant.jsonObject)
+            startActivity(Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java).putExtra(
+                "duration_work_position",
+                gson.toJson(courseData.course_detail.course_duration.get(0))
+            ).putExtra("course_data", gson.toJson(courseData)))
         }
 
 //            startActivity(Intent(this@WorkOutDetailScreen, PlayWorkoutVideoActivity::class.java)) }

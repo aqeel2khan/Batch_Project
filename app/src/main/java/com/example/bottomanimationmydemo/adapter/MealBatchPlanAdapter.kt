@@ -5,17 +5,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomanimationmydemo.databinding.ItemMealBatchesBinding
-import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
-import dagger.hilt.android.AndroidEntryPoint
-import java.util.ArrayList
+import com.example.bottomanimationmydemo.`interface`.MealListItemPosition
+import com.example.bottomanimationmydemo.model.meal_list.MealList
 
-class MealBatchPlanAdapter(val context: Context?, var name: ArrayList<String>, var listener: PositionItemClickListener<Int>) : RecyclerView.Adapter<MealBatchPlanAdapter.ViewHolder>(){
+class MealBatchPlanAdapter(val context: Context?, var mealList: List<MealList>, var listener: MealListItemPosition<Int>) : RecyclerView.Adapter<MealBatchPlanAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: ItemMealBatchesBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(name: String, position: Int) {
-            binding.tvWorkoutName.text = name
+        fun bind(mealList: MealList, position: Int) {
+            binding.tvMealName.text = mealList.name
+            binding.tvMealPrice.text = mealList.price
+            binding.tvKcal.text = mealList.avg_cal_per_day
+//            binding.tvMealCount.text = mealList.
 
             binding.root.setOnClickListener {
-                listener.onPositionItemSelected(name, position)
+                listener.onMealListItemPosition(mealList, position)
             }
         }
 
@@ -27,10 +29,10 @@ class MealBatchPlanAdapter(val context: Context?, var name: ArrayList<String>, v
     }
 
     override fun getItemCount(): Int {
-        return name.size
+        return mealList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(name[position], position)
+        holder.bind(mealList[position], position)
     }
 }

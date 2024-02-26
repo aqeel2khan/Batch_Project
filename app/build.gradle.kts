@@ -98,4 +98,9 @@ dependencies {
     // Dependency on a local library module
     implementation(project(":vimeoplayer2"))
     implementation(project(":library"))
+    implementation(project(":flowlayout-lib"))
+    implementation("com.zhy:base-adapter:2.0.1")
+
+    //fatoora sdk
+    implementation("com.myfatoorah:myfatoorah:2.2.17")
 }
