@@ -19,7 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_13sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
         android:background="@drawable/rectangle_button"
         android:fontFamily="@font/outfit_regular"
         android:outlineSpotShadowColor="#516634"

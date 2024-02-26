@@ -40,7 +40,7 @@ public class DefaultControlPanelView {
     private SeekBar vimeoSeekBar;
     private TextView vimeoCurrentTimeTextView;
     private ImageView vimeoThumbnailImageView;
-    private ImageView vimeoPlayButton;
+    public ImageView vimeoPlayButton;
     private ImageView vimeoPauseButton;
     private ImageView vimeoReplayButton;
     private TextView vimeoTitleTextView;
