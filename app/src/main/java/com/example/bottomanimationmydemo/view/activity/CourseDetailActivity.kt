@@ -123,8 +123,8 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
         binding.validateMin.text = courseData.duration + " min"
         binding.levelType.text = courseData.courseLevel.levelName
         binding.dollerText2.text = courseData.coursePrice + "KWD"
-        setWorkoutType(courseData.workoutType)
-        setWorkoutTypeAdapter(courseData.courseDuration)
+        setWorkoutType(courseData.workoutType as List<WorkoutType>)
+        setWorkoutTypeAdapter(courseData.courseDuration as List<CourseDuration>)
         durationList.add(courseData.duration)
     }
 
@@ -166,8 +166,7 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
     private fun setWorkoutTypeAdapter(courseDuration: List<CourseDuration>) {
         binding.recyclerWorkoutType.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.recyclerWorkoutType.adapter =
-            BatchWorkoutTypeAdapter(this@CourseDetailActivity, courseDuration)
+        binding.recyclerWorkoutType.adapter = BatchWorkoutTypeAdapter(this@CourseDetailActivity, courseDuration)
     }
 
     override fun getViewBinding() = ActivityCourseDetailBinding.inflate(layoutInflater)

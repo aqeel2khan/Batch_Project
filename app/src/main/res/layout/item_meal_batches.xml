@@ -42,7 +42,7 @@
                 android:padding="@dimen/_10sdp">
 
                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                    android:id="@+id/tv_workout_name"
+                    android:id="@+id/tv_meal_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Batch Meal Plan"
@@ -68,6 +68,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/tv_meal_price"
                         android:text="$35"
                         android:textSize="@dimen/_10ssp"
                         android:textColor="@color/white" />
@@ -98,6 +99,7 @@
                         <com.example.bottomanimationmydemo.custom.MyCustomTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/tv_kcal"
                             android:text="1700 - 1800"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_10ssp"
@@ -107,7 +109,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-medium"
-                            android:text="kcal"
+                            android:text=" kcal"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_8ssp" />
                     </LinearLayout>
@@ -131,6 +133,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_3sdp"
                             android:text="3-4"
+                            android:id="@+id/tv_meal_count"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_10ssp"
                             android:textStyle="bold" />

@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/ll_motivator_filter"
-            android:visibility="gone"
+            android:visibility="visible"
             android:orientation="vertical">
             <LinearLayout
                 android:id="@+id/new_card"
@@ -62,6 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:visibility="gone"
                     android:layout_marginTop="@dimen/_10sdp"
                     app:container_background_color="@color/item_bg_color"
                     app:container_enable_drag="false"
@@ -69,6 +70,12 @@
                     app:vertical_interval="10dp"
                     app:tag_clickable="true"
                     app:tag_theme="pure_teal"/>
+                <com.zhy.view.flowlayout.CoachWtTagFlowLayout
+                    android:id="@+id/id_coach_wt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    zhy:max_select="-1"/>
 
             </LinearLayout>
 
@@ -92,6 +99,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:visibility="gone"
                     android:layout_marginTop="@dimen/_10sdp"
                     app:container_background_color="@color/item_bg_color"
                     app:container_enable_drag="false"
@@ -99,6 +107,12 @@
                     app:vertical_interval="10dp"
                     app:tag_clickable="true"
                     app:tag_theme="pure_teal"/>
+                <com.zhy.view.flowlayout.ExperienceTagFlowLayout
+                    android:id="@+id/id_coach_experience"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    zhy:max_select="-1"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -108,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
        <!--     <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
