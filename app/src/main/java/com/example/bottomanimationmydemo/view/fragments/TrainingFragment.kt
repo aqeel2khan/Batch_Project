@@ -21,6 +21,8 @@ import com.example.bottomanimationmydemo.databinding.FilterDialogBinding
 import com.example.bottomanimationmydemo.databinding.FragmentTrainingBinding
 import com.example.bottomanimationmydemo.`interface`.CoachListItemPosition
 import com.example.bottomanimationmydemo.`interface`.CourseListItemPosition
+import com.example.bottomanimationmydemo.model.coach_filter_list.Experience
+import com.example.bottomanimationmydemo.model.coach_filter_list.Workouttype
 import com.example.bottomanimationmydemo.model.coach_list_model.Data
 import com.example.bottomanimationmydemo.model.course_filter_model.BatchGoal
 import com.example.bottomanimationmydemo.model.course_filter_model.BatchLevel
@@ -29,6 +31,7 @@ import com.example.bottomanimationmydemo.model.course_model.ListData
 import com.example.bottomanimationmydemo.out.AuthViewModel
 import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
 import com.example.bottomanimationmydemo.utils.MyConstant
+import com.example.bottomanimationmydemo.utils.MyConstant.jsonObject
 import com.example.bottomanimationmydemo.utils.MyCustom
 import com.example.bottomanimationmydemo.utils.showToast
 import com.example.bottomanimationmydemo.view.BaseFragment
@@ -47,18 +50,14 @@ import java.util.Arrays
 
 @AndroidEntryPoint
 class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
+    private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
     lateinit var dialogBinding: FilterDialogBinding
     var courseList: ArrayList<ListData> = ArrayList()
-    var name = ArrayList(
-        Arrays.asList(
-            "Workout Batch", "Weight Loss", "Workout Batch" )
-    )
     var typeId: Int = 0
     var goalId: Int = 0
     var levelId: Int = 0
-
-    private val viewModel: AllViewModel by viewModels()
+    private var allBatchesAdapter: AllBatchesAdapter? = null
 
     override fun getViewModel(): BaseViewModel {
         return  viewModel
@@ -66,8 +65,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
     override fun initUi() {
         buttonClicks()
+        setAllBatchesAdapter(/*courseList*/) //hide code
         getCourseListApi()
-        setAllBatchesAdapter(courseList) //hide code
     }
 
     override fun getViewBinding() = FragmentTrainingBinding.inflate(layoutInflater)
@@ -104,6 +103,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
     /*course list api code*/
     private fun getCourseListApi() {
+        courseList.clear()
         if (CheckNetworkConnection.isConnection(requireContext(),binding.root, true)) {
             showLoader()
             authViewModel.courseListApiCall()
@@ -114,13 +114,21 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                         authViewModel.courseListResponse.removeObservers(this)
                         if (authViewModel.courseListResponse.hasObservers()) return@observe
                         lifecycleScope.launch {
-                            it.let {
-                                val response = it.value
-                                if (response.status == MyConstant.success){
-                                    courseList = response.data.list
-                                    Log.d("list", courseList.toString())
-                                    setAllBatchesAdapter(courseList)
+                            try {
+                                it.let {
+                                    val response = it.value
+                                    allBatchesAdapter?.clearData()
+                                    if (response.status == MyConstant.success){
+    //                                    courseList = response.data.list
+                                        Log.d("list", courseList.toString())
+
+                                        allBatchesAdapter!!.setdata(response.data.list)
+
+    //                                    setAllBatchesAdapter(courseList)
+                                    }
                                 }
+                            } catch (e: Exception) {
+                                e.printStackTrace()
                             }
                         }
                     }
@@ -166,13 +174,22 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     /*coach list api code*/
     private fun getCoachListApi(searchQuery: String) {
         if (CheckNetworkConnection.isConnection(requireContext(),binding.root, true)) {
-            if (searchQuery == ""){
-                showLoader()
-                authViewModel.coachListApiCall()
-            }else{
-                hideLoader()
-                MyConstant.jsonObject.addProperty("keyword",binding.editQuery.text.trim().toString())
-                authViewModel.searchCoachListApiCall(MyConstant.jsonObject)
+            when (searchQuery) {
+                "" -> {
+                    showLoader()
+                    authViewModel.coachListApiCall()
+                }
+                "coach_filter" -> {
+                    showLoader()
+                    jsonObject.addProperty("experience","1")
+                    jsonObject.addProperty("workout_type","")
+                    authViewModel.searchCoachListApiCall(jsonObject)
+                }
+                else -> {
+                    hideLoader()
+                    jsonObject.addProperty("keyword",binding.editQuery.text.trim().toString())
+                    authViewModel.searchCoachListApiCall(jsonObject)
+                }
             }
 
             authViewModel.coachListResponse.observe(this){
@@ -208,7 +225,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         }
     }
 
-    /* comment code */
+    /* second  */
     private fun showFilterDialog(filterType: String) {
         dialogBinding = FilterDialogBinding.inflate(layoutInflater)
         val dialog = BottomSheetDialog(requireContext())
@@ -222,10 +239,10 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 //code for save week price
 //                dialogBinding.btnApply.text = "Apply()"
                 //course filter by list
-                MyConstant.jsonObject.addProperty("course_level","2")
-                MyConstant.jsonObject.addProperty("workout_type_id","2")
-                MyConstant.jsonObject.addProperty("goal_id","2")
-                searchCourseListByFilterApi(MyConstant.jsonObject, dialogBinding)
+                jsonObject.addProperty("course_level","2")
+                jsonObject.addProperty("workout_type_id","2")
+                jsonObject.addProperty("goal_id","2")
+                searchCourseListByFilterApi(jsonObject, dialogBinding)
                 dialog.dismiss()
             }
         }else{
@@ -233,6 +250,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
             dialogBinding.llMotivatorFilter.visibility = View.VISIBLE
             dialogBinding.btnApply.setOnClickListener {
                 //code for save week price
+                getCoachListApi("coach_filter")
                 dialog.dismiss()
             }
         }
@@ -293,12 +311,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                                 val response = it.value
                                 Log.d("filterData", response.toString())
                                 if (response.status == MyConstant.status){
-                                    val mt_workoutType = response.data.workouttypes
-                                    val tagList: ArrayList<String> = ArrayList(mt_workoutType.map { it.workoutType })
-                                    dialogBinding.TagWorkoutMtType.tags = tagList
-                                    val mt_experience = response.data.experiences
-                                    val tagList_experience: ArrayList<String> = ArrayList(mt_experience.map { it.experience })
-                                    dialogBinding.TagExperience.tags = tagList_experience
+                                    setMotivatorWtFilter(response.data.workouttypes)
+                                   setMotivatorExperience(response.data.experiences)
                                 }
                             }
                         }
@@ -318,6 +332,50 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         }else{
             binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
         }
+    }
+
+    private fun setMotivatorExperience(experiences: List<Experience>) {
+        val mInflater = LayoutInflater.from(activity)
+        //multiple check
+        dialogBinding.idCoachExperience.setAdapter(object : ExperienceTagAdapter<Experience>(experiences) {
+            override fun getView(parent: FlowLayout?, position: Int, t: Experience?): View {
+                val tv = mInflater.inflate(R.layout.tv, dialogBinding.idCoachWt, false) as TextView
+                tv.text = t!!.experience
+                return tv
+            }
+        })
+
+        dialogBinding.idCoachExperience.setOnTagClickListener(ExperienceTagFlowLayout.OnTagClickListener { view, position, parent ->
+            typeId = experiences[position].id
+            requireActivity().showToast(experiences[position].id.toString())
+            true
+        })
+
+        dialogBinding.idCoachExperience.setOnSelectListener(ExperienceTagFlowLayout.OnSelectListener { selectPosSet ->
+            activity!!.title = "choose:$selectPosSet"
+        })
+    }
+
+    private fun setMotivatorWtFilter(workoutType: List<Workouttype>) {
+        val mInflater = LayoutInflater.from(activity)
+        //multiple check
+        dialogBinding.idCoachWt.setAdapter(object : CoachWtTagAdapter<Workouttype>(workoutType) {
+            override fun getView(parent: FlowLayout?, position: Int, t: Workouttype?): View {
+                val tv = mInflater.inflate(R.layout.tv, dialogBinding.idCoachWt, false) as TextView
+                tv.text = t!!.workoutType
+                return tv
+            }
+        })
+
+        dialogBinding.idCoachWt.setOnTagClickListener(CoachWtTagFlowLayout.OnTagClickListener { view, position, parent ->
+            typeId = workoutType[position].id
+            requireActivity().showToast(workoutType[position].id.toString())
+            true
+        })
+
+        dialogBinding.idCoachWt.setOnSelectListener(CoachWtTagFlowLayout.OnSelectListener { selectPosSet ->
+            activity!!.title = "choose:$selectPosSet"
+        })
     }
 
     private fun getCourseFilter(dialogBinding: FilterDialogBinding) {
@@ -498,16 +556,16 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     }
 
 
-
-    private fun setAllBatchesAdapter(courseList: ArrayList<ListData>) {
+    private fun setAllBatchesAdapter(/*courseList: ArrayList<ListData>*/) {
         binding.recyclerAllBatch.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
-        binding.recyclerAllBatch.adapter = AllBatchesAdapter(context, courseList, object :
+        allBatchesAdapter = AllBatchesAdapter(context, /*courseList,*/ object :
             CourseListItemPosition<Int> {
             override fun onCourseListItemPosition(item: ListData, position: Int) {
                 val course_id = item.courseId
                 activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
             }
         })
+        binding.recyclerAllBatch.adapter = allBatchesAdapter
     }
 
     private fun setMotivatorListAdapter(coachList: List<Data>) {

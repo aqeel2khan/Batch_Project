@@ -706,6 +706,43 @@
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
 
+                <com.myfatoorah.sdk.views.embeddedpayment.MFPaymentCardView
+                    android:id="@+id/mfPaymentView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+               <!-- <com.myfatoorah.sdk.views.embeddedpayment.MFPaymentCardView
+                    android:id="@+id/mfPaymentView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:inputColor="@color/paymentCardViewTextColor"
+                    app:labelColor="@color/paymentCardViewLabelColor"
+                    app:errorColor="@color/paymentCardViewValidateTextColor"
+                    app:cardHolderNameHint="cardHolderNameHint"
+                    app:cardNumberHint="cardNumberHint"
+                    app:expiryDateHint="expiryDateHint"
+                    app:cvvHint="cvvHint"
+                    app:showLabels="false"
+                    app:cardHolderNameLabel="cardHolderNameLabel"
+                    app:cardNumberLabel="cardNumberLabel"
+                    app:expiryDateLabel="expiryDateLabel"
+                    app:cvvLabel="cvvLabel"/>-->
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_pay_now"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_button"
+                    android:backgroundTint="#516634"
+                    android:text="Pay Now"
+                    android:elevation="@dimen/_2sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+
                 <LinearLayout
                     android:id="@+id/ll_payment_method"
                     android:layout_width="match_parent"

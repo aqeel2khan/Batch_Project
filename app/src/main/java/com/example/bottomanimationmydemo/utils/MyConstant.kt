@@ -26,8 +26,10 @@ object MyConstant {
     const val oldPassword ="OLD_PASSWORD"
     const val confirmNewPassword ="CONFIRM_NEW_PASSWORD"
 
+    //auth
     const val LOGIN = "auth/signin"
     const val SIGNUP = "auth/signup"
+    //training
     const val COACH = "coach/list"
     const val COACHDETAIL = "coach/detail/{id}"
     const val COURSE = "course/list"
@@ -39,6 +41,10 @@ object MyConstant {
     const val ORDERCREATE = "course/order/create"
     const val COURSEORDERLIST = "course/order/list"
     const val STARTWORKOUTSTATUS = "/course/order/workout/status"
+
+    //meal
+//    const val MEALLIST = "meal/list"
+//    const val MEALDETAILS = "meal/details/{id}"
 
 //    const val DOLLER_SIGN = "$"
 }

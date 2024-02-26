@@ -13,6 +13,7 @@ import com.example.bottomanimationmydemo.model.course_model.CourseListResponse
 import com.example.bottomanimationmydemo.model.course_workout_list.CourseWorkoutListResponse
 import com.example.bottomanimationmydemo.model.courseorderlist.CourseOrderList
 import com.example.bottomanimationmydemo.model.login_model.LoginResponseModel
+import com.example.bottomanimationmydemo.model.meal_list.MealListResponse
 import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
 import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
 import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
@@ -162,4 +163,13 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
         _searchCourseFilterListResponse.value = Resource.Loading
         _searchCourseFilterListResponse.value = repository.searchCourseListByFilterApi(jsonObject)
     }
+
+/*    //meal List filter
+    private val _mealListResponse: MutableLiveData<Resource<MealListResponse>> = MutableLiveData()
+    val mealListResponse: LiveData<Resource<MealListResponse>> get() = _mealListResponse
+
+    fun mealListApiCall() = viewModelScope.launch {
+        _mealListResponse.value = Resource.Loading
+        _mealListResponse.value = repository.getMealList()
+    }*/
 }
