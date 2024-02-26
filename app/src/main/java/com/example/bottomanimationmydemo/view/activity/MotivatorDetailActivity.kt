@@ -59,7 +59,11 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
         binding.rlMainLayout.startAnimation(aniSlide)
 
         getCoachDetailApi(coach_id)
-        getCourseListApi("7")
+       // getCourseListApi("7")
+        if(coach_id!=null){
+            getCourseListApi(coach_id.toString())
+        }
+
 
     }
 
