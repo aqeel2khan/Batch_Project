@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:orientation="horizontal">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -19,8 +20,23 @@
                 android:id="@+id/background_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
                 android:src="@drawable/exercise_image" />
+
+            <!--            <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView-->
+            <!--                android:id="@+id/vimeoPlayerView"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="250dp"-->
+            <!--                app:autoPlay="false"-->
+            <!--                app:backgroundColor="#00FFFF"-->
+            <!--                app:loop="false"-->
+            <!--                app:muted="false"-->
+            <!--                app:quality="auto"-->
+            <!--                app:showFullscreenOption="false"-->
+            <!--                app:showMenuOption="false"-->
+            <!--                app:showOriginalControls="false"-->
+            <!--                app:showTitle="true"-->
+            <!--                app:topicColor="#FFFF00" />-->
 
         </LinearLayout>
 
@@ -44,9 +60,11 @@
         android:layout_below="@id/exercise_image"
         android:layout_marginTop="-30dp"
         android:background="@drawable/rounded_bg_main">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -69,18 +87,19 @@
                             android:id="@+id/txt_trainer_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/outfit_extra_bold"
+                            android:fontFamily="@font/outfit_bold"
                             android:text="Bessie Cooper"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12ssp" />
+                            android:textSize="@dimen/_14ssp" />
 
                         <com.example.bottomanimationmydemo.custom.MyCustomTextView
                             android:id="@+id/txt_profesion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/outfit_semi_bold"
                             android:text="123 followers"
-                            android:textColor="@color/gry"
-                            android:textSize="@dimen/_10ssp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11ssp"
                             android:textStyle="normal" />
                     </LinearLayout>
 
@@ -90,29 +109,32 @@
                         android:layout_height="@dimen/_30sdp"
                         android:layout_weight="0.4"
                         android:background="@drawable/rectangle_follow_btn"
+                        android:fontFamily="@font/outfit_semi_bold"
                         android:text="@string/txt_follow"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_8sdp" />
+                        android:textSize="@dimen/_9sdp" />
+
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_following"
-                        android:visibility="gone"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/_30sdp"
                         android:layout_weight="0.4"
                         android:background="@drawable/border_button"
+                        android:fontFamily="@font/outfit_semi_bold"
                         android:text="Following"
                         android:textColor="@color/terms_color"
-                        android:textSize="@dimen/_8sdp" />
+                        android:textSize="@dimen/_9sdp"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:fontFamily="@font/outfit_bold"
+                    android:fontFamily="@font/outfit_semi_bold"
                     android:text="@string/txt_trainer_content"
-                    android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_keyPoints"
@@ -123,7 +145,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -134,16 +156,18 @@
                         <LinearLayout
                             android:layout_width="@dimen/_50sdp"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_margin="@dimen/_5sdp">
+                            android:layout_margin="@dimen/_5sdp"
+                            android:gravity="center">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/outfit_medium"
+
                                 android:text="Yoga"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_9ssp" />
+                                android:textSize="@dimen/_10ssp" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -156,16 +180,17 @@
                         <LinearLayout
                             android:layout_width="@dimen/_50sdp"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_margin="@dimen/_5sdp">
+                            android:layout_margin="@dimen/_5sdp"
+                            android:gravity="center">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/outfit_medium"
                                 android:text="Stretching"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_9ssp" />
+                                android:textSize="@dimen/_10ssp" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -178,16 +203,17 @@
                         <LinearLayout
                             android:layout_width="@dimen/_50sdp"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_margin="@dimen/_5sdp">
+                            android:layout_margin="@dimen/_5sdp"
+                            android:gravity="center">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/outfit_medium"
                                 android:text="Palates"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_9ssp" />
+                                android:textSize="@dimen/_10ssp" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -200,16 +226,17 @@
                         <LinearLayout
                             android:layout_width="@dimen/_50sdp"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:layout_margin="@dimen/_5sdp">
+                            android:layout_margin="@dimen/_5sdp"
+                            android:gravity="center">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/outfit_medium"
                                 android:text="Mobility"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_9ssp" />
+                                android:textSize="@dimen/_10ssp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -218,36 +245,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="@dimen/_15sdp"
-                    android:background="@color/gry2"/>
+                    android:background="@color/gry2" />
 
                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:fontFamily="@font/outfit_extra_bold"
+                    android:fontFamily="@font/outfit_bold"
                     android:text="Trainings Packages"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_batches"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/recycler_batches"/>
+                    android:layout_height="wrap_content" />
 
                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:fontFamily="@font/outfit_extra_bold"
+                    android:fontFamily="@font/outfit_bold"
                     android:text="@string/txt_recommended_product"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_recommended_product"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/recycler_recommended_product"/>
+                    android:layout_marginTop="@dimen/_10sdp" />
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>

@@ -75,7 +75,7 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
 
     fun startWorkoutApi(jsonObject: JsonObject) {
         if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
-            showLoader()
+//            showLoader()
             authViewModel.courseStartApiCall("Bearer " + sharedPreferences.token, jsonObject)
             authViewModel.courseStartResponse.observe(this) {
                 when (it) {

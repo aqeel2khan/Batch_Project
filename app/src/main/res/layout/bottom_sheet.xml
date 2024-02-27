@@ -96,17 +96,16 @@
                 android:layout_height="@dimen/_30sdp"
                 android:src="@drawable/icon_down"
                 android:id="@+id/img_down"/>
+
             <com.example.bottomanimationmydemo.custom.MyCustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/plan_duration"
-                android:fontFamily="@font/outfit_regular"
-                android:textSize="@dimen/_12ssp"
-                android:textFontWeight="500"
+                android:fontFamily="@font/outfit_bold"
+                android:textSize="@dimen/_14ssp"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:textColor="@color/welcome_txt"/>
+                android:textColor="@color/black"/>
         </LinearLayout>
 
         <RelativeLayout
@@ -147,6 +146,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/outfit_semi_bold"
                     android:maxLines="1"
                     android:text="Select Plan Duration"
                     android:textColor="@color/black"
@@ -164,7 +164,7 @@
             android:elevation="@dimen/_2sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:background="@drawable/rectangle_button"
-            android:fontFamily="@font/outfit_regular"
+            android:fontFamily="@font/outfit_semi_bold"
             android:outlineSpotShadowColor="#516634"
             android:text="@string/txt_save"
             android:textSize="@dimen/_12ssp"
@@ -263,13 +263,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_payment_method"
-                android:fontFamily="@font/outfit_regular"
+                android:fontFamily="@font/outfit_bold"
                 android:id="@+id/payment_title"
-                android:textSize="@dimen/_12ssp"
-                android:textFontWeight="500"
+                android:textSize="@dimen/_14ssp"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:textColor="@color/welcome_txt"/>
         </LinearLayout>
 
@@ -286,8 +284,9 @@
                 android:padding="@dimen/_4sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/outfit_bold"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_11ssp"/>
+                android:textSize="@dimen/_12ssp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -304,7 +303,8 @@
                     android:layout_width="0dp"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/outfit_semi_bold"
                     android:textColor="@color/welcome_txt_gry"
                     android:text="Apple Pay"/>
                 <ImageView
@@ -334,7 +334,8 @@
                     android:layout_weight="0.8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/outfit_semi_bold"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:textColor="@color/welcome_txt"
                     android:text="....4322"/>
@@ -365,7 +366,8 @@
                     android:layout_weight="0.8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/outfit_semi_bold"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:textColor="@color/welcome_txt_gry"
                     android:text="....1234"/>
@@ -397,7 +399,8 @@
                     android:layout_weight="0.8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_11ssp"
+                    android:fontFamily="@font/outfit_semi_bold"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:textColor="@color/welcome_txt"
                     android:text="Add new card"/>
@@ -422,7 +425,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="20dp"
             android:background="@drawable/rectangle_button"
-            android:fontFamily="@font/outfit_regular"
+            android:fontFamily="@font/outfit_bold"
             android:outlineSpotShadowColor="#516634"
             android:text="Apply"
             android:layout_marginBottom="@dimen/_10sdp"
@@ -636,8 +639,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_add_pro"
-                android:fontFamily="@font/outfit_regular"
-                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/outfit_semi_bold"
+                android:textSize="@dimen/_13ssp"
                 android:layout_centerInParent="true"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:textColor="@color/welcome_txt"/>
@@ -671,7 +674,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/rectangle_button"
-            android:fontFamily="@font/outfit_regular"
+            android:fontFamily="@font/outfit_semi_bold"
             android:outlineSpotShadowColor="#516634"
             android:text="Add"
             android:layout_marginBottom="@dimen/_10sdp"
