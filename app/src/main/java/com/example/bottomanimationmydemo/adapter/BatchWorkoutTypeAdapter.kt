@@ -11,6 +11,7 @@ import com.example.bottomanimationmydemo.model.course_detail.CourseDuration
 class BatchWorkoutTypeAdapter(val context: Context?, var courseDuration: List<CourseDuration>) : RecyclerView.Adapter<BatchWorkoutTypeAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: ItemWorkoutTypeBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(courseDuration: CourseDuration, position: Int) {
+
             binding.weightLossText.text = courseDuration.dayName
             binding.tvBoost.text = courseDuration.calorieBurn
             binding.tvBoostMin.text = courseDuration.workoutTime
@@ -30,6 +31,7 @@ class BatchWorkoutTypeAdapter(val context: Context?, var courseDuration: List<Co
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         holder.bind(courseDuration[position], position)
     }
 }

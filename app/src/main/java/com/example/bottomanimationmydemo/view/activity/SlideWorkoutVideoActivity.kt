@@ -78,14 +78,11 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
                     "workout_id",
                     workout_duration_detail.course_duration_id
                 )
-//        MyConstant.jsonObject.addProperty("subtotal", sub_total.toDouble())
                 MyConstant.jsonObject.addProperty(
                     "workout_exercise_id",
                     workout_duration_detail.course_duration_exercise.get(0).course_duration_exercise_id
                 )
                 MyConstant.jsonObject.addProperty("exercise_status", "completed")
-
-
                 updateFinishWorkoutStaus(MyConstant.jsonObject)
             }
 

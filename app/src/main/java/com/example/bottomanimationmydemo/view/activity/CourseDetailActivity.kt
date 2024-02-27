@@ -124,7 +124,10 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
         binding.levelType.text = courseData.courseLevel.levelName
         binding.dollerText2.text = courseData.coursePrice + "KWD"
         setWorkoutType(courseData.workoutType)
-        setWorkoutTypeAdapter(courseData.courseDuration)
+        if(courseData.courseDuration!=null){
+            setWorkoutTypeAdapter(courseData.courseDuration)
+        }
+
         durationList.add(courseData.duration)
     }
 

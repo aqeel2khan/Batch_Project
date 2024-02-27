@@ -19,7 +19,7 @@ data class Data(
     @SerializedName("coach_detail")
     val coachDetail: CoachDetail,
     @SerializedName("course_duration")
-    val courseDuration: List<CourseDuration>,
+    val courseDuration: List<CourseDuration> = ArrayList<CourseDuration>(),
     @SerializedName("course_id")
     val courseId: Int,
     @SerializedName("course_image")
@@ -59,6 +59,7 @@ data class Data(
     @SerializedName("workout_type")
     val workoutType: List<WorkoutType>
 )
+
 data class CoachDetail(
     @SerializedName("id")
     val id: Int,
@@ -92,6 +93,7 @@ data class CourseDuration(
     @SerializedName("workout_time")
     val workoutTime: String
 )
+
 data class CourseDurationExercise(
     @SerializedName("course_duration_exercise_id")
     val courseDurationExerciseId: Int,
