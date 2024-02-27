@@ -13,23 +13,23 @@
         android:orientation="vertical" />
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_continue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:background="@drawable/rectangle_button"
-        android:fontFamily="@font/outfit_regular"
-        android:outlineSpotShadowColor="#516634"
-        android:padding="@dimen/_10sdp"
-        android:text="@string/finish_workout"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textFontWeight="500"
-        android:textSize="@dimen/_12ssp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/viewPagerVideos"
-        tools:ignore="UnusedAttribute" />
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/btn_continue"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginHorizontal="@dimen/_13sdp"-->
+<!--        android:layout_marginTop="@dimen/_20sdp"-->
+<!--        android:background="@drawable/rectangle_button"-->
+<!--        android:fontFamily="@font/outfit_regular"-->
+<!--        android:outlineSpotShadowColor="#516634"-->
+<!--        android:padding="@dimen/_10sdp"-->
+<!--        android:text="@string/finish_workout"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textFontWeight="500"-->
+<!--        android:textSize="@dimen/_12ssp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/viewPagerVideos"-->
+<!--        tools:ignore="UnusedAttribute" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

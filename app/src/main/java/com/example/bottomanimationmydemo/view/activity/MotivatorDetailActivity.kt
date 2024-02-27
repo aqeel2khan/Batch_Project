@@ -45,9 +45,22 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
     var courseList: ArrayList<ListData> = ArrayList()
     var coach_id: Int = 0
 
-    var courseImg = ArrayList(Arrays.asList(R.drawable.sign_bg, R.drawable.food, R.drawable.profile_image, R.drawable.normal_boy))
+    var courseImg = ArrayList(
+        Arrays.asList(
+            R.drawable.sign_bg,
+            R.drawable.food,
+            R.drawable.profile_image,
+            R.drawable.normal_boy
+        )
+    )
     var techerName = ArrayList(
-        Arrays.asList("Leggings in blue", "Training Top", "Yoga Main in Deep Blue", "Leggings in blue"))
+        Arrays.asList(
+            "Leggings in blue",
+            "Training Top",
+            "Yoga Main in Deep Blue",
+            "Leggings in blue"
+        )
+    )
     var profesion = ArrayList(Arrays.asList("\$35", "\$35", "\$35", "\$35"))
 
     var name = ArrayList(Arrays.asList("Weight Loss", "Workout Batch", "Workout Batch"))
@@ -60,12 +73,13 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
 //        setAllBatchesAdapter()
         setUpRecommendedProductorAdapter()
         buttonClicks()
-        val aniSlide: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
+        val aniSlide: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
         binding.rlMainLayout.startAnimation(aniSlide)
 
         getCoachDetailApi(coach_id)
-       // getCourseListApi("7")
-        if(coach_id!=null){
+        // getCourseListApi("7")
+        if (coach_id != null) {
             getCourseListApi(coach_id.toString())
         }
 
@@ -115,20 +129,20 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
     }
 
     private fun getCourseListApi(coach_id: String) {
-        if (CheckNetworkConnection.isConnection(this,binding.root, true)) {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
             showLoader()
-            jsonObject.addProperty("coach_id",coach_id)
+            jsonObject.addProperty("coach_id", coach_id)
             authViewModel.coachCourseListApiCall(jsonObject)
-            authViewModel.coachCourseListResponse.observe(this){
-                when(it){
-                    is Resource.Success->{
+            authViewModel.coachCourseListResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
                         hideLoader()
 //                        authViewModel.coachCourseListResponse.removeObservers(this)
 //                        if (authViewModel.coachCourseListResponse.hasObservers()) return@observe
                         lifecycleScope.launch {
                             it.let {
                                 val response = it.value
-                                if (response.status == MyConstant.success){
+                                if (response.status == MyConstant.success) {
                                     val courseList = response.data.list
                                     Log.d("list", courseList.toString())
 //                                    setAllBatchesAdapter(courseList)
@@ -136,10 +150,10 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
                             }
                         }
                     }
-                    is Resource.Loading-> {
+                    is Resource.Loading -> {
                         hideLoader()
                     }
-                    is Resource.Failure-> {
+                    is Resource.Failure -> {
                         authViewModel.coachCourseListResponse.removeObservers(this)
                         if (authViewModel.coachCourseListResponse.hasObservers()) return@observe
                         hideLoader()
@@ -148,13 +162,16 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
                     }
                 }
             }
-        }else{
+        } else {
             binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
         }
     }
 
     private fun setUpDetails(coachData: Data) {
-       MyUtils.loadBackgroundImage(binding.backgroundImg, MyConstant.IMAGE_BASE_URL + coachData.profilePhotoPath)
+        MyUtils.loadBackgroundImage(
+            binding.backgroundImg,
+            MyConstant.IMAGE_BASE_URL + coachData.profilePhotoPath
+        )
 //        loadVimeoPromoVideo()
         binding.txtTrainerName.text = coachData.name
     }
@@ -225,17 +242,17 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
                 })
     }
 
-  /*  private fun setAllBatchesAdapter(courseList: ArrayList<ListData>) {
-        binding.recyclerBatches.apply {
-            layoutManager = LinearLayoutManager(this@MotivatorDetailActivity, LinearLayoutManager.VERTICAL, false)
-            adapter = AllBatchesAdapter(context, courseList, object :
-                CourseListItemPosition<Int> {
-                override fun onCourseListItemPosition(item: ListData, position: Int) {
-                    val course_id = item.courseId
-//                    activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
-                }
-            })
-            *//* WorkoutBatchAdapter(this@MotivatorDetailActivity, courseList, object : PositionItemClickListener<Int> {
+    /*  private fun setAllBatchesAdapter(courseList: ArrayList<ListData>) {
+          binding.recyclerBatches.apply {
+              layoutManager = LinearLayoutManager(this@MotivatorDetailActivity, LinearLayoutManager.VERTICAL, false)
+              adapter = AllBatchesAdapter(context, courseList, object :
+                  CourseListItemPosition<Int> {
+                  override fun onCourseListItemPosition(item: ListData, position: Int) {
+                      val course_id = item.courseId
+  //                    activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
+                  }
+              })
+              *//* WorkoutBatchAdapter(this@MotivatorDetailActivity, courseList, object : PositionItemClickListener<Int> {
                     override fun onPositionItemSelected(item: String, postions: Int) {
                         startActivity(
                             Intent(
