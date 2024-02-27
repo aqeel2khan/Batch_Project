@@ -1,8 +1,14 @@
 package com.example.bottomanimationmydemo.view.activity
 
 import android.content.Intent
+import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerReadyListener
+import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerStateListener
+import com.ct7ct7ct7.androidvimeoplayer.model.TextTrack
+import com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerActivity
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.adapter.VideosAdapter
 import com.example.bottomanimationmydemo.databinding.ActivitySlideWorkoutVideoBinding
@@ -10,6 +16,7 @@ import com.example.bottomanimationmydemo.`interface`.ItemVideoFinishClick
 import com.example.bottomanimationmydemo.`interface`.PositionCourseWorkoutClick
 import com.example.bottomanimationmydemo.model.VideoItem
 import com.example.bottomanimationmydemo.model.courseorderlist.Course_duration
+import com.example.bottomanimationmydemo.model.courseorderlist.Course_duration_exercise
 import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
 import com.example.bottomanimationmydemo.out.AuthViewModel
 import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
@@ -37,6 +44,57 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
+
+    private fun setVideoOnBanner() {
+
+        // CourseDetail > CourseDuration List =  Total Duration > 1 Day > get 0 index > course duration excersize for 1 day
+        var course_duration_exerciseList : ArrayList<Course_duration_exercise>
+        val courseDurationList=  courseData.course_detail.course_duration
+        if(!courseDurationList.isNullOrEmpty()){
+
+
+            val courseDurationData= courseDurationList[0] // first day
+            if(courseDurationData!=null && !courseDurationData.course_duration_exercise.isNullOrEmpty()){
+                // Get First Day all video
+                course_duration_exerciseList=      courseDurationData?.course_duration_exercise!!
+
+                if(!course_duration_exerciseList.isNullOrEmpty()){
+                    binding.viewPagerVideos.setAdapter(VideosAdapter(course_duration_exerciseList, object :
+                        ItemVideoFinishClick<Int> {
+
+                        override fun onPositionItemVideoFinish(item: Course_duration_exercise, postions: Int) {
+                            MyConstant.jsonObject.addProperty("course_id", courseData.course_id)
+                            MyConstant.jsonObject.addProperty(
+                                "workout_id",
+                                workout_duration_detail.course_duration_id
+                            )
+//        MyConstant.jsonObject.addProperty("subtotal", sub_total.toDouble())
+                            MyConstant.jsonObject.addProperty(
+                                "workout_exercise_id",
+                                workout_duration_detail.course_duration_exercise.get(0).course_duration_exercise_id
+                            )
+                            MyConstant.jsonObject.addProperty("exercise_status", "completed")
+
+
+                            updateFinishWorkoutStaus(MyConstant.jsonObject)
+                        }
+
+                    }))
+                }
+
+                val videoId=      courseDurationData?.course_duration_exercise?.get(0)?.video_detail?.video_id
+                if(videoId!=null){
+                    var videoIdInt=   videoId.toInt()
+                }
+            }
+
+
+
+        }
+
+
+    }
+
 
     override fun initUi() {
 
@@ -69,24 +127,8 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
         item4.videoTitle = "Happy 4 Wednesday"
         videoItems.add(item4)
 
-        binding.viewPagerVideos.setAdapter(VideosAdapter(videoItems, object :
-            ItemVideoFinishClick<Int> {
+        setVideoOnBanner()
 
-            override fun onPositionItemVideoFinish(item: VideoItem, postions: Int) {
-                MyConstant.jsonObject.addProperty("course_id", courseData.course_id)
-                MyConstant.jsonObject.addProperty(
-                    "workout_id",
-                    workout_duration_detail.course_duration_id
-                )
-                MyConstant.jsonObject.addProperty(
-                    "workout_exercise_id",
-                    workout_duration_detail.course_duration_exercise.get(0).course_duration_exercise_id
-                )
-                MyConstant.jsonObject.addProperty("exercise_status", "completed")
-                updateFinishWorkoutStaus(MyConstant.jsonObject)
-            }
-
-        }))
     }
 
     fun updateFinishWorkoutStaus(jsonObject: JsonObject) {

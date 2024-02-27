@@ -4,10 +4,15 @@ import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.SeekBar
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerReadyListener
+import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerStateListener
+import com.ct7ct7ct7.androidvimeoplayer.model.TextTrack
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.adapter.AllBatchesAdapter
 import com.example.bottomanimationmydemo.adapter.RecommendedProductListAdapter
@@ -59,7 +64,11 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
         binding.rlMainLayout.startAnimation(aniSlide)
 
         getCoachDetailApi(coach_id)
-        getCourseListApi("7")
+       // getCourseListApi("7")
+        if(coach_id!=null){
+            getCourseListApi(coach_id.toString())
+        }
+
 
     }
 
@@ -122,7 +131,7 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
                                 if (response.status == MyConstant.success){
                                     val courseList = response.data.list
                                     Log.d("list", courseList.toString())
-                                    setAllBatchesAdapter(courseList)
+//                                    setAllBatchesAdapter(courseList)
                                 }
                             }
                         }
@@ -145,9 +154,58 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
     }
 
     private fun setUpDetails(coachData: Data) {
-        MyUtils.loadBackgroundImage(binding.backgroundImg, MyConstant.IMAGE_BASE_URL + coachData.profilePhotoPath)
+       MyUtils.loadBackgroundImage(binding.backgroundImg, MyConstant.IMAGE_BASE_URL + coachData.profilePhotoPath)
+//        loadVimeoPromoVideo()
         binding.txtTrainerName.text = coachData.name
     }
+
+//    private fun loadVimeoPromoVideo() {
+//
+////        ifecycle.addObserver(binding.vimeoPlayerView)
+////        binding.backgroundImg
+//        binding.vimeoPlayerView.initialize(true, 913068229)
+//        //vimeoPlayerView.initialize(true, {YourPrivateVideoId}, "SettingsEmbeddedUrl")
+//        //vimeoPlayerView.initialize(true, {YourPrivateVideoId},"VideoHashKey", "SettingsEmbeddedUrl")
+//
+//        binding.vimeoPlayerView.addTimeListener { second ->
+////            binding.playerCurrentTimeTextView.text =
+////                getString(R.string.player_current_time, second.toString())
+//        }
+//
+//        binding.vimeoPlayerView.addErrorListener { message, method, name ->
+//            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+//        }
+//
+//        binding.vimeoPlayerView.addReadyListener(object : VimeoPlayerReadyListener {
+//            override fun onReady(
+//                title: String?,
+//                duration: Float,
+//                textTrackArray: Array<TextTrack>
+//            ) {
+//               // binding.playerStateTextView.text = getString(R.string.player_state, "onReady")
+//            }
+//
+//            override fun onInitFailed() {
+//             //   binding.playerStateTextView.text = getString(R.string.player_state, "onInitFailed")
+//            }
+//        })
+//
+//        binding.vimeoPlayerView.addStateListener(object : VimeoPlayerStateListener {
+//            override fun onPlaying(duration: Float) {
+//              //  binding.playerStateTextView.text = getString(R.string.player_state, "onPlaying")
+//            }
+//
+//            override fun onPaused(seconds: Float) {
+//               // binding.playerStateTextView.text = getString(R.string.player_state, "onPaused")
+//            }
+//
+//            override fun onEnded(duration: Float) {
+//               // binding.playerStateTextView.text = getString(R.string.player_state, "onEnded")
+//            }
+//        })
+//
+//
+//    }
 
     private fun buttonClicks() {
         binding.btnFollow.setOnClickListener {
@@ -167,7 +225,7 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
                 })
     }
 
-    private fun setAllBatchesAdapter(courseList: ArrayList<ListData>) {
+  /*  private fun setAllBatchesAdapter(courseList: ArrayList<ListData>) {
         binding.recyclerBatches.apply {
             layoutManager = LinearLayoutManager(this@MotivatorDetailActivity, LinearLayoutManager.VERTICAL, false)
             adapter = AllBatchesAdapter(context, courseList, object :
@@ -177,7 +235,7 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
 //                    activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
                 }
             })
-            /* WorkoutBatchAdapter(this@MotivatorDetailActivity, courseList, object : PositionItemClickListener<Int> {
+            *//* WorkoutBatchAdapter(this@MotivatorDetailActivity, courseList, object : PositionItemClickListener<Int> {
                     override fun onPositionItemSelected(item: String, postions: Int) {
                         startActivity(
                             Intent(
@@ -187,9 +245,9 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
                         )
                     }
 
-                })*/
+                })*//*
         }
-    }
+    }*/
 
     override fun getViewBinding() = ActivityMotivatorDetailBinding.inflate(layoutInflater)
 }

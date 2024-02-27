@@ -22,6 +22,21 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/exercise_image" />
 
+<!--            <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView-->
+<!--                android:id="@+id/vimeoPlayerView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="250dp"-->
+<!--                app:autoPlay="false"-->
+<!--                app:backgroundColor="#00FFFF"-->
+<!--                app:loop="false"-->
+<!--                app:muted="false"-->
+<!--                app:quality="auto"-->
+<!--                app:showFullscreenOption="false"-->
+<!--                app:showMenuOption="false"-->
+<!--                app:showOriginalControls="false"-->
+<!--                app:showTitle="true"-->
+<!--                app:topicColor="#FFFF00" />-->
+
         </LinearLayout>
 
         <ImageView

@@ -123,6 +123,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         if (CheckNetworkConnection.isConnection(requireContext(), binding.root, true)) {
             showLoader()
             authViewModel.courseOrderListApiCall("Bearer " + sharedPreferences.token)
+            Log.d("Token","Bearer " + sharedPreferences.token);
             authViewModel.courseOrderListResponse.observe(this) {
                 when (it) {
                     is Resource.Success -> {
@@ -132,7 +133,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                         lifecycleScope.launch {
                             it.let {
                                 val response = it.value
-                                print(response.data)
+                                Log.d("response_order",response.data.toString())
                                 if (response.status == MyConstant.success) {
                                     courseList = response.data.list
                                     courseData = response.data
