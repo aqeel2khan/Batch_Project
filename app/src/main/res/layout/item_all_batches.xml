@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
-  <!--  <ImageView
-        android:layout_width="@dimen/_300sdp"
-        android:layout_height="@dimen/_300sdp"
-        android:id="@+id/img_2"/>-->
+    <!--  <ImageView
+          android:layout_width="@dimen/_300sdp"
+          android:layout_height="@dimen/_300sdp"
+          android:id="@+id/img_2"/>-->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_180sdp"
+        android:layout_height="@dimen/_185sdp"
         android:layout_gravity="center"
-        app:cardElevation="@dimen/_2sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:elevation="@dimen/_2sdp"
         android:padding="@dimen/_2sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        app:cardCornerRadius="@dimen/_10sdp">
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_2sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                 android:id="@+id/background_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
                 android:src="@drawable/food" />
 
         </LinearLayout>
@@ -42,20 +42,20 @@
             <!--current batch xml-->
             <com.example.bottomanimationmydemo.custom.MyCustomTextView
                 android:id="@+id/workout_batch"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/radius_shape"
-                android:paddingEnd="@dimen/_10sdp"
                 android:paddingStart="@dimen/_10sdp"
-                android:textSize="@dimen/_10ssp"
                 android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_4sdp"
                 android:text="@string/current_batch"
                 android:textColor="@color/welcome_txt"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -68,10 +68,11 @@
                     android:id="@+id/tv_course_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/outfit_bold"
                     android:text="@string/workout_batch"
+
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <LinearLayout
                     android:id="@+id/workOutBath"
@@ -82,18 +83,20 @@
                     <com.example.bottomanimationmydemo.custom.MyCustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/outfit_regular"
                         android:text="from "
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_8ssp"
+                        android:textSize="@dimen/_9ssp"
                         android:textStyle="bold" />
 
                     <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                        android:id="@+id/tv_course_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/outfit_medium"
                         android:text="$35"
-                        android:id="@+id/tv_course_price"
-                        android:textSize="@dimen/_11ssp"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp" />
                 </LinearLayout>
 
                 <RelativeLayout
@@ -101,7 +104,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/workOutBath"
-                    android:layout_marginTop="@dimen/_8sdp">
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -114,15 +118,17 @@
                             android:layout_width="@dimen/_13sdp"
                             android:layout_height="@dimen/_16sdp"
                             android:layout_marginEnd="@dimen/_3sdp"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/streat" />
 
                         <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:id="@+id/work_type"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/outfit_medium"
                             android:text="@string/txt_Stretching"
-                            android:id="@+id/work_type"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10ssp"
+                            android:textSize="@dimen/_11ssp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -137,15 +143,17 @@
                             android:layout_width="@dimen/_12sdp"
                             android:layout_height="@dimen/_14sdp"
                             android:layout_marginEnd="@dimen/_3sdp"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/calender" />
 
                         <com.example.bottomanimationmydemo.custom.MyCustomTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_2sdp"
+                            android:fontFamily="@font/outfit_medium"
                             android:text="from 1 week"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10ssp"
+                            android:textSize="@dimen/_11ssp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -159,6 +167,7 @@
                         <ImageView
                             android:layout_width="@dimen/_13sdp"
                             android:layout_height="@dimen/_13sdp"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/bar_chart" />
 
                         <com.example.bottomanimationmydemo.custom.MyCustomTextView
@@ -166,9 +175,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_3sdp"
+                            android:fontFamily="@font/outfit_medium"
                             android:text="Beginner"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10ssp"
+                            android:textSize="@dimen/_11ssp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </RelativeLayout>
@@ -177,13 +187,13 @@
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/workOutBatchRelative"
-                    android:layout_marginTop="4dp">
+                    android:layout_below="@id/workOutBatchRelative">
 
                     <ImageView
                         android:id="@+id/coach_profile"
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/profile_image" />
 
                     <com.example.bottomanimationmydemo.custom.MyCustomTextView
@@ -192,9 +202,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/outfit_medium"
                         android:text="Bessie Cooper"
-                        android:textSize="@dimen/_10ssp"
                         android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -208,9 +219,9 @@
                     android:indeterminate="false"
                     android:max="50"
                     android:progress="0"
-                    android:visibility="gone"
                     android:progressDrawable="@drawable/custom_seekbar"
-                    android:thumb="@drawable/thumb" />
+                    android:thumb="@drawable/thumb"
+                    android:visibility="gone" />
 
             </RelativeLayout>
 

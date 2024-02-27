@@ -36,7 +36,7 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
     private val authViewModel by viewModels<AuthViewModel>()
     private var course_id: String? = null
     private var course_price: String? = null
-   private lateinit var courseDetailData: Data
+    private lateinit var courseDetailData: Data
     val durationList: ArrayList<String> = ArrayList()
     override fun getViewModel(): BaseViewModel {
         return viewModel
@@ -59,7 +59,12 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
 
             binding.spinner.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
                     val item = parent.getItemAtPosition(position).toString()
                 }
 
@@ -84,7 +89,7 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
                             it.let {
                                 val response = it.value
                                 if (response.status == MyConstant.success) {
-                                   courseDetailData = response.data
+                                    courseDetailData = response.data
                                     sharedPreferences.saveCourseId(response.data.courseId.toString())
                                     setUpDetails(courseDetailData)
                                 }
@@ -112,35 +117,35 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
     @SuppressLint("SetTextI18n")
     private fun setUpDetails(courseData: Data) {
 
-       if(courseData!=null) {
+        if (courseData != null) {
 
-           course_price = courseData.coursePrice + "KWD"
-           binding.courseName.text = courseData.courseName
-           binding.courseDescription.text = courseData.description
-           binding.coursePrice.text = course_price
-           binding.coachName.text = courseData.coachDetail.name
-           MyUtils.loadImage(
-               binding.coachProfile,
-               MyConstant.IMAGE_BASE_URL + courseData.coachDetail.profilePhotoPath
-           )
-           MyUtils.loadBackgroundImage(
-               binding.backgroundImg,
-               MyConstant.IMAGE_BASE_URL + courseData.courseImage
-           )
-           binding.trainingDay.text = "${courseData.perDayWorkout} trainings"
-           binding.validateMin.text = courseData.duration + " min"
-           binding.levelType.text = courseData.courseLevel.levelName
-           binding.dollerText2.text = courseData.coursePrice + "KWD"
-           if(!courseData.workoutType.isNullOrEmpty() ){
-               setWorkoutType(courseData.workoutType as List<WorkoutType>)
-           }
-         //  setWorkoutType(courseData.workoutType as List<WorkoutType>)
-           if(!courseData.courseDuration.isNullOrEmpty() ){
-               setWorkoutTypeAdapter(courseData.courseDuration as List<CourseDuration>)
-           }
+            course_price = courseData.coursePrice + "KWD"
+            binding.courseName.text = courseData.courseName
+            binding.courseDescription.text = courseData.description
+            binding.coursePrice.text = course_price
+            binding.coachName.text = courseData.coachDetail.name
+            MyUtils.loadImage(
+                binding.coachProfile,
+                MyConstant.IMAGE_BASE_URL + courseData.coachDetail.profilePhotoPath
+            )
+            MyUtils.loadBackgroundImage(
+                binding.backgroundImg,
+                MyConstant.IMAGE_BASE_URL + courseData.courseImage
+            )
+            binding.trainingDay.text = "${courseData.perDayWorkout} trainings"
+            binding.validateMin.text = courseData.duration + " min"
+            binding.levelType.text = courseData.courseLevel.levelName
+            binding.dollerText2.text = courseData.coursePrice + "KWD"
+            if (!courseData.workoutType.isNullOrEmpty()) {
+                setWorkoutType(courseData.workoutType as List<WorkoutType>)
+            }
+            //  setWorkoutType(courseData.workoutType as List<WorkoutType>)
+            if (!courseData.courseDuration.isNullOrEmpty()) {
+                setWorkoutTypeAdapter(courseData.courseDuration as List<CourseDuration>)
+            }
 
-           durationList.add(courseData.duration)
-       }
+            durationList.add(courseData.duration)
+        }
     }
 
     private fun setWorkoutType(workoutType: List<WorkoutType>) {
@@ -159,8 +164,9 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
             startActivity(
                 Intent(
                     this@CourseDetailActivity,
-                    BuySubscriptionActivity::class.java)
-                   /*.putExtra("course_id", course_id)*/
+                    BuySubscriptionActivity::class.java
+                )
+                /*.putExtra("course_id", course_id)*/
             )
         }
     }
@@ -181,7 +187,8 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
     private fun setWorkoutTypeAdapter(courseDuration: List<CourseDuration>) {
         binding.recyclerWorkoutType.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.recyclerWorkoutType.adapter = BatchWorkoutTypeAdapter(this@CourseDetailActivity, courseDuration)
+        binding.recyclerWorkoutType.adapter =
+            BatchWorkoutTypeAdapter(this@CourseDetailActivity, courseDuration)
     }
 
     override fun getViewBinding() = ActivityCourseDetailBinding.inflate(layoutInflater)
