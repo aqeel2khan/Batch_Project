@@ -23,7 +23,7 @@ class MotivatorListAdapter(
             binding.txtProfesion.text = "Yoga, pilates"
             MyUtils.loadImage(
                 binding.imgTrainerProfile,
-                MyConstant.IMAGE_BASE_URL+data.profilePhotoPath
+                MyConstant.IMAGE_BASE_URL + data.profilePhotoPath
             )
 
             binding.root.setOnClickListener {
@@ -33,7 +33,8 @@ class MotivatorListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemListMotivatorBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemListMotivatorBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

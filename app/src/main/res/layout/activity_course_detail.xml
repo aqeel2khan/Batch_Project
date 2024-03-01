@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:orientation="horizontal">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -37,10 +38,10 @@
 
 
     <RelativeLayout
-        android:layout_above="@id/ll_total_sybscribe"
         android:id="@+id/rel_weight_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/ll_total_sybscribe"
         android:layout_below="@id/exercise_image"
         android:layout_marginTop="-30dp"
         android:background="@drawable/rounded_bg_main">
@@ -48,6 +49,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -59,22 +61,22 @@
                     android:id="@+id/course_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
+                    android:fontFamily="@font/outfit_bold"
                     android:text="Weight Loss"
-                    android:textColor="@color/welcome_txt"
+                    android:textColor="@color/black"
                     android:textFontWeight="500"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
                     android:id="@+id/course_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:fontFamily="sans-serif-medium"
+                    android:fontFamily="@font/outfit_bold"
                     android:text="$35"
                     android:textColor="@color/black"
                     android:textFontWeight="500"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
                     android:id="@+id/fromText"
@@ -83,9 +85,10 @@
                     android:layout_alignBottom="@id/course_price"
                     android:layout_marginHorizontal="5dp"
                     android:layout_toLeftOf="@id/course_price"
+                    android:fontFamily="@font/outfit_regular"
                     android:text="from"
-                    android:textColor="#101215"
-                    android:textSize="@dimen/_8ssp" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp" />
 
                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
                     android:id="@+id/course_description"
@@ -93,9 +96,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/course_name"
                     android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/outfit_medium"
                     android:text="@string/weight_loss_content"
                     android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
@@ -109,6 +113,7 @@
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_below="@id/course_description"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/profile_image" />
 
                     <com.example.bottomanimationmydemo.custom.MyCustomTextView
@@ -116,10 +121,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:textSize="@dimen/_10ssp"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:fontFamily="@font/outfit_semi_bold"
+                        android:text="Cameron Williasom"
                         android:textColor="@color/txt_color"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:text="Cameron Williasom" />
+                        android:textSize="@dimen/_12ssp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -138,8 +144,8 @@
                         <LinearLayout
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:background="@drawable/radius_shape">
+                            android:background="@drawable/radius_shape"
+                            android:gravity="center">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -153,14 +159,15 @@
                                     android:src="@drawable/accessibility" />
 
                                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                    android:id="@+id/training_day"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginStart="@dimen/_2sdp"
-                                    android:id="@+id/training_day"
+                                    android:fontFamily="@font/outfit_semi_bold"
                                     android:text="20 trainings"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_8ssp" />
+                                    android:textSize="@dimen/_9ssp" />
                             </LinearLayout>
                         </LinearLayout>
 
@@ -173,8 +180,8 @@
                             <LinearLayout
                                 android:layout_width="@dimen/_60sdp"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:layout_margin="@dimen/_5sdp">
+                                android:layout_margin="@dimen/_5sdp"
+                                android:gravity="center">
 
                                 <ImageView
                                     android:layout_width="@dimen/_15sdp"
@@ -183,14 +190,15 @@
                                     android:src="@drawable/clock" />
 
                                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                    android:id="@+id/validate_min"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:text="@string/_15_20_min"
-                                    android:id="@+id/validate_min"
                                     android:layout_marginStart="@dimen/_2sdp"
+                                    android:fontFamily="@font/outfit_semi_bold"
+                                    android:text="@string/_15_20_min"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_8ssp" />
+                                    android:textSize="@dimen/_9ssp" />
                             </LinearLayout>
                         </LinearLayout>
 
@@ -204,8 +212,8 @@
                                 android:layout_width="@dimen/_60sdp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:gravity="center"
-                                android:layout_margin="@dimen/_5sdp">
+                                android:layout_margin="@dimen/_5sdp"
+                                android:gravity="center">
 
                                 <ImageView
                                     android:layout_width="@dimen/_12sdp"
@@ -214,14 +222,15 @@
                                     android:src="@drawable/chat_icon" />
 
                                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                    android:id="@+id/level_type"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:id="@+id/level_type"
-                                    android:text="Beginner"
                                     android:layout_marginStart="@dimen/_2sdp"
+                                    android:fontFamily="@font/outfit_semi_bold"
+                                    android:text="Beginner"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_8ssp" />
+                                    android:textSize="@dimen/_9ssp" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -231,107 +240,108 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:orientation="horizontal">
+
                         <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/work_type"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/work_type"/>
+                            android:layout_height="wrap_content" />
 
-                       <!-- <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/radius_shape">
+                        <!-- <LinearLayout
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:background="@drawable/radius_shape">
 
-                            <LinearLayout
-                                android:layout_width="@dimen/_60sdp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:layout_margin="@dimen/_5sdp">
+                             <LinearLayout
+                                 android:layout_width="@dimen/_60sdp"
+                                 android:layout_height="wrap_content"
+                                 android:gravity="center"
+                                 android:layout_margin="@dimen/_5sdp">
 
-                                <ImageView
-                                    android:layout_width="@dimen/_15sdp"
-                                    android:layout_height="@dimen/_15sdp"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/accessibility" />
+                                 <ImageView
+                                     android:layout_width="@dimen/_15sdp"
+                                     android:layout_height="@dimen/_15sdp"
+                                     android:layout_gravity="center"
+                                     android:src="@drawable/accessibility" />
 
-                                <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="yoga"
-                                    android:textColor="@color/black"
-                                    android:layout_marginStart="@dimen/_2sdp"
-                                    android:textSize="@dimen/_8ssp" />
-                            </LinearLayout>
-                        </LinearLayout>
+                                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_gravity="center"
+                                     android:text="yoga"
+                                     android:textColor="@color/black"
+                                     android:layout_marginStart="@dimen/_2sdp"
+                                     android:textSize="@dimen/_8ssp" />
+                             </LinearLayout>
+                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_5sdp"
-                            android:background="@drawable/radius_shape">
+                         <LinearLayout
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginLeft="@dimen/_5sdp"
+                             android:background="@drawable/radius_shape">
 
-                            <LinearLayout
-                                android:layout_width="@dimen/_60sdp"
-                                android:gravity="center"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="@dimen/_5sdp">
+                             <LinearLayout
+                                 android:layout_width="@dimen/_60sdp"
+                                 android:gravity="center"
+                                 android:layout_height="wrap_content"
+                                 android:layout_margin="@dimen/_5sdp">
 
-                                <ImageView
-                                    android:layout_width="@dimen/_15sdp"
-                                    android:layout_height="@dimen/_15sdp"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/accessibility" />
+                                 <ImageView
+                                     android:layout_width="@dimen/_15sdp"
+                                     android:layout_height="@dimen/_15sdp"
+                                     android:layout_gravity="center"
+                                     android:src="@drawable/accessibility" />
 
-                                <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="stretching"
-                                    android:textColor="@color/black"
-                                    android:layout_marginStart="@dimen/_2sdp"
-                                    android:textSize="@dimen/_8ssp"  />
-                            </LinearLayout>
-                        </LinearLayout>
+                                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_gravity="center"
+                                     android:text="stretching"
+                                     android:textColor="@color/black"
+                                     android:layout_marginStart="@dimen/_2sdp"
+                                     android:textSize="@dimen/_8ssp"  />
+                             </LinearLayout>
+                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_5sdp"
-                            android:background="@drawable/radius_shape">
+                         <LinearLayout
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_marginLeft="@dimen/_5sdp"
+                             android:background="@drawable/radius_shape">
 
-                            <LinearLayout
-                                android:layout_width="@dimen/_60sdp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:layout_margin="@dimen/_5sdp">
+                             <LinearLayout
+                                 android:layout_width="@dimen/_60sdp"
+                                 android:layout_height="wrap_content"
+                                 android:gravity="center"
+                                 android:layout_margin="@dimen/_5sdp">
 
-                                <ImageView
-                                    android:layout_width="@dimen/_15sdp"
-                                    android:layout_height="@dimen/_15sdp"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/accessibility" />
+                                 <ImageView
+                                     android:layout_width="@dimen/_15sdp"
+                                     android:layout_height="@dimen/_15sdp"
+                                     android:layout_gravity="center"
+                                     android:src="@drawable/accessibility" />
 
-                                <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="cardio"
-                                    android:textColor="@color/black"
-                                    android:layout_marginStart="@dimen/_2sdp"
-                                    android:textSize="@dimen/_8ssp"  />
-                            </LinearLayout>
-                        </LinearLayout>-->
+                                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_gravity="center"
+                                     android:text="cardio"
+                                     android:textColor="@color/black"
+                                     android:layout_marginStart="@dimen/_2sdp"
+                                     android:textSize="@dimen/_8ssp"  />
+                             </LinearLayout>
+                         </LinearLayout>-->
                     </LinearLayout>
 
                 </LinearLayout>
 
                 <View
+                    android:id="@+id/view2"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/gry2"
-                    android:id="@+id/view2"
+                    android:layout_below="@id/linearLayout2"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_below="@id/linearLayout2"/>
+                    android:background="@color/gry2" />
 
                 <RelativeLayout
                     android:id="@+id/relativeLayout"
@@ -346,9 +356,9 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:text="Duration"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/outfit_bold"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_14ssp"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -361,52 +371,52 @@
                             android:id="@+id/spinner"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/_6sdp"
-                            android:entries="@array/week"/>
+                            android:entries="@array/week"
+                            android:padding="@dimen/_6sdp" />
                     </LinearLayout>
                 </RelativeLayout>
 
                 <View
                     android:id="@+id/view1"
-                    android:layout_below="@id/relativeLayout"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_below="@id/relativeLayout"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:background="@color/gry2"/>
+                    android:background="@color/gry2" />
 
                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
                     android:id="@+id/workout_text"
-                    android:layout_below="@id/view1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Workouts"
+                    android:layout_below="@id/view1"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/outfit_bold"
+                    android:text="Workouts"
                     android:textColor="@color/black"
-                    android:textFontWeight="500"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_14ssp" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_workout_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/workout_text"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_20sdp"
-                    android:id="@+id/recycler_workout_type"/>
+                    android:layout_marginBottom="@dimen/_20sdp" />
             </RelativeLayout>
 
         </ScrollView>
 
     </RelativeLayout>
+
     <LinearLayout
         android:id="@+id/ll_total_sybscribe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/_20sdp"
         android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp">
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/relative"
@@ -419,86 +429,89 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginBottom="@dimen/_20sdp"
+                android:fontFamily="@font/outfit_bold"
                 android:text="Grand total"
-                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
 
             <com.example.bottomanimationmydemo.custom.MyCustomTextView
                 android:id="@+id/dollerText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:fontFamily="sans-serif-medium"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/outfit_bold"
+                android:gravity="center_vertical"
                 android:text="$35"
                 android:textColor="@color/black"
                 android:textFontWeight="500"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="@dimen/_14ssp" />
         </RelativeLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_subscribe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:background="@drawable/rectangle_button"
-            android:fontFamily="@font/outfit_regular"
+            android:fontFamily="@font/outfit_medium"
             android:outlineSpotShadowColor="#516634"
             android:padding="@dimen/_10sdp"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textSize="@dimen/_12ssp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:textFontWeight="500"
-            tools:ignore="UnusedAttribute"
             android:text="@string/subscribe_for_a_course"
-            android:textColor="@color/white" />
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="500"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute" />
     </LinearLayout>
 
-  <!--  <LinearLayout
-        android:id="@+id/ll_total_sybscribe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp">
+    <!--  <LinearLayout
+          android:id="@+id/ll_total_sybscribe"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:layout_alignParentBottom="true"
+          android:layout_marginTop="@dimen/_10sdp"
+          android:layout_marginBottom="@dimen/_10sdp"
+          android:layout_marginStart="@dimen/_20sdp"
+          android:layout_marginEnd="@dimen/_20sdp">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_startWorkout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rectangle_button"
-            android:fontFamily="@font/outfit_regular"
-            android:outlineSpotShadowColor="#516634"
-            android:padding="@dimen/_10sdp"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textSize="@dimen/_12ssp"
-            android:textFontWeight="500"
-            tools:ignore="UnusedAttribute"
-            android:text="@string/txt_start_workout"
-            android:textColor="@color/white" />
+          <androidx.appcompat.widget.AppCompatButton
+              android:id="@+id/btn_startWorkout"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/rectangle_button"
+              android:fontFamily="@font/outfit_regular"
+              android:outlineSpotShadowColor="#516634"
+              android:padding="@dimen/_10sdp"
+              android:textAllCaps="false"
+              android:textStyle="bold"
+              android:textSize="@dimen/_12ssp"
+              android:textFontWeight="500"
+              tools:ignore="UnusedAttribute"
+              android:text="@string/txt_start_workout"
+              android:textColor="@color/white" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_3sdp"
-            android:layout_marginTop="@dimen/_8sdp">
+          <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="@dimen/_3sdp"
+              android:layout_marginTop="@dimen/_8sdp">
 
-            <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                android:id="@+id/txt_change_course"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="@string/txt_channge_course"
-                android:textStyle="bold"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/terms_color"
-                android:textSize="@dimen/_10ssp" />
-        </RelativeLayout>
-    </LinearLayout>-->
+              <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                  android:id="@+id/txt_change_course"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerVertical="true"
+                  android:text="@string/txt_channge_course"
+                  android:textStyle="bold"
+                  android:layout_centerHorizontal="true"
+                  android:textColor="@color/terms_color"
+                  android:textSize="@dimen/_10ssp" />
+          </RelativeLayout>
+      </LinearLayout>-->
 
 
 </RelativeLayout>

@@ -57,7 +57,7 @@ data class Data(
     @SerializedName("weight_required")
     val weightRequired: String,
     @SerializedName("workout_type")
-    val workoutType: List<WorkoutType?>
+    val workoutType: List<WorkoutType>
 )
 data class CoachDetail(
     @SerializedName("id")
