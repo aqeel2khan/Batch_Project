@@ -181,34 +181,30 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
         val activityAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Information)
         activityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         sp_plan_duration.adapter = activityAdapter
-        sp_plan_duration.post(
-            Runnable {
-                sp_plan_duration.onItemSelectedListener =
-                    object : AdapterView.OnItemSelectedListener {
-                        override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                            val txtData = sp_plan_duration.selectedView as TextView
-                            if (p2 != 0) {
-                                isStatusPending = true
-                                status_id = indId[p2]
-                                Log.d("status_id", status_id.toString())
-                                planName = Information[p2]
-                                textPlanDuration!!.text = planName + "days"
-                                Log.d("mmmm", planName.toString())
-                                sp_plan_duration.visibility = View.GONE
-                                txtData.visibility = View.VISIBLE
-                            } else {
-                                sp_plan_duration.visibility = View.VISIBLE
+        sp_plan_duration.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    val txtData = sp_plan_duration.selectedView as TextView
+                    if (p2 != 0) {
+                        isStatusPending = true
+                        status_id = indId[p2]
+                        Log.d("status_id", status_id.toString())
+                        planName = Information[p2]
+                        textPlanDuration!!.text = planName + "days"
+                        Log.d("mmmm", planName.toString())
+                        sp_plan_duration.visibility = View.GONE
+                        txtData.visibility = View.VISIBLE
+                    } else {
+                        sp_plan_duration.visibility = View.VISIBLE
 
-                            }
-                        }
-
-                        override fun onNothingSelected(p0: AdapterView<*>?) {
-                            val txtData = sp_plan_duration.selectedView as TextView
-                            txtData.visibility = View.VISIBLE
-                        }
                     }
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                    val txtData = sp_plan_duration.selectedView as TextView
+                    txtData.visibility = View.VISIBLE
+                }
             }
-        )
     }
 
     override fun onBackPressed() {

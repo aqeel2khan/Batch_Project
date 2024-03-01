@@ -705,44 +705,17 @@
                     android:textColor="@color/welcome_txt"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
-
+                <ProgressBar
+                    android:id="@+id/pbLoading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"/>
                 <com.myfatoorah.sdk.views.embeddedpayment.MFPaymentCardView
                     android:id="@+id/mfPaymentView"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-               <!-- <com.myfatoorah.sdk.views.embeddedpayment.MFPaymentCardView
-                    android:id="@+id/mfPaymentView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:inputColor="@color/paymentCardViewTextColor"
-                    app:labelColor="@color/paymentCardViewLabelColor"
-                    app:errorColor="@color/paymentCardViewValidateTextColor"
-                    app:cardHolderNameHint="cardHolderNameHint"
-                    app:cardNumberHint="cardNumberHint"
-                    app:expiryDateHint="expiryDateHint"
-                    app:cvvHint="cvvHint"
-                    app:showLabels="false"
-                    app:cardHolderNameLabel="cardHolderNameLabel"
-                    app:cardNumberLabel="cardNumberLabel"
-                    app:expiryDateLabel="expiryDateLabel"
-                    app:cvvLabel="cvvLabel"/>-->
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_pay_now"
                     android:visibility="gone"
-                    android:layout_width="@dimen/_150sdp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/rectangle_button"
-                    android:backgroundTint="#516634"
-                    android:text="Pay Now"
-                    android:elevation="@dimen/_2sdp"
-                    android:layout_marginStart="@dimen/_20sdp"
-                    android:padding="@dimen/_2sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_12ssp" />
-
+                    android:layout_height="wrap_content"/>
 
                 <LinearLayout
                     android:id="@+id/ll_payment_method"
@@ -768,7 +741,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/outfit_regular"
-                            android:text="Credit card"
+                            android:text="@string/pay_now"
                             android:textColor="@color/welcome_txt"
                             android:textSize="@dimen/_12ssp" />
 
@@ -776,7 +749,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/outfit_regular"
-                            android:text="....2930"
+                            android:id="@+id/selected_card"
+                            android:text=""
                             android:textColor="@color/welcome_txt_gry"
                             android:textSize="@dimen/_10ssp" />
                     </LinearLayout>

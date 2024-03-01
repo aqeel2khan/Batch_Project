@@ -257,4 +257,5 @@ Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagitt
     <string name="txt_workout_type">Workout Type</string>
     <string name="txt_workout_level">Level</string>
     <string name="txt_workout_goal">Goal</string>
+    <string name="pay_now">Pay Now</string>
 </resources>

@@ -21,9 +21,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     override fun initUi() {
         binding.apply {
             Handler(Looper.myLooper()!!).postDelayed({
-//                startActivity(Intent(this@SplashActivity, OnBoardingActivity::class.java).addFlags(
-                startActivity(
-                    Intent(this@SplashActivity, MainActivity::class.java).addFlags(
+                startActivity(Intent(this@SplashActivity, OnBoardingActivity::class.java).addFlags(
+//                startActivity(Intent(this@SplashActivity, MainActivity::class.java).addFlags(
                         Intent.FLAG_ACTIVITY_NEW_TASK
                     ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 )

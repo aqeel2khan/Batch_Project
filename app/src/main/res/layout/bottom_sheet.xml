@@ -288,131 +288,267 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textColor="@color/welcome_txt"
                 android:textSize="@dimen/_11ssp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPaymentMethod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/fragment_item"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/_4sdp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/_4sdp"
-                android:layout_marginTop="@dimen/_10sdp">
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:layout_weight="0.1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:src="@drawable/apple_card"/>
-                <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                    android:layout_weight="0.8"
-                    android:layout_width="0dp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_10ssp"
-                    android:textColor="@color/welcome_txt_gry"
-                    android:text="Apple Pay"/>
-                <ImageView
-                    android:layout_weight="0.1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_16sdp"
-                    android:src="@drawable/icon_circle"/>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/gry2"
-                android:layout_margin="@dimen/_4sdp" />
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:id="@+id/llDirectPaymentLayout">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etCardNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5453010000095539"
+                        android:maxLines="1"
+                        android:hint="Car Number"
+                        android:inputType="number"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etExpiryMonth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="12"
+                        android:maxLines="1"
+                        android:hint="Expiry(MM)"
+                        android:inputType="number"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etExpiryYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="25"
+                        android:maxLines="1"
+                        android:hint="Expiry(YY)"
+                        android:inputType="number"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etSecurityCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="212"
+                        android:maxLines="1"
+                        android:hint="Security Code"
+                        android:inputType="number"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etCardHolderName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mahmoud Ibrahim"
+                        android:maxLines="1"
+                        android:hint="Mahmoud Ibrahim"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <ProgressBar
+                android:id="@+id/pbLoading"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/_4sdp"
-                android:layout_marginTop="@dimen/_10sdp">
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:layout_weight="0.1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:src="@drawable/icon_master"/>
-                <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                    android:layout_weight="0.8"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_10ssp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:textColor="@color/welcome_txt"
-                    android:text="....4322"/>
-                <ImageView
-                    android:layout_weight="0.1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_16sdp"
-                    android:src="@drawable/selected_icon"/>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/gry2"
-                android:layout_margin="@dimen/_4sdp" />
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+            <!-- <LinearLayout
+                 android:id="@+id/ll_my_fatoora_payment"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:gravity="center"
+                 android:padding="@dimen/_4sdp"
+                 android:layout_marginTop="@dimen/_10sdp">
+                 <androidx.constraintlayout.utils.widget.ImageFilterView
+                     android:layout_weight="0.1"
+                     android:layout_width="0dp"
+                     android:layout_height="@dimen/_20sdp"
+                     android:src="@drawable/ic_myfatoora"/>
+                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                     android:layout_weight="0.8"
+                     android:layout_width="0dp"
+                     android:layout_marginStart="@dimen/_5sdp"
+                     android:layout_height="wrap_content"
+                     android:textSize="@dimen/_10ssp"
+                     android:textColor="@color/welcome_txt_gry"
+                     android:text="My Fatoora"/>
+                 <ImageView
+                     android:layout_weight="0.1"
+                     android:layout_width="0dp"
+                     android:layout_height="@dimen/_16sdp"
+                     android:src="@drawable/icon_circle"/>
+             </LinearLayout>
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/_1sdp"
+                 android:background="@color/gry2"
+                 android:layout_margin="@dimen/_4sdp" />
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:gravity="center"
+                 android:padding="@dimen/_4sdp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/_4sdp"
-                android:layout_marginTop="@dimen/_10sdp">
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:layout_weight="0.1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:src="@drawable/icon_visa"/>
-                <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                    android:layout_weight="0.8"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_10ssp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:textColor="@color/welcome_txt_gry"
-                    android:text="....1234"/>
-                <ImageView
-                    android:layout_weight="0.1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_16sdp"
-                    android:src="@drawable/icon_circle"/>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/gry2"
-                android:layout_margin="@dimen/_4sdp" />
+                 <androidx.constraintlayout.utils.widget.ImageFilterView
+                     android:layout_width="0dp"
+                     android:layout_height="@dimen/_20sdp"
+                     android:layout_weight="0.1"
+                     android:src="@drawable/apple_card" />
 
-            <LinearLayout
-                android:id="@+id/ll_add_new_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/_4sdp"
-                android:layout_marginTop="@dimen/_10sdp">
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:layout_weight="0.1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:src="@drawable/icon_card"/>
-                <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                    android:layout_weight="0.8"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_10ssp"
-                    android:layout_marginStart="@dimen/_5sdp"
-                    android:textColor="@color/welcome_txt"
-                    android:text="Add new card"/>
-                <ImageView
-                    android:layout_weight="0.1"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_16sdp"
-                    android:src="@drawable/ic_arrow"/>
-            </LinearLayout>
+                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:layout_marginStart="@dimen/_5sdp"
+                     android:layout_weight="0.8"
+                     android:text="Apple Pay"
+                     android:textColor="@color/welcome_txt_gry"
+                     android:textSize="@dimen/_10ssp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/gry2"
-                android:layout_margin="@dimen/_4sdp"/>
+                 <ImageView
+                     android:layout_width="0dp"
+                     android:layout_height="@dimen/_16sdp"
+                     android:layout_weight="0.1"
+                     android:src="@drawable/icon_circle" />
+             </LinearLayout>
+
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/_1sdp"
+                 android:layout_margin="@dimen/_4sdp"
+                 android:background="@color/gry2" />
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:gravity="center"
+                 android:padding="@dimen/_4sdp"
+                 android:layout_marginTop="@dimen/_10sdp">
+                 <androidx.constraintlayout.utils.widget.ImageFilterView
+                     android:layout_weight="0.1"
+                     android:layout_width="0dp"
+                     android:layout_height="@dimen/_20sdp"
+                     android:src="@drawable/icon_master"/>
+                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                     android:layout_weight="0.8"
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:textSize="@dimen/_10ssp"
+                     android:layout_marginStart="@dimen/_5sdp"
+                     android:textColor="@color/welcome_txt"
+                     android:text="....4322"/>
+                 <ImageView
+                     android:layout_weight="0.1"
+                     android:layout_width="0dp"
+                     android:layout_height="@dimen/_16sdp"
+                     android:src="@drawable/icon_circle"/>&lt;!&ndash;android:src="@drawable/selected_icon"/>&ndash;&gt;
+             </LinearLayout>
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/_1sdp"
+                 android:background="@color/gry2"
+                 android:layout_margin="@dimen/_4sdp" />
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:gravity="center"
+                 android:padding="@dimen/_4sdp"
+                 android:layout_marginTop="@dimen/_10sdp">
+                 <androidx.constraintlayout.utils.widget.ImageFilterView
+                     android:layout_weight="0.1"
+                     android:layout_width="0dp"
+                     android:layout_height="@dimen/_20sdp"
+                     android:src="@drawable/icon_visa"/>
+                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                     android:layout_weight="0.8"
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:textSize="@dimen/_10ssp"
+                     android:layout_marginStart="@dimen/_5sdp"
+                     android:textColor="@color/welcome_txt_gry"
+                     android:text="....1234"/>
+                 <ImageView
+                     android:layout_weight="0.1"
+                     android:layout_width="0dp"
+                     android:layout_height="@dimen/_16sdp"
+                     android:src="@drawable/icon_circle"/>
+             </LinearLayout>
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/_1sdp"
+                 android:background="@color/gry2"
+                 android:layout_margin="@dimen/_4sdp" />
+
+             <LinearLayout
+                 android:id="@+id/ll_add_new_card"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:gravity="center"
+                 android:padding="@dimen/_4sdp"
+                 android:layout_marginTop="@dimen/_10sdp">
+                 <androidx.constraintlayout.utils.widget.ImageFilterView
+                     android:layout_weight="0.1"
+                     android:layout_width="0dp"
+                     android:layout_height="@dimen/_20sdp"
+                     android:src="@drawable/icon_card"/>
+                 <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                     android:layout_weight="0.8"
+                     android:layout_width="0dp"
+                     android:layout_height="wrap_content"
+                     android:textSize="@dimen/_10ssp"
+                     android:layout_marginStart="@dimen/_5sdp"
+                     android:textColor="@color/welcome_txt"
+                     android:text="Add new card"/>
+                 <ImageView
+                     android:layout_weight="0.1"
+                     android:layout_width="0dp"
+                     android:layout_height="@dimen/_16sdp"
+                     android:src="@drawable/ic_arrow"/>
+             </LinearLayout>
+
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/_1sdp"
+                 android:background="@color/gry2"
+                 android:layout_margin="@dimen/_4sdp"/>-->
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
