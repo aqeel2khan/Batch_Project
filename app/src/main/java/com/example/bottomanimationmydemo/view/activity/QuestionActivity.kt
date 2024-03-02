@@ -16,6 +16,10 @@ class QuestionActivity : BaseActivity<ActivityQuestionBinding>() {
    private val viewModel: AllViewModel by viewModels()
     override fun getViewModel(): BaseViewModel {
         return viewModel
+
+
+
+
     }
 
     override fun initUi() {
