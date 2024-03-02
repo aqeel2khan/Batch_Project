@@ -38,41 +38,17 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
     private var course_price: String? = null
     private lateinit var courseDetailData: Data
     val durationList: ArrayList<String> = ArrayList()
+    val dataList: ArrayList<String> = ArrayList()
+    val weekString = " days "
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
 
     override fun initUi() {
-//      setWorkoutTypeAdapter()
         buttonClicks()
         startRelativeAnimation(binding.relWeightLayout)
         course_id = intent.getStringExtra("course_id")
         getCourseDetailData(course_id)
-        setSpinnerData()
-    }
-
-    private fun setSpinnerData() {
-        if (binding.spinner != null) {
-            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, durationList)
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.spinner.adapter = adapter
-
-            binding.spinner.onItemSelectedListener = object :
-                AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View,
-                    position: Int,
-                    id: Long
-                ) {
-                    val item = parent.getItemAtPosition(position).toString()
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>) {
-                    // write code to perform some action
-                }
-            }
-        }
     }
 
     private fun getCourseDetailData(course_id: String?) {
@@ -116,22 +92,14 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
 
     @SuppressLint("SetTextI18n")
     private fun setUpDetails(courseData: Data) {
-
         if (courseData != null) {
-
             course_price = courseData.coursePrice + "KWD"
             binding.courseName.text = courseData.courseName
             binding.courseDescription.text = courseData.description
             binding.coursePrice.text = course_price
             binding.coachName.text = courseData.coachDetail.name
-            MyUtils.loadImage(
-                binding.coachProfile,
-                MyConstant.IMAGE_BASE_URL + courseData.coachDetail.profilePhotoPath
-            )
-            MyUtils.loadBackgroundImage(
-                binding.backgroundImg,
-                MyConstant.IMAGE_BASE_URL + courseData.courseImage
-            )
+            MyUtils.loadImage(binding.coachProfile, MyConstant.IMAGE_BASE_URL + courseData.coachDetail.profilePhotoPath)
+            MyUtils.loadBackgroundImage(binding.backgroundImg, MyConstant.IMAGE_BASE_URL + courseData.courseImage)
             binding.trainingDay.text = "${courseData.perDayWorkout} trainings"
             binding.validateMin.text = courseData.duration + " min"
             binding.levelType.text = courseData.courseLevel.levelName
@@ -145,6 +113,35 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
             }
 
             durationList.add(courseData.duration)
+            for (item in durationList) {
+                if (item.equals("Select Duration")){
+                    val newItem = item
+                    dataList.add(newItem)
+                }else{
+                    val newItem = item + weekString
+                    dataList.add(newItem)
+                }
+
+            }
+            setSpinnerData(dataList)
+        }
+    }
+
+    private fun setSpinnerData(dataList: ArrayList<String>) {
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, dataList)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinner!!.adapter = adapter
+
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View, position: Int, id: Long) {
+                val selectedValue = this@CourseDetailActivity.dataList[position]
+                // Append the selected value to the string variable
+//                Toast.makeText(this@BuySubscriptionActivity, selectedValue, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>) {
+                // Do nothing here
+            }
         }
     }
 

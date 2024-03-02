@@ -27,7 +27,7 @@ class FoodPlanBasedOnQuestionActivity : BaseActivity<ActivityFoodPlanBasedOnQues
 
     private fun buttonClicks() {
         binding.youMealBatch.setOnClickListener {
-            startActivity(Intent(this@FoodPlanBasedOnQuestionActivity, BatchMealPlanActivity::class.java))
+            startActivity(Intent(this@FoodPlanBasedOnQuestionActivity, MealDetailsActivity::class.java))
         }
         binding.btnBackToMeal.setOnClickListener {
             //redirect to meal fragment

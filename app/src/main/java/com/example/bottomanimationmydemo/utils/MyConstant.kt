@@ -43,8 +43,10 @@ object MyConstant {
     const val STARTWORKOUTSTATUS = "/course/order/workout/status"
 
     //meal
-//    const val MEALLIST = "meal/list"
-//    const val MEALDETAILS = "meal/details/{id}"
+    const val MEALLIST = "meal/list"
+    const val MEALDETAILS = "meal/details/{id}"
+    const val MEALFILTER = "meal/filters"
+    const val MEALDISH = "meal/dishes/{id}"
 
 //    const val DOLLER_SIGN = "$"
 }

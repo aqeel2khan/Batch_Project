@@ -23,6 +23,7 @@ private const val KEY_MY_COURSE_ID = "KEY_MY_COURSE_ID"
 private const val KEY_MY_WORK_CHAT_LIST = "KEY_MY_WORK_CHAT_LIST"
 private const val KEY_FCM_TOKEN = "KEY_FCM_TOKEN"
 private const val KEY_RADIO_STATE = "KEY_RADIO_STATE"
+private const val KEY_GENDER = "KEY_GENDER"
 
 class AppSharedPreferences  @Inject constructor(
     @ApplicationContext private val context: Context
@@ -53,6 +54,20 @@ class AppSharedPreferences  @Inject constructor(
         get() {
             val storedValue = sharedPreferences.getString(KEY_TOKEN, "")
             token = storedValue
+            return field
+        }
+
+    //set and get fcm token
+    fun saveGender(gender: String){
+        sharedPreferences.putValues {
+            it.putString(KEY_GENDER, gender)
+        }
+    }
+
+    var gender: String? = null
+        get() {
+            val storedValue = sharedPreferences.getString(KEY_GENDER, "")
+            gender = storedValue
             return field
         }
 

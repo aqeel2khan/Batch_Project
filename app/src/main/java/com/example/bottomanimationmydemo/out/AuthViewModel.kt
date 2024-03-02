@@ -13,7 +13,10 @@ import com.example.bottomanimationmydemo.model.course_model.CourseListResponse
 import com.example.bottomanimationmydemo.model.course_workout_list.CourseWorkoutListResponse
 import com.example.bottomanimationmydemo.model.courseorderlist.CourseOrderList
 import com.example.bottomanimationmydemo.model.login_model.LoginResponseModel
-import com.example.bottomanimationmydemo.model.meal_list.MealListResponse
+import com.example.bottomanimationmydemo.model.meal_detail_model.MealDetailResponse
+import com.example.bottomanimationmydemo.model.meal_dish_model.MealDishResponse
+import com.example.bottomanimationmydemo.model.meal_filter_model.MealFilterResponse
+import com.example.bottomanimationmydemo.model.meal_list.MealResponseList
 import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
 import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
 import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
@@ -164,12 +167,39 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
         _searchCourseFilterListResponse.value = repository.searchCourseListByFilterApi(jsonObject)
     }
 
-/*    //meal List filter
-    private val _mealListResponse: MutableLiveData<Resource<MealListResponse>> = MutableLiveData()
-    val mealListResponse: LiveData<Resource<MealListResponse>> get() = _mealListResponse
+    //meal List filter
+    private val _mealListResponse: MutableLiveData<Resource<MealResponseList>> = MutableLiveData()
+    val mealListResponse: LiveData<Resource<MealResponseList>> get() = _mealListResponse
 
     fun mealListApiCall() = viewModelScope.launch {
         _mealListResponse.value = Resource.Loading
         _mealListResponse.value = repository.getMealList()
-    }*/
+    }
+
+    // meal detail api
+    private val _mealDetailResponse: MutableLiveData<Resource<MealDetailResponse>> = MutableLiveData()
+    val mealDetailResponse: LiveData<Resource<MealDetailResponse>> get() = _mealDetailResponse
+
+    fun mealDetailApiCall(meal_id: String) = viewModelScope.launch {
+        _mealDetailResponse.value = Resource.Loading
+        _mealDetailResponse.value = repository.mealDetail(meal_id)
+    }
+
+    // meal detail api
+    private val _mealFilterResponse: MutableLiveData<Resource<MealFilterResponse>> = MutableLiveData()
+    val mealFilterResponse: LiveData<Resource<MealFilterResponse>> get() = _mealFilterResponse
+
+    fun mealFilterApiCall() = viewModelScope.launch {
+        _mealFilterResponse.value = Resource.Loading
+        _mealFilterResponse.value = repository.mealFilter()
+    }
+
+    // meal detail api
+    private val _mealDishResponse: MutableLiveData<Resource<MealDishResponse>> = MutableLiveData()
+    val mealDishResponse: LiveData<Resource<MealDishResponse>> get() = _mealDishResponse
+
+    fun mealDishApiCall(cat_id: Int) = viewModelScope.launch {
+        _mealDishResponse.value = Resource.Loading
+        _mealDishResponse.value = repository.mealDish(cat_id)
+    }
 }

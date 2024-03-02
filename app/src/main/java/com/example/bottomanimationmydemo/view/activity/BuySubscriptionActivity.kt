@@ -40,9 +40,10 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
     var isStatusPending = false
     var planName: String? = null
     var grand_total: String? = null
-//    var course_id: String? = null
-    lateinit var myObject: Data
+    var selectedValue: String? = null
     val durationList: ArrayList<String> = ArrayList()
+    val dataList: ArrayList<String> = ArrayList()
+    val weekString = " Weeks "
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
@@ -108,7 +109,16 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
         if (!courseData.duration.isNullOrEmpty()){
             durationList.add(courseData.duration)
         }
+        for (item in durationList) {
+            if (item.equals("Select Duration")){
+                val newItem = item
+                dataList.add(newItem)
+            }else{
+                val newItem = item + weekString
+                dataList.add(newItem)
+            }
 
+        }
     }
 
     private fun buttonClicks() {
@@ -116,9 +126,9 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
             showBottomSheetDialog()
         }
         binding.btnCheckout.setOnClickListener {
-          /*  if (binding.setPlanData.text.toString().isNullOrEmpty()){
+            if (binding.setPlanData.text.toString().isNullOrEmpty()){
                 showToast("Please select plan duration")
-            }else{*/
+            }else{
                 if (sharedPreferences.token != "") {
                     startActivity(
                         Intent(this@BuySubscriptionActivity, CheckOutActivity::class.java).putExtra("course_id", sharedPreferences.myCourseId)
@@ -128,7 +138,7 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
                         Intent(this@BuySubscriptionActivity, LoginActivity::class.java)
                     )
                 }
-//            }
+            }
         }
     }
 
@@ -145,14 +155,14 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
         val img_down = dialog.findViewById<ImageView>(R.id.img_down)
         ll_bottom_change_course!!.visibility = View.GONE
         ll_save_plan_layout!!.visibility = View.VISIBLE
+        selectPlanDurationAdapter(dataList, sp_plan_duration, textPlanDuration)
         ll_plan_duration!!.setOnClickListener {
-            selectPlanDurationAdapter(durationList, sp_plan_duration, textPlanDuration)
-//            selectPlanDurationAdapter(statusList, sp_plan_duration, textPlanDuration)
+            selectPlanDurationAdapter(dataList, sp_plan_duration, textPlanDuration)
         }
         btn_save!!.setOnClickListener {
             //code for save week price
             binding.setPlanData.visibility = View.VISIBLE
-            binding.setPlanData.text = planName.toString()
+            binding.setPlanData.text = selectedValue
             dialog.dismiss()
         }
         img_down!!.setOnClickListener {
@@ -161,50 +171,22 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
         dialog.show()
     }
 
-    private fun selectPlanDurationAdapter(
-        statusList: ArrayList<String>,
-        sp_plan_duration: Spinner?,
-        textPlanDuration: TextView?
-    ) {
-        sp_plan_duration!!.visibility = View.VISIBLE
-        sp_plan_duration.performClick()
+    private fun selectPlanDurationAdapter(dataList: ArrayList<String>, sp_plan_duration: Spinner?, textPlanDuration: TextView?) {
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, dataList)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        sp_plan_duration!!.adapter = adapter
 
-        val Information = ArrayList<String>()
-        val informationData = statusList
-        val indId = ArrayList<Int>()
-//        Information.add("Select Status")
-//        indId.add(0)
-        for (items in informationData) {
-            Information.add(items.toString())
-//            indId.add(items.id!!.toInt())
-        }
-        val activityAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Information)
-        activityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        sp_plan_duration.adapter = activityAdapter
-        sp_plan_duration.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    val txtData = sp_plan_duration.selectedView as TextView
-                    if (p2 != 0) {
-                        isStatusPending = true
-                        status_id = indId[p2]
-                        Log.d("status_id", status_id.toString())
-                        planName = Information[p2]
-                        textPlanDuration!!.text = planName + "days"
-                        Log.d("mmmm", planName.toString())
-                        sp_plan_duration.visibility = View.GONE
-                        txtData.visibility = View.VISIBLE
-                    } else {
-                        sp_plan_duration.visibility = View.VISIBLE
-
-                    }
-                }
-
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-                    val txtData = sp_plan_duration.selectedView as TextView
-                    txtData.visibility = View.VISIBLE
-                }
+        sp_plan_duration.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View, position: Int, id: Long) {
+                selectedValue = dataList[position]
+                // Append the selected value to the string variable
+//                Toast.makeText(this@BuySubscriptionActivity, selectedValue, Toast.LENGTH_SHORT).show()
             }
+
+            override fun onNothingSelected(parentView: AdapterView<*>) {
+                // Do nothing here
+            }
+        }
     }
 
     override fun onBackPressed() {

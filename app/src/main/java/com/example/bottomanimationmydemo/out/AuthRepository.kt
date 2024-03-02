@@ -71,7 +71,19 @@ class AuthRepository @Inject constructor(private val api: ApiService) : SafeApiC
         api.searchCourseListByFilter(jsonObject)
     }
 
- /*   suspend fun getMealList() = safeApiCall {
+    suspend fun getMealList() = safeApiCall {
         api.getMealList()
-    }*/
+    }
+
+    suspend fun mealDetail(meal_id: String) = safeApiCall {
+        api.mealDetails(meal_id)
+    }
+
+    suspend fun mealFilter() = safeApiCall {
+        api.mealFilter()
+    }
+
+    suspend fun mealDish(id: Int) = safeApiCall {
+        api.mealDishData(id)
+    }
 }

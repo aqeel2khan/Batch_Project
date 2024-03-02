@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -184,5 +185,77 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/card_calculate"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:elevation="@dimen/_2sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:padding="@dimen/_10sdp"
+        android:background="@drawable/meal_cal_bg">
+        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choosing_meal"
+            android:fontFamily="@font/outfit_regular"
+            android:textColor="@color/welcome_txt"
+            android:textSize="@dimen/_14sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:gravity="center"
+            android:textFontWeight="500"/>
+        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choosing_meal_content"
+            android:fontFamily="@font/outfit_regular"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textFontWeight="400"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_calculate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/cal_bg_green"
+            android:fontFamily="@font/outfit_regular"
+            android:outlineSpotShadowColor="#516634"
+            android:text="Calculate"
+            android:textSize="@dimen/_12ssp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_talk"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/cal_bg_green_talk"
+            android:fontFamily="@font/outfit_regular"
+            android:outlineSpotShadowColor="#516634"
+            android:text="Talk to nutritionist  "
+            android:textSize="@dimen/_12ssp"
+            android:textAllCaps="false"
+            android:textColor="@color/terms_color"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute" />
+    </LinearLayout>
 
 </RelativeLayout>

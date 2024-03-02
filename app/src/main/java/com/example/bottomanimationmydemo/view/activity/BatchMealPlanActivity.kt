@@ -22,13 +22,16 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
+/*
 class BatchMealPlanActivity : BaseActivity<ActivityBatchMealPlanBinding>() {
     private val viewModel: AllViewModel by viewModels()
     var str: String? = null
     var name = ArrayList(
         Arrays.asList("Breakfast", "Lunch & Dinner", "Snack", "Desserts" ))
-    /*main Act*/
+    */
+/*main Act*//*
+
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
@@ -135,4 +138,4 @@ class BatchMealPlanActivity : BaseActivity<ActivityBatchMealPlanBinding>() {
         super.onBackPressed()
         finish()
     }
-}
+}*/

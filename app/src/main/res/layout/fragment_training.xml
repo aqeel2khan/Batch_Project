@@ -61,8 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/ll_tab_layout"
         android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp">
+        android:layout_marginHorizontal="@dimen/_20sdp">
 
         <RelativeLayout
             android:id="@+id/rl_workout_filter"

@@ -9,22 +9,26 @@ import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.databinding.ItemAllTypeMealBinding
 import com.example.bottomanimationmydemo.databinding.ItemListMotivatorBinding
 import com.example.bottomanimationmydemo.databinding.ItemListRecomdProductBinding
+import com.example.bottomanimationmydemo.`interface`.MealDishListItemPosition
 import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
+import com.example.bottomanimationmydemo.model.meal_dish_model.MealDishData
 import java.util.ArrayList
 
 class AllTypeOfMealAdapter(
     val requireContext: Context,
-    var name: ArrayList<String>,
-    var listener: PositionItemClickListener<Int>) : RecyclerView.Adapter<AllTypeOfMealAdapter.ViewHolder>() {
+    var mealDishList: List<MealDishData>,
+    var listener: MealDishListItemPosition<Int>
+) : RecyclerView.Adapter<AllTypeOfMealAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemAllTypeMealBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(name: String, position: Int) {
-      /*      Glide.with(requireContext).load(courseImg[position])
-                .placeholder(
-                    R.drawable.profile_girl
-                ).into(binding.imgTrainerProfile)*/
+        fun bind(mealDishList: MealDishData, position: Int) {
+            /*      Glide.with(requireContext).load(courseImg[position])
+                      .placeholder(
+                          R.drawable.profile_girl
+                      ).into(binding.imgTrainerProfile)*/
 
+            binding.productName.text = mealDishList.name
             binding.root.setOnClickListener {
-                listener.onPositionItemSelected(name, position)
+                listener.onMealDishListItemPosition(mealDishList, position)
             }
         }
     }
@@ -35,11 +39,11 @@ class AllTypeOfMealAdapter(
     }
 
     override fun onBindViewHolder(holder: AllTypeOfMealAdapter.ViewHolder, position: Int) {
-        holder.bind(name[position], position)
+        holder.bind(mealDishList[position], position)
     }
 
     override fun getItemCount(): Int {
-        return name.size
+        return mealDishList.size
     }
 
 //    interface isCheckedListener<T> {

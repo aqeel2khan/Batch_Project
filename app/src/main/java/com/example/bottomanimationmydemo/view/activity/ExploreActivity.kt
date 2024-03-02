@@ -26,16 +26,22 @@ class ExploreActivity : BaseActivity<ActivityExploreBinding>() {
     override fun initUi() {
         binding.backButtonBack.setOnClickListener {  }
         binding.continueButton.setOnClickListener {
-            startActivity(Intent(this, CheckOutActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
         }
         binding.signTextView.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         binding.imgBoyFrame.setOnClickListener {
-            showToast("Male")
+//            showToast("Male")
+            sharedPreferences.saveGender("Male")
+            binding.imgBoyFrame.setBackgroundResource(R.drawable.rectangle_button_select)
+            binding.imgGirlFrame.setBackgroundResource(R.drawable.rectangle_button_gry)
         }
         binding.imgGirlFrame.setOnClickListener {
-            showToast("FmMale")
+//            showToast("FmMale")
+            sharedPreferences!!.saveGender("Female")
+            binding.imgBoyFrame.setBackgroundResource(R.drawable.rectangle_button_gry)
+            binding.imgGirlFrame.setBackgroundResource(R.drawable.rectangle_button_select)
         }
     }
 

@@ -10,7 +10,10 @@ import com.example.bottomanimationmydemo.model.course_promocode.CousePromocodeRe
 import com.example.bottomanimationmydemo.model.course_workout_list.CourseWorkoutListResponse
 import com.example.bottomanimationmydemo.model.courseorderlist.CourseOrderList
 import com.example.bottomanimationmydemo.model.login_model.LoginResponseModel
-import com.example.bottomanimationmydemo.model.meal_list.MealListResponse
+import com.example.bottomanimationmydemo.model.meal_detail_model.MealDetailResponse
+import com.example.bottomanimationmydemo.model.meal_dish_model.MealDishResponse
+import com.example.bottomanimationmydemo.model.meal_filter_model.MealFilterResponse
+import com.example.bottomanimationmydemo.model.meal_list.MealResponseList
 import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
 import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
 import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
@@ -26,6 +29,10 @@ import com.example.bottomanimationmydemo.utils.MyConstant.COURSEORDERLIST
 import com.example.bottomanimationmydemo.utils.MyConstant.COURSEPROMOCODELIST
 import com.example.bottomanimationmydemo.utils.MyConstant.COURSEWORKOUTLIST
 import com.example.bottomanimationmydemo.utils.MyConstant.LOGIN
+import com.example.bottomanimationmydemo.utils.MyConstant.MEALDETAILS
+import com.example.bottomanimationmydemo.utils.MyConstant.MEALDISH
+import com.example.bottomanimationmydemo.utils.MyConstant.MEALFILTER
+import com.example.bottomanimationmydemo.utils.MyConstant.MEALLIST
 import com.example.bottomanimationmydemo.utils.MyConstant.ORDERCREATE
 import com.example.bottomanimationmydemo.utils.MyConstant.SIGNUP
 import com.example.bottomanimationmydemo.utils.MyConstant.STARTWORKOUTSTATUS
@@ -80,10 +87,16 @@ interface ApiService {
 
     @POST(COURSE)
     suspend fun searchCourseListByFilter(@Body jsonObject: JsonObject): SearchCourseListByFilterResponse
-/*
+
     @POST(MEALLIST)
-    suspend fun getMealList(): MealListResponse
+    suspend fun getMealList(): MealResponseList
 
     @GET(MEALDETAILS)
-    suspend fun mealDetails(@Path("id") id: String): CourseDetailResponse*/
+    suspend fun mealDetails(@Path("id") id: String): MealDetailResponse
+
+    @POST(MEALFILTER)
+    suspend fun mealFilter(): MealFilterResponse
+
+    @GET(MEALDISH)
+    suspend fun mealDishData(@Path("id") id: Int): MealDishResponse
 }

@@ -114,11 +114,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
                                     sharedPreferences.saveToken(response.token.toString())
                                     sharedPreferences.saveEmail(response.data.email.toString())
-                                    startActivity(Intent(Intent(this@LoginActivity, VerificationActivity::class.java)))
+                                    startActivity(Intent(Intent(this@LoginActivity, CheckOutActivity::class.java)))
+//                                    startActivity(Intent(Intent(this@LoginActivity, VerificationActivity::class.java)))
 
-//                                    ltyAppPref.setOtpId(response.data?.processStageData?.txnStateData?.otpId!!)
-//                                    val timer = response.data.processStageData.txnStateData.timeoutInSeconds!!
-//                                    verifyOtpBottomSheet(binding.root.context,timer)
                                 }
                             }
                         }

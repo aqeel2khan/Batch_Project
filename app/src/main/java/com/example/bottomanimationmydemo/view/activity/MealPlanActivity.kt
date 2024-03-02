@@ -44,24 +44,24 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
     private fun setupMealPlanList() {
         binding.recyclerMealPlan.apply {
             layoutManager = LinearLayoutManager(this@MealPlanActivity, LinearLayoutManager.HORIZONTAL, false)
-            adapter = MealPlanListAdapter(this@MealPlanActivity, name, object : PositionItemClickListener<Int>{
-                override fun onPositionItemSelected(item: String, postions: Int) {
-                    setUpAllMealsAdapter()
-                }
-
-            })
+//            adapter = MealPlanListAdapter(this@MealPlanActivity, name, object : PositionItemClickListener<Int>{
+//                override fun onPositionItemSelected(item: String, postions: Int) {
+//                    setUpAllMealsAdapter()
+//                }
+//
+//            })
         }
     }
 
     private fun setUpAllMealsAdapter() {
         binding.recyclerAllMeal.apply {
             layoutManager = GridLayoutManager(this@MealPlanActivity, 2)
-            adapter = AllTypeOfMealAdapter(this@MealPlanActivity, name,
-                object : PositionItemClickListener<Int> {
-                    override fun onPositionItemSelected(item: String, postions: Int) {
+//            adapter = AllTypeOfMealAdapter(this@MealPlanActivity, name,
+//                object : PositionItemClickListener<Int> {
+//                    override fun onPositionItemSelected(item: String, postions: Int) {
 //                    startActivity(Intent(this, MotivatorDetailActivity::class.java))
-                    }
-                })
+//                    }
+//                })
         }
     }
 

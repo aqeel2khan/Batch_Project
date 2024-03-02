@@ -19,6 +19,9 @@
             android:name=".view.activity.RecyclerViewActivity"
             android:exported="false" />
         <activity
+            android:name=".view.activity.MealDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activity.ProfileActivity"
             android:exported="false" />
         <activity

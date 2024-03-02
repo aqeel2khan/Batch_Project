@@ -250,7 +250,15 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:textColor="@color/welcome_txt"
                     android:textSize="@dimen/_10ssp" />
+
+                <com.zhy.view.flowlayout.CaloriesTagFlowLayout
+                    android:id="@+id/id_calories"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    zhy:max_select="-1"/>
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp"
@@ -301,6 +309,7 @@
                     android:textColor="@color/welcome_txt"
                     android:textSize="@dimen/_10ssp" />
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp"
@@ -341,7 +350,12 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_8ssp" />
                 </LinearLayout>
-
+                <com.zhy.view.flowlayout.MealGoalTagFlowLayout
+                    android:id="@+id/id_meal_goal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    zhy:max_select="-1"/>
 
             </LinearLayout>
 
@@ -360,7 +374,14 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:textColor="@color/welcome_txt"
                     android:textSize="@dimen/_10ssp" />
+                <com.zhy.view.flowlayout.MealTagsTagFlowLayout
+                    android:id="@+id/id_meal_tags"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    zhy:max_select="-1"/>
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp"
@@ -401,6 +422,7 @@
                         android:textSize="@dimen/_8ssp" />
                 </LinearLayout>
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp"

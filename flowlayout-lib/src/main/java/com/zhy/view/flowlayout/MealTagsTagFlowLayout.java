@@ -16,10 +16,10 @@ import java.util.Set;
 /**
  * Created by zhy on 15/9/10.
  */
-public class TagFlowLayout extends FlowLayout
-        implements TagAdapter.OnDataChangedListener {
+public class MealTagsTagFlowLayout extends FlowLayout
+        implements MealTagsTagAdapter.OnDataChangedListener {
 
-    private TagAdapter mTagAdapter;
+    private MealTagsTagAdapter mTagAdapter;
     private int mSelectedMax = -1;//-1为不限制数量
     private static final String TAG = "TagFlowLayout";
 
@@ -36,18 +36,18 @@ public class TagFlowLayout extends FlowLayout
         boolean onTagClick(View view, int position, FlowLayout parent);
     }
 
-    public TagFlowLayout(Context context, AttributeSet attrs, int defStyle) {
+    public MealTagsTagFlowLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TagFlowLayout);
         mSelectedMax = ta.getInt(R.styleable.TagFlowLayout_max_select, -1);
         ta.recycle();
     }
 
-    public TagFlowLayout(Context context, AttributeSet attrs) {
+    public MealTagsTagFlowLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public TagFlowLayout(Context context) {
+    public MealTagsTagFlowLayout(Context context) {
         this(context, null);
     }
 
@@ -77,7 +77,7 @@ public class TagFlowLayout extends FlowLayout
         mOnTagClickListener = onTagClickListener;
     }
 
-    public void setAdapter(TagAdapter adapter) {
+    public void setAdapter(MealTagsTagAdapter adapter) {
         mTagAdapter = adapter;
         mTagAdapter.setOnDataChangedListener(this);
         mSelectedView.clear();
@@ -87,7 +87,7 @@ public class TagFlowLayout extends FlowLayout
     @SuppressWarnings("ResourceType")
     private void changeAdapter() {
         removeAllViews();
-        TagAdapter adapter = mTagAdapter;
+        MealTagsTagAdapter adapter = mTagAdapter;
         TagView tagViewContainer = null;
         HashSet preCheckedList = mTagAdapter.getPreCheckedList();
         for (int i = 0; i < adapter.getCount(); i++) {
@@ -130,7 +130,7 @@ public class TagFlowLayout extends FlowLayout
                     doSelect(finalTagViewContainer, position);
                     if (mOnTagClickListener != null) {
                         mOnTagClickListener.onTagClick(finalTagViewContainer, position,
-                                TagFlowLayout.this);
+                                MealTagsTagFlowLayout.this);
                     }
                 }
             });
@@ -188,7 +188,7 @@ public class TagFlowLayout extends FlowLayout
         }
     }
 
-    public TagAdapter getAdapter() {
+    public MealTagsTagAdapter getAdapter() {
         return mTagAdapter;
     }
 

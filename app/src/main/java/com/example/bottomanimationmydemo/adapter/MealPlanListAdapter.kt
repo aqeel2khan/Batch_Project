@@ -6,20 +6,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomanimationmydemo.databinding.ItemMealPlanBinding
 import com.example.bottomanimationmydemo.databinding.ItemWorkoutTypeBinding
+import com.example.bottomanimationmydemo.`interface`.CategoryListItemPosition
 import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
+import com.example.bottomanimationmydemo.model.meal_detail_model.Category
 import java.util.ArrayList
 
-
-class MealPlanListAdapter(
-    val context: Context?,
-    var name: ArrayList<String>,
-    var listner: PositionItemClickListener<Int>
+class MealPlanListAdapter(val context: Context?, var category: List<Category>, var listner: CategoryListItemPosition<Int>
 ) : RecyclerView.Adapter<MealPlanListAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: ItemMealPlanBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(name: String, position: Int) {
-            binding.tvMealName.text = name
+        fun bind(category: Category, position: Int) {
+            binding.tvMealName.text = category.categoryName
             binding.root.setOnClickListener {
-                listner.onPositionItemSelected(name, position)
+                listner.onCategoryListItemPosition(category, position)
             }
         }
     }
@@ -30,10 +28,10 @@ class MealPlanListAdapter(
     }
 
     override fun getItemCount(): Int {
-        return name.size
+        return category.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(name[position], position)
+        holder.bind(category[position], position)
     }
 }

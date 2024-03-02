@@ -9,18 +9,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public abstract class TagAdapter<T> {
+public abstract class CaloriesTagAdapter<T> {
     private List<T> mTagDatas;
     private OnDataChangedListener mOnDataChangedListener;
     @Deprecated
     private HashSet<Integer> mCheckedPosList = new HashSet<Integer>();
 
-    public TagAdapter(List<T> datas) {
+    public CaloriesTagAdapter(List<T> datas) {
         mTagDatas = datas;
     }
 
     @Deprecated
-    public TagAdapter(T[] datas) {
+    public CaloriesTagAdapter(T[] datas) {
         mTagDatas = new ArrayList<T>(Arrays.asList(datas));
     }
 
