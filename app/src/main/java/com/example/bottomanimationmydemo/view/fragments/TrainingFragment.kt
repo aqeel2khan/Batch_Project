@@ -77,9 +77,9 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
             binding.llMotivator.background = resources.getDrawable(R.drawable.tab_un_sel_bg)
             binding.tvBatch.setTextColor(ContextCompat.getColor(requireContext(),R.color.white))
             binding.tvMotivator.setTextColor(ContextCompat.getColor(requireContext(),R.color.welcome_txt_gry))
-//            binding.llMotivator.setBackgroundColor(Color.parseColor("#EEE8E8"))
             binding.rlMotivatorSearch.visibility = View.GONE
-//            setAllBatchesAdapter()
+            binding.recyclerAllBatch.visibility = View.VISIBLE
+            binding.recyclerAllMotivator.visibility = View.GONE
             getCourseListApi()
             binding.rlWorkoutFilter.visibility = View.VISIBLE
         }
@@ -90,6 +90,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
             binding.tvMotivator.setTextColor(ContextCompat.getColor(requireContext(),R.color.white))
             binding.rlMotivatorSearch.visibility = View.VISIBLE
             binding.rlWorkoutFilter.visibility = View.GONE
+            binding.recyclerAllBatch.visibility = View.GONE
+            binding.recyclerAllMotivator.visibility = View.VISIBLE
             searchCoachData()
             getCoachListApi("")
         }
@@ -141,6 +143,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                         hideLoader()
                         MyCustom.errorBody(binding.root.context, it.errorBody, "")
                     }
+
+                    else -> {}
                 }
             }
         }else{
@@ -217,6 +221,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 //                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
                         MyCustom.errorBody(binding.root.context, it.errorBody, "")
                     }
+
+                    else -> {}
                 }
             }
         }else{
@@ -287,6 +293,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 //                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
                         MyCustom.errorBody(binding.root.context, it.errorBody, "")
                     }
+
+                    else -> {}
                 }
             }
         }else{
@@ -326,6 +334,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 //                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
                         MyCustom.errorBody(binding.root.context, it.errorBody, "")
                     }
+
+                    else -> {}
                 }
             }
         }else{
@@ -409,6 +419,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 //                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
                         MyCustom.errorBody(binding.root.context, it.errorBody, "")
                     }
+
+                    else -> {}
                 }
             }
         }else{
@@ -568,7 +580,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     }
 
     private fun setMotivatorListAdapter(coachList: List<Data>) {
-        binding.recyclerAllBatch.apply {
+        binding.recyclerAllMotivator.apply {
             layoutManager = GridLayoutManager(requireActivity(), 2)
             adapter = MotivatorListAdapter(requireContext(), coachList,
                 object : CoachListItemPosition<Int> {

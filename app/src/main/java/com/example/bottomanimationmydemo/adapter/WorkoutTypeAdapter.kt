@@ -8,8 +8,6 @@ import com.example.bottomanimationmydemo.databinding.ItemWorkoutTypeBinding
 import com.example.bottomanimationmydemo.`interface`.PositionCourseWorkoutClick
 import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
 import com.example.bottomanimationmydemo.model.courseorderlist.Course_duration
-import com.example.bottomanimationmydemo.utils.MyConstant
-import com.example.bottomanimationmydemo.utils.MyUtils
 
 
 class WorkoutTypeAdapter(val context: Context?,var courseDuration: ArrayList<Course_duration>, val listener: PositionCourseWorkoutClick<Int>) : RecyclerView.Adapter<WorkoutTypeAdapter.ViewHolder>(){
@@ -18,6 +16,9 @@ class WorkoutTypeAdapter(val context: Context?,var courseDuration: ArrayList<Cou
             binding.weightLossText.text = name.day_name
             binding.tvBoost.text = name.calorie_burn.toString()
             binding.tvBoostMin.text = name.workout_time.toString()
+            for (i in name.course_duration_exercise){
+//                binding.tvIndex.text =
+            }
 //             MyUtils.loadBackgroundImage(binding.ivEmployeeImage, MyConstant.IMAGE_BASE_URL +courseDuration.get(position).calorie_burn)
 
             binding.root.setOnClickListener {
