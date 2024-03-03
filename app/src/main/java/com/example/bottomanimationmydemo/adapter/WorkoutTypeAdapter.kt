@@ -27,6 +27,8 @@ class WorkoutTypeAdapter(val context: Context?,var courseDuration: ArrayList<Cou
         }
     }
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemWorkoutTypeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
