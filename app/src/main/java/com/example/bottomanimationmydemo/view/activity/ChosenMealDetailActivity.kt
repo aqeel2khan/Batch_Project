@@ -8,19 +8,33 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bottomanimationmydemo.R
+import com.example.bottomanimationmydemo.adapter.NutritionListAdapter
 import com.example.bottomanimationmydemo.adapter.ReviewListAdapter
+import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
 import com.example.bottomanimationmydemo.databinding.ActivityChosenMealDetailBinding
+import com.example.bottomanimationmydemo.model.chosen_meal_details_model.ChosenMealDetailsResponse.NutritionDetail
+import com.example.bottomanimationmydemo.model.meal_dish_model.MealDishData
+import com.example.bottomanimationmydemo.out.AuthViewModel
+import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
+import com.example.bottomanimationmydemo.utils.MyConstant
+import com.example.bottomanimationmydemo.utils.MyCustom
 import com.example.bottomanimationmydemo.view.BaseActivity
 import com.example.bottomanimationmydemo.viewmodel.AllViewModel
 import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import net.simplifiedcoding.data.network.Resource
 
 @AndroidEntryPoint
 class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>() {
     private val viewModel: AllViewModel by viewModels()
+    private val authViewModel by viewModels<AuthViewModel>()
+
     private var dish_id: String? = null
     private var meal_id: String? = null
     private var goal_id: String? = null
@@ -34,11 +48,67 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
         dish_id = intent.getStringExtra("dish_id")
         meal_id = intent.getStringExtra("meal_id")
         goal_id = intent.getStringExtra("goal_id")
-
+        getDishDetails(dish_id!!,meal_id!!,goal_id!!);
         setupReviewListAdapter()
         startRelativeAnimation(binding.relWeightLayout)
     }
 
+
+    private fun getDishDetails(dish_id: String,meal_id: String,goal_id: String) {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+
+            val jsonObject = JsonObject()
+            jsonObject.addProperty("dish_id",dish_id)
+            jsonObject.addProperty("meal_id",meal_id)
+            jsonObject.addProperty("goal_id",goal_id)
+
+
+            authViewModel.getDishDetailsApiCall(jsonObject)
+            authViewModel.dishDetailsResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.dishDetailsResponse.removeObservers(this)
+                        if (authViewModel.dishDetailsResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                showToast(response.message)
+
+                                if (response.status == MyConstant.success) {
+                                    showToast(response.status.toString())
+
+//                                    sharedPreferences.saveCourseId(response.data.courseId.toString())
+                                    dishNutritionListAdapter(response.data.data.nutritionDetails)
+                                }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.dishDetailsResponse.removeObservers(this)
+                        if (authViewModel.dishDetailsResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
+    private fun dishNutritionListAdapter(nutritionDetailList: List<NutritionDetail>) {
+        binding.recyclerNutritionList.apply {
+            layoutManager = LinearLayoutManager(this@ChosenMealDetailActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = NutritionListAdapter(this@ChosenMealDetailActivity,nutritionDetailList)
+        }
+    }
     private fun setupReviewListAdapter() {
         binding.recyclerReviewList.apply {
             layoutManager = LinearLayoutManager(this@ChosenMealDetailActivity, LinearLayoutManager.HORIZONTAL, false)

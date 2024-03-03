@@ -1,5 +1,6 @@
 package com.example.bottomanimationmydemo.network
 
+import com.example.bottomanimationmydemo.model.chosen_meal_details_model.ChosenMealDetailsResponse
 import com.example.bottomanimationmydemo.model.coach_detail_model.CoachDetailResponse
 import com.example.bottomanimationmydemo.model.coach_filter_list.CoachFilterListResponse
 import com.example.bottomanimationmydemo.model.coach_list_model.CoachListResponse
@@ -19,6 +20,7 @@ import com.example.bottomanimationmydemo.model.registeration_model.SignUpRespons
 import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
 import com.example.bottomanimationmydemo.utils.MyConstant
 import com.example.bottomanimationmydemo.utils.MyConstant.AUTHORIZATION
+import com.example.bottomanimationmydemo.utils.MyConstant.CHOSEN_MEAL_DETAILS
 import com.example.bottomanimationmydemo.utils.MyConstant.COACH
 import com.example.bottomanimationmydemo.utils.MyConstant.COACHDETAIL
 import com.example.bottomanimationmydemo.utils.MyConstant.COACHFILTERENTITY
@@ -99,4 +101,8 @@ interface ApiService {
 
     @GET(MEALDISH)
     suspend fun mealDishData(@Path("id") id: Int): MealDishResponse
+
+    @POST(CHOSEN_MEAL_DETAILS)
+    //suspend fun getDishDetails(@Field("dish_id") dish_id: String , @Field("meal_id") meal_id: String , @Field("goal_id") goal_id: String): ChosenMealDetailsResponse
+    suspend fun getDishDetails(@Body jsonObject: JsonObject): ChosenMealDetailsResponse
 }

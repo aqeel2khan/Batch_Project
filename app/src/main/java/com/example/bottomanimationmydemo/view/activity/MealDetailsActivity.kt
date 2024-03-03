@@ -41,6 +41,7 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
     private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
     private var meal_id: String? = null
+    private var gole_id: String? = null
     var selectedValuesString = ""
     private var mealDishData:ArrayList<MealDishData> = ArrayList()
     val dataList: ArrayList<String> = ArrayList()
@@ -75,6 +76,7 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
                                 if (response.status == MyConstant.success) {
 //                                    sharedPreferences.saveCourseId(response.data.courseId.toString())
                                     setUpMealDetails(response.data.data)
+                                    gole_id=response.data.data.goal_id
                                 }
                             }
                         }
@@ -216,7 +218,7 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
                         val intent = Intent(this@MealDetailsActivity, ChosenMealDetailActivity::class.java)
                         intent.putExtra("dish_id",item.dishId.toString())
                         intent.putExtra("meal_id",item.mealId.toString())
-                        intent.putExtra("goal_id","")
+                        intent.putExtra("goal_id",gole_id)
                         startActivity(intent)
                     }
                 })

@@ -43,7 +43,9 @@ data class MealDetails(
     @SerializedName("name_ar")
     val nameAr: String,
     @SerializedName("price")
-    val price: String
+    val price: String,
+    @SerializedName("goal_id")
+    val goal_id: String
 )
 
 data class Category(
