@@ -48,10 +48,8 @@
                     android:id="@+id/txt_chosen_meal_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
                     android:text="Smoked Salmon Toast"
                     android:textColor="@color/welcome_txt"
-                    android:textFontWeight="500"
                     android:textSize="@dimen/_12ssp" />
                 <RelativeLayout
                     android:id="@+id/rl_rating"

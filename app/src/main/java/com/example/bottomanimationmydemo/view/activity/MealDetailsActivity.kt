@@ -213,6 +213,11 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
                 object : MealDishListItemPosition<Int> {
                     override fun onMealDishListItemPosition(item: MealDishData, position: Int) {
                      //redirect code here
+                        val intent = Intent(this@MealDetailsActivity, ChosenMealDetailActivity::class.java)
+                        intent.putExtra("dish_id",item.dishId.toString())
+                        intent.putExtra("meal_id",item.mealId.toString())
+                        intent.putExtra("goal_id","")
+                        startActivity(intent)
                     }
                 })
         }

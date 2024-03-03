@@ -21,12 +21,20 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>() {
     private val viewModel: AllViewModel by viewModels()
+    private var dish_id: String? = null
+    private var meal_id: String? = null
+    private var goal_id: String? = null
+
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
 
     override fun initUi() {
         buttonClicks()
+        dish_id = intent.getStringExtra("dish_id")
+        meal_id = intent.getStringExtra("meal_id")
+        goal_id = intent.getStringExtra("goal_id")
+
         setupReviewListAdapter()
         startRelativeAnimation(binding.relWeightLayout)
     }
