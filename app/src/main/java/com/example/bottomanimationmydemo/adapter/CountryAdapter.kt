@@ -28,7 +28,7 @@ class CountryAdapter(private val countries: List<Country>) : RecyclerView.Adapte
         fun bind(country: Country) {
             // Bind data to the views
             binding.countryName.text = country.name
-            Glide.with(binding.root.context).load(country.flagUrl).into(binding.countryFlag)
+            Glide.with(binding.root.context).load(country.flag).into(binding.countryFlag)
         }
     }
 }
