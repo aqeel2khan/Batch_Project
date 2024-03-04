@@ -18,6 +18,8 @@ import com.example.bottomanimationmydemo.model.meal_detail_model.MealDetailRespo
 import com.example.bottomanimationmydemo.model.meal_dish_model.MealDishResponse
 import com.example.bottomanimationmydemo.model.meal_filter_model.MealFilterResponse
 import com.example.bottomanimationmydemo.model.meal_list.MealResponseList
+import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
+import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealsSubscribedRespnse
 import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
 import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
 import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
@@ -211,5 +213,14 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     fun getDishDetailsApiCall(jsonObject: JsonObject) = viewModelScope.launch {
         _dishDetailsResponse.value = Resource.Loading
         _dishDetailsResponse.value = repository.getDishDetails(jsonObject)
+    }
+
+    // dish details api
+    private val _mealsSubscribedRespnse: MutableLiveData<Resource<MealsSubscribedRespnse>> = MutableLiveData()
+    val mealsSubscribedRespnse: LiveData<Resource<MealsSubscribedRespnse>> get() = _mealsSubscribedRespnse
+
+    fun mealSubscribeApiCall(mealSubscribedRequest: MealSubscribedRequest) = viewModelScope.launch {
+        _mealsSubscribedRespnse.value = Resource.Loading
+        _mealsSubscribedRespnse.value = repository.mealSubscribe(mealSubscribedRequest)
     }
 }

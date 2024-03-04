@@ -11,6 +11,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bottomanimationmydemo.R
+import com.example.bottomanimationmydemo.adapter.IngredientsAdapter
 import com.example.bottomanimationmydemo.adapter.NutritionListAdapter
 import com.example.bottomanimationmydemo.adapter.ReviewListAdapter
 import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
@@ -81,6 +82,9 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
 
 //                                    sharedPreferences.saveCourseId(response.data.courseId.toString())
                                     dishNutritionListAdapter(response.data.data.nutritionDetails)
+                                    val ingredientsArray: List<String> = response.data.data.ingredients.split(",")
+                                    ingredientsListAdapter(ingredientsArray)
+
                                 }
                             }
                         }
@@ -109,6 +113,14 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
             adapter = NutritionListAdapter(this@ChosenMealDetailActivity,nutritionDetailList)
         }
     }
+
+    private fun ingredientsListAdapter(ingredientsList: List<String>) {
+        binding.recyclerIngredientsList.apply {
+            layoutManager = LinearLayoutManager(this@ChosenMealDetailActivity, LinearLayoutManager.VERTICAL, false)
+            adapter = IngredientsAdapter(this@ChosenMealDetailActivity,ingredientsList)
+        }
+    }
+
     private fun setupReviewListAdapter() {
         binding.recyclerReviewList.apply {
             layoutManager = LinearLayoutManager(this@ChosenMealDetailActivity, LinearLayoutManager.HORIZONTAL, false)
@@ -118,6 +130,9 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
 
 
     private fun buttonClicks() {
+        binding.imgBack.setOnClickListener {
+            onBackPressed()
+        }
         binding.txtRateMeal.setOnClickListener {
             showBottomSheetDialog()
         }
@@ -184,6 +199,11 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
             val bundle = Bundle()
             return bundle
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
 }

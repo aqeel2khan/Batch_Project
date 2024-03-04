@@ -15,6 +15,8 @@ import com.example.bottomanimationmydemo.model.meal_detail_model.MealDetailRespo
 import com.example.bottomanimationmydemo.model.meal_dish_model.MealDishResponse
 import com.example.bottomanimationmydemo.model.meal_filter_model.MealFilterResponse
 import com.example.bottomanimationmydemo.model.meal_list.MealResponseList
+import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
+import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealsSubscribedRespnse
 import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
 import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
 import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
@@ -35,6 +37,7 @@ import com.example.bottomanimationmydemo.utils.MyConstant.MEALDETAILS
 import com.example.bottomanimationmydemo.utils.MyConstant.MEALDISH
 import com.example.bottomanimationmydemo.utils.MyConstant.MEALFILTER
 import com.example.bottomanimationmydemo.utils.MyConstant.MEALLIST
+import com.example.bottomanimationmydemo.utils.MyConstant.MEAL_SUBSCRIBE
 import com.example.bottomanimationmydemo.utils.MyConstant.ORDERCREATE
 import com.example.bottomanimationmydemo.utils.MyConstant.SIGNUP
 import com.example.bottomanimationmydemo.utils.MyConstant.STARTWORKOUTSTATUS
@@ -103,6 +106,8 @@ interface ApiService {
     suspend fun mealDishData(@Path("id") id: Int): MealDishResponse
 
     @POST(CHOSEN_MEAL_DETAILS)
-    //suspend fun getDishDetails(@Field("dish_id") dish_id: String , @Field("meal_id") meal_id: String , @Field("goal_id") goal_id: String): ChosenMealDetailsResponse
     suspend fun getDishDetails(@Body jsonObject: JsonObject): ChosenMealDetailsResponse
+
+    @POST(MEAL_SUBSCRIBE)
+    suspend fun mealSubscribe(@Body mealSubscribedRequest: MealSubscribedRequest): MealsSubscribedRespnse
 }

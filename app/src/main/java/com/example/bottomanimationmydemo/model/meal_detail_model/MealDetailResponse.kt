@@ -30,8 +30,12 @@ data class MealDetails(
     val description: String,
     @SerializedName("description_ar")
     val descriptionAr: String,
+    @SerializedName("meal_image")
+    val meal_image: String,
     @SerializedName("discount")
     val discount: Int,
+    @SerializedName("snack_count")
+    val snack_count: Int,
     @SerializedName("duration")
     val duration: String,
     @SerializedName("meal_count")

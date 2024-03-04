@@ -42,6 +42,12 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
     private val authViewModel by viewModels<AuthViewModel>()
     private var meal_id: String? = null
     private var gole_id: String? = null
+    private var meal_name: String? = null
+    private var meal_price: String? = null
+    private var meal_cal: String? = null
+    private var meal_img: String? = null
+    private var meal_count: String? = null
+    private var meal_snack: String? = null
     var selectedValuesString = ""
     private var mealDishData:ArrayList<MealDishData> = ArrayList()
     val dataList: ArrayList<String> = ArrayList()
@@ -77,7 +83,12 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
 //                                    sharedPreferences.saveCourseId(response.data.courseId.toString())
                                     setUpMealDetails(response.data.data)
                                     gole_id=response.data.data.goal_id
-                                }
+                                    meal_name=response.data.data.name
+                                    meal_price=response.data.data.price
+                                    meal_cal=response.data.data.avgCalPerDay
+                                    meal_img=response.data.data.meal_image
+                                    meal_count=response.data.data.mealCount.toString()
+                                    meal_snack=response.data.data.snack_count.toString()                                }
                             }
                         }
                     }
@@ -235,7 +246,15 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
         binding.btnSubscribePlan.setOnClickListener {
             if (sharedPreferences.token != "") {
                 startActivity(
-                    Intent(this@MealDetailsActivity, CheckOutActivity::class.java).putExtra("id", meal_id).putExtra("screen", "BatchMeal")
+                    Intent(this@MealDetailsActivity, CheckOutActivity::class.java)
+                        .putExtra("meal_id", meal_id)
+                        .putExtra("screen", "BatchMeal")
+                        .putExtra("meal_name", meal_name)
+                        .putExtra("meal_price", meal_price)
+                        .putExtra("meal_cal", meal_cal)
+                        .putExtra("meal_img", meal_img)
+                        .putExtra("meal_count", meal_count)
+                        .putExtra("meal_snack", meal_snack)
                 )
             } else {
                 startActivity(

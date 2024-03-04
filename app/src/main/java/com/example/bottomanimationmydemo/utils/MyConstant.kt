@@ -48,6 +48,7 @@ object MyConstant {
     const val MEALFILTER = "meal/filters"
     const val MEALDISH = "meal/dishes/{id}"
     const val CHOSEN_MEAL_DETAILS = "dish/details"
+    const val MEAL_SUBSCRIBE = "subscription/subscribe"
 
 //    const val DOLLER_SIGN = "$"
 }

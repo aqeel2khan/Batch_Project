@@ -50,8 +50,8 @@ public class ChosenMealDetailsResponse {
         this.status = status;
     }
 
+    public class InternalData {
 
-    public class Data {
 
         @SerializedName("avg_preparation_time")
         private String avgPreparationTime;
@@ -59,8 +59,6 @@ public class ChosenMealDetailsResponse {
         private Long categoryId;
         @SerializedName("created_at")
         private String createdAt;
-        @Expose
-        private Data data;
         @Expose
         private String description;
         @SerializedName("description_ar")
@@ -112,14 +110,6 @@ public class ChosenMealDetailsResponse {
 
         public void setCreatedAt(String createdAt) {
             this.createdAt = createdAt;
-        }
-
-        public Data getData() {
-            return data;
-        }
-
-        public void setData(Data data) {
-            this.data = data;
         }
 
         public String getDescription() {
@@ -233,6 +223,20 @@ public class ChosenMealDetailsResponse {
         public void setUpdatedAt(Object updatedAt) {
             this.updatedAt = updatedAt;
         }
+
+    }
+
+    public class Data {
+        public InternalData getData() {
+            return data;
+        }
+
+        public void setData(InternalData data) {
+            this.data = data;
+        }
+
+        private InternalData data;
+        private String status;
 
     }
 
