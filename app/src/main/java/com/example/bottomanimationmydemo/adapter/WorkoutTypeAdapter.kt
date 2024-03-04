@@ -30,6 +30,7 @@ class WorkoutTypeAdapter(
                     binding.cardBg.setBackgroundResource(R.drawable.rectangle_button_gry_home)
                 }
             }
+
 //            if (todayDuration.equals(pos)){
 //                binding.cardBg.setBackgroundResource(R.drawable.rectangle_button_gry_home)
 //            }
