@@ -20,11 +20,12 @@
             android:orientation="horizontal"
             android:layout_gravity="center">
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_bg"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
                 app:cardCornerRadius="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_5sdp"
-                app:cardBackgroundColor="@color/light_gry"
+                app:cardBackgroundColor="@color/hint_txt_gry"
                 android:layout_gravity="center">
 
                 <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView

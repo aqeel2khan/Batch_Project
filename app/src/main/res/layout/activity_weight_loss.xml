@@ -387,6 +387,7 @@
                             android:layout_centerVertical="true"
                             android:text="Today Exercise"
                             android:textStyle="bold"
+                            android:padding="@dimen/_5sdp"
                             android:textColor="@color/welcome_txt_gry"
                             android:textSize="@dimen/_10ssp" />
 

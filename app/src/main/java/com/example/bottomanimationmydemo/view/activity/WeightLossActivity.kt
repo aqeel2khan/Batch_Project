@@ -19,14 +19,11 @@ import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.adapter.WorkoutTypeAdapter
 import com.example.bottomanimationmydemo.databinding.ActivityWeightLossBinding
 import com.example.bottomanimationmydemo.`interface`.PositionCourseWorkoutClick
-import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
 import com.example.bottomanimationmydemo.model.course_detail.Data
 import com.example.bottomanimationmydemo.model.courseorderlist.Course_duration
 import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
 import com.example.bottomanimationmydemo.out.AuthViewModel
-import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
 import com.example.bottomanimationmydemo.utils.MyConstant
-import com.example.bottomanimationmydemo.utils.MyCustom
 import com.example.bottomanimationmydemo.utils.MyUtils
 import com.example.bottomanimationmydemo.view.BaseActivity
 import com.example.bottomanimationmydemo.viewmodel.AllViewModel
@@ -34,8 +31,6 @@ import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
-import net.simplifiedcoding.data.network.Resource
 import java.util.*
 
 @AndroidEntryPoint
@@ -182,6 +177,7 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
         binding.recyclerWorkoutType.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.recyclerWorkoutType.adapter = WorkoutTypeAdapter(this@WeightLossActivity,
             courseData.course_detail.course_duration,
+            courseData.course_detail.duration,
             object :
                 PositionCourseWorkoutClick<Int> {
                 override fun onCourseWorkoutItemPosition(item: Course_duration, postions: Int) {
