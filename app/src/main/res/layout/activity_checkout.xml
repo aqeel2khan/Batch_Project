@@ -327,6 +327,7 @@
                                         android:textSize="@dimen/_9ssp" />
 
                                     <TextView
+                                        android:id="@+id/meal_price"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/outfit_semi_bold"
@@ -358,6 +359,7 @@
                                             app:tint="@color/white" />
 
                                         <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                            android:id="@+id/meal_cal"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="1700 - 1800"
@@ -390,6 +392,7 @@
                                             android:src="@drawable/meal_sm_icon" />
 
                                         <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                            android:id="@+id/meal_count"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="@dimen/_3sdp"
@@ -422,6 +425,7 @@
                                             android:src="@drawable/meal_sm_icon" />
 
                                         <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                                            android:id="@+id/meal_snack"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="@dimen/_3sdp"

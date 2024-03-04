@@ -9,6 +9,7 @@ import javax.inject.Inject
 
 private const val BATCH_FINAL_SHARED_PREFERENCES = "BATCH_FINAL_SHARED_PREFERENCES"
 private const val KEY_TOKEN = "KEY_TOKEN"
+private const val KEY_USERID = "KEY_TOKEN"
 private const val KEY_EMAIL = "KEY_EMAIL"
 private const val KEY_NAME = "KEY_NAME"
 private const val KEY_MOBILE = "KEY_MOBILE"
@@ -41,6 +42,18 @@ class AppSharedPreferences  @Inject constructor(
         get() {
             val storedValue = sharedPreferences.getString(KEY_RADIO_STATE, "")
             state = storedValue
+            return field
+        }
+
+    fun saveUserId(userId: String) {
+        sharedPreferences.putValues {
+            it.putString(KEY_USERID, userId)
+        }
+    }
+    var userId: String? = null
+        get() {
+            val storedValue = sharedPreferences.getString(KEY_USERID, "")
+            userId = storedValue
             return field
         }
 

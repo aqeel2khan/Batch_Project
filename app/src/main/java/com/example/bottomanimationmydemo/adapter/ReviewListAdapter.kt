@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomanimationmydemo.databinding.ItemReviewListBinding
+import com.example.bottomanimationmydemo.model.chosen_meal_details_model.ChosenMealDetailsResponse.NutritionDetail
+import com.example.bottomanimationmydemo.model.meal_dish_model.MealDishData
 import com.example.bottomanimationmydemo.view.activity.ChosenMealDetailActivity
 
 class ReviewListAdapter(val chosenMealDetailActivity: ChosenMealDetailActivity) : RecyclerView.Adapter<ReviewListAdapter.ViewHolder>() {

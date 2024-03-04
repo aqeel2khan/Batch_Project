@@ -114,6 +114,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
                                     sharedPreferences.saveToken(response.token.toString())
                                     sharedPreferences.saveEmail(response.data.email.toString())
+                                    sharedPreferences.saveUserId(response.data.id.toString())
                                     startActivity(Intent(Intent(this@LoginActivity, CheckOutActivity::class.java)))
 //                                    startActivity(Intent(Intent(this@LoginActivity, VerificationActivity::class.java)))
 

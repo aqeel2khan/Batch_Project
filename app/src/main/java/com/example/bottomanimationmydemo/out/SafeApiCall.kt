@@ -25,6 +25,7 @@ interface SafeApiCall {
                     else -> {
                         Resource.Failure("", 0, "")
                     }
+                    //Todo
                 }
             } /*catch (e: HttpException) {
                 if (e.code() == 500) {
