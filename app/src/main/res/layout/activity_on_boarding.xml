@@ -53,10 +53,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="@font/outfit_regular"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            android:fontFamily="@font/outfit_medium"
             android:text="@string/lorem_ipsum_dolor_sit"
             android:textColor="@color/white"
-            android:textSize="@dimen/_21ssp" />
+            android:textSize="@dimen/_24ssp" />
 
         <com.example.bottomanimationmydemo.custom.MyCustomTextView
             android:layout_width="wrap_content"
@@ -66,7 +67,7 @@
             android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur"
             android:layout_marginTop="@dimen/_5sdp"
             android:textColor="@color/white"
-            android:textSize="@dimen/_11ssp"
+            android:textSize="@dimen/_12ssp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -102,10 +103,10 @@
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/rectangle_button"
-            android:fontFamily="@font/outfit_regular"
+            android:fontFamily="@font/outfit_medium"
             android:outlineSpotShadowColor="#516634"
             android:text="@string/select_country"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_16ssp"
             android:padding="@dimen/_12sdp"
             android:elevation="@dimen/_2sdp"
             android:textAllCaps="false"
@@ -119,9 +120,9 @@
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/border_button"
-            android:fontFamily="@font/outfit_regular"
+            android:fontFamily="@font/outfit_medium"
             android:text="@string/i_want_look"
-            android:textSize="@dimen/_11ssp"
+            android:textSize="@dimen/_16ssp"
             android:textAllCaps="false"
             android:layout_marginBottom="@dimen/_5sdp"
             android:padding="@dimen/_12sdp"

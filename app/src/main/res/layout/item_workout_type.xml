@@ -18,15 +18,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="@dimen/_10sdp"
             android:layout_gravity="center">
             <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
                 app:cardCornerRadius="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/light_gry"
                 android:layout_gravity="center">
 
+                <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="01"
+                    android:textSize="@dimen/_20ssp"
+                    android:textColor="@color/terms_color"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/tv_index"
+                    android:fontFamily="@font/outfit_extra_bold"/>
+
                 <ImageView
+                    android:visibility="gone"
                     android:id="@+id/iv_employee_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

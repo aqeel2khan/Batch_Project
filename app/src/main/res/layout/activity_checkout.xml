@@ -152,7 +152,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/workOutBath"
-                                android:layout_marginTop="@dimen/_8sdp">
+                                android:layout_marginTop="@dimen/_4sdp">
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -229,8 +229,8 @@
                                 android:id="@+id/linearLayout"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/workOutBatchRelative"
-                                android:layout_marginTop="@dimen/_5sdp">
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_below="@id/workOutBatchRelative">
 
                                 <ImageView
                                     android:id="@+id/coach_profile"

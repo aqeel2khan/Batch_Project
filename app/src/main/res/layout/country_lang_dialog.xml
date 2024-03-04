@@ -127,12 +127,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/ll_country_layout"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginHorizontal="@dimen/_15sdp"
             android:orientation="vertical">
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_above="@id/btn_country_next"
                 android:id="@+id/recycler_county"/>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -162,7 +163,7 @@
             android:layout_height="match_parent"
             android:id="@+id/ll_language_layout"
             android:visibility="gone"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:layout_marginHorizontal="@dimen/_15sdp"
             android:orientation="vertical">

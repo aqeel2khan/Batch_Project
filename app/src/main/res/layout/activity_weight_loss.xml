@@ -368,7 +368,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="Duration"
+                        android:text="Today Exercise"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12ssp" />
@@ -380,7 +380,18 @@
                         android:background="@drawable/radius_shape"
                         android:backgroundTint="#F5F6F4">
 
+                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+                            android:id="@+id/tv_exercise_day"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="Today Exercise"
+                            android:textStyle="bold"
+                            android:textColor="@color/welcome_txt_gry"
+                            android:textSize="@dimen/_10ssp" />
+
                         <Spinner
+                            android:visibility="gone"
                             android:id="@+id/spinner"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

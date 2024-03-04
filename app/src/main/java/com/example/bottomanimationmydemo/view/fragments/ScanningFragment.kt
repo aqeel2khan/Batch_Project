@@ -169,12 +169,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
 //                courseDetailData as Serializable
 //                activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
                 val gson = Gson()
-                requireContext().startActivity(
-                    Intent(
-                        requireContext(),
-                        WeightLossActivity::class.java
-                    ).putExtra("order_list", gson.toJson(item))
-                )
+                requireContext().startActivity(Intent(requireContext(), WeightLossActivity::class.java).putExtra("order_list", gson.toJson(item)))
             }
         })
     }

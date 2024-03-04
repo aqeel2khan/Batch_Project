@@ -131,6 +131,14 @@
         android:layout_below="@id/rl_filter_search"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_65sdp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/recycler_all_motivator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_filter_search"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_65sdp" />
 
 
 </RelativeLayout>

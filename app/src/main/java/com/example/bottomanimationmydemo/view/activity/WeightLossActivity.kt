@@ -9,7 +9,6 @@ import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerReadyListener
 import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerStateListener
@@ -18,7 +17,6 @@ import com.ct7ct7ct7.androidvimeoplayer.model.TextTrack
 import com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerActivity
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.adapter.WorkoutTypeAdapter
-import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
 import com.example.bottomanimationmydemo.databinding.ActivityWeightLossBinding
 import com.example.bottomanimationmydemo.`interface`.PositionCourseWorkoutClick
 import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
@@ -71,14 +69,11 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
         binding.messageText.text = courseData.course_detail.description.toString()
         binding.userName.text = courseData.course_detail.coach_detail.name.toString()
         binding.txtLevel.text = courseData.course_detail.course_level.level_name.toString()
-        MyUtils.loadImage(
-            binding.profileImage,
-            MyConstant.IMAGE_BASE_URL + courseData.course_detail.coach_detail.profile_photo_path
-        )
+        binding.tvExerciseDay.text = "day " + courseData.course_detail.duration
+        MyUtils.loadImage(binding.profileImage, MyConstant.IMAGE_BASE_URL + courseData.course_detail.coach_detail.profile_photo_path)
 
         buttonClicks()
-        val aniSlide: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
+        val aniSlide: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
         binding.relWeightLayout.startAnimation(aniSlide)
 
         setVideoOnBanner()
@@ -184,10 +179,8 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
 
 
     private fun setWorkoutTypeAdapter() {
-        binding.recyclerWorkoutType.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.recyclerWorkoutType.adapter = WorkoutTypeAdapter(
-            this@WeightLossActivity,
+        binding.recyclerWorkoutType.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.recyclerWorkoutType.adapter = WorkoutTypeAdapter(this@WeightLossActivity,
             courseData.course_detail.course_duration,
             object :
                 PositionCourseWorkoutClick<Int> {
