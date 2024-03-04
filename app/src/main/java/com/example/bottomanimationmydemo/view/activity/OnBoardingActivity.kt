@@ -33,6 +33,7 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
 //            startActivity(Intent(this@OnBoardingActivity, MainActivity::class.java))
             showCountryDailog()
         }
+        //country api
         getCountries()
     }
 
