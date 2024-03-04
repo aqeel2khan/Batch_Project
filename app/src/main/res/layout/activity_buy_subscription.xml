@@ -122,7 +122,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/workOutBath"
-                                android:layout_marginTop="@dimen/_8sdp">
+                                android:layout_marginTop="@dimen/_5sdp">
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -339,6 +339,7 @@
                 android:backgroundTint="#516634"
                 android:fontFamily="@font/outfit_semi_bold"
                 android:text="@string/txt_check_out"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12ssp" />
@@ -347,6 +348,7 @@
                 android:id="@+id/txt_add_promo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout_below="@id/ll_total_sybscribe"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_10sdp"

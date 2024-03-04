@@ -73,7 +73,7 @@
             android:name=".view.activity.BuySubscriptionActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.SplashActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".view.activity.MotivatorDetailActivity"
@@ -82,7 +82,7 @@
             android:name=".view.activity.SlideWorkoutVideoActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

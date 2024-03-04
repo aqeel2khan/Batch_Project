@@ -172,7 +172,7 @@
                 android:id="@+id/btn_english"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rectangle_button_gry_on"
+                android:background="@drawable/rectangle_button_gry"
                 android:fontFamily="@font/outfit_regular"
                 android:outlineSpotShadowColor="#516634"
                 android:text="@string/english"
@@ -183,7 +183,7 @@
                 android:elevation="@dimen/_2sdp"
                 android:layout_marginTop="@dimen/_6sdp"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_10ssp"
                 android:textStyle="bold"
                 tools:ignore="UnusedAttribute" />
 

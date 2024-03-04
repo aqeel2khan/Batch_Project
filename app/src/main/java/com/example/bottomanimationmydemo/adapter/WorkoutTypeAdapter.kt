@@ -3,6 +3,7 @@ package com.example.bottomanimationmydemo.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.databinding.ItemWorkoutTypeBinding
@@ -23,21 +24,13 @@ class WorkoutTypeAdapter(
             binding.tvBoost.text = name.calorie_burn.toString()
             binding.tvBoostMin.text = name.workout_time.toString()
             binding.tvIndex.text = "0" +pos
-            for (i in courseDuration){
-//                binding.tvIndex.text = "0" + i
-//                binding.tvIndex.setText(String.valueOf(courseDuration[i]));
-                if (todayDuration.equals(pos)){
-                    binding.cardBg.setBackgroundResource(R.drawable.rectangle_button_gry_home)
-                }
-            }
 
-//            if (todayDuration.equals(pos)){
-//                binding.cardBg.setBackgroundResource(R.drawable.rectangle_button_gry_home)
-//            }
-//            for (i in name.day_name){
-//                binding.tvIndex.text = 1
-//            }
-//             MyUtils.loadBackgroundImage(binding.ivEmployeeImage, MyConstant.IMAGE_BASE_URL +courseDuration.get(position).calorie_burn)
+            if (todayDuration.equals(pos.toString())){
+                binding.cardBg.setBackgroundResource(R.drawable.card_bg_select)
+                binding.tvIndex.setTextColor(ContextCompat.getColor(context!!,R.color.light_gry))
+            }else{
+                binding.cardBg.setBackgroundResource(R.drawable.rectangle_button_gry)
+            }
 
             binding.root.setOnClickListener {
                 listener.onCourseWorkoutItemPosition(name, position)

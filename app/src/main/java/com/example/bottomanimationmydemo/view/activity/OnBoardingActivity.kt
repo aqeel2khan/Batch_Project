@@ -22,18 +22,8 @@ import java.util.Locale
 class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
     private val viewModel: AllViewModel by viewModels()
     lateinit var dialogBinding: CountryLangDialogBinding
-    val countries = listOf(
-        Country("Afghanistan", "URL_TO_FLAG_1"),
-        Country("Albania", "URL_TO_FLAG_2"),
-        Country("Algeria", "URL_TO_FLAG_2"),
-        Country("Andorra", "URL_TO_FLAG_2"),
-        Country("Angola", "URL_TO_FLAG_2"),
-        Country("Antigua and Barbuda", "URL_TO_FLAG_2"),
-        Country("Argentina", "URL_TO_FLAG_2"),
-        Country("Armenia", "URL_TO_FLAG_2"),
-        Country("Australia", "URL_TO_FLAG_2"),
-        // Add more countries as needed
-    )
+    val countriesWithEmojis: MutableList<String> = mutableListOf()
+    val list: ArrayList<Country> = ArrayList()
     override fun getViewModel(): BaseViewModel {
        return viewModel
     }
@@ -43,55 +33,49 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
 //            startActivity(Intent(this@OnBoardingActivity, MainActivity::class.java))
             showCountryDailog()
         }
-//        configuration()
+        getCountries()
     }
 
-/*    private fun configuration() {
-        val list: ArrayList<Country> = ArrayList()
+    private var flag: String? =null
+    fun getCountries(): List<String> {
+        val isoCountryCodes: Array<String> = Locale.getISOCountries()
+//        val countriesWithEmojis: MutableList<String> = mutableListOf()
+        for (countryCode in isoCountryCodes) {
+            val locale = Locale("", countryCode)
+            val countryName: String = locale.displayCountry
+            val flagOffset = 0x1F1E6
+            val asciiOffset = 0x41
+            val firstChar = Character.codePointAt(countryCode, 0) - asciiOffset + flagOffset
+            val secondChar = Character.codePointAt(countryCode, 1) - asciiOffset + flagOffset
+            flag = (String(Character.toChars(firstChar)) + String(Character.toChars(secondChar)))//"AD"
 
-        for (code in Locale.getISOCountries()) {
-            val id = Locale.Builder().setRegion(code).build().toString()
-            val name = Locale("en", "US").getDisplayName(Locale(id))
-
-            val locale = Locale(id)
-            val countryCode = locale.country
-            val countryName = locale.displayName
-//            val currencyCode = locale.currency?.currencyCode
-//            val currencySymbol = locale.currency?.symbol
-
-
-            if (name != null) {
+            if (countryName != null) {
                 val model = Country()
-                model.name = name
+                model.name = countryName
                 model.countryCode = countryCode
-//                model.currencyCode = currencyCode
-//                model.currencySymbol = currencySymbol
-                model.flag = getFlagForCountryCode(code)
-                model.extensionCode = getExtensionCode(countryCode)
+                model.flag = flag!!
+
                 list.add(model)
                 Log.d("coutry", list.toString())
             }
+//            countriesWithEmojis.add("$countryName $flag")
         }
-    }*/
 
-    fun getFlagForCountryCode(code: String): String {
-        // Implement your logic to get the flag for the country code
-        // Replace the implementation accordingly
-        val countryCode = code
-        return countryCode
-    }
+        val resourceId = resources.getIdentifier(flag!!.toLowerCase(), "drawable", packageName)
 
-    fun getExtensionCode(countryCode: String): String {
-        // Implement your logic to get the extension code for the country code
-        // Replace the implementation accordingly
-        return countryCode
+        // Set the flag image to the ImageView
+
+        // Set the flag image to the ImageView
+//        flagImageView.setImageResource(resourceId)
+        Log.d("dataaa", countriesWithEmojis.toString())
+        return countriesWithEmojis
     }
 
     private fun showCountryDailog() {
         dialogBinding = CountryLangDialogBinding.inflate(layoutInflater)
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(dialogBinding.root)
-        setUpcountryAdapter(dialogBinding)
+        setUpcountryAdapter(dialogBinding, list)
         dialogBinding.llCountry.setOnClickListener {
             dialogBinding.llCountry.background = resources.getDrawable(R.drawable.tab_sele_bg)
             dialogBinding.llLanguage.background = resources.getDrawable(R.drawable.tab_un_sel_bg)
@@ -109,7 +93,7 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
             dialogBinding.llLanguageLayout.visibility = View.VISIBLE
         }
         dialogBinding.btnEnglish.setOnClickListener {
-            dialogBinding.btnEnglish.setBackgroundResource(R.drawable.rectangle_button_gry_select)
+            dialogBinding.btnEnglish.setBackgroundResource(R.drawable.rectangle_btn_lag_select)
         }
         dialogBinding.btnCountryNext.setOnClickListener {
             dialogBinding.llCountry.background = resources.getDrawable(R.drawable.tab_un_sel_bg)
@@ -126,10 +110,13 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
         dialog.show()
     }
 
-    private fun setUpcountryAdapter(dialogBinding: CountryLangDialogBinding) {
+    private fun setUpcountryAdapter(
+        dialogBinding: CountryLangDialogBinding,
+        list: ArrayList<Country>
+    ) {
         dialogBinding.recyclerCounty.apply {
             layoutManager = LinearLayoutManager(this@OnBoardingActivity, LinearLayoutManager.VERTICAL, false)
-            adapter = CountryAdapter(countries)
+            adapter = CountryAdapter(list)
         }
     }
 
