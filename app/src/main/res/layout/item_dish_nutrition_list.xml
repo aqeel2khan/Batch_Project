@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingDefaultResource">
+
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="@dimen/_80sdp"
+        android:gravity="center"
+        android:elevation="@dimen/_2sdp"
+        android:padding="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:orientation="vertical"
+        android:background="@drawable/radius_shape">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/_10sdp">
+
+            <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
+                android:id="@+id/nutrition_value"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="482"
+                android:padding="@dimen/_9sdp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_12ssp" />
+        </androidx.cardview.widget.CardView>
+        <com.example.bottomanimationmydemo.custom.MyCustomTextView
+            android:id="@+id/nutrition_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Cal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:textColor="@color/hint_txt_gry"
+            android:textSize="@dimen/_10ssp" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -48,10 +48,8 @@
                     android:id="@+id/txt_chosen_meal_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
                     android:text="Smoked Salmon Toast"
                     android:textColor="@color/welcome_txt"
-                    android:textFontWeight="500"
                     android:textSize="@dimen/_12ssp" />
                 <RelativeLayout
                     android:id="@+id/rl_rating"
@@ -84,168 +82,12 @@
                     android:layout_below="@id/rl_rating"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:orientation="vertical">
-
-                    <LinearLayout
+                    <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_80sdp"
-                            android:gravity="center"
-                            android:elevation="@dimen/_2sdp"
-                            android:padding="@dimen/_2sdp"
-                            android:layout_marginBottom="@dimen/_3sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:orientation="vertical"
-                            android:background="@drawable/radius_shape">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/_5sdp"
-                                android:layout_marginStart="@dimen/_5sdp"
-                                app:cardCornerRadius="@dimen/_14sdp">
-
-                                <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
-                                    android:layout_width="@dimen/_50sdp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="482"
-                                    android:padding="@dimen/_10sdp"
-                                    android:gravity="center"
-                                    android:textColor="@color/welcome_txt"
-                                    android:textSize="@dimen/_12ssp" />
-                            </androidx.cardview.widget.CardView>
-                            <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Cal"
-                                android:gravity="center"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:textColor="@color/hint_txt_gry"
-                                android:textSize="@dimen/_10ssp" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_80sdp"
-                            android:gravity="center"
-                            android:elevation="@dimen/_2sdp"
-                            android:padding="@dimen/_2sdp"
-                            android:layout_marginBottom="@dimen/_3sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:orientation="vertical"
-                            android:background="@drawable/radius_shape">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/_5sdp"
-                                android:layout_marginStart="@dimen/_5sdp"
-                                app:cardCornerRadius="@dimen/_14sdp">
-
-                                <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
-                                    android:layout_width="@dimen/_50sdp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="22g"
-                                    android:padding="@dimen/_10sdp"
-                                    android:gravity="center"
-                                    android:textColor="@color/welcome_txt"
-                                    android:textSize="@dimen/_12ssp" />
-                            </androidx.cardview.widget.CardView>
-                            <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Protein"
-                                android:gravity="center"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:textColor="@color/hint_txt_gry"
-                                android:textSize="@dimen/_10ssp" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_80sdp"
-                            android:gravity="center"
-                            android:elevation="@dimen/_2sdp"
-                            android:padding="@dimen/_2sdp"
-                            android:layout_marginBottom="@dimen/_3sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:orientation="vertical"
-                            android:background="@drawable/radius_shape">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/_5sdp"
-                                android:layout_marginStart="@dimen/_5sdp"
-                                app:cardCornerRadius="@dimen/_14sdp">
-
-                                <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
-                                    android:layout_width="@dimen/_50sdp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="46g"
-                                    android:padding="@dimen/_10sdp"
-                                    android:gravity="center"
-                                    android:textColor="@color/welcome_txt"
-                                    android:textSize="@dimen/_12ssp" />
-                            </androidx.cardview.widget.CardView>
-                            <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Carbs"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:gravity="center"
-                                android:textColor="@color/hint_txt_gry"
-                                android:textSize="@dimen/_10ssp" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_80sdp"
-                            android:gravity="center"
-                            android:elevation="@dimen/_2sdp"
-                            android:padding="@dimen/_2sdp"
-                            android:layout_marginBottom="@dimen/_3sdp"
-                            android:orientation="vertical"
-                            android:background="@drawable/radius_shape">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/_5sdp"
-                                android:layout_marginStart="@dimen/_5sdp"
-                                app:cardCornerRadius="@dimen/_14sdp">
-
-                                <com.example.bottomanimationmydemo.custom.MyCustomBoldTextView
-                                    android:layout_width="@dimen/_50sdp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="28g"
-                                    android:padding="@dimen/_10sdp"
-                                    android:gravity="center"
-                                    android:textColor="@color/welcome_txt"
-                                    android:textSize="@dimen/_12ssp" />
-                            </androidx.cardview.widget.CardView>
-                            <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Fat"
-                                android:gravity="center"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:textColor="@color/hint_txt_gry"
-                                android:textSize="@dimen/_10ssp" />
-                        </LinearLayout>
-                    </LinearLayout>
+                        android:id="@+id/recycler_nutrition_list"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"/>
 
                 </LinearLayout>
 
@@ -264,85 +106,18 @@
                         android:text="Ingredients"
                         android:textColor="@color/welcome_txt"
                         android:textSize="@dimen/_12ssp" />
-                    <RelativeLayout
+
+                    <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/_2sdp"
-                        android:layout_marginTop="@dimen/_20sdp">
-                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/txt_ingredient_1"
-                            android:textColor="@color/welcome_txt_gry"
-                            android:layout_marginEnd="@dimen/_19sdp"
-                            android:textSize="@dimen/_12ssp"/>
-                        <ImageView
-                            android:layout_width="@dimen/_18sdp"
-                            android:layout_height="@dimen/_18sdp"
-                            android:src="@drawable/ic_done"
-                            android:layout_alignParentRight="true"/>
+                        android:id="@+id/recycler_ingredients_list"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"/>
 
-                    </RelativeLayout>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/_2sdp"
-                        android:layout_marginTop="@dimen/_20sdp">
-                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/txt_ingredient_2"
-                            android:textColor="@color/welcome_txt_gry"
-                            android:layout_marginEnd="@dimen/_19sdp"
-                            android:textSize="@dimen/_12ssp"/>
-                        <ImageView
-                            android:layout_width="@dimen/_18sdp"
-                            android:layout_height="@dimen/_18sdp"
-                            android:src="@drawable/ic_done"
-                            android:layout_alignParentRight="true"/>
 
-                    </RelativeLayout>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/_2sdp"
-                        android:layout_marginTop="@dimen/_20sdp">
-                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/txt_ingredient_3"
-                            android:textColor="@color/welcome_txt_gry"
-                            android:layout_marginEnd="@dimen/_19sdp"
-                            android:textSize="@dimen/_12ssp"/>
-                        <ImageView
-                            android:layout_width="@dimen/_18sdp"
-                            android:layout_height="@dimen/_18sdp"
-                            android:src="@drawable/ic_done"
-                            android:layout_alignParentRight="true"/>
 
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/_2sdp"
-                        android:layout_marginTop="@dimen/_20sdp">
-                        <com.example.bottomanimationmydemo.custom.MyCustomTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/txt_ingredient_4"
-                            android:textColor="@color/welcome_txt_gry"
-                            android:layout_marginEnd="@dimen/_19sdp"
-                            android:textSize="@dimen/_12ssp"/>
-                        <ImageView
-                            android:layout_width="@dimen/_18sdp"
-                            android:layout_height="@dimen/_18sdp"
-                            android:src="@drawable/ic_done"
-                            android:layout_alignParentRight="true"/>
-
-                    </RelativeLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -377,7 +152,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/recycler_review_list"
                         android:layout_marginTop="@dimen/_20sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"/>
+                        android:layout_marginBottom="@dimen/_20sdp"/>
                 </LinearLayout>
 
             </RelativeLayout>

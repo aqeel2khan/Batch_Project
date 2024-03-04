@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.bottomanimationmydemo.model.chosen_meal_details_model.ChosenMealDetailsResponse
 import com.example.bottomanimationmydemo.model.coach_detail_model.CoachDetailResponse
 import com.example.bottomanimationmydemo.model.coach_filter_list.CoachFilterListResponse
 import com.example.bottomanimationmydemo.model.coach_list_model.CoachListResponse
@@ -17,6 +18,8 @@ import com.example.bottomanimationmydemo.model.meal_detail_model.MealDetailRespo
 import com.example.bottomanimationmydemo.model.meal_dish_model.MealDishResponse
 import com.example.bottomanimationmydemo.model.meal_filter_model.MealFilterResponse
 import com.example.bottomanimationmydemo.model.meal_list.MealResponseList
+import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
+import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealsSubscribedRespnse
 import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
 import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
 import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
@@ -201,5 +204,23 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     fun mealDishApiCall(cat_id: Int) = viewModelScope.launch {
         _mealDishResponse.value = Resource.Loading
         _mealDishResponse.value = repository.mealDish(cat_id)
+    }
+
+    // dish details api
+    private val _dishDetailsResponse: MutableLiveData<Resource<ChosenMealDetailsResponse>> = MutableLiveData()
+    val dishDetailsResponse: LiveData<Resource<ChosenMealDetailsResponse>> get() = _dishDetailsResponse
+
+    fun getDishDetailsApiCall(jsonObject: JsonObject) = viewModelScope.launch {
+        _dishDetailsResponse.value = Resource.Loading
+        _dishDetailsResponse.value = repository.getDishDetails(jsonObject)
+    }
+
+    // dish details api
+    private val _mealsSubscribedRespnse: MutableLiveData<Resource<MealsSubscribedRespnse>> = MutableLiveData()
+    val mealsSubscribedRespnse: LiveData<Resource<MealsSubscribedRespnse>> get() = _mealsSubscribedRespnse
+
+    fun mealSubscribeApiCall(mealSubscribedRequest: MealSubscribedRequest) = viewModelScope.launch {
+        _mealsSubscribedRespnse.value = Resource.Loading
+        _mealsSubscribedRespnse.value = repository.mealSubscribe(mealSubscribedRequest)
     }
 }

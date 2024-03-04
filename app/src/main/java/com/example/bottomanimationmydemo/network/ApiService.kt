@@ -1,5 +1,6 @@
 package com.example.bottomanimationmydemo.network
 
+import com.example.bottomanimationmydemo.model.chosen_meal_details_model.ChosenMealDetailsResponse
 import com.example.bottomanimationmydemo.model.coach_detail_model.CoachDetailResponse
 import com.example.bottomanimationmydemo.model.coach_filter_list.CoachFilterListResponse
 import com.example.bottomanimationmydemo.model.coach_list_model.CoachListResponse
@@ -14,11 +15,14 @@ import com.example.bottomanimationmydemo.model.meal_detail_model.MealDetailRespo
 import com.example.bottomanimationmydemo.model.meal_dish_model.MealDishResponse
 import com.example.bottomanimationmydemo.model.meal_filter_model.MealFilterResponse
 import com.example.bottomanimationmydemo.model.meal_list.MealResponseList
+import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
+import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealsSubscribedRespnse
 import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
 import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
 import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
 import com.example.bottomanimationmydemo.utils.MyConstant
 import com.example.bottomanimationmydemo.utils.MyConstant.AUTHORIZATION
+import com.example.bottomanimationmydemo.utils.MyConstant.CHOSEN_MEAL_DETAILS
 import com.example.bottomanimationmydemo.utils.MyConstant.COACH
 import com.example.bottomanimationmydemo.utils.MyConstant.COACHDETAIL
 import com.example.bottomanimationmydemo.utils.MyConstant.COACHFILTERENTITY
@@ -33,6 +37,7 @@ import com.example.bottomanimationmydemo.utils.MyConstant.MEALDETAILS
 import com.example.bottomanimationmydemo.utils.MyConstant.MEALDISH
 import com.example.bottomanimationmydemo.utils.MyConstant.MEALFILTER
 import com.example.bottomanimationmydemo.utils.MyConstant.MEALLIST
+import com.example.bottomanimationmydemo.utils.MyConstant.MEAL_SUBSCRIBE
 import com.example.bottomanimationmydemo.utils.MyConstant.ORDERCREATE
 import com.example.bottomanimationmydemo.utils.MyConstant.SIGNUP
 import com.example.bottomanimationmydemo.utils.MyConstant.STARTWORKOUTSTATUS
@@ -99,4 +104,10 @@ interface ApiService {
 
     @GET(MEALDISH)
     suspend fun mealDishData(@Path("id") id: Int): MealDishResponse
+
+    @POST(CHOSEN_MEAL_DETAILS)
+    suspend fun getDishDetails(@Body jsonObject: JsonObject): ChosenMealDetailsResponse
+
+    @POST(MEAL_SUBSCRIBE)
+    suspend fun mealSubscribe(@Body mealSubscribedRequest: MealSubscribedRequest): MealsSubscribedRespnse
 }
