@@ -67,6 +67,7 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
         binding.tvExerciseDay.text = "day " + courseData.course_detail.duration
         MyUtils.loadImage(binding.profileImage, MyConstant.IMAGE_BASE_URL + courseData.course_detail.coach_detail.profile_photo_path)
 
+
         buttonClicks()
         val aniSlide: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
         binding.relWeightLayout.startAnimation(aniSlide)
