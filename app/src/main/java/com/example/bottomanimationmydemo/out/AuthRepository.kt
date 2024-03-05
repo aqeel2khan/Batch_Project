@@ -1,6 +1,7 @@
 package com.example.bottomanimationmydemo.out
 
 import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
+import com.example.bottomanimationmydemo.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
 import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
 import com.example.bottomanimationmydemo.network.ApiService
 import com.google.gson.JsonObject
@@ -99,5 +100,9 @@ class AuthRepository @Inject constructor(private val api: ApiService) : SafeApiC
 
     suspend fun mealSubscribeList(mealSubscribeListRequest: MealSubscribeListRequest) = safeApiCall {
         api.mealSubscribeList(mealSubscribeListRequest)
+    }
+
+    suspend fun mealSubscribeDetails(mealSubscriptionDetailsRequest: MealSubscriptionDetailsRequest) = safeApiCall {
+        api.mealSubscribeDetails(mealSubscriptionDetailsRequest)
     }
 }

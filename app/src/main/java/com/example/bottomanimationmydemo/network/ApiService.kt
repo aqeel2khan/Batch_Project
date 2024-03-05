@@ -18,6 +18,7 @@ import com.example.bottomanimationmydemo.model.meal_list.MealResponseList
 import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
 import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealsSubscribedRespnse
 import com.example.bottomanimationmydemo.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
+import com.example.bottomanimationmydemo.model.meal_subscription_details_model.MealSubscriptionDetailsResponse
 import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
 import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
 import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
@@ -119,5 +120,5 @@ interface ApiService {
     @POST(MEAL_SUBSCRIBE_LIST)
     suspend fun mealSubscribeList(@Body mealSubscribeListRequest: MealSubscribeListRequest): MealSubscribeListResponse
     @POST(MEAL_SUBSCRIBE_DETAILS)
-    suspend fun mealSubscribeDetails(@Body mealSubscriptionDetailsRequest: MealSubscriptionDetailsRequest): MealSubscribeListResponse
+    suspend fun mealSubscribeDetails(@Body mealSubscriptionDetailsRequest: MealSubscriptionDetailsRequest): MealSubscriptionDetailsResponse
 }

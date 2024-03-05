@@ -40,10 +40,12 @@ class MealBatchFragment : BaseFragment<FragmentMealBatchBinding>() {
     }
 
     companion object {
-        private const val id = "id"
-        fun getBundle(id: String): Bundle {
+        private const val mealid = "meal_id"
+        private const val subscribeid = "subscribe_id"
+        fun getBundle(meal_id: String,subscribe_id: String): Bundle {
             val bundle = Bundle()
-            bundle.putString(id, id)
+            bundle.putString(meal_id, mealid)
+            bundle.putString(subscribe_id, subscribeid)
             return bundle
         }
     }
