@@ -54,21 +54,9 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
     override fun initUi() {
         sessionManager= UserSessionManager(requireContext())
         buttonClicks()
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-        if (sessionManager.isloggin())
-        {
-            getCourseOrderListApi()
-            setAllCourseOrderAdapter(courseList) //hide code
-        }else
-        {
-             askUserForLogin("Unauthorized access,required login.")
-
-        }
-
+        getMealSubscribeListApi()
+        getCourseOrderListApi()
+        setAllCourseOrderAdapter(courseList) //hide code
     }
 
     private fun buttonClicks() {
@@ -140,6 +128,47 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         dialog.show()
     }
 
+    private fun getMealSubscribeListApi() {
+        if (CheckNetworkConnection.isConnection(requireContext(), binding.root, true)) {
+            showLoader()
+            val mealSubscribeListRequest = MealSubscribeListRequest()
+            mealSubscribeListRequest.userId=sharedPreferences.userId
+            authViewModel.mealSubscribeListApiCall(mealSubscribeListRequest)
+            Log.d("Token","Bearer " + sharedPreferences.token);
+            authViewModel.mealSubscribeListResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.mealSubscribeListResponse.removeObservers(this)
+                        if (authViewModel.mealSubscribeListResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                Log.d("response_order",response.data.toString())
+                                if (response.status == MyConstant.success) {
+
+                                    setAllMealSubscribeListAdapter(response.data.internalData)
+                                }
+                            }
+                        }
+                    }
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+                    is Resource.Failure -> {
+                        authViewModel.mealSubscribeListResponse.removeObservers(this)
+                        if (authViewModel.mealSubscribeListResponse.hasObservers()) return@observe
+                        hideLoader()
+//                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
     private fun getCourseOrderListApi() {
         if (CheckNetworkConnection.isConnection(requireContext(), binding.root, true)) {
             showLoader()
@@ -186,6 +215,18 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         }
     }
 
+    private fun setAllMealSubscribeListAdapter(internalDatum: List<InternalDatum>) {
+        binding.recyclerMealSubscribe.layoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerMealSubscribe.adapter = MealSubscribeListAdapter(context, internalDatum, object :
+            MealSubscribeListPosition<Int> {
+            override fun onMealSubscribeListItemPosition(item: InternalDatum, position: Int) {
+                findNavController().navigate(
+                    R.id.action_scanFragment_to_mealBatchFragment,
+                    MealBatchFragment.getBundle("")
+                )            }
+        })
+    }
     private fun setAllCourseOrderAdapter(courseList: ArrayList<OrderList>) {
         binding.recyclerCourseOrder.layoutManager =
             LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
