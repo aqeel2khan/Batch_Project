@@ -58,7 +58,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         getCourseOrderListApi()
         setAllCourseOrderAdapter(courseList) //hide code
     }
-
+     //TODO
     private fun buttonClicks() {
         binding.cdCurrentMeal.setOnClickListener {
             findNavController().navigate(
