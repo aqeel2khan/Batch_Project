@@ -34,8 +34,8 @@ data class OrderList(
     @SerializedName("transaction_id") val transaction_id: String,
     @SerializedName("payment_status") val payment_status: String,
     @SerializedName("status") val status: String,
-    @SerializedName("created_at") val created_at: String,
-    @SerializedName("updated_at") val updated_at: String,
+//    @SerializedName("created_at") val created_at: String,
+//    @SerializedName("updated_at") val updated_at: String,
     @SerializedName("course_detail") val course_detail: Course_detail
 )
 
@@ -88,8 +88,8 @@ data class Course_duration_exercise(
     @SerializedName("exercise_set") val exercise_set : String,
     @SerializedName("exercise_wraps") val exercise_wraps : String,
     @SerializedName("exercise_time") val exercise_time : String,
-    @SerializedName("created_at") val created_at : String,
-    @SerializedName("updated_at") val updated_at : String,
+//    @SerializedName("created_at") val created_at : String,
+//    @SerializedName("updated_at") val updated_at : String,
     @SerializedName("video_detail") val video_detail: Video_detail
 )
 
@@ -105,9 +105,9 @@ data class Video_detail(
     @SerializedName("width") val width: String,
     @SerializedName("height") val height: String,
     @SerializedName("status") val status: Int,
-    @SerializedName("player_embed_url") val player_embed_url: String,
-    @SerializedName("created_at") val created_at: String,
-    @SerializedName("updated_at") val updated_at: String
+    @SerializedName("player_embed_url") val player_embed_url: String
+//    @SerializedName("created_at") val created_at: String,
+//    @SerializedName("updated_at") val updated_at: String
 )
 
 data class Goals(
@@ -128,8 +128,8 @@ data class Course_duration(
     @SerializedName("calorie_burn") val calorie_burn : String,
     @SerializedName("workout_time") val workout_time : String,
     @SerializedName("status") val status : Int,
-    @SerializedName("created_at") val created_at : String,
-    @SerializedName("updated_at") val updated_at : String,
+//    @SerializedName("created_at") val created_at : String,
+//    @SerializedName("updated_at") val updated_at : String,
     @SerializedName("course_duration_exercise") val course_duration_exercise : ArrayList<Course_duration_exercise>
 )
 

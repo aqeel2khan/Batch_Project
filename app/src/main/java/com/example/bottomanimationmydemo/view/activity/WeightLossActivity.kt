@@ -202,13 +202,30 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             showBottomSheetDialog()
         }
         binding.startWorkout.setOnClickListener {
-            val gson = Gson()
-            startActivity(
-                Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java).putExtra(
-                    "duration_work_position",
-                    gson.toJson(courseData.course_detail.course_duration.get(0))
-                ).putExtra("course_data", gson.toJson(courseData))
-            )
+            try {
+                val gson = Gson()
+
+                var  data = ""
+                var  data2 = ""
+
+                if(courseData!=null && courseData.course_detail!=null && courseData.course_detail.course_duration!=null){
+                     data =  gson.toJson( courseData.course_detail.course_duration[0])
+                }
+
+                if(courseData!=null){
+                    data2=   gson.toJson(courseData)
+                }
+
+                startActivity(
+                    Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java).putExtra(
+                        "duration_work_position",
+                        gson.toJson(data)
+                    ).putExtra("course_data", data2)
+                )
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
         }
     }
 
