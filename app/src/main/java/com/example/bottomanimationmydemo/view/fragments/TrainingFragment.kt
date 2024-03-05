@@ -67,6 +67,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         buttonClicks()
         setAllBatchesAdapter(/*courseList*/) //hide code
         getCourseListApi()
+        print(sharedPreferences.token)
     }
 
     override fun getViewBinding() = FragmentTrainingBinding.inflate(layoutInflater)

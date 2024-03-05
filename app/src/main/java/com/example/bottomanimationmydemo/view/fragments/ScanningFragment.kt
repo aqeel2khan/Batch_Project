@@ -9,12 +9,18 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.adapter.CourseOrderAdapter
+import com.example.bottomanimationmydemo.adapter.MealSubscribeListAdapter
 import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
 import com.example.bottomanimationmydemo.databinding.FragmentScaningBinding
 import com.example.bottomanimationmydemo.databinding.HomeMealDialogBinding
 import com.example.bottomanimationmydemo.`interface`.CourseOrderListItemPosition
+import com.example.bottomanimationmydemo.`interface`.MealSubscribeListPosition
+import com.example.bottomanimationmydemo.model.chosen_meal_details_model.ChosenMealDetailsResponse.InternalData
 import com.example.bottomanimationmydemo.model.courseorderlist.Data
 import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
+import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
+import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
+import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListResponse.InternalDatum
 import com.example.bottomanimationmydemo.out.AuthViewModel
 import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
 import com.example.bottomanimationmydemo.utils.MyConstant
@@ -46,6 +52,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
 
     override fun initUi() {
         buttonClicks()
+        getMealSubscribeListApi()
         getCourseOrderListApi()
         setAllCourseOrderAdapter(courseList) //hide code
     }
@@ -119,6 +126,47 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         dialog.show()
     }
 
+    private fun getMealSubscribeListApi() {
+        if (CheckNetworkConnection.isConnection(requireContext(), binding.root, true)) {
+            showLoader()
+            val mealSubscribeListRequest = MealSubscribeListRequest()
+            mealSubscribeListRequest.userId=sharedPreferences.userId
+            authViewModel.mealSubscribeListApiCall(mealSubscribeListRequest)
+            Log.d("Token","Bearer " + sharedPreferences.token);
+            authViewModel.mealSubscribeListResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.mealSubscribeListResponse.removeObservers(this)
+                        if (authViewModel.mealSubscribeListResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                Log.d("response_order",response.data.toString())
+                                if (response.status == MyConstant.success) {
+
+                                    setAllMealSubscribeListAdapter(response.data.internalData)
+                                }
+                            }
+                        }
+                    }
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+                    is Resource.Failure -> {
+                        authViewModel.mealSubscribeListResponse.removeObservers(this)
+                        if (authViewModel.mealSubscribeListResponse.hasObservers()) return@observe
+                        hideLoader()
+//                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
     private fun getCourseOrderListApi() {
         if (CheckNetworkConnection.isConnection(requireContext(), binding.root, true)) {
             showLoader()
@@ -159,6 +207,18 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         }
     }
 
+    private fun setAllMealSubscribeListAdapter(internalDatum: List<InternalDatum>) {
+        binding.recyclerMealSubscribe.layoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerMealSubscribe.adapter = MealSubscribeListAdapter(context, internalDatum, object :
+            MealSubscribeListPosition<Int> {
+            override fun onMealSubscribeListItemPosition(item: InternalDatum, position: Int) {
+                findNavController().navigate(
+                    R.id.action_scanFragment_to_mealBatchFragment,
+                    MealBatchFragment.getBundle("")
+                )            }
+        })
+    }
     private fun setAllCourseOrderAdapter(courseList: ArrayList<OrderList>) {
         binding.recyclerCourseOrder.layoutManager =
             LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)

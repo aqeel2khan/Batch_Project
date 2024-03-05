@@ -23,6 +23,8 @@ import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealsSubscrib
 import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
 import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
 import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
+import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
+import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListResponse
 import com.google.gson.JsonObject
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -215,12 +217,21 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
         _dishDetailsResponse.value = repository.getDishDetails(jsonObject)
     }
 
-    // dish details api
+    // meal Subscribe api
     private val _mealsSubscribedRespnse: MutableLiveData<Resource<MealsSubscribedRespnse>> = MutableLiveData()
     val mealsSubscribedRespnse: LiveData<Resource<MealsSubscribedRespnse>> get() = _mealsSubscribedRespnse
 
     fun mealSubscribeApiCall(mealSubscribedRequest: MealSubscribedRequest) = viewModelScope.launch {
         _mealsSubscribedRespnse.value = Resource.Loading
         _mealsSubscribedRespnse.value = repository.mealSubscribe(mealSubscribedRequest)
+    }
+
+    // meal Subscribe List api
+    private val _mealSubscribeListResponse: MutableLiveData<Resource<MealSubscribeListResponse>> = MutableLiveData()
+    val mealSubscribeListResponse: LiveData<Resource<MealSubscribeListResponse>> get() = _mealSubscribeListResponse
+
+    fun mealSubscribeListApiCall(mealSubscribeListRequest: MealSubscribeListRequest) = viewModelScope.launch {
+        _mealSubscribeListResponse.value = Resource.Loading
+        _mealSubscribeListResponse.value = repository.mealSubscribeList(mealSubscribeListRequest)
     }
 }

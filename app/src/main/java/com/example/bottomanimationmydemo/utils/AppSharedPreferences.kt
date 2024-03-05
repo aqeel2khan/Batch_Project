@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 private const val BATCH_FINAL_SHARED_PREFERENCES = "BATCH_FINAL_SHARED_PREFERENCES"
 private const val KEY_TOKEN = "KEY_TOKEN"
-private const val KEY_USERID = "KEY_TOKEN"
+private const val KEY_USERID = "KEY_USERID"
 private const val KEY_EMAIL = "KEY_EMAIL"
 private const val KEY_NAME = "KEY_NAME"
 private const val KEY_MOBILE = "KEY_MOBILE"
