@@ -3,12 +3,14 @@ package com.dev.batchfinal.view.activity
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerReadyListener
 import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerStateListener
@@ -28,9 +30,29 @@ import com.dev.batchfinal.utils.MyUtils
 import com.dev.batchfinal.view.BaseActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
+import com.example.bottomanimationmydemo.R
+import com.example.bottomanimationmydemo.adapter.WorkoutTypeAdapter
+import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
+import com.example.bottomanimationmydemo.databinding.ActivityWeightLossBinding
+import com.example.bottomanimationmydemo.`interface`.PositionCourseWorkoutClick
+import com.example.bottomanimationmydemo.model.course_detail.Data
+import com.example.bottomanimationmydemo.model.courseorderlist.Course_duration
+import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
+import com.example.bottomanimationmydemo.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
+import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
+import com.example.bottomanimationmydemo.out.AuthViewModel
+import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
+import com.example.bottomanimationmydemo.utils.MyConstant
+import com.example.bottomanimationmydemo.utils.MyCustom
+import com.example.bottomanimationmydemo.utils.MyUtils
+import com.example.bottomanimationmydemo.view.BaseActivity
+import com.example.bottomanimationmydemo.viewmodel.AllViewModel
+import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import net.simplifiedcoding.data.network.Resource
 import java.util.*
 
 @AndroidEntryPoint
@@ -241,6 +263,49 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
 
         dialog.show()
     }
+
+    private fun getMealSubscribeListApi(meal_id:String,subscription_id:String) {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            val mealSubscriptionDetailsRequest = MealSubscriptionDetailsRequest()
+            mealSubscriptionDetailsRequest.userId=sharedPreferences.userId
+            mealSubscriptionDetailsRequest.mealId=meal_id
+            mealSubscriptionDetailsRequest.subscribedId=subscription_id
+            authViewModel.mealSubscribeDetailsApiCall(mealSubscriptionDetailsRequest)
+            Log.d("Token","Bearer " + sharedPreferences.token);
+            authViewModel.mealSubscribeListResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.mealSubscribeListResponse.removeObservers(this)
+                        if (authViewModel.mealSubscribeListResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                Log.d("response_order",response.data.toString())
+                                if (response.status == MyConstant.success) {
+
+                                }
+                            }
+                        }
+                    }
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+                    is Resource.Failure -> {
+                        authViewModel.mealSubscribeListResponse.removeObservers(this)
+                        if (authViewModel.mealSubscribeListResponse.hasObservers()) return@observe
+                        hideLoader()
+//                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
 
     override fun getViewBinding() = ActivityWeightLossBinding.inflate(layoutInflater)
 }

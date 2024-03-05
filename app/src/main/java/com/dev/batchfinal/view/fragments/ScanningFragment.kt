@@ -63,7 +63,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         binding.cdCurrentMeal.setOnClickListener {
             findNavController().navigate(
                 R.id.action_scanFragment_to_mealBatchFragment,
-                MealBatchFragment.getBundle("")
+                MealBatchFragment.getBundle("","")
             )
         }
 //        binding.currentWorkoutCard.setOnClickListener {
@@ -223,7 +223,8 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
             override fun onMealSubscribeListItemPosition(item: InternalDatum, position: Int) {
                 findNavController().navigate(
                     R.id.action_scanFragment_to_mealBatchFragment,
-                    MealBatchFragment.getBundle("")
+                    MealBatchFragment.getBundle(item.id.toString(),item.subscribedId.toString())
+
                 )            }
         })
     }
@@ -237,7 +238,11 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
 //                courseDetailData as Serializable
 //                activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
                 val gson = Gson()
-                requireContext().startActivity(Intent(requireContext(), WeightLossActivity::class.java).putExtra("order_list", gson.toJson(item)))
+                requireContext().startActivity(Intent(requireContext(), WeightLossActivity::class.java)
+                    .putExtra("order_list", gson.toJson(item))
+
+
+                )
             }
         })
     }
