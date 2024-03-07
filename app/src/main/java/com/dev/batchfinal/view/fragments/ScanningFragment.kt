@@ -26,6 +26,29 @@ import com.dev.batchfinal.view.account.LoginActivity
 import com.dev.batchfinal.view.activity.WeightLossActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
+import com.example.bottomanimationmydemo.R
+import com.example.bottomanimationmydemo.adapter.CourseOrderAdapter
+import com.example.bottomanimationmydemo.adapter.MealSubscribeListAdapter
+import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
+import com.example.bottomanimationmydemo.databinding.FragmentScaningBinding
+import com.example.bottomanimationmydemo.databinding.HomeMealDialogBinding
+import com.example.bottomanimationmydemo.`interface`.CourseOrderListItemPosition
+import com.example.bottomanimationmydemo.`interface`.MealSubscribeListPosition
+import com.example.bottomanimationmydemo.model.chosen_meal_details_model.ChosenMealDetailsResponse.InternalData
+import com.example.bottomanimationmydemo.model.courseorderlist.Data
+import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
+import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
+import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
+import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListResponse.InternalDatum
+import com.example.bottomanimationmydemo.out.AuthViewModel
+import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
+import com.example.bottomanimationmydemo.utils.MyConstant
+import com.example.bottomanimationmydemo.utils.MyCustom
+import com.example.bottomanimationmydemo.view.BaseFragment
+import com.example.bottomanimationmydemo.view.activity.CurrentMealDetailActivity
+import com.example.bottomanimationmydemo.view.activity.WeightLossActivity
+import com.example.bottomanimationmydemo.viewmodel.AllViewModel
+import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
@@ -221,11 +244,16 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         binding.recyclerMealSubscribe.adapter = MealSubscribeListAdapter(context, internalDatum, object :
             MealSubscribeListPosition<Int> {
             override fun onMealSubscribeListItemPosition(item: InternalDatum, position: Int) {
-                findNavController().navigate(
+                requireContext().startActivity(Intent(requireContext(), CurrentMealDetailActivity::class.java)
+                    .putExtra("meal_id",item.id.toString())
+                    .putExtra("subscribe_id",item.subscribedId.toString())
+                )
+
+              /*  findNavController().navigate(
                     R.id.action_scanFragment_to_mealBatchFragment,
                     MealBatchFragment.getBundle(item.id.toString(),item.subscribedId.toString())
 
-                )            }
+                ) */           }
         })
     }
     private fun setAllCourseOrderAdapter(courseList: ArrayList<OrderList>) {

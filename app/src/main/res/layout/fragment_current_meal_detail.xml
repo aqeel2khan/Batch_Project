@@ -227,7 +227,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:text="On May 18, the plan will be suspened"
+                            android:text="On May 18, the plan will be suspend"
                             android:textStyle="bold"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:textColor="@color/welcome_txt_gry"

@@ -7,6 +7,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import com.dev.batchfinal.MainActivity
 import com.dev.batchfinal.R
@@ -17,12 +18,32 @@ import com.dev.batchfinal.view.BaseFragment
 import com.dev.batchfinal.view.activity.CurrentMealDetailActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
+import androidx.lifecycle.lifecycleScope
+import com.example.bottomanimationmydemo.MainActivity
+import com.example.bottomanimationmydemo.R
+import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
+import com.example.bottomanimationmydemo.databinding.FragmentMealBatchBinding
+import com.example.bottomanimationmydemo.databinding.HomeMealDialogBinding
+import com.example.bottomanimationmydemo.model.StatusModel
+import com.example.bottomanimationmydemo.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
+import com.example.bottomanimationmydemo.out.AuthViewModel
+import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
+import com.example.bottomanimationmydemo.utils.MyConstant
+import com.example.bottomanimationmydemo.utils.MyCustom
+import com.example.bottomanimationmydemo.view.BaseFragment
+import com.example.bottomanimationmydemo.view.activity.CurrentMealDetailActivity
+import com.example.bottomanimationmydemo.viewmodel.AllViewModel
+import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import net.simplifiedcoding.data.network.Resource
 
 @AndroidEntryPoint
 class MealBatchFragment : BaseFragment<FragmentMealBatchBinding>() {
     private val viewModel: AllViewModel by viewModels()
+    private val authViewModel by viewModels<AuthViewModel>()
+
     lateinit var dialogBinding: HomeMealDialogBinding
     var statusList = ArrayList<StatusModel>()
     var statusValue: String? = null
@@ -43,8 +64,8 @@ class MealBatchFragment : BaseFragment<FragmentMealBatchBinding>() {
         private const val subscribeid = "subscribe_id"
         fun getBundle(meal_id: String,subscribe_id: String): Bundle {
             val bundle = Bundle()
-            bundle.putString(meal_id, mealid)
-            bundle.putString(subscribe_id, subscribeid)
+            bundle.putString(mealid, meal_id)
+            bundle.putString(subscribeid, subscribe_id)
             return bundle
         }
     }
@@ -90,6 +111,7 @@ class MealBatchFragment : BaseFragment<FragmentMealBatchBinding>() {
         }
         binding.imgNext.setOnClickListener {
             requireContext().startActivity(Intent(requireContext(), CurrentMealDetailActivity::class.java))
+
         }
 
     }
@@ -184,6 +206,8 @@ class MealBatchFragment : BaseFragment<FragmentMealBatchBinding>() {
             }
         )
     }
+
+
 
     override fun getViewBinding() = FragmentMealBatchBinding.inflate(layoutInflater)
 
