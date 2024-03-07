@@ -10,12 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.CourseOrderAdapter
 import com.dev.batchfinal.custom.CustomToast.Companion.showToast
-import com.dev.batchfinal.databinding.FragmentScaningBinding
-import com.dev.batchfinal.databinding.HomeMealDialogBinding
-import com.dev.batchfinal.databinding.ProfileEditDialogBinding
+//import com.dev.batchfinal.databinding.FragmentScaningBinding
+//import com.dev.batchfinal.databinding.HomeMealDialogBinding
+//import com.dev.batchfinal.databinding.ProfileEditDialogBinding
 import com.dev.batchfinal.`interface`.CourseOrderListItemPosition
+import com.dev.batchfinal.`interface`.MealSubscribeListPosition
 import com.dev.batchfinal.model.courseorderlist.Data
 import com.dev.batchfinal.model.courseorderlist.OrderList
+import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListRequest
+import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListResponse
 import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.session.UserSessionManager
 import com.dev.batchfinal.utils.CheckNetworkConnection
@@ -26,34 +29,43 @@ import com.dev.batchfinal.view.account.LoginActivity
 import com.dev.batchfinal.view.activity.WeightLossActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
-import com.example.bottomanimationmydemo.R
-import com.example.bottomanimationmydemo.adapter.CourseOrderAdapter
-import com.example.bottomanimationmydemo.adapter.MealSubscribeListAdapter
-import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
-import com.example.bottomanimationmydemo.databinding.FragmentScaningBinding
-import com.example.bottomanimationmydemo.databinding.HomeMealDialogBinding
-import com.example.bottomanimationmydemo.`interface`.CourseOrderListItemPosition
-import com.example.bottomanimationmydemo.`interface`.MealSubscribeListPosition
-import com.example.bottomanimationmydemo.model.chosen_meal_details_model.ChosenMealDetailsResponse.InternalData
-import com.example.bottomanimationmydemo.model.courseorderlist.Data
-import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
-import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
-import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
-import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListResponse.InternalDatum
-import com.example.bottomanimationmydemo.out.AuthViewModel
-import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
-import com.example.bottomanimationmydemo.utils.MyConstant
-import com.example.bottomanimationmydemo.utils.MyCustom
-import com.example.bottomanimationmydemo.view.BaseFragment
-import com.example.bottomanimationmydemo.view.activity.CurrentMealDetailActivity
-import com.example.bottomanimationmydemo.view.activity.WeightLossActivity
-import com.example.bottomanimationmydemo.viewmodel.AllViewModel
-import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
+//import com.example.bottomanimationmydemo.R
+//import com.example.bottomanimationmydemo.adapter.CourseOrderAdapter
+//import com.dev.batchfinal.adapter.MealSubscribeListAdapter
+//import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
+//import com.example.bottomanimationmydemo.databinding.FragmentScaningBinding
+//import com.example.bottomanimationmydemo.databinding.HomeMealDialogBinding
+//import com.example.bottomanimationmydemo.`interface`.CourseOrderListItemPosition
+//import com.dev.batchfinal.`interface`.MealSubscribeListPosition
+//import com.example.bottomanimationmydemo.model.chosen_meal_details_model.ChosenMealDetailsResponse.InternalData
+//import com.example.bottomanimationmydemo.model.courseorderlist.Data
+//import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
+//import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
+//import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
+//import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListResponse.InternalDatum
+//import com.example.bottomanimationmydemo.out.AuthViewModel
+//import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
+//import com.example.bottomanimationmydemo.utils.MyConstant
+//import com.example.bottomanimationmydemo.utils.MyCustom
+//import com.example.bottomanimationmydemo.view.BaseFragment
+//import com.example.bottomanimationmydemo.view.activity.CurrentMealDetailActivity
+//import com.example.bottomanimationmydemo.view.activity.WeightLossActivity
+//import com.example.bottomanimationmydemo.viewmodel.AllViewModel
+//import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.dev.batchfinal.out.Resource
+import com.dev.batchfinal.view.activity.CurrentMealDetailActivity
+import com.dev.batchfinal.adapter.MealSubscribeListAdapter
+import com.dev.batchfinal.databinding.FragmentScaningBinding
+import com.dev.batchfinal.databinding.HomeMealDialogBinding
+import com.dev.batchfinal.databinding.ProfileEditDialogBinding
+
+//import com.example.bottomanimationmydemo.databinding.FragmentScaningBinding
+//import com.example.bottomanimationmydemo.databinding.HomeMealDialogBinding
+//import com.example.bottomanimationmydemo.databinding.ProfileEditDialogBinding
 
 @AndroidEntryPoint
 class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
@@ -238,12 +250,12 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         }
     }
 
-    private fun setAllMealSubscribeListAdapter(internalDatum: List<InternalDatum>) {
+    private fun setAllMealSubscribeListAdapter(internalDatum: List<MealSubscribeListResponse.InternalDatum>) {
         binding.recyclerMealSubscribe.layoutManager =
             LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerMealSubscribe.adapter = MealSubscribeListAdapter(context, internalDatum, object :
             MealSubscribeListPosition<Int> {
-            override fun onMealSubscribeListItemPosition(item: InternalDatum, position: Int) {
+            override fun onMealSubscribeListItemPosition(item: MealSubscribeListResponse.InternalDatum, position: Int) {
                 requireContext().startActivity(Intent(requireContext(), CurrentMealDetailActivity::class.java)
                     .putExtra("meal_id",item.id.toString())
                     .putExtra("subscribe_id",item.subscribedId.toString())

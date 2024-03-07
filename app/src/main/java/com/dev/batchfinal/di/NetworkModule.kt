@@ -40,10 +40,10 @@ class NetworkModule {
     ): OkHttpClient {
         val builder = OkHttpClient.Builder()
         builder.addInterceptor(authInterceptor)
-        if(BuildConfig.DEBUG) {
+      //  if(BuildConfig.DEBUG) {
             builder.addInterceptor(okHttpProfilerInterceptor)
             builder.addInterceptor(httpLoggingInterceptor)
-        }
+       // }
 
         return builder.build()
     }

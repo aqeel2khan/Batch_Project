@@ -7,7 +7,11 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.R
 import com.dev.batchfinal.databinding.ItemWeeksdayDataBinding
+//import com.dev.batchfinal.R
+//import com.dev.batchfinal.databinding.ItemWeeksdayDataBinding
 import com.dev.batchfinal.`interface`.PositionItemClickListener
+//import com.example.bottomanimationmydemo.R
+//import com.example.bottomanimationmydemo.databinding.ItemWeeksdayDataBinding
 
 class WeekdaysAdapter(
     val requireActivity: FragmentActivity, val dates: ArrayList<String?>, val days: ArrayList<String?>, var backDate: String?,

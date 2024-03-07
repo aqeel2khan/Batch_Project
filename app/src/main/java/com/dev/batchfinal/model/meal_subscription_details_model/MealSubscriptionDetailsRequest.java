@@ -1,5 +1,5 @@
 
-package com.example.bottomanimationmydemo.model.meal_subscription_details_model;
+package com.dev.batchfinal.model.meal_subscription_details_model;
 
 import com.google.gson.annotations.SerializedName;
 

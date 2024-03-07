@@ -1,5 +1,5 @@
 
-package com.example.bottomanimationmydemo.model.subscribe_list_model;
+package com.dev.batchfinal.model.subscribe_list_model;
 
 import com.google.gson.annotations.SerializedName;
 

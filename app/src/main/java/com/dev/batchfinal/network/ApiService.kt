@@ -17,9 +17,12 @@ import com.dev.batchfinal.model.meal_filter_model.MealFilterResponse
 import com.dev.batchfinal.model.meal_list.MealResponseList
 import com.dev.batchfinal.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.model.meal_plan_subscribe.MealsSubscribedRespnse
+import com.dev.batchfinal.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
 import com.dev.batchfinal.model.order_model.OrederCreateResponse
 import com.dev.batchfinal.model.registeration_model.SignUpResponseModel
 import com.dev.batchfinal.model.search_curse_filter.SearchCourseListByFilterResponse
+import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListRequest
+import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListResponse
 import com.dev.batchfinal.utils.MyConstant.AUTHORIZATION
 import com.dev.batchfinal.utils.MyConstant.CHOSEN_MEAL_DETAILS
 import com.dev.batchfinal.utils.MyConstant.COACH
@@ -37,6 +40,8 @@ import com.dev.batchfinal.utils.MyConstant.MEALDISH
 import com.dev.batchfinal.utils.MyConstant.MEALFILTER
 import com.dev.batchfinal.utils.MyConstant.MEALLIST
 import com.dev.batchfinal.utils.MyConstant.MEAL_SUBSCRIBE
+import com.dev.batchfinal.utils.MyConstant.MEAL_SUBSCRIBE_DETAILS
+import com.dev.batchfinal.utils.MyConstant.MEAL_SUBSCRIBE_LIST
 import com.dev.batchfinal.utils.MyConstant.ORDERCREATE
 import com.dev.batchfinal.utils.MyConstant.SIGNUP
 import com.dev.batchfinal.utils.MyConstant.STARTWORKOUTSTATUS
@@ -109,4 +114,9 @@ interface ApiService {
 
     @POST(MEAL_SUBSCRIBE)
     suspend fun mealSubscribe(@Body mealSubscribedRequest: MealSubscribedRequest): MealsSubscribedRespnse
+
+    @POST(MEAL_SUBSCRIBE_LIST)
+    suspend fun mealSubscribeList(@Body mealSubscribeListRequest: MealSubscribeListRequest): MealSubscribeListResponse
+    @POST(MEAL_SUBSCRIBE_DETAILS)
+    suspend fun mealSubscribeDetails(@Body mealSubscriptionDetailsRequest: MealSubscriptionDetailsRequest): JsonObject
 }

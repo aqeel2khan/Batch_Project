@@ -6,8 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.databinding.ItemChosenMealListBinding
 import com.dev.batchfinal.`interface`.PositionItemClickListener
-import com.example.bottomanimationmydemo.databinding.ItemChosenMealListBinding
-import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
+//import com.example.bottomanimationmydemo.databinding.ItemChosenMealListBinding
 import org.json.JSONObject
 import java.util.ArrayList
 

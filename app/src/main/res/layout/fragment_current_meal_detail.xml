@@ -120,6 +120,7 @@
                                     app:tint="@color/welcome_txt" />
 
                                 <com.dev.batchfinal.custom.MyCustomTextView
+                                    android:id="@+id/tv_kcl"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -150,6 +151,7 @@
                                     app:tint="@color/welcome_txt" />
 
                                 <com.dev.batchfinal.custom.MyCustomTextView
+                                    android:id="@+id/tv_meal_count"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
