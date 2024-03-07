@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:layout_gravity="center"
+        app:cardElevation="@dimen/_2sdp"
+        android:elevation="@dimen/_2sdp"
+        android:padding="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/background_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/food" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--current batch xml-->
+            <com.dev.batchfinal.custom.MyCustomTextView
+                android:id="@+id/workout_batch"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/radius_shape"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:textSize="@dimen/_10ssp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@string/current_batch"
+                android:textColor="@color/welcome_txt"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_95sdp"
+                android:background="@color/txt_light2"
+                android:padding="@dimen/_10sdp">
+
+                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                    android:id="@+id/tv_course_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/workout_batch"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/workOutBath"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true">
+
+                    <com.dev.batchfinal.custom.MyCustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="from "
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_7ssp"
+                        android:textStyle="bold" />
+
+                    <com.dev.batchfinal.custom.MyCustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$35"
+                        android:id="@+id/tv_course_price"
+                        android:textSize="@dimen/_10ssp"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/workOutBatchRelative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/workOutBath"
+                    android:layout_marginTop="@dimen/_8sdp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_marginEnd="@dimen/_3sdp"
+                            android:src="@drawable/streat" />
+
+                        <com.dev.batchfinal.custom.MyCustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_Stretching"
+                            android:id="@+id/work_type"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_12sdp"
+                            android:layout_height="@dimen/_14sdp"
+                            android:layout_marginEnd="@dimen/_3sdp"
+                            android:src="@drawable/calendar" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <com.dev.batchfinal.custom.MyCustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="from"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+                            <com.dev.batchfinal.custom.MyCustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10ssp"
+                                android:textStyle="bold" />
+                            <com.dev.batchfinal.custom.MyCustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="week"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_8ssp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:src="@drawable/bar_chart" />
+
+                        <com.dev.batchfinal.custom.MyCustomTextView
+                            android:id="@+id/level_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:text="Beginner"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/workOutBatchRelative"
+                    android:layout_marginTop="4dp">
+
+                    <ImageView
+                        android:id="@+id/coach_profile"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:src="@drawable/profile_image" />
+
+                    <com.dev.batchfinal.custom.MyCustomTextView
+                        android:id="@+id/coach_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:text="Bessie Cooper"
+                        android:textSize="@dimen/_10ssp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_below="@id/linearLayout"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:indeterminate="false"
+                    android:max="50"
+                    android:progress="0"
+                    android:visibility="gone"
+                    android:progressDrawable="@drawable/custom_seekbar"
+                    android:thumb="@drawable/thumb" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!--<androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_20sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/food" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.dev.batchfinal.custom.MyCustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/radius_shape"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:textSize="@dimen/_10ssp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@string/current_batch"
+                android:textColor="@color/welcome_txt"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:background="@color/work_color"
+                android:padding="@dimen/_10sdp">
+
+                <com.dev.batchfinal.custom.MyCustomTextView
+                    android:id="@+id/tv_workout_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/workout_batch"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/workOutBath"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true">
+
+                    <com.dev.batchfinal.custom.MyCustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="from"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_8ssp"
+                        android:layout_marginEnd="@dimen/_2sdp"/>
+
+                    <com.dev.batchfinal.custom.MyCustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$35"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/workOutBatchRelative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/workOutBath"
+                    android:layout_marginTop="@dimen/_8sdp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_marginEnd="@dimen/_3sdp"
+                            android:src="@drawable/streat" />
+
+                        <com.dev.batchfinal.custom.MyCustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_Stretching"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_12sdp"
+                            android:layout_height="@dimen/_14sdp"
+                            android:layout_marginEnd="@dimen/_3sdp"
+                            android:src="@drawable/calendar" />
+
+                        <com.dev.batchfinal.custom.MyCustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_2sdp"
+                            android:text="from 1 week"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
+                            android:src="@drawable/bar_chart" />
+
+                        <com.dev.batchfinal.custom.MyCustomTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_3sdp"
+                            android:text="Beginner"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/workOutBatchRelative"
+                    android:layout_marginTop="4dp">
+
+                    <ImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:src="@drawable/profile_image" />
+
+                    <com.dev.batchfinal.custom.MyCustomTextView
+                        android:id="@+id/userName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:text="Bessie Cooper"
+                        android:textSize="@dimen/_10ssp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>-->
+
+</RelativeLayout>

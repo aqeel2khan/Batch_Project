@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.dev.batchfinal.view.fragments.HomeFragment">
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginBottom="@dimen/_75sdp">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+         android:orientation="vertical">
+         <RelativeLayout
+             android:id="@+id/rl_motivator_search"
+             android:layout_below="@id/ll_tab_layout"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/_39sdp"
+             android:layout_marginStart="20dp"
+             android:layout_marginTop="@dimen/_20sdp"
+             android:layout_marginEnd="@dimen/_20sdp"
+             android:background="@drawable/form_shape"
+             android:gravity="center_vertical"
+             android:paddingHorizontal="@dimen/_15sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/search" />
+
+               <EditText
+                   android:id="@+id/edit_query"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_marginStart="@dimen/_10sdp"
+                   android:background="@null"
+                   android:hint="Search" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/icon_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/fillter" />
+         </RelativeLayout>
+
+         <com.google.android.material.card.MaterialCardView
+             app:cardCornerRadius="@dimen/_20sdp"
+             android:layout_marginTop="@dimen/_20sdp"
+             android:layout_marginBottom="@dimen/_10sdp"
+             android:layout_marginHorizontal="@dimen/_15sdp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+
+            <!--<com.smarteist.autoimageslider.SliderView
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="right"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="1"
+                app:sliderStartAutoCycle="true" />-->
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_centerInParent="true"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorEnabled="true"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#BCB8B8"
+                app:sliderScrollTimeInSec="1" />
+
+         </com.google.android.material.card.MaterialCardView>
+
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/_10sdp"
+             android:layout_marginHorizontal="@dimen/_15sdp">
+            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/workout_batchs"
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/outfit_regular"/>
+            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                android:id="@+id/tv_showw_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_show_all"
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_12ssp"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/outfit_regular"/>
+
+         </RelativeLayout>
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/recycler_workbatches"
+             android:layout_marginTop="@dimen/_10sdp"
+             android:layout_marginHorizontal="@dimen/_15sdp"/>
+
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/_10sdp"
+             android:layout_marginHorizontal="@dimen/_15sdp">
+            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_motivators"
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/outfit_regular"/>
+            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                android:id="@+id/tv_mt_showw_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_show_all"
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_12ssp"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/outfit_regular"/>
+
+         </RelativeLayout>
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/recycler_motivators"
+             android:layout_marginTop="@dimen/_10sdp"
+             android:layout_marginHorizontal="@dimen/_15sdp"/>
+      </LinearLayout>
+   </ScrollView>
+
+   <!-- <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_training"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rectangle_button_gry_home"
+        android:fontFamily="@font/outfit_regular"
+        android:outlineSpotShadowColor="#516634"
+        android:text="Training Batch"
+        android:textSize="@dimen/_12ssp"
+        android:elevation="@dimen/_2sdp"
+        android:padding="@dimen/_2sdp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:ignore="UnusedAttribute" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_meal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/rectangle_button_gry_home"
+        android:fontFamily="@font/outfit_regular"
+        android:outlineSpotShadowColor="#516634"
+        android:text="Meal Batch"
+        android:elevation="@dimen/_2sdp"
+        android:padding="@dimen/_2sdp"
+        android:textSize="@dimen/_12ssp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:ignore="UnusedAttribute" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_shop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:elevation="@dimen/_2sdp"
+        android:padding="@dimen/_2sdp"
+        android:background="@drawable/rectangle_button_gry_home"
+        android:fontFamily="@font/outfit_regular"
+        android:outlineSpotShadowColor="#516634"
+        android:text="Shop Batch"
+        android:textSize="@dimen/_12ssp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:ignore="UnusedAttribute" />-->
+
+</LinearLayout>

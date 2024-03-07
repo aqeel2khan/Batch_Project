@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/knet"
+            android:scaleType="fitCenter"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <com.dev.batchfinal.custom.MyCustomTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_weight="0.8"
+            android:text="Knet"
+            android:id="@+id/tv_card_name"
+            android:textColor="@color/welcome_txt_gry"
+            android:textSize="@dimen/_10ssp" />
+
+        <!--<androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_gravity="center_horizontal"/>-->
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_selected"/>
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_weight="0.1"
+            android:src="@drawable/icon_circle" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/gry2"
+        android:layout_margin="@dimen/_4sdp" />
+
+</LinearLayout>

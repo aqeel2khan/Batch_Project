@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.dev.batchfinal.view.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_batchboardFragment_to_trainingFragment"
+            app:destination="@id/trainingFragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit"/>
+        <action
+            android:id="@+id/action_batchboardFragment_to_mealFragment"
+            app:destination="@id/mealFragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit"/>
+        <action
+            android:id="@+id/action_batchboardFragment_to_shopFragment"
+            app:destination="@id/shopFragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/trainingFragment"
+        android:name="com.dev.batchfinal.view.fragments.TrainingFragment"
+        android:label="fragment_training"
+        tools:layout="@layout/fragment_training">
+
+
+        <action
+            android:id="@+id/action_trainingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealFragment"
+        android:name="com.dev.batchfinal.view.fragments.MealFragment"
+        android:label="fragment_meal"
+        tools:layout="@layout/fragment_meal">
+
+
+        <action
+            android:id="@+id/action_mealFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.dev.batchfinal.view.fragments.ShoppingFragment"
+        android:label="fragment_shopping"
+        tools:layout="@layout/fragment_shopping">
+
+
+        <action
+            android:id="@+id/action_shopFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+
+</navigation>

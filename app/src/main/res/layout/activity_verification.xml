@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    tools:context="com.dev.batchfinal.view.activity.VerificationActivity">
+
+    <ImageView
+        android:id="@+id/backButtonLogin"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_gravity="start"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:src="@drawable/app_back_icon" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="180dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.dev.batchfinal.custom.MyCustomTextView
+            android:id="@+id/welcomeBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/outfit_regular"
+            android:text="@string/verification_code"
+            android:textAllCaps="false"
+            android:textColor="@color/welcome_txt"
+            android:textSize="@dimen/_20ssp"
+            android:layout_weight="500"
+            android:textStyle="bold" />
+
+        <com.dev.batchfinal.custom.MyCustomTextView
+            android:id="@+id/signInAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/outfit_regular"
+            android:gravity="center_horizontal"
+            android:text="@string/verification_number"
+            android:textAllCaps="false"
+            android:textColor="@color/welcome_txt_gry"
+            android:textSize="@dimen/_13ssp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edit_one"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/form_shape"
+                android:fontFamily="@font/outfit_regular"
+                android:gravity="center"
+                android:maxLength="1"
+                android:longClickable="false"
+                android:inputType="numberPassword"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:paddingHorizontal="@dimen/_14sdp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/black"
+                android:textColorHint="#9F9CB0"
+                tools:ignore="TextFields" />
+
+            <EditText
+                android:id="@+id/edit_two"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/form_shape"
+                android:fontFamily="@font/outfit_regular"
+                android:gravity="center"
+                android:maxLength="1"
+                android:longClickable="false"
+                android:inputType="numberPassword"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:paddingHorizontal="@dimen/_14sdp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/black"
+                android:textColorHint="#9F9CB0"
+                tools:ignore="Autofill,LabelFor,TextFields" />
+
+            <EditText
+                android:id="@+id/edit_three"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/form_shape"
+                android:gravity="center"
+                android:maxLength="1"
+                android:longClickable="false"
+                android:inputType="numberPassword"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:paddingHorizontal="@dimen/_14sdp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/black"
+                android:textColorHint="#9F9CB0"
+                tools:ignore="Autofill,LabelFor,TextFields" />
+
+            <EditText
+                android:id="@+id/edit_four"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/form_shape"
+                android:gravity="center"
+                android:maxLength="1"
+                android:longClickable="false"
+                android:inputType="numberPassword"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:paddingHorizontal="@dimen/_14sdp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/black"
+                android:textColorHint="#9F9CB0"
+                tools:ignore="LabelFor,TextFields" />
+
+        </LinearLayout>
+<!--validation check code-->
+        <com.dev.batchfinal.custom.MyCustomTextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/outfit_regular"
+            android:gravity="center_horizontal"
+            android:text="@string/the_code_is_invalid_please_try_again"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp" />
+
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/verificationButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_25sdp"
+        android:background="@drawable/rectangle_button_gry"
+        android:fontFamily="@font/outfit_regular"
+        android:outlineSpotShadowColor="#516634"
+        android:text="@string/continue_text"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        tools:ignore="UnusedAttribute" />
+
+</RelativeLayout>

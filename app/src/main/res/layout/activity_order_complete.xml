@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context="com.dev.batchfinal.view.activity.ComplateWorkoutActivity">
+
+    <LinearLayout
+        android:id="@+id/exercise_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/done_bg"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/rel_weight_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/exercise_image"
+        android:layout_marginTop="-100dp"
+        android:background="@drawable/rounded_bg_main"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_10sdp">
+
+        <!--        <ScrollView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:scrollbars="none">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_complete"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:src="@drawable/complete_icon" />
+
+            <com.dev.batchfinal.custom.MyCustomTextView
+                android:id="@+id/weight_loss_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/outfit_bold"
+                android:text="@string/txt_thank_statement"
+                android:textAlignment="center"
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.dev.batchfinal.custom.MyCustomTextView
+                android:id="@+id/messageText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
+                android:fontFamily="@font/outfit_semi_bold"
+                android:text="@string/txt_thank_content"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/_10ssp" />
+
+            <com.dev.batchfinal.custom.MyCustomTextView
+                android:id="@+id/txt_exercise_summery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="@string/txt_like_statement"
+                app:fontFamily="@font/outfit_semi_bold"
+                android:textColor="@color/welcome_txt"
+                android:textFontWeight="500"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_20sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/food" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_80sdp"
+                        android:background="@color/work_color"
+                        android:padding="@dimen/_10sdp">
+
+                        <com.dev.batchfinal.custom.MyCustomTextView
+                            android:id="@+id/tv_workout_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Batch Meal Plan"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            android:textFontWeight="500"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/workOutBath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="from"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_8ssp"
+                                android:layout_marginEnd="@dimen/_2sdp"/>
+
+                            <TextView
+                                android:id="@+id/meal_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$35"
+                                android:textSize="@dimen/_10ssp"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/workOutBatchRelative"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/workOutBath"
+                            android:layout_marginTop="@dimen/_10sdp">
+
+                            <LinearLayout
+                                android:id="@+id/ll_one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_13sdp"
+                                    android:layout_height="@dimen/_16sdp"
+                                    android:layout_marginEnd="@dimen/_3sdp"
+                                    android:src="@drawable/flash_icon"
+                                    app:tint="@color/white" />
+
+                                <com.dev.batchfinal.custom.MyCustomTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1700 - 1800"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12ssp"
+                                    android:textStyle="bold" />
+                                <com.dev.batchfinal.custom.MyCustomTextView
+                                    android:id="@+id/tv_boost_kcal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="kcal"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_10ssp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_second"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_toRightOf="@id/ll_one"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_13sdp"
+                                    android:layout_height="@dimen/_13sdp"
+                                    android:src="@drawable/meal_sm_icon" />
+
+                                <com.dev.batchfinal.custom.MyCustomTextView
+                                    android:id="@+id/meal_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_3sdp"
+                                    android:text="3-4"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12ssp"
+                                    android:textStyle="bold" />
+                                <com.dev.batchfinal.custom.MyCustomTextView
+                                    android:id="@+id/tv_snacks_kcal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="meal"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_10ssp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_toRightOf="@id/ll_second"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_13sdp"
+                                    android:layout_height="@dimen/_13sdp"
+                                    android:src="@drawable/meal_sm_icon" />
+
+                                <com.dev.batchfinal.custom.MyCustomTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/_3sdp"
+                                    android:text="1-2"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_12ssp"
+                                    android:textStyle="bold" />
+                                <com.dev.batchfinal.custom.MyCustomTextView
+                                    android:id="@+id/tv_meal_kcal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="snacks"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_10ssp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+
+                android:id="@+id/recycler_order_complete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_go_to_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/rectangle_button"
+                android:backgroundTint="#516634"
+                android:elevation="@dimen/_2sdp"
+                android:padding="@dimen/_2sdp"
+                android:fontFamily="@font/outfit_semi_bold"
+                android:text="@string/txt_go_home"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

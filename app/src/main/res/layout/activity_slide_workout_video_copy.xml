@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/txt_light2"
+    tools:context="com.dev.batchfinal.view.activity.SlideWorkoutVideoActivity">
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+
+        android:gravity="center">
+        <ImageView
+            android:layout_weight="0.2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/subtitle"/>
+        <com.dev.batchfinal.custom.MyCustomTextView
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Workout Name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+        <ImageView
+            android:layout_weight="0.2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/remove"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_below="@id/header"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/info_bg">
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_info"
+            app:tint="@color/welcome_txt" />
+    </RelativeLayout>
+
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerVideos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_continue"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/rectangle_button"
+        android:fontFamily="@font/outfit_regular"
+        android:outlineSpotShadowColor="#516634"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/finish_workout"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textFontWeight="500"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewPagerVideos"
+        tools:ignore="UnusedAttribute" />
+
+</RelativeLayout>

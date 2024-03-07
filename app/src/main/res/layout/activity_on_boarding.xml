@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dev.batchfinal.view.account.OnBoardingActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/sign_bg">
+
+        <LinearLayout
+            android:id="@+id/languageLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/af"
+                tools:ignore="ContentDescription" />
+
+            <com.dev.batchfinal.custom.MyCustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:text="@string/ar"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_215sdp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rounded_top_background"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <com.dev.batchfinal.custom.MyCustomTextView
+            android:id="@+id/title_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            android:fontFamily="@font/outfit_medium"
+            android:text="@string/lorem_ipsum_dolor_sit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_24ssp" />
+
+        <com.dev.batchfinal.custom.MyCustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/outfit_regular"
+            android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="@dimen/_7sdp"
+                android:background="@drawable/dot_shape" />
+
+            <View
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="@dimen/_7sdp"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:background="@drawable/dot_shape" />
+
+            <View
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="@dimen/_7sdp"
+                android:background="@drawable/dot_shape" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/onClickSelectCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rectangle_button"
+            android:fontFamily="@font/outfit_medium"
+            android:outlineSpotShadowColor="#516634"
+            android:text="@string/select_country"
+            android:textSize="@dimen/_16ssp"
+            android:padding="@dimen/_12sdp"
+            android:elevation="@dimen/_2sdp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute" />
+
+        <Button
+            android:id="@+id/onClickLookArround"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_button"
+            android:fontFamily="@font/outfit_medium"
+            android:text="@string/i_want_look"
+            android:textSize="@dimen/_16ssp"
+            android:textAllCaps="false"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:padding="@dimen/_12sdp"
+            android:elevation="@dimen/_2sdp"
+            android:textColor="@color/light_green"/>
+    </LinearLayout>
+
+</RelativeLayout>

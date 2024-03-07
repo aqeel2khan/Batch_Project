@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context="com.dev.batchfinal.view.activity.ComplateWorkoutActivity">
+
+    <LinearLayout
+        android:id="@+id/exercise_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/done_bg"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rel_weight_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-100dp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:orientation="vertical"
+        android:layout_below="@id/exercise_image"
+        android:background="@drawable/rounded_bg_main">
+
+<!--        <ScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:scrollbars="none">-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/img_complete"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/complete_icon"/>
+
+                <com.dev.batchfinal.custom.MyCustomTextView
+                    android:id="@+id/weight_loss_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/outfit_regular"
+                    android:text="@string/workout_completed"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:textColor="@color/welcome_txt"
+                    android:textFontWeight="500"
+                    android:textSize="@dimen/_14ssp" />
+
+                <com.dev.batchfinal.custom.MyCustomTextView
+                    android:id="@+id/messageText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/workout_completed_content"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/_10ssp" />
+
+                <com.dev.batchfinal.custom.MyCustomTextView
+                    android:id="@+id/txt_exercise_summery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/outfit_regular"
+                    android:text="@string/exercise_summary"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/welcome_txt"
+                    android:textFontWeight="500"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_12ssp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/_2sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:src="@drawable/icon_strength"
+                        android:id="@+id/img_strength"/>
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:src="@drawable/icon_kcl"
+                        android:id="@+id/img_kcl"/>
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:src="@drawable/icon_min"
+                        android:id="@+id/img_min"/>
+
+                </LinearLayout>
+
+                <com.dev.batchfinal.custom.MyCustomTextView
+                    android:id="@+id/txt_exercise_query"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/outfit_regular"
+                    android:text="@string/query_workout"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/welcome_txt"
+                    android:textFontWeight="500"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_12ssp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_gravity="center">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:id="@+id/iv_employee_image"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/demo_img"/>
+                        </androidx.cardview.widget.CardView>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginStart="@dimen/_8sdp">
+                            <com.dev.batchfinal.custom.MyCustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/outfit_extra_bold"
+                                android:text="Lower-Body Burn exercise"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:textColor="@color/welcome_txt"
+                                android:textFontWeight="500"
+                                android:textSize="@dimen/_10ssp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp">
+                                <ImageView
+                                    android:layout_width="@dimen/_14sdp"
+                                    android:layout_height="@dimen/_14sdp"
+                                    android:src="@drawable/star"/>
+                                <ImageView
+                                    android:layout_width="@dimen/_14sdp"
+                                    android:layout_height="@dimen/_14sdp"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:src="@drawable/star"/>
+                                <ImageView
+                                    android:layout_width="@dimen/_14sdp"
+                                    android:layout_height="@dimen/_14sdp"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:src="@drawable/star"/>
+                                <ImageView
+                                    android:layout_width="@dimen/_14sdp"
+                                    android:layout_height="@dimen/_14sdp"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:src="@drawable/star"/>
+                            </LinearLayout>
+                            <com.dev.batchfinal.custom.MyCustomTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/outfit_extra_bold"
+                                android:text="Leave more feedback"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:textColor="@color/welcome_txt"
+                                android:textFontWeight="500"
+                                android:textSize="@dimen/_8ssp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_continue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_button"
+                    android:fontFamily="@font/outfit_regular"
+                    android:outlineSpotShadowColor="#516634"
+                    android:text="@string/continue_text"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_12ssp"
+                    android:textFontWeight="500"
+                    tools:ignore="UnusedAttribute" />
+            </LinearLayout>
+
+<!--        </ScrollView>-->
+    </LinearLayout>
+</RelativeLayout>

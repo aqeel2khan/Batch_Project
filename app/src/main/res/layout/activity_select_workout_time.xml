@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context="com.dev.batchfinal.view.activity.BuySubscriptionActivity">
+
+    <RelativeLayout
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55sdp"
+        android:orientation="horizontal">
+
+        <com.dev.batchfinal.custom.MyCustomBoldTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/outfit_regular"
+            android:gravity="end"
+            android:text="@string/txt_skip"
+            android:textColor="@color/welcome_txt_gry"
+            android:textFontWeight="500"
+            android:textSize="@dimen/_14ssp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_55sdp"
+        android:background="@drawable/rounded_bg_main"
+        android:orientation="vertical">
+
+        <com.dev.batchfinal.custom.MyCustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/outfit_regular"
+            android:gravity="center"
+            android:text="@string/txt_select_time"
+            android:textColor="@color/welcome_txt"
+            android:textFontWeight="500"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <com.dev.batchfinal.custom.MyCustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/outfit_regular"
+            android:gravity="center"
+            android:text="@string/txt_exercise"
+            android:textColor="@color/welcome_txt"
+            android:textFontWeight="500"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/img_mon"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_mon" />
+
+            <ImageView
+                android:id="@+id/img_tue"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_tue" />
+
+            <ImageView
+                android:id="@+id/img_wed"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_wed" />
+
+            <ImageView
+                android:id="@+id/img_thu"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_thu" />
+
+            <ImageView
+                android:id="@+id/img_fri"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_fri" />
+
+            <ImageView
+                android:id="@+id/img_sat"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_sat" />
+
+            <ImageView
+                android:id="@+id/img_sun"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_sun"/>
+        </LinearLayout>
+
+        <TimePicker
+            android:id="@+id/datePicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:timePickerMode="spinner"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_button"
+        android:fontFamily="@font/outfit_regular"
+        android:outlineSpotShadowColor="#516634"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textFontWeight="500"
+        tools:ignore="UnusedAttribute"
+        android:textSize="@dimen/_12ssp"
+        android:text="@string/txt_next"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>

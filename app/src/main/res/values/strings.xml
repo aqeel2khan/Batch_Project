@@ -1,0 +1,266 @@
+<resources>
+    <string name="app_name">BatchFinal</string>
+    <string name="internet_is_not_available">Internet is not available</string>
+    <string name="terms_condition">I agree to the company <font color='#516634'>Terms &amp; Conditions</font></string>
+    <string name="terms_service_police">I agree to the company <font color='#516634'>Terms of Service</font> and\n<font color='#516634'>Privacy Police</font></string>
+
+    <!--add new string-->
+    <string name="please_check_internet">Please check Internet connection and try again.</string>
+    <string name="txt_batch">Batches</string>
+    <string name="sign_in">Sign In</string>
+    <string name="txt_motivations">Motivator</string>
+    <string name="txt_motivators">Motivators</string>
+    <string name="txt_home">Batchboard</string>
+    <string name="agree_and_continue">Agree And Continue</string>
+    <string name="log_in">Log in</string>
+    <string name="select_country">Select Country</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account ? <font color='#516634'>Signup</font></string>
+    <string name="male">Male</string>
+    <string name="i_want_look">I want to look around</string>
+    <string name="female">Female</string>
+    <string name="already_account">Already have an account ? <font color='#516634'><b>Sign In</b></font></string>
+    <string name="before_we_start">Before we start, we need to know \nyour gender</string>
+    <string name="continue_text">Continue</string>
+    <string name="verification_code">Enter verification code</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="welcome_back_bath">Welcome to Batch!</string>
+    <string name="verification_number">We have sent the code verification to\n      your mobile number </string>
+    <string name="sign_in_account">Sign In to your account</string>
+    <string name="sign_in_google">Sign in with Google</string>
+    <string name="sign_in_outlook">Sign in with Outlook</string>
+    <string name="sign_in_facebook">Sign in with Facebook</string>
+    <string name="go_to_checkout">Go to checkout</string>
+    <string name="sign_in_apple">Sign in with Apple</string>
+    <string name="I_agree_term">I agree to the company</string>
+    <string name="term_condition"> Terms &amp; Conditions</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="txt_phone">Phone</string>
+    <string name="or_continue">Or continue with</string>
+    <string name="batchboard">Batchboard</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur">Lorem ipsum dolor sit amet consectetur.</string>
+    <string name="lorem_ipsum_dolor_sit">Lorem ipsum dolor sit</string>
+    <string name="the_code_is_invalid_please_try_again">The code is invalid. Please try again.</string>
+    <string name="ar">AR</string>
+    <string name="termCondition">Lorem ipsum dolor sit amet consectetur. Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagittis lobortis aliquam sed vestibulum. Mattis auctor hac cursus urna risus interdum et. Neque ut ultricies fringilla in nulla. \n\n
+At nulla orci egestas a lorem aliquam consectetur magna. Id id lacus eu commodo fusce tempus augue turpis vivamus. Tempus malesuada a amet eget vitae integer scelerisque tristique mauris. Eget id iaculis massa morbi ultrices tincidunt. Hac diam feugiat pretium enim nibh duis non mollis facilisi.Lorem ipsum dolor sit amet consectetur.\n\n
+Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagittis lobortis aliquam sed vestibulum. Mattis auctor hac cursus urna risus interdum et. Neque ut ultricies fringilla in nulla. At nulla orci egestas a lorem aliquam consectetur magna. Id id lacus eu commodo fusce tempus augue turpis vivamus. Tempus malesuada a amet eget vitae integer scelerisque tristique mauris. Eget id iaculis massa morbi ultrices tincidunt. Hac diam feugiat pretium enim nibh duis non mollis facilisi.</string>
+    <string name="select_country_region">Select Country / Region</string>
+    <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="subscribe_for_a_course">Subscribe for a Course</string>
+    <string name="_15_20_min">15-20 min</string>
+
+    <!--workout txt-->
+    <string name="current_batch">Current Batch</string>
+    <string name="workout_batch">Workout Batch</string>
+    <string name="workout_batchs">Workout Batches</string>
+    <string name="txt_days"> days</string>
+    <string name="txt_Stretching">Stretching</string>
+    <string name="txt_follow">Follow</string>
+    <string name="txt_trainer_content">Highly experienced yoga and pilates instructor \nwith over 7 years of expertise in guiding \n students towards their wellness goals.</string>
+    <string name="txt_recommended_product">Recommended Products</string>
+    <string name="txt_doller_sign">$</string>
+
+    <!--weight loss-->
+    <string-array name="week">
+        <item>1 Weeks</item>
+        <item>2 Weeks</item>
+        <item>3 Weeks</item>
+        <item>4 Weeks</item>
+    </string-array>
+
+    <string-array name="weekPrice">
+        <item>1 Weeks($30)</item>
+        <item>2 Weeks($35)</item>
+        <item>3 Weeks($40)</item>
+        <item>4 Weeks($45)</item>
+    </string-array>
+
+    <!--buy subscription text-->
+    <string name="workout_batch_capital">WORKOUT BATCH</string>
+    <string name="txt_weight_loss">Weight Loss</string>
+    <string name="txt_plan_duration">Select plan duration</string>
+    <string name="txt_batch_pro">BATCH PRO</string>
+    <string name="txt_get_batch_pro">Get Batch Pro</string>
+    <string name="txt_check_out">Checkout</string>
+    <string name="txt_add_pro">Add Promo code</string>
+    <string name="txt_remove_pro">Remove Promo code</string>
+    <string name="txt_meal_title">Meal Batch</string>
+    <string name="shop_title">Shopping Batch</string>
+    <string name="scan_title">Scanning Batch</string>
+    <string name="txt_start_workout">Start the Workout</string>
+    <string name="txt_channge_course"><font><b>Change the Course</b></font></string>
+    <string name="txt_get_batch_pro_content">Get unlimited access and save up to 10% on every \ncourse with pro</string>
+    <string name="choosing_meal"><font><h3>Need help choosing the right \nMeal Batch?</h3></font></string>
+    <string name="choosing_meal_content">Answer a few questions or talk to our nutritionist \nand you\'ll find the best batch for you based on \nyour needs and calories</string>
+    <string name="weight_loss_content">Our weight loss training plan is designed to help \nyou reach your fitness goals through a \ncombination of strength training, and \ncardiovascular exercise</string>
+
+    <string name="change_course"><font><h1><b>Change the Course</b></h1></font></string>
+    <string name="change_course_content">The batch change will be applied after your \ncurrent subscription ends.</string>
+    <string name="change_course_selection">Go to course selection</string>
+    <string name="change_course_cancel">Cancel</string>
+    <string name="txt_buy_subscription"><font><h2>Buy Subscription</h2></font></string>
+    <string name="plan_duration"><font><h1>Plan Duration</h1></font></string>
+    <string name="txt_save">Save</string>
+    <string name="txt_registration">Registration</string>
+    <string name="txt_sign_account">Sign In to your account</string>
+
+    <string name="workout_detail_content">This high-intensity workout primarily focuses \non your glutes, thighs, and calves. The exercise \nroutine includes a combination of squats, \nlunges, and leg raises, along with other lower \nbody exercises to provide a complete workout \nfor your legs.</string>
+    <string name="start_next_workout">Start Next Workout</string>
+    <string name="finish_workout">Finish the workout</string>
+    <string name="workout_completed">Workout Completed!</string>
+    <string name="workout_completed_content">Congratulations on completing the Lower-\nBody Burn exercise! Keep up the great work \nand see you at your next workout!</string>
+    <string name="exercise_summary">Exercise Summary</string>
+    <string name="query_workout">Did you enjoy the training?</string>
+    <string name="txt_continue">Continue</string>
+    <string name="txt_skip">Skip</string>
+    <string name="txt_next">Next</string>
+    <string name="txt_select_time">Select time and day of \nthe next workouts</string>
+    <string name="txt_exercise">Planning your exercise routine can help you \nstay on track and achieve results faster</string>
+    <string name="txt_allow_notification">Allow Notification</string>
+    <string name="txt_allow_notification_content">Don\'t miss out on your training. Enable \nnotifications to receive alerts about your \nscheduled sessions!</string>
+    <string name="txt_allow">Allow</string>
+    <string name="txt_payment_method">Payment method</string>
+    <string name="txt_thank_statement">Thank you for your \npurchase!</string>
+    <string name="txt_thank_content">Your course is already available in the \nTraining section</string>
+    <string name="txt_like_statement">You might also like:</string>
+    <string name="txt_go_home">Go to Homepage</string>
+
+    <string name="txt_meal_content">Our vegan meal plan offers a wide variety of plant-\nbased dishes that are not only good for you, but also \ntaste great! Our expert chefs use fresh, whole food \ningredients to create meals that are packed with \nflavor and nutrients.</string>
+    <string name="txt_meal_statement">You haven\'t chosen a dish yet. \nWe will compile the meal on our \npreference, if you don\'t make \nyour choice in time.</string>
+
+    <string name="txt_meal_planning">Meal Planning</string>
+    <string name="txt_meal_breakfast">Breakfast</string>
+    <string name="txt_meal_lunch_dinner">Lunch &amp; Dinner</string>
+    <string name="txt_meal_snack">Snack</string>
+    <string name="txt_meal_desserts">Desserts</string>
+    <string name="txt_ingredient_1">Salmon</string>
+    <string name="txt_ingredient_2">Eggs</string>
+    <string name="txt_ingredient_3">Whole grain bread</string>
+    <string name="txt_ingredient_4">Cottage cheese</string>
+    <string name="txt_rate_meal">Did you enjoy \nthis meal?</string>
+    <string name="txt_rate_meal_write">Did you enjoy this meal?</string>
+    <string name="subscribe_for_a_plan">Subscribe for a plan</string>
+
+    <string name="select_date_plan">Select start date of plan</string>
+    <string name="txt_add_address">Add address</string>
+    <string name="txt_delivery_time">Delivery time</string>
+    <string name="txt_delivery_arriving">Delivery arriving</string>
+    <string name="txt_drop_off">Drop off</string>
+    <string name="txt_start_date_plan">Start date of plan</string>
+    <string name="txt_delivery_place">Delivery place </string>
+
+    <string name="txt_call">Call</string>
+    <string name="txt_ring_bell">Ring bell</string>
+    <string name="txt_notification">Notification</string>
+    <string name="txt_drop_1">Meet at door</string>
+    <string name="txt_drop_2">Meet outside</string>
+    <string name="txt_drop_3">Leave at door</string>
+
+    <string name="txt_new_card">Add new card</string>
+    <string name="txt_filter">Filter</string>
+    <string name="txt_card_number">Add card number</string>
+    <string name="txt_expiration">Expiration date</string>
+    <string name="txt_cvv">CVV</string>
+    <string name="txt_save_card">Save Card</string>
+    <string name="txt_questionnaire">Questionnaire</string>
+    <string name="txt_fitness_goal">What is your fitness goal?</string>
+    <string name="txt_age">What is your age?</string>
+    <string name="txt_weight">What is your weight?</string>
+    <string name="txt_height">What is your height?</string>
+    <string name="txt_active">How active are you?</string>
+    <string name="txt_choose_diet">Choose your type of diet</string>
+    <string name="txt_allergic">Are you allergic to any \nproducts?</string>
+
+    <string name="txt_loss">Lose weight</string>
+    <string name="txt_gain">Gain weight</string>
+    <string name="txt_maintain">Maintain weight</string>
+    <string name="txt_cm">cm</string>
+    <string name="txt_feet">feet</string>
+    <string name="txt_low_mobility">Low Mobility</string>
+    <string name="txt_workout_week">1-2 workouts per week</string>
+    <string name="txt_workout_week35">3-5 workouts per week</string>
+    <string name="txt_workout_week57">5-7 workouts per week</string>
+    <string name="txt_vegan">Vegan</string>
+    <string name="txt_vegetarian">Vegetarian</string>
+    <string name="txt_keto_vegan">Keto Vegan</string>
+    <string name="txt_paleo_diet">Paleo Diet</string>
+    <string name="txt_honey">Honey</string>
+    <string name="txt_milk">Milk</string>
+    <string name="txt_cheese">Cheese</string>
+    <string name="txt_nuts">Nuts</string>
+    <string name="txt_seafood">Seafood</string>
+    <string name="txt_chocolate">Chocolate</string>
+    <string name="txt_mushrooms">Mushrooms</string>
+    <string name="txt_coffee">Coffee</string>
+    <string name="txt_berries">Berries</string>
+    <string name="txt_ideal_intake">Your ideal daily caloric intake</string>
+    <string name="txt_dumy"><font><b>1340</b></font><font><h6>kcal/day</h6></font></string>
+    <string name="txt_kcal_day">kcal/day</string>
+    <string name="txt_your_meal">The perfect meal batch for you</string>
+    <string name="txt_back_to_meal">Back to Meal Batch</string>
+    <string name="txt_batch_chat">Batch Chat</string>
+    <string name="txt_your_meal_content">Based on your answers, we recommend you try this meal batch. You could go to it and take a closer look, or you could go back to the other meal plans page.</string>
+    <string name="txt_account">Account</string>
+    <string name="txt_personal_info">Personal info</string>
+    <string name="txt_following">Following</string>
+    <string name="txt_delivery_detail">Delivery Details</string>
+    <string name="txt_notification_setting">Notification Setting</string>
+    <string name="txt_change_photo">Change the photo</string>
+    <string name="txt_log_out">Log out</string>
+    <string name="txt_login">Login</string>
+
+    <string name="txt_dob">Date of birth</string>
+    <string name="txt_gender">Gender</string>
+    <string name="txt_all_notification">All notifications</string>
+    <string name="txt_training_notify">Training notifications</string>
+    <string name="txt_live_stream_notify">Live streams notifications</string>
+    <string name="txt_meal_plan_notify">Meal plan notifications</string>
+    <string name="txt_delivery_notify">Delivery notifications</string>
+    <string name="txt_log_msg">Do you want to log out?</string>
+    <string name="txt_login_msg">Not login yet? Login Now!!</string>
+
+    <string name="txt_log_content">Lorem ipsum dolor sit amet consectetur. Habitasse commodo magna mollis commodo ullamcorper vulputate mi viverra.</string>
+    <string name="meal_batch">MEAL BATCH</string>
+    <string name="txt_kcal">kcal</string>
+    <string name="txt_bpm">Bpm</string>
+    <string name="txt_apple_health"><font><h3>Apple Health</h3></font></string>
+    <string name="txt_water"><font><h3>Water</h3></font></string>
+    <string name="txt_of_day"><font><h3>Macros of the day</h3></font> </string>
+    <string name="txt_heart_rate">Heart Rate</string>
+    <string name="txt_steps">Steps</string>
+    <string name="txt_batch_meal_plan">Batch Meal Plan</string>
+    <string name="txt_status">Status</string>
+    <string name="txt_duration">Duration</string>
+    <string name="txt_exp_date">Expiration Date</string>
+    <string name="txt_delivery_days">Delivery days</string>
+    <string name="txt_change">Change</string>
+    <string name="txt_freeze">Freeze</string>
+    <string name="txt_un_freeze">Unfreeze</string>
+    <string name="txt_status_active">Active</string>
+    <string name="txt_freeze_red"><font color="#E13131">Freeze</font></string>
+    <string name="txt_freeze_plan">Freeze the Plan</string>
+    <string name="txt_change_plan">Change the Plan</string>
+    <string name="txt_change_plan_content">The plan change will be applied after your current subscription ends.</string>
+    <string name="txt_freeze_plan_content">Are you sure you want to freeze your current meal plan? Freezing your meal plan means you won\'t receive any new meals or updates until you unfreeze your plan. You can unfreeze your plan anytime and resume your meal delivery as usual.</string>
+    <string name="txt_un_freeze_plan_content">Are you ready to resume your meal plan?Unfreezing your meal plan means you will start receiving new meals and updates as scheduled. </string>
+    <string name="txt_go_to_meal">Go to meal plan selection</string>
+    <string name="txt_title_heart">Heart Rate</string>
+    <string name="txt_okay">Okay</string>
+    <string name="txt_sleep">Sleep</string>
+    <string name="txt_calories">Calories</string>
+    <string name="_1800"><![CDATA[<1800]]></string>
+    <string name="txt_show_all">Show All</string>
+    <string name="txt_oops">Oops!</string>
+<!--    <string name="txt_oops"><font><b>Oops!</b></font></string>-->
+    <string name="txt_subscription">We\'re sorry, but meal subscriptions are not yet \navailable in your country</string>
+    <string name="txt_got_it">Got It</string>
+    <string name="txt_workout_type">Workout Type</string>
+    <string name="txt_workout_level">Level</string>
+    <string name="txt_workout_goal">Goal</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="english">English</string>
+</resources>
