@@ -234,47 +234,6 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
         dialog.show()
     }
 
-    private fun getMealSubscribeListApi(meal_id:String,subscription_id:String) {
-        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
-            showLoader()
-            val mealSubscriptionDetailsRequest = MealSubscriptionDetailsRequest()
-            mealSubscriptionDetailsRequest.userId=sharedPreferences.userId
-            mealSubscriptionDetailsRequest.mealId=meal_id
-            mealSubscriptionDetailsRequest.subscribedId=subscription_id
-            authViewModel.mealSubscribeDetailsApiCall(mealSubscriptionDetailsRequest)
-            Log.d("Token","Bearer " + sharedPreferences.token);
-            authViewModel.mealSubscribeListResponse.observe(this) {
-                when (it) {
-                    is Resource.Success -> {
-                        hideLoader()
-                        authViewModel.mealSubscribeListResponse.removeObservers(this)
-                        if (authViewModel.mealSubscribeListResponse.hasObservers()) return@observe
-                        lifecycleScope.launch {
-                            it.let {
-                                val response = it.value
-                                Log.d("response_order",response.data.toString())
-                                if (response.status == MyConstant.success) {
-
-                                }
-                            }
-                        }
-                    }
-                    is Resource.Loading -> {
-                        hideLoader()
-                    }
-                    is Resource.Failure -> {
-                        authViewModel.mealSubscribeListResponse.removeObservers(this)
-                        if (authViewModel.mealSubscribeListResponse.hasObservers()) return@observe
-                        hideLoader()
-//                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
-                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
-                    }
-                }
-            }
-        } else {
-            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
-        }
-    }
 
 
     override fun getViewBinding() = ActivityWeightLossBinding.inflate(layoutInflater)

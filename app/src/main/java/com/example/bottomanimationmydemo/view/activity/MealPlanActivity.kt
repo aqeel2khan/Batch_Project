@@ -7,8 +7,6 @@ import android.text.style.UnderlineSpan
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.bottomanimationmydemo.adapter.AllTypeOfMealAdapter
-import com.example.bottomanimationmydemo.adapter.MealPlanListAdapter
 import com.example.bottomanimationmydemo.adapter.WeekdaysAdapter
 import com.example.bottomanimationmydemo.databinding.ActivityMealPlanBinding
 import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
@@ -86,13 +84,14 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
         //current date selection code
         for (i in dates) {
             if (date_filter == i) {
-                setWeekdayAdapter(dates, days, "", "mealPlan")
+                //setWeekdayAdapter(dates, days, "", "mealPlan")
             }
         }
 
-        setWeekdayAdapter(dates, days, "", "mealPlan")
+       // setWeekdayAdapter(dates, days, "", "mealPlan")
     }
 
+/*
     private fun setWeekdayAdapter(dates: Array<String?>, days: Array<String?>, backDate: String?, mealPlan: String) {
         binding.weekdaysList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.weekdaysList.adapter = WeekdaysAdapter(this,
@@ -124,6 +123,7 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
                 }
             })
     }
+*/
 
     override fun getViewBinding() = ActivityMealPlanBinding.inflate(layoutInflater)
 }

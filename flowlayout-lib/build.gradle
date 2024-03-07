@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 //apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
 //    buildToolsVersion "25.0.3"
 
     defaultConfig {
         minSdkVersion 10
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
     }
@@ -21,7 +21,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:support-v4:25.0.0'
+    implementation 'com.android.support:support-v4:34.0.0'
 }
 
 /*publish {

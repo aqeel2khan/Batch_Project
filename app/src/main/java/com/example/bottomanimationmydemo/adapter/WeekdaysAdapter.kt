@@ -9,9 +9,10 @@ import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.databinding.ItemWeeksdayDataBinding
 import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
 
-class WeekdaysAdapter(val requireActivity: FragmentActivity, val dates: Array<String?>, val days: Array<String?>, var backDate: String?,
-                      var mealPlan: String,
-                      var currentDate: String?, val listener: PositionItemClickListener<Int>
+class WeekdaysAdapter(
+    val requireActivity: FragmentActivity, val dates: ArrayList<String?>, val days: ArrayList<String?>, var backDate: String?,
+    var mealPlan: String,
+    var currentDate: String?, val listener: PositionItemClickListener<Int>
 ) : RecyclerView.Adapter<WeekdaysAdapter.ViewHolder>() {
     private var selectedItemPosition: Int = -1
     private var showCurrentValue: Boolean = true

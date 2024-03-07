@@ -5,22 +5,24 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomanimationmydemo.databinding.ItemChosenMealListBinding
-import com.example.bottomanimationmydemo.databinding.ItemWorkoutTypeBinding
 import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
+import org.json.JSONObject
 import java.util.ArrayList
 
 
 class ChosenMealListAdapter(
     val context: Context?,
-    val mealName: ArrayList<String>,
+    val mealName: ArrayList<JSONObject>,
     val listener: PositionItemClickListener<Int>
 ) : RecyclerView.Adapter<ChosenMealListAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: ItemChosenMealListBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(name: String, position: Int) {
-            binding.txtMealName.text = name
+        fun bind(name: JSONObject, position: Int) {
+            binding.weightLossText.text = name.getString("dish_name")
+            //binding.tvBoost.text = name.getString("dish_name")
+           /* binding.txtMealName.text = name
             binding.root.setOnClickListener {
                 listener.onPositionItemSelected(name, position)
-            }
+            }*/
         }
     }
 

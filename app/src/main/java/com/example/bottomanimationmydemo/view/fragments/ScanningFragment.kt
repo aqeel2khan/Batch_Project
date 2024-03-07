@@ -26,6 +26,7 @@ import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
 import com.example.bottomanimationmydemo.utils.MyConstant
 import com.example.bottomanimationmydemo.utils.MyCustom
 import com.example.bottomanimationmydemo.view.BaseFragment
+import com.example.bottomanimationmydemo.view.activity.CurrentMealDetailActivity
 import com.example.bottomanimationmydemo.view.activity.WeightLossActivity
 import com.example.bottomanimationmydemo.viewmodel.AllViewModel
 import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
@@ -213,11 +214,16 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         binding.recyclerMealSubscribe.adapter = MealSubscribeListAdapter(context, internalDatum, object :
             MealSubscribeListPosition<Int> {
             override fun onMealSubscribeListItemPosition(item: InternalDatum, position: Int) {
-                findNavController().navigate(
+                requireContext().startActivity(Intent(requireContext(), CurrentMealDetailActivity::class.java)
+                    .putExtra("meal_id",item.id.toString())
+                    .putExtra("subscribe_id",item.subscribedId.toString())
+                )
+
+              /*  findNavController().navigate(
                     R.id.action_scanFragment_to_mealBatchFragment,
                     MealBatchFragment.getBundle(item.id.toString(),item.subscribedId.toString())
 
-                )            }
+                ) */           }
         })
     }
     private fun setAllCourseOrderAdapter(courseList: ArrayList<OrderList>) {
