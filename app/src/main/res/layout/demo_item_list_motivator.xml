@@ -17,7 +17,7 @@
         android:layout_gravity="center"
         android:src="@drawable/normal_boy" />
 
-    <com.dev.batchfinal.custom.MyCustomTextView
+    <com.dev.batchfinal.app_custom.MyCustomTextView
         android:id="@+id/txt_trainer_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         android:textSize="@dimen/_10ssp"
         android:textStyle="bold" />
 
-    <com.dev.batchfinal.custom.MyCustomTextView
+    <com.dev.batchfinal.app_custom.MyCustomTextView
         android:id="@+id/txt_profesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

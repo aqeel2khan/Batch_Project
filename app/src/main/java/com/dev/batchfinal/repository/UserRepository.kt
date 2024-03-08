@@ -2,7 +2,7 @@ package com.dev.batchfinal.repository
 
 import com.dev.batchfinal.model.login_model.LoginResponseModel
 import com.dev.batchfinal.network.ApiService
-import com.dev.batchfinal.utils.NetworkErrorResult
+import com.dev.batchfinal.app_utils.NetworkErrorResult
 import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.databinding.ItemDishNutritionListBinding
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
-import com.dev.batchfinal.view.activity.ChosenMealDetailActivity
+import com.dev.batchfinal.app_modules.activity.ChosenMealDetailActivity
 
 
 

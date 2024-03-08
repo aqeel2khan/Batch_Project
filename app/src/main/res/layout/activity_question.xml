@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:orientation="vertical"
-    tools:context="com.dev.batchfinal.view.activity.QuestionActivity">
+    tools:context="com.dev.batchfinal.app_modules.activity.QuestionActivity">
 
     <RelativeLayout
         android:id="@+id/header_title"
@@ -28,7 +28,7 @@
             android:layout_centerInParent="true"
             android:layout_marginStart="@dimen/_15sdp">
 
-            <com.dev.batchfinal.custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomTextView
                 android:id="@+id/tv_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             android:layout_alignParentRight="true"
             android:gravity="center">
 
-            <com.dev.batchfinal.custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomTextView
                 android:id="@+id/im_notification"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/ll_fitness"
                 android:orientation="vertical">
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_fitness_goal"
@@ -180,7 +180,7 @@
                     android:gravity="center"
                     android:textSize="@dimen/_15ssp"/>
                 <!--F5F6F4-->
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/btn_loss_Weight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -201,7 +201,7 @@
                     android:textStyle="bold"
                     tools:ignore="UnusedAttribute" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/btn_gain_weight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
                     android:textStyle="bold"
                     tools:ignore="UnusedAttribute" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/btn_maintain"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -267,7 +267,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:orientation="vertical">
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_age"
@@ -308,7 +308,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:orientation="vertical">
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_height"
@@ -349,7 +349,7 @@
                     android:background="@drawable/demo"
                     android:gravity="center">
 
-                    <com.dev.batchfinal.custom.MyCustomBoldTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                         android:id="@+id/tv_batch"
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="@dimen/_25sdp"
@@ -369,7 +369,7 @@
                     android:layout_weight="1"
                     android:gravity="center">
 
-                    <com.dev.batchfinal.custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomTextView
                         android:id="@+id/tv_motivator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -409,7 +409,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:orientation="vertical">
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_weight"
@@ -449,7 +449,7 @@
                     android:background="@drawable/demo"
                     android:gravity="center">
 
-                    <com.dev.batchfinal.custom.MyCustomBoldTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                         android:id="@+id/tv_kg"
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="wrap_content"
@@ -469,7 +469,7 @@
                     android:layout_weight="1"
                     android:gravity="center">
 
-                    <com.dev.batchfinal.custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomTextView
                         android:id="@+id/tv_lbs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -513,7 +513,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_active"
@@ -522,7 +522,7 @@
                     android:gravity="center"
                     android:textSize="@dimen/_15ssp"/>
                 <!--F5F6F4-->
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/btn_low_mobility"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -542,7 +542,7 @@
                     android:textStyle="bold"
                     tools:ignore="UnusedAttribute" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/txt_workout_week"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -561,7 +561,7 @@
                     android:textStyle="bold"
                     tools:ignore="UnusedAttribute" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/txt_workout_week35"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -580,7 +580,7 @@
                     android:textStyle="bold"
                     tools:ignore="UnusedAttribute" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/txt_workout_week57"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -631,7 +631,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_choose_diet"
@@ -640,7 +640,7 @@
                     android:gravity="center"
                     android:textSize="@dimen/_15ssp"/>
                 <!--F5F6F4-->
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/txt_vegan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -660,7 +660,7 @@
                     android:textStyle="bold"
                     tools:ignore="UnusedAttribute" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/txt_vegetarian"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -679,7 +679,7 @@
                     android:textStyle="bold"
                     tools:ignore="UnusedAttribute" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/txt_keto_vegan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -698,7 +698,7 @@
                     android:textStyle="bold"
                     tools:ignore="UnusedAttribute" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/txt_paleo_diet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -745,7 +745,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:orientation="vertical">
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_allergic"
@@ -788,7 +788,7 @@
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:src="@drawable/iv_honey"/>
-                            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
@@ -822,7 +822,7 @@
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:src="@drawable/iv_milk"/>
-                            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
@@ -855,7 +855,7 @@
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:src="@drawable/iv_cheese"/>
-                            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/outfit_regular"
@@ -893,7 +893,7 @@
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:src="@drawable/iv_hazelnut"/>
-                            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/outfit_regular"
@@ -927,7 +927,7 @@
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:src="@drawable/iv_fish"/>
-                            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/outfit_regular"
@@ -960,7 +960,7 @@
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:src="@drawable/iv_cholate"/>
-                            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/outfit_regular"
@@ -998,7 +998,7 @@
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:src="@drawable/iv_mushrooms"/>
-                            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/outfit_regular"
@@ -1031,7 +1031,7 @@
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:src="@drawable/iv_coffee"/>
-                            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/outfit_regular"
@@ -1064,7 +1064,7 @@
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:src="@drawable/iv_cherry"/>
-                            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/outfit_regular"

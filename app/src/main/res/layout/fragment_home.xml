@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="com.dev.batchfinal.view.fragments.HomeFragment">
+    tools:context="com.dev.batchfinal.app_modules.fragments.HomeFragment">
    <ScrollView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
@@ -105,14 +105,14 @@
              android:layout_height="wrap_content"
              android:layout_marginTop="@dimen/_10sdp"
              android:layout_marginHorizontal="@dimen/_15sdp">
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/workout_batchs"
                 android:textColor="@color/welcome_txt"
                 android:textSize="@dimen/_14ssp"
                 android:fontFamily="@font/outfit_regular"/>
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:id="@+id/tv_showw_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -136,14 +136,14 @@
              android:layout_height="wrap_content"
              android:layout_marginTop="@dimen/_10sdp"
              android:layout_marginHorizontal="@dimen/_15sdp">
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_motivators"
                 android:textColor="@color/welcome_txt"
                 android:textSize="@dimen/_14ssp"
                 android:fontFamily="@font/outfit_regular"/>
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:id="@+id/tv_mt_showw_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

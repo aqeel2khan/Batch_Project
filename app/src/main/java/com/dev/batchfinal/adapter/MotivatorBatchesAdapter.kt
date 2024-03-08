@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.databinding.ItemMotivatorBatchesBinding
 import com.dev.batchfinal.`interface`.CourseListItemPosition
 import com.dev.batchfinal.model.course_model.ListData
-import com.dev.batchfinal.utils.MyConstant.IMAGE_BASE_URL
-import com.dev.batchfinal.utils.MyUtils
+import com.dev.batchfinal.app_utils.MyConstant.IMAGE_BASE_URL
+import com.dev.batchfinal.app_utils.MyUtils
 import kotlin.collections.ArrayList
 
 class MotivatorBatchesAdapter(val context: Context?, var courseList: ArrayList<ListData>, var listener: CourseListItemPosition<Int>) : RecyclerView.Adapter<MotivatorBatchesAdapter.ViewHolder>(){

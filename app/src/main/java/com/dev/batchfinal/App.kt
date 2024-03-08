@@ -1,7 +1,7 @@
 package com.dev.batchfinal
 
 import android.app.Application
-import com.dev.batchfinal.utils.Config
+import com.dev.batchfinal.app_utils.Config
 import com.myfatoorah.sdk.enums.MFCountry
 import com.myfatoorah.sdk.enums.MFEnvironment
 import com.myfatoorah.sdk.views.MFSDK

@@ -8,9 +8,9 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import com.dev.batchfinal.databinding.ActivityMainBinding
 
-import com.dev.batchfinal.utils.makeGone
-import com.dev.batchfinal.utils.makeVisible
-import com.dev.batchfinal.view.account.ProfileActivity
+import com.dev.batchfinal.app_utils.makeGone
+import com.dev.batchfinal.app_utils.makeVisible
+import com.dev.batchfinal.app_modules.account.view.ProfileActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

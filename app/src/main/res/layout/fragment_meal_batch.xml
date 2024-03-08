@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.dev.batchfinal.view.fragments.MealBatchFragment">
+    tools:context="com.dev.batchfinal.app_modules.fragments.MealBatchFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cd_current_meal"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true">
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_batch_meal_plan"
@@ -73,14 +73,14 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true">
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_status"
                 android:layout_centerVertical="true"
                 android:textColor="@color/welcome_txt_gry"
                 android:textSize="@dimen/_12ssp"/>
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/status_active"
@@ -89,7 +89,7 @@
                 android:layout_alignParentRight="true"
                 android:textColor="@color/color_active"
                 android:textSize="@dimen/_12ssp"/>
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_freeze"
@@ -113,14 +113,14 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true">
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_duration"
                 android:layout_centerVertical="true"
                 android:textColor="@color/welcome_txt_gry"
                 android:textSize="@dimen/_12ssp"/>
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2 weeks"
@@ -142,14 +142,14 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true">
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_exp_date"
                 android:layout_centerVertical="true"
                 android:textColor="@color/welcome_txt_gry"
                 android:textSize="@dimen/_12ssp"/>
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="01/04/2024"
@@ -171,14 +171,14 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true">
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_delivery_days"
                 android:layout_centerVertical="true"
                 android:textColor="@color/welcome_txt_gry"
                 android:textSize="@dimen/_12ssp"/>
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4/14"

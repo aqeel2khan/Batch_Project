@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.databinding.ItemFollowingListBinding
-import com.dev.batchfinal.utils.MyUtils
-import com.dev.batchfinal.view.account.ProfileActivity
+import com.dev.batchfinal.app_utils.MyUtils
+import com.dev.batchfinal.app_modules.account.view.ProfileActivity
 import java.util.ArrayList
 
 class FollowingListAdapter(val profileActivity: ProfileActivity, val courseImg: ArrayList<Int>/*, val listener: PositionItemClickListener<Int>*/) : RecyclerView.Adapter<FollowingListAdapter.ViewHolder>() {

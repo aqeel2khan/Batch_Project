@@ -26,9 +26,9 @@
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:src="@drawable/icon_down"
-                android:id="@+id/img_down"/>
+                android:id="@+id/closePersonalInfo"/>
 
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,12 +41,12 @@
         </RelativeLayout>
         <LinearLayout
             android:id="@+id/ll_persona_data"
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:orientation="vertical">
 
-            <com.dev.batchfinal.custom.MyCustomEditText
+            <com.dev.batchfinal.app_custom.MyCustomEditText
                 android:id="@+id/edit_full_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                 android:textColorHint="@color/hint_txt_gry"
                 tools:ignore="TextFields" />
 
-            <com.dev.batchfinal.custom.MyCustomEditText
+            <com.dev.batchfinal.app_custom.MyCustomEditText
                 android:id="@+id/edit_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:textColorHint="@color/hint_txt_gry"
                 tools:ignore="TextFields" />
 
-            <com.dev.batchfinal.custom.MyCustomEditText
+            <com.dev.batchfinal.app_custom.MyCustomEditText
                 android:id="@+id/edit_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
                 android:textColorHint="@color/hint_txt_gry"
                 tools:ignore="TextFields" />
 
-            <com.dev.batchfinal.custom.MyCustomEditText
+            <com.dev.batchfinal.app_custom.MyCustomEditText
                 android:id="@+id/edit_dob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -203,7 +203,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Area"
@@ -307,7 +307,7 @@
                     </LinearLayout>
                 </RelativeLayout>
 
-                <com.dev.batchfinal.custom.MyCustomEditText
+                <com.dev.batchfinal.app_custom.MyCustomEditText
                     android:id="@+id/edit_house"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -328,7 +328,7 @@
                     android:textColorHint="@color/hint_txt_gry"
                     tools:ignore="TextFields" />
 
-                <com.dev.batchfinal.custom.MyCustomEditText
+                <com.dev.batchfinal.app_custom.MyCustomEditText
                     android:id="@+id/edit_street"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -348,7 +348,7 @@
                     android:textColorHint="@color/hint_txt_gry"
                     tools:ignore="TextFields" />
 
-                <com.dev.batchfinal.custom.MyCustomEditText
+                <com.dev.batchfinal.app_custom.MyCustomEditText
                     android:id="@+id/edit_avenue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -375,7 +375,7 @@
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:orientation="horizontal"
                     android:layout_marginHorizontal="@dimen/_10sdp">
-                    <com.dev.batchfinal.custom.MyCustomBoldTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Set default address"
@@ -396,7 +396,7 @@
                         android:textOn="" />
                 </RelativeLayout>
 
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_delivery_place"
@@ -419,7 +419,7 @@
                         android:elevation="@dimen/_2sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
                         app:cardBackgroundColor="#F1E6DA">
-                        <com.dev.batchfinal.custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Home"
@@ -441,7 +441,7 @@
                         android:elevation="@dimen/_2sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
                         app:cardBackgroundColor="#F5F6F4">
-                        <com.dev.batchfinal.custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Work"
@@ -470,7 +470,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal"
                 android:layout_marginHorizontal="@dimen/_10sdp">
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_all_notification"
@@ -497,7 +497,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal"
                 android:layout_marginHorizontal="@dimen/_10sdp">
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_training_notify"
@@ -524,7 +524,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal"
                 android:layout_marginHorizontal="@dimen/_10sdp">
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_live_stream_notify"
@@ -551,7 +551,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal"
                 android:layout_marginHorizontal="@dimen/_10sdp">
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_meal_plan_notify"
@@ -578,7 +578,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal"
                 android:layout_marginHorizontal="@dimen/_10sdp">
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_delivery_notify"
@@ -627,7 +627,7 @@
         android:visibility="gone"
         android:orientation="vertical">
 
-        <com.dev.batchfinal.custom.MyCustomBoldTextView
+        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -639,7 +639,7 @@
             android:textColor="@color/welcome_txt"
             android:textSize="@dimen/_14ssp" />
 
-        <com.dev.batchfinal.custom.MyCustomBoldTextView
+        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
             android:id="@+id/txt_log_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -695,7 +695,7 @@
         android:visibility="gone"
         android:orientation="vertical">
 
-        <com.dev.batchfinal.custom.MyCustomBoldTextView
+        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -707,7 +707,7 @@
             android:textColor="@color/welcome_txt"
             android:textSize="@dimen/_14ssp" />
 
-        <com.dev.batchfinal.custom.MyCustomBoldTextView
+        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
             android:id="@+id/txt_login_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

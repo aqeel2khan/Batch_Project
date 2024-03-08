@@ -23,7 +23,7 @@
                 android:src="@drawable/icon_down"
                 android:id="@+id/img_down7"/>
 
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:id="@+id/txt_new_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:background="@drawable/tab_sele_bg"
                 android:gravity="center">
 
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:id="@+id/tv_country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                 android:layout_weight="1"
                 android:gravity="center">
 
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:id="@+id/tv_language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -168,7 +168,7 @@
             android:layout_marginHorizontal="@dimen/_15sdp"
             android:orientation="vertical">
 
-            <com.dev.batchfinal.custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomTextView
                 android:id="@+id/btn_english"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

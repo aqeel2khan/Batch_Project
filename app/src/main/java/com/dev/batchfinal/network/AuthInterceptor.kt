@@ -1,6 +1,6 @@
 package com.dev.batchfinal.network
 
-import com.dev.batchfinal.utils.AppSharedPreferences
+import com.dev.batchfinal.app_utils.AppSharedPreferences
 import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject

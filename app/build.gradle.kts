@@ -76,6 +76,13 @@ dependencies {
     implementation("com.localebro:okhttpprofiler:1.0.8")
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
     implementation("com.google.code.gson:gson:2.8.9")
+    //RX JAVA
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.3.0")
+    implementation("io.reactivex.rxjava2:rxjava:2.1.6")
+    implementation("io.reactivex.rxjava2:rxandroid:2.0.1")
+    //Scaller
+    implementation("com.squareup.retrofit2:converter-scalars:2.5.0")
+
 
     //region Lifecycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0") //viewModelScope

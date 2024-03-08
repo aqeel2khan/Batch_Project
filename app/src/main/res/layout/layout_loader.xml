@@ -20,7 +20,7 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@android:color/transparent"
             android:layout_height="wrap_content"/>
-        <com.dev.batchfinal.custom.MyCustomBoldTextView
+        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_12sdp"

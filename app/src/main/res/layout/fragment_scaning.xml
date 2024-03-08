@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.dev.batchfinal.view.fragments.ScanningFragment">
+    tools:context="com.dev.batchfinal.app_modules.fragments.ScanningFragment">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <com.dev.batchfinal.custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
@@ -68,7 +68,7 @@
                         android:background="@color/txt_light2"
                         android:padding="@dimen/_10sdp">
 
-                        <com.dev.batchfinal.custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomTextView
                             android:id="@+id/tv_meal_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -84,13 +84,13 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true">
 
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="4/14"
                                 android:textSize="@dimen/_12ssp"
                                 android:textColor="@color/white" />
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="days"
@@ -99,7 +99,7 @@
                                 android:layout_marginStart="@dimen/_2sdp"
                                 android:layout_marginEnd="@dimen/_2sdp"/>
                         </LinearLayout>
-                        <com.dev.batchfinal.custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Lorem ipsum dolor sit amet"
@@ -123,7 +123,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:padding="@dimen/_10sdp"
                 android:background="@drawable/meal_cal_bg">
-                <com.dev.batchfinal.custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_of_day"
@@ -142,14 +142,14 @@
                         android:gravity="center"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/border_circle">
-                        <com.dev.batchfinal.custom.MyCustomBoldTextView
+                        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1000"
                             android:textColor="@color/welcome_txt"
                             android:textSize="@dimen/_12ssp"
                             android:fontFamily="@font/outfit_regular"/>
-                        <com.dev.batchfinal.custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/txt_kcal"
@@ -178,7 +178,7 @@
                                 android:thumb="@drawable/seekbar_thumb_shape"
                                 android:progressDrawable="@drawable/seekbar_progress_style"
                                 android:thumbOffset="0dp"/>
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomTextView
                                 android:layout_weight="0.3"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -203,7 +203,7 @@
                                 android:thumb="@drawable/seekbar_thumb_shape"
                                 android:progressDrawable="@drawable/seekbar_progress_style"
                                 android:thumbOffset="0dp"/>
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomTextView
                                 android:layout_weight="0.3"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -228,7 +228,7 @@
                                 android:thumb="@drawable/seekbar_thumb_shape"
                                 android:progressDrawable="@drawable/seekbar_progress_style"
                                 android:thumbOffset="0dp"/>
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomTextView
                                 android:layout_weight="0.3"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -250,7 +250,7 @@
                 android:layout_marginTop="@dimen/_10sdp"/>
 
 
-            <com.dev.batchfinal.custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_apple_health"
@@ -289,7 +289,7 @@
                                 android:layout_width="@dimen/_20sdp"
                                 android:layout_height="@dimen/_20sdp"
                                 android:src="@drawable/ic_love"/>
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/txt_heart_rate"
@@ -306,14 +306,14 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:background="@drawable/ic_heart_grp">
-                            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="110"
                                 android:textStyle="bold"
                                 android:textSize="@dimen/_16ssp"
                                 android:textColor="@color/welcome_txt"/>
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/txt_bpm"
@@ -349,7 +349,7 @@
                                 android:layout_width="@dimen/_20sdp"
                                 android:layout_height="@dimen/_20sdp"
                                 android:src="@drawable/ic_icon" />
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/txt_steps"
@@ -366,14 +366,14 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:background="@drawable/ic_step_gp">
-                            <com.dev.batchfinal.custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="9,890"
                                 android:textStyle="bold"
                                 android:textSize="@dimen/_16ssp"
                                 android:textColor="@color/welcome_txt"/>
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/txt_steps"
@@ -436,7 +436,7 @@
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:src="@drawable/ic_blood"/>
-                    <com.dev.batchfinal.custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_water"

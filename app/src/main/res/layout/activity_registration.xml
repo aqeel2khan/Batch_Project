@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.dev.batchfinal.view.account.RegistrationActivity">
+    tools:context="com.dev.batchfinal.app_modules.account.view.RegistrationActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -23,7 +23,7 @@
                 android:layout_gravity="start"
                 android:src="@drawable/app_back_icon" />
 
-            <com.dev.batchfinal.custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomTextView
                 android:id="@+id/welcomeBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
                 android:textSize="@dimen/_21ssp"
                 android:textStyle="bold" />
 
-            <com.dev.batchfinal.custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomTextView
                 android:id="@+id/signInAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                 android:textColor="@color/welcome_txt_gry"
                 android:textSize="@dimen/_14ssp" />
 
-            <com.dev.batchfinal.custom.MyCustomEditText
+            <com.dev.batchfinal.app_custom.MyCustomEditText
                 android:id="@+id/fullNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 android:textColorHint="@color/hint_txt_gry"
                 tools:ignore="TextFields" />
 
-            <com.dev.batchfinal.custom.MyCustomEditText
+            <com.dev.batchfinal.app_custom.MyCustomEditText
                 android:id="@+id/phoneEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                 android:textColorHint="@color/hint_txt_gry"
                 tools:ignore="TextFields" />
 
-            <com.dev.batchfinal.custom.MyCustomEditText
+            <com.dev.batchfinal.app_custom.MyCustomEditText
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                     android:orientation="horizontal"
                     android:layout_gravity="center"
                     android:gravity="center">
-                    <com.dev.batchfinal.custom.MyCustomEditText
+                    <com.dev.batchfinal.app_custom.MyCustomEditText
                         android:id="@+id/password"
                         android:layout_weight="1"
                         android:layout_width="0dp"
@@ -183,7 +183,7 @@
                     android:layout_gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <com.dev.batchfinal.custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/outfit_regular"
@@ -192,7 +192,7 @@
                         android:textColor="@color/hint_txt_gry"
                         android:textSize="@dimen/_11ssp" />
 
-                    <com.dev.batchfinal.custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomTextView
                         android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -226,7 +226,7 @@
                     android:layout_marginBottom="@dimen/_8sdp"
                     android:background="@android:color/darker_gray" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:layout_weight="0.4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -268,7 +268,7 @@
                     android:importantForAccessibility="no"
                     android:src="@drawable/google" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#F0EFF2"
@@ -299,7 +299,7 @@
                     android:importantForAccessibility="no"
                     android:src="@drawable/microsoft" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#F0EFF2"
@@ -330,7 +330,7 @@
                     android:importantForAccessibility="no"
                     android:src="@drawable/facebook" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#F0EFF2"
@@ -361,7 +361,7 @@
                     android:importantForAccessibility="no"
                     android:src="@drawable/apple" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#F0EFF2"

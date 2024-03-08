@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/scanFragment"
-        android:name="com.dev.batchfinal.view.fragments.ScanningFragment"
+        android:name="com.dev.batchfinal.app_modules.fragments.ScanningFragment"
         android:label="fragment_scan"
         tools:layout="@layout/fragment_scaning" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/mealBatchFragment"
-        android:name="com.dev.batchfinal.view.fragments.MealBatchFragment"
+        android:name="com.dev.batchfinal.app_modules.fragments.MealBatchFragment"
         android:label="fragment_meal_batch"
         tools:layout="@layout/fragment_meal_batch">
 

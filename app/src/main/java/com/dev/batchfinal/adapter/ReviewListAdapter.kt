@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.databinding.ItemReviewListBinding
-import com.dev.batchfinal.view.activity.ChosenMealDetailActivity
+import com.dev.batchfinal.app_modules.activity.ChosenMealDetailActivity
 
 class ReviewListAdapter(val chosenMealDetailActivity: ChosenMealDetailActivity) : RecyclerView.Adapter<ReviewListAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemReviewListBinding): RecyclerView.ViewHolder(binding.root) {

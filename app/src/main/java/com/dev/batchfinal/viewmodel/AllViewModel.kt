@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.dev.batchfinal.model.login_model.LoginResponseModel
 import com.dev.batchfinal.repository.UserRepository
-import com.dev.batchfinal.utils.NetworkErrorResult
+import com.dev.batchfinal.app_utils.NetworkErrorResult
 import com.google.gson.JsonObject
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

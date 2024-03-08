@@ -1,6 +1,6 @@
 package com.dev.batchfinal.repository
 
-import com.dev.batchfinal.utils.NetworkErrorResult
+import com.dev.batchfinal.app_utils.NetworkErrorResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject

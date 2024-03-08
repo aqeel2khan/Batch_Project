@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.databinding.ItemMealBatchesBinding
 import com.dev.batchfinal.`interface`.MealListItemPosition
 import com.dev.batchfinal.model.meal_list.MealList
-import com.dev.batchfinal.view.activity.QuestionActivity
+import com.dev.batchfinal.app_modules.activity.QuestionActivity
 
 class MealBatchPlanAdapter(val context: Context?, var mealList: List<MealList>, var listener: MealListItemPosition<Int>) : RecyclerView.Adapter<MealBatchPlanAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: ItemMealBatchesBinding) : RecyclerView.ViewHolder(binding.root){

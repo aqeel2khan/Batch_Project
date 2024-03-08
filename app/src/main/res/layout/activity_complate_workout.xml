@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    tools:context="com.dev.batchfinal.view.activity.ComplateWorkoutActivity">
+    tools:context="com.dev.batchfinal.app_modules.activity.ComplateWorkoutActivity">
 
     <LinearLayout
         android:id="@+id/exercise_image"
@@ -41,7 +41,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/complete_icon"/>
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/weight_loss_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                     android:textFontWeight="500"
                     android:textSize="@dimen/_14ssp" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/messageText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                     android:textColor="@color/txt_color"
                     android:textSize="@dimen/_10ssp" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/txt_exercise_summery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
 
                 </LinearLayout>
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/txt_exercise_query"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:layout_marginStart="@dimen/_8sdp">
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/outfit_extra_bold"
@@ -181,7 +181,7 @@
                                     android:layout_marginStart="@dimen/_2sdp"
                                     android:src="@drawable/star"/>
                             </LinearLayout>
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/outfit_extra_bold"

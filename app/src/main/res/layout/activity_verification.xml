@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:gravity="center_horizontal"
-    tools:context="com.dev.batchfinal.view.activity.VerificationActivity">
+    tools:context="com.dev.batchfinal.app_modules.activity.VerificationActivity">
 
     <ImageView
         android:id="@+id/backButtonLogin"
@@ -26,7 +26,7 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <com.dev.batchfinal.custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomTextView
             android:id="@+id/welcomeBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:layout_weight="500"
             android:textStyle="bold" />
 
-        <com.dev.batchfinal.custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomTextView
             android:id="@+id/signInAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
 
         </LinearLayout>
 <!--validation check code-->
-        <com.dev.batchfinal.custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomTextView
             android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

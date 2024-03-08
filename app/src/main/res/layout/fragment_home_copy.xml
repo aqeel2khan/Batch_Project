@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/splash_03_animation"
-    tools:context="com.dev.batchfinal.view.fragments.HomeFragment">
+    tools:context="com.dev.batchfinal.app_modules.fragments.HomeFragment">
     <View
         android:id="@+id/box"
         android:layout_width="220dp"

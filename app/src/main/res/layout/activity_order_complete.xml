@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    tools:context="com.dev.batchfinal.view.activity.ComplateWorkoutActivity">
+    tools:context="com.dev.batchfinal.app_modules.activity.ComplateWorkoutActivity">
 
     <LinearLayout
         android:id="@+id/exercise_image"
@@ -41,7 +41,7 @@
                 android:layout_marginTop="@dimen/_15sdp"
                 android:src="@drawable/complete_icon" />
 
-            <com.dev.batchfinal.custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomTextView
                 android:id="@+id/weight_loss_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:textColor="@color/welcome_txt"
                 android:textSize="@dimen/_14ssp" />
 
-            <com.dev.batchfinal.custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomTextView
                 android:id="@+id/messageText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:textColor="@color/txt_color"
                 android:textSize="@dimen/_10ssp" />
 
-            <com.dev.batchfinal.custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomTextView
                 android:id="@+id/txt_exercise_summery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
                         android:background="@color/work_color"
                         android:padding="@dimen/_10sdp">
 
-                        <com.dev.batchfinal.custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomTextView
                             android:id="@+id/tv_workout_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -168,14 +168,14 @@
                                     android:src="@drawable/flash_icon"
                                     app:tint="@color/white" />
 
-                                <com.dev.batchfinal.custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="1700 - 1800"
                                     android:textColor="@color/white"
                                     android:textSize="@dimen/_12ssp"
                                     android:textStyle="bold" />
-                                <com.dev.batchfinal.custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomTextView
                                     android:id="@+id/tv_boost_kcal"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -199,7 +199,7 @@
                                     android:layout_height="@dimen/_13sdp"
                                     android:src="@drawable/meal_sm_icon" />
 
-                                <com.dev.batchfinal.custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomTextView
                                     android:id="@+id/meal_count"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -208,7 +208,7 @@
                                     android:textColor="@color/white"
                                     android:textSize="@dimen/_12ssp"
                                     android:textStyle="bold" />
-                                <com.dev.batchfinal.custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomTextView
                                     android:id="@+id/tv_snacks_kcal"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -232,7 +232,7 @@
                                     android:layout_height="@dimen/_13sdp"
                                     android:src="@drawable/meal_sm_icon" />
 
-                                <com.dev.batchfinal.custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/_3sdp"
@@ -240,7 +240,7 @@
                                     android:textColor="@color/white"
                                     android:textSize="@dimen/_12ssp"
                                     android:textStyle="bold" />
-                                <com.dev.batchfinal.custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomTextView
                                     android:id="@+id/tv_meal_kcal"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"

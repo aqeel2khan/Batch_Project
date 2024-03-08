@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.databinding.ItemListMotivatorBinding
 import com.dev.batchfinal.`interface`.CoachListItemPosition
 import com.dev.batchfinal.model.coach_list_model.Data
-import com.dev.batchfinal.utils.MyConstant
-import com.dev.batchfinal.utils.MyUtils
+import com.dev.batchfinal.app_utils.MyConstant
+import com.dev.batchfinal.app_utils.MyUtils
 
 class MotivatorListAdapter(
     val requireContext: Context,

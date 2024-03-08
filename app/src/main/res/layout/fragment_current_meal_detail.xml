@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context="com.dev.batchfinal.view.activity.CurrentMealDetailActivity">
+    tools:context="com.dev.batchfinal.app_modules.activity.CurrentMealDetailActivity">
 
     <LinearLayout
         android:id="@+id/exercise_image"
@@ -44,7 +44,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_15sdp">
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/weight_loss_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                     android:textFontWeight="500"
                     android:textSize="@dimen/_12ssp" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/dollerText"
                     android:visibility="gone"
                     android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
                     android:textFontWeight="500"
                     android:textSize="@dimen/_10ssp" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/fromText"
                     android:visibility="gone"
                     android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
                     android:textColor="#101215"
                     android:textSize="@dimen/_8ssp" />
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/messageText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -119,7 +119,7 @@
                                     android:src="@drawable/flash_icon"
                                     app:tint="@color/welcome_txt" />
 
-                                <com.dev.batchfinal.custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -149,7 +149,7 @@
                                     android:src="@drawable/meal_sm_icon"
                                     app:tint="@color/welcome_txt" />
 
-                                <com.dev.batchfinal.custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -182,7 +182,7 @@
                                     android:layout_gravity="center"
                                     android:src="@drawable/icon_vegan" />
 
-                                <com.dev.batchfinal.custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -214,7 +214,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                        <com.dev.batchfinal.custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -222,7 +222,7 @@
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12ssp" />
-                        <com.dev.batchfinal.custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomTextView
                             android:id="@+id/grantText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -264,7 +264,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/view1">
-                    <com.dev.batchfinal.custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomTextView
                         android:id="@+id/workout_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -312,7 +312,7 @@
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:padding="@dimen/_10sdp"
                     android:background="@drawable/meal_cal_bg">
-                    <com.dev.batchfinal.custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_meal_statement"

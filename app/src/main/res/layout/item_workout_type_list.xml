@@ -20,7 +20,7 @@
                 android:layout_gravity="center"
                 android:src="@drawable/accessibility" />
 
-            <com.dev.batchfinal.custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

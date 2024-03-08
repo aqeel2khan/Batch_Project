@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.databinding.ItemAllCourseOrderBinding
 import com.dev.batchfinal.`interface`.CourseOrderListItemPosition
 import com.dev.batchfinal.model.courseorderlist.OrderList
-import com.dev.batchfinal.utils.MyConstant
-import com.dev.batchfinal.utils.MyUtils
+import com.dev.batchfinal.app_utils.MyConstant
+import com.dev.batchfinal.app_utils.MyUtils
 
 class CourseOrderAdapter(
     val context: Context?,

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    tools:context="com.dev.batchfinal.view.activity.ChatActivity">
+    tools:context="com.dev.batchfinal.app_modules.activity.ChatActivity">
 
     <RelativeLayout
         android:id="@+id/header_title"
@@ -27,7 +27,7 @@
             android:layout_centerInParent="true"
             android:layout_marginStart="@dimen/_15sdp">
 
-            <com.dev.batchfinal.custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomTextView
                 android:id="@+id/tv_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

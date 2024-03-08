@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context="com.dev.batchfinal.view.activity.ChosenMealDetailActivity">
+    tools:context="com.dev.batchfinal.app_modules.activity.ChosenMealDetailActivity">
 
     <LinearLayout
         android:id="@+id/exercise_image"
@@ -44,7 +44,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_15sdp">
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/txt_chosen_meal_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-                    <com.dev.batchfinal.custom.MyCustomBoldTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                         android:id="@+id/txt_rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginTop="@dimen/_20sdp">
-                    <com.dev.batchfinal.custom.MyCustomBoldTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                         android:id="@+id/txt_ingredients"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <com.dev.batchfinal.custom.MyCustomBoldTextView
+                        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Reviews (127)"
@@ -137,7 +137,7 @@
                             android:textSize="@dimen/_14ssp"
                             android:textColor="@color/welcome_txt"
                             android:id="@+id/txt_review"/>
-                        <com.dev.batchfinal.custom.MyCustomBoldTextView
+                        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Rate Meal"

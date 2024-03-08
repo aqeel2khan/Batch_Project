@@ -2,7 +2,7 @@ package com.dev.batchfinal.di
 
 import com.dev.batchfinal.network.ApiService
 import com.dev.batchfinal.network.AuthInterceptor
-import com.dev.batchfinal.utils.MyConstant.BASE_URL
+import com.dev.batchfinal.app_utils.MyConstant.BASE_URL
 import com.google.gson.Gson
 import com.itkacher.okprofiler.BuildConfig
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory

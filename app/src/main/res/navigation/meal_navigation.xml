@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mealFragment"
-        android:name="com.dev.batchfinal.view.fragments.MealFragment"
+        android:name="com.dev.batchfinal.app_modules.fragments.MealFragment"
         android:label="fragment_meal"
         tools:layout="@layout/fragment_meal" >
     </fragment>

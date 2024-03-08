@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/trainerFragment"
-        android:name="com.dev.batchfinal.view.fragments.TrainingFragment"
+        android:name="com.dev.batchfinal.app_modules.fragments.TrainingFragment"
         android:label="fragment_trainer"
         tools:layout="@layout/fragment_training" >
     </fragment>
