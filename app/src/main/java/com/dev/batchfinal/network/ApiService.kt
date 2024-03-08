@@ -38,33 +38,15 @@ import com.dev.batchfinal.app_utils.MyConstant.MEALDISH
 import com.dev.batchfinal.app_utils.MyConstant.MEALFILTER
 import com.dev.batchfinal.app_utils.MyConstant.MEALLIST
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE
+import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_DETAILS
+import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_LIST
 import com.dev.batchfinal.app_utils.MyConstant.ORDERCREATE
 import com.dev.batchfinal.app_utils.MyConstant.SIGNUP
 import com.dev.batchfinal.app_utils.MyConstant.STARTWORKOUTSTATUS
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListRequest
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListResponse
-import com.dev.batchfinal.utils.MyConstant.AUTHORIZATION
-import com.dev.batchfinal.utils.MyConstant.CHOSEN_MEAL_DETAILS
-import com.dev.batchfinal.utils.MyConstant.COACH
-import com.dev.batchfinal.utils.MyConstant.COACHDETAIL
-import com.dev.batchfinal.utils.MyConstant.COACHFILTERENTITY
-import com.dev.batchfinal.utils.MyConstant.COURSE
-import com.dev.batchfinal.utils.MyConstant.COURSEDETAIL
-import com.dev.batchfinal.utils.MyConstant.COURSEFILTERENTITY
-import com.dev.batchfinal.utils.MyConstant.COURSEORDERLIST
-import com.dev.batchfinal.utils.MyConstant.COURSEPROMOCODELIST
-import com.dev.batchfinal.utils.MyConstant.COURSEWORKOUTLIST
-import com.dev.batchfinal.utils.MyConstant.LOGIN
-import com.dev.batchfinal.utils.MyConstant.MEALDETAILS
-import com.dev.batchfinal.utils.MyConstant.MEALDISH
-import com.dev.batchfinal.utils.MyConstant.MEALFILTER
-import com.dev.batchfinal.utils.MyConstant.MEALLIST
-import com.dev.batchfinal.utils.MyConstant.MEAL_SUBSCRIBE
-import com.dev.batchfinal.utils.MyConstant.MEAL_SUBSCRIBE_DETAILS
-import com.dev.batchfinal.utils.MyConstant.MEAL_SUBSCRIBE_LIST
-import com.dev.batchfinal.utils.MyConstant.ORDERCREATE
-import com.dev.batchfinal.utils.MyConstant.SIGNUP
-import com.dev.batchfinal.utils.MyConstant.STARTWORKOUTSTATUS
+
+
 import com.google.gson.JsonObject
 import retrofit2.http.*
 
