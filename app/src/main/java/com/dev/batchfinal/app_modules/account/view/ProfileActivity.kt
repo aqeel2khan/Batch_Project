@@ -16,6 +16,7 @@ import java.util.*
 
 @AndroidEntryPoint
 class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
+        //BBh
     override fun getViewBinding() = ActivityProfileBinding.inflate(layoutInflater)
     private lateinit var profileEditBinding: ProfileEditDialogBinding
     private lateinit var sessionManager: UserSessionManager
