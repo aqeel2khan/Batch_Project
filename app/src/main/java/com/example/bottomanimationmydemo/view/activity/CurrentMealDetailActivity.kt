@@ -215,7 +215,10 @@ class CurrentMealDetailActivity : BaseActivity<FragmentCurrentMealDetailBinding>
            onBackPressed()
         }
         binding.mealCalender.setOnClickListener {
-            startActivity(Intent(this@CurrentMealDetailActivity, MealPlanActivity::class.java))
+            startActivity(Intent(this@CurrentMealDetailActivity, MealPlanActivity::class.java)
+                .putExtra("meal_id",meal_id)
+                .putExtra("subscribe_id",subscribe_id)
+            )
         }
 
     }
@@ -269,17 +272,29 @@ class CurrentMealDetailActivity : BaseActivity<FragmentCurrentMealDetailBinding>
              var item = days_dishes!!.optJSONObject(date)
              if (item!=null){
              val jsonObject = JSONObject(item.toString())
-             val dishArray = ArrayList<JSONObject>()
-                 dishArray.clear()
-             for (key in jsonObject.keys()) {
-                 val dishObject = jsonObject.getJSONObject(key)
-                 dishArray.add(dishObject)
+                 val catArray = ArrayList<JSONObject>()
+                 for (key in jsonObject.keys()) {
+                     val cat_Object = jsonObject.getJSONObject(key)
+                     catArray.add(cat_Object)
+                     showToast(catArray.toString())
+                 }
+
+                 val jsonObjectNew = JSONObject(catArray.toString())
+
+                 val catObject = jsonObject.getJSONObject("1")
+                     val dishArray = ArrayList<JSONObject>()
+                     dishArray.clear()
+                     for (key in jsonObjectNew.keys()) {
+                         val dishObject = catObject.getJSONObject(key)
+                         dishArray.add(dishObject)
+                     }
+                     setupChosenMealList(dishArray);
+                     for (dish in dishArray) {
+                         println(dish.toString())
+                         // showToast(dish.getString("dish_name"))
+                     }
+
              }
-             setupChosenMealList(dishArray);
-             for (dish in dishArray) {
-                 println(dish.toString())
-                 // showToast(dish.getString("dish_name"))
-             }}
          }catch (e:Exception){
              binding.llChosenMealNote.visibility = View.VISIBLE
          }

@@ -2,6 +2,7 @@ package com.example.bottomanimationmydemo.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -17,6 +18,7 @@ import java.util.ArrayList
 class AllTypeOfMealAdapter(
     val requireContext: Context,
     var mealDishList: List<MealDishData>,
+    var screen:String,
     var listener: MealDishListItemPosition<Int>
 ) : RecyclerView.Adapter<AllTypeOfMealAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemAllTypeMealBinding): RecyclerView.ViewHolder(binding.root) {
@@ -25,7 +27,12 @@ class AllTypeOfMealAdapter(
                       .placeholder(
                           R.drawable.profile_girl
                       ).into(binding.imgTrainerProfile)*/
+            if (screen=="meal_plan"){
+                binding.btRadio.visibility=View.VISIBLE
+            }else{
+                binding.btRadio.visibility=View.GONE
 
+            }
             binding.productName.text = mealDishList.name
             binding.root.setOnClickListener {
                 listener.onMealDishListItemPosition(mealDishList, position)

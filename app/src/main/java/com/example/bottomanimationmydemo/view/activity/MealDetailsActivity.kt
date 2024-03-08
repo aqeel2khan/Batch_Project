@@ -222,7 +222,7 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
     private fun setUpAllMealsAdapter(mealdishList: List<MealDishData>) {
         binding.recyclerAllMeal.apply {
             layoutManager = GridLayoutManager(this@MealDetailsActivity, 2)
-            adapter = AllTypeOfMealAdapter(this@MealDetailsActivity, mealdishList,
+            adapter = AllTypeOfMealAdapter(this@MealDetailsActivity, mealdishList,"meal_details",
                 object : MealDishListItemPosition<Int> {
                     override fun onMealDishListItemPosition(item: MealDishData, position: Int) {
                      //redirect code here
