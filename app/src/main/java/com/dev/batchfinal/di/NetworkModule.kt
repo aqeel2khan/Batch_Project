@@ -40,10 +40,11 @@ class NetworkModule {
     ): OkHttpClient {
         val builder = OkHttpClient.Builder()
         builder.addInterceptor(authInterceptor)
-        if(BuildConfig.DEBUG) {
+
+      //  if(BuildConfig.DEBUG) {
             builder.addInterceptor(okHttpProfilerInterceptor)
             builder.addInterceptor(httpLoggingInterceptor)
-        }
+       // }
 
         return builder.build()
     }
@@ -51,7 +52,9 @@ class NetworkModule {
     @Provides
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
-            level = if(BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+            level =  HttpLoggingInterceptor.Level.BODY
+
+          //  level = if(BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         }
     }
     @Singleton

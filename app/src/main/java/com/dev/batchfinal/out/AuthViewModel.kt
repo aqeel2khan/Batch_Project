@@ -20,12 +20,38 @@ import com.dev.batchfinal.model.meal_filter_model.MealFilterResponse
 import com.dev.batchfinal.model.meal_list.MealResponseList
 import com.dev.batchfinal.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.model.meal_plan_subscribe.MealsSubscribedRespnse
+import com.dev.batchfinal.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
 import com.dev.batchfinal.model.order_model.OrederCreateResponse
 import com.dev.batchfinal.model.registeration_model.SignUpResponseModel
 import com.dev.batchfinal.model.search_curse_filter.SearchCourseListByFilterResponse
+import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListRequest
+import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListResponse
+//import com.example.bottomanimationmydemo.model.chosen_meal_details_model.ChosenMealDetailsResponse
+//import com.example.bottomanimationmydemo.model.coach_detail_model.CoachDetailResponse
+//import com.example.bottomanimationmydemo.model.coach_filter_list.CoachFilterListResponse
+//import com.example.bottomanimationmydemo.model.coach_list_model.CoachListResponse
+//import com.example.bottomanimationmydemo.model.course_detail.CourseDetailResponse
+//import com.example.bottomanimationmydemo.model.course_filter_model.CourseFilterEntityResponse
+//import com.example.bottomanimationmydemo.model.course_model.CourseListResponse
+//import com.example.bottomanimationmydemo.model.course_workout_list.CourseWorkoutListResponse
+//import com.example.bottomanimationmydemo.model.courseorderlist.CourseOrderList
+//import com.example.bottomanimationmydemo.model.login_model.LoginResponseModel
+//import com.example.bottomanimationmydemo.model.meal_detail_model.MealDetailResponse
+//import com.example.bottomanimationmydemo.model.meal_dish_model.MealDishResponse
+//import com.example.bottomanimationmydemo.model.meal_filter_model.MealFilterResponse
+//import com.example.bottomanimationmydemo.model.meal_list.MealResponseList
+//import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
+//import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealsSubscribedRespnse
+//import com.example.bottomanimationmydemo.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
+//import com.example.bottomanimationmydemo.model.order_model.OrederCreateResponse
+//import com.example.bottomanimationmydemo.model.registeration_model.SignUpResponseModel
+//import com.example.bottomanimationmydemo.model.search_curse_filter.SearchCourseListByFilterResponse
+//import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
+//import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListResponse
 import com.google.gson.JsonObject
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+//import net.simplifiedcoding.data.network.Resource
 
 import javax.inject.Inject
 
@@ -214,12 +240,30 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
         _dishDetailsResponse.value = repository.getDishDetails(jsonObject)
     }
 
-    // dish details api
+    // meal Subscribe api
     private val _mealsSubscribedRespnse: MutableLiveData<Resource<MealsSubscribedRespnse>> = MutableLiveData()
     val mealsSubscribedRespnse: LiveData<Resource<MealsSubscribedRespnse>> get() = _mealsSubscribedRespnse
 
     fun mealSubscribeApiCall(mealSubscribedRequest: MealSubscribedRequest) = viewModelScope.launch {
         _mealsSubscribedRespnse.value = Resource.Loading
         _mealsSubscribedRespnse.value = repository.mealSubscribe(mealSubscribedRequest)
+    }
+
+    // meal Subscribe List api
+    private val _mealSubscribeListResponse: MutableLiveData<Resource<MealSubscribeListResponse>> = MutableLiveData()
+    val mealSubscribeListResponse: LiveData<Resource<MealSubscribeListResponse>> get() = _mealSubscribeListResponse
+
+    fun mealSubscribeListApiCall(mealSubscribeListRequest: MealSubscribeListRequest) = viewModelScope.launch {
+        _mealSubscribeListResponse.value = Resource.Loading
+        _mealSubscribeListResponse.value = repository.mealSubscribeList(mealSubscribeListRequest)
+    }
+
+    // meal Subscribe List api
+    private val _mealSubscriptionDetailsResponse: MutableLiveData<Resource<JsonObject>> = MutableLiveData()
+    val mealSubscriptionDetailsResponse: LiveData<Resource<JsonObject>> get() = _mealSubscriptionDetailsResponse
+
+    fun mealSubscribeDetailsApiCall(mealSubscriptionDetailsRequest: MealSubscriptionDetailsRequest) = viewModelScope.launch {
+        _mealSubscriptionDetailsResponse.value = Resource.Loading
+        _mealSubscriptionDetailsResponse.value = repository.mealSubscribeDetails(mealSubscriptionDetailsRequest)
     }
 }

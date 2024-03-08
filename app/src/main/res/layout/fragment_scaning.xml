@@ -16,6 +16,7 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                android:visibility="gone"
                 android:id="@+id/cd_current_meal"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_160sdp"
@@ -112,6 +113,12 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_meal_subscribe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

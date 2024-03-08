@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.lifecycleScope
 import com.dev.batchfinal.MainActivity
 import com.dev.batchfinal.R
@@ -49,6 +50,7 @@ import com.myfatoorah.sdk.views.MFSDK
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.dev.batchfinal.out.Resource
+import com.dev.batchfinal.session.UserSessionManager
 
 
 @AndroidEntryPoint
@@ -68,6 +70,8 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     lateinit var dialogBinding: BottomSheetBinding
     private lateinit var adapter: MyItemRecyclerViewAdapter
     private var selectedPaymentMethod: PaymentMethod? = null
+    private lateinit var sessionManager: UserSessionManager
+
 
     val request = MFInitiatePaymentRequest(0.100, MFCurrencyISO.KUWAIT_KWD)
     override fun getViewModel(): BaseViewModel {
@@ -75,6 +79,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     }
 
     override fun initUi() {
+        sessionManager= UserSessionManager(this)
         strValue = intent.getStringExtra("screen")
         meal_id = intent.getStringExtra("meal_id")
         meal_name = intent.getStringExtra("meal_name")
@@ -124,7 +129,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
          * "customerIdentifier" with a unique value for each customer. This value cannot be used
          * for more than one Customer.
          */
-        val mfInitiateSessionRequest = MFInitiateSessionRequest(customerIdentifier = "12332212")
+        val mfInitiateSessionRequest = MFInitiateSessionRequest(customerIdentifier = sessionManager.getUserId())
         MFSDK.initiateSession(request = null) {
             when (it) {
                 is MFResult.Success -> {
@@ -254,7 +259,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     private fun courseOrderCreate(jsonObject: JsonObject) {
         if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
             showLoader()
-            authViewModel.courseOrderCreateApiCall("Bearer " + sharedPreferences.token, jsonObject)
+            authViewModel.courseOrderCreateApiCall("Bearer " + sessionManager.getUserToken(), jsonObject)
             authViewModel.courseOrderCreateResponse.observe(this) {
                 when (it) {
                     is Resource.Success -> {

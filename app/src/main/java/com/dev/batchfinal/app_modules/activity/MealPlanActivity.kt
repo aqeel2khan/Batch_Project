@@ -9,10 +9,17 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.adapter.WeekdaysAdapter
 import com.dev.batchfinal.databinding.ActivityMealPlanBinding
+//import com.dev.batchfinal.databinding.ActivityMealPlanBinding
 import com.dev.batchfinal.`interface`.PositionItemClickListener
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
+//import com.example.bottomanimationmydemo.adapter.WeekdaysAdapter
+//import com.example.bottomanimationmydemo.databinding.ActivityMealPlanBinding
+//import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
+//import com.example.bottomanimationmydemo.view.BaseActivity
+//import com.example.bottomanimationmydemo.viewmodel.AllViewModel
+//import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
@@ -84,13 +91,14 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
         //current date selection code
         for (i in dates) {
             if (date_filter == i) {
-                setWeekdayAdapter(dates, days, "", "mealPlan")
+                //setWeekdayAdapter(dates, days, "", "mealPlan")
             }
         }
 
-        setWeekdayAdapter(dates, days, "", "mealPlan")
+       // setWeekdayAdapter(dates, days, "", "mealPlan")
     }
 
+/*
     private fun setWeekdayAdapter(dates: Array<String?>, days: Array<String?>, backDate: String?, mealPlan: String) {
         binding.weekdaysList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.weekdaysList.adapter = WeekdaysAdapter(this,
@@ -122,6 +130,7 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
                 }
             })
     }
+*/
 
     override fun getViewBinding() = ActivityMealPlanBinding.inflate(layoutInflater)
 }

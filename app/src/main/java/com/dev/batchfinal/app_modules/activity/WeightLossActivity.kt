@@ -3,12 +3,14 @@ package com.dev.batchfinal.app_modules.activity
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerReadyListener
 import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerStateListener
@@ -16,8 +18,10 @@ import com.ct7ct7ct7.androidvimeoplayer.model.PlayerState
 import com.ct7ct7ct7.androidvimeoplayer.model.TextTrack
 import com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerActivity
 import com.dev.batchfinal.R
+//import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.WorkoutTypeAdapter
 import com.dev.batchfinal.databinding.ActivityWeightLossBinding
+//import com.dev.batchfinal.databinding.ActivityWeightLossBinding
 import com.dev.batchfinal.`interface`.PositionCourseWorkoutClick
 import com.dev.batchfinal.model.course_detail.Data
 import com.dev.batchfinal.model.courseorderlist.Course_duration
@@ -28,9 +32,27 @@ import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
+///import com.example.bottomanimationmydemo.adapter.WorkoutTypeAdapter
+//import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
+///import com.example.bottomanimationmydemo.`interface`.PositionCourseWorkoutClick
+//import com.example.bottomanimationmydemo.model.course_detail.Data
+//import com.example.bottomanimationmydemo.model.courseorderlist.Course_duration
+//import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
+//import com.example.bottomanimationmydemo.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
+//import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
+//import com.example.bottomanimationmydemo.out.AuthViewModel
+//import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
+//import com.example.bottomanimationmydemo.utils.MyConstant
+//import com.example.bottomanimationmydemo.utils.MyCustom
+//import com.example.bottomanimationmydemo.utils.MyUtils
+//import com.example.bottomanimationmydemo.view.BaseActivity
+//import com.example.bottomanimationmydemo.viewmodel.AllViewModel
+//import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+//import net.simplifiedcoding.data.network.Resource
 import java.util.*
 
 @AndroidEntryPoint
@@ -241,6 +263,8 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
 
         dialog.show()
     }
+
+
 
     override fun getViewBinding() = ActivityWeightLossBinding.inflate(layoutInflater)
 }

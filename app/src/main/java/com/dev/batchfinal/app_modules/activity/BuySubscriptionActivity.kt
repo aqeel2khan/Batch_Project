@@ -30,6 +30,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.dev.batchfinal.out.Resource
+import com.dev.batchfinal.session.UserSessionManager
 
 @AndroidEntryPoint
 class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
@@ -44,11 +45,14 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
     val durationList: ArrayList<String> = ArrayList()
     val dataList: ArrayList<String> = ArrayList()
     val weekString = " Weeks "
+    private lateinit var sessionManager: UserSessionManager
+
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
 
     override fun initUi() {
+        sessionManager = UserSessionManager(this@BuySubscriptionActivity)
         buttonClicks()
 //        course_id = intent.getStringExtra("course_id")
         statusList = arrayListOf<StatusModel>(
@@ -129,7 +133,8 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
             if (binding.setPlanData.text.toString().isNullOrEmpty()){
                 showToast("Please select plan duration")
             }else{
-                if (sharedPreferences.token != "") {
+                if (sessionManager.isloggin()){
+
                     startActivity(
                         Intent(this@BuySubscriptionActivity, CheckOutActivity::class.java).putExtra("course_id", sharedPreferences.myCourseId)
                     )
