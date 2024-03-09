@@ -43,7 +43,10 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
 
+    }
     @SuppressLint("SetTextI18n")
     private fun setProfileDetails() {
         if (sessionManager.isloggin())
