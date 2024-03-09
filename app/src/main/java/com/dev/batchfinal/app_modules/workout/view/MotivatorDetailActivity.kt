@@ -1,4 +1,4 @@
-package com.dev.batchfinal.app_modules.activity
+package com.dev.batchfinal.app_modules.workout.view
 
 import android.content.Intent
 import android.util.Log
@@ -25,6 +25,7 @@ import com.dev.batchfinal.app_utils.MyConstant.jsonObject
 import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_modules.shopping.view.CourseDetailActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import dagger.hilt.android.AndroidEntryPoint

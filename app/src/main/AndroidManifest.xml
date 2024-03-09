@@ -19,7 +19,7 @@
             android:name="com.dev.batchfinal.app_modules.activity.RecyclerViewActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.MealDetailsActivity"
+            android:name="com.dev.batchfinal.app_modules.meal.view.MealDetailsActivity"
             android:exported="false" />
         <activity
             android:name="com.dev.batchfinal.app_modules.account.view.ProfileActivity"
@@ -42,46 +42,46 @@
             android:exported="false" />
 -->
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.MealPlanActivity"
+            android:name="com.dev.batchfinal.app_modules.meal.view.MealPlanActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.ChosenMealDetailActivity"
+            android:name="com.dev.batchfinal.app_modules.meal.view.ChosenMealDetailActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.CurrentMealDetailActivity"
+            android:name="com.dev.batchfinal.app_modules.meal.view.CurrentMealDetailActivity"
             android:exported="false" />
         <activity
             android:name="com.dev.batchfinal.app_modules.activity.OrderCompleteActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.CheckOutActivity"
+            android:name="com.dev.batchfinal.app_modules.shopping.view.CheckOutActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.SelectWorkoutTimeActivity"
+            android:name="com.dev.batchfinal.app_modules.workout.view.SelectWorkoutTimeActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.ComplateWorkoutActivity"
+            android:name="com.dev.batchfinal.app_modules.workout.view.ComplateWorkoutActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.PlayWorkoutVideoActivity"
+            android:name="com.dev.batchfinal.app_modules.workout.view.PlayWorkoutVideoActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.WorkOutDetailScreen"
+            android:name="com.dev.batchfinal.app_modules.workout.view.WorkOutDetailScreen"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.CourseDetailActivity"
+            android:name="com.dev.batchfinal.app_modules.shopping.view.CourseDetailActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.BuySubscriptionActivity"
+            android:name="com.dev.batchfinal.app_modules.shopping.view.BuySubscriptionActivity"
             android:exported="false" />
         <activity
             android:name="com.dev.batchfinal.MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.MotivatorDetailActivity"
+            android:name="com.dev.batchfinal.app_modules.workout.view.MotivatorDetailActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.SlideWorkoutVideoActivity"
+            android:name="com.dev.batchfinal.app_modules.workout.view.SlideWorkoutVideoActivity"
             android:exported="false" />
         <activity
             android:name="com.dev.batchfinal.app_modules.account.view.SplashActivity"

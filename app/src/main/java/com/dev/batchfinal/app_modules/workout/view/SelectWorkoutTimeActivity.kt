@@ -1,4 +1,4 @@
-package com.dev.batchfinal.app_modules.activity
+package com.dev.batchfinal.app_modules.workout.view
 
 import android.content.Intent
 import android.view.View

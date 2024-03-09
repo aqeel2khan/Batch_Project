@@ -1,4 +1,4 @@
-package com.dev.batchfinal.app_modules.activity
+package com.dev.batchfinal.app_modules.shopping.view
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -11,7 +11,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.lifecycleScope
 import com.dev.batchfinal.MainActivity
 import com.dev.batchfinal.R
@@ -30,6 +29,7 @@ import com.dev.batchfinal.app_utils.MyConstant.status
 import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_modules.activity.OrderCompleteActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog

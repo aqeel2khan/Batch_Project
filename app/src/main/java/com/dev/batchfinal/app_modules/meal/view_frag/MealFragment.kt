@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dev.batchfinal.app_modules.activity.MealDetailsActivity
+import com.dev.batchfinal.app_modules.meal.view.MealDetailsActivity
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.MealBatchPlanAdapter
 import com.dev.batchfinal.databinding.FilterDialogBinding
@@ -18,7 +18,7 @@ import com.dev.batchfinal.`interface`.MealListItemPosition
 import com.dev.batchfinal.model.meal_filter_model.BatchGoal
 import com.dev.batchfinal.model.meal_filter_model.MealCalory
 import com.dev.batchfinal.model.meal_filter_model.MealTag
-import com.dev.batchfinal.app_modules.activity.CurrentMealDetailActivity
+import com.dev.batchfinal.app_modules.meal.view.CurrentMealDetailActivity
 import com.dev.batchfinal.model.meal_list.MealList
 import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.app_utils.CheckNetworkConnection

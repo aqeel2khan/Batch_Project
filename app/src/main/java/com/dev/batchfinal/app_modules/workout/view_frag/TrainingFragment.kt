@@ -35,8 +35,8 @@ import com.dev.batchfinal.app_utils.MyConstant.jsonObject
 import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.app_common.BaseFragment
-import com.dev.batchfinal.app_modules.activity.MotivatorDetailActivity
-import com.dev.batchfinal.app_modules.activity.CourseDetailActivity
+import com.dev.batchfinal.app_modules.workout.view.MotivatorDetailActivity
+import com.dev.batchfinal.app_modules.shopping.view.CourseDetailActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog

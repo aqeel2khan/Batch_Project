@@ -1,4 +1,4 @@
-package com.dev.batchfinal.app_modules.activity
+package com.dev.batchfinal.app_modules.batchboard.view
 
 //@AndroidEntryPoint
 /*

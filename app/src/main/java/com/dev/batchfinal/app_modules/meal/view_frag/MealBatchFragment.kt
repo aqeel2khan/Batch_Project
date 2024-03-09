@@ -14,7 +14,7 @@ import com.dev.batchfinal.MainActivity
 //import com.dev.batchfinal.databinding.HomeMealDialogBinding
 import com.dev.batchfinal.model.StatusModel
 import com.dev.batchfinal.app_common.BaseFragment
-import com.dev.batchfinal.app_modules.activity.CurrentMealDetailActivity
+import com.dev.batchfinal.app_modules.meal.view.CurrentMealDetailActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.dev.batchfinal.R

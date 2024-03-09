@@ -1,4 +1,4 @@
-package com.dev.batchfinal.app_modules.activity
+package com.dev.batchfinal.app_modules.shopping.view
 
 import android.annotation.SuppressLint
 import android.content.Intent

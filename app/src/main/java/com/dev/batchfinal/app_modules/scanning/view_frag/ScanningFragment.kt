@@ -37,7 +37,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.adapter.MealSubscribeListAdapter
-import com.dev.batchfinal.app_modules.activity.CurrentMealDetailActivity
+import com.dev.batchfinal.app_modules.meal.view.CurrentMealDetailActivity
 import com.dev.batchfinal.app_modules.meal.view_frag.MealBatchFragment
 
 @AndroidEntryPoint

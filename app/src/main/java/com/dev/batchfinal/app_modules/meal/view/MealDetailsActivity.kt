@@ -1,4 +1,4 @@
-package com.dev.batchfinal.app_modules.activity
+package com.dev.batchfinal.app_modules.meal.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -30,6 +30,7 @@ import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.app_modules.account.view.LoginActivity
+import com.dev.batchfinal.app_modules.shopping.view.CheckOutActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog

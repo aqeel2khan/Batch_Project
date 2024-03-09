@@ -1,16 +1,12 @@
-package com.dev.batchfinal.app_modules.activity
+package com.dev.batchfinal.app_modules.meal.view
 
 import android.content.Intent
-import android.text.SpannableString
 import android.text.format.DateFormat
-import android.text.style.UnderlineSpan
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dev.batchfinal.adapter.WeekdaysAdapter
 import com.dev.batchfinal.databinding.ActivityMealPlanBinding
 //import com.dev.batchfinal.databinding.ActivityMealPlanBinding
-import com.dev.batchfinal.`interface`.PositionItemClickListener
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel

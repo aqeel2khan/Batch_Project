@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.activity.viewModels
 import com.dev.batchfinal.databinding.ActivityFoodPlanBasedOnQuestionBinding
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_modules.meal.view.MealDetailsActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import dagger.hilt.android.AndroidEntryPoint

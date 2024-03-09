@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.databinding.ItemIngredientsListBinding
-import com.dev.batchfinal.app_modules.activity.ChosenMealDetailActivity
+import com.dev.batchfinal.app_modules.meal.view.ChosenMealDetailActivity
 
 
 

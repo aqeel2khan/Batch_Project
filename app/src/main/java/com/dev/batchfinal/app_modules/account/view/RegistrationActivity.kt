@@ -19,7 +19,7 @@ import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_utils.MyUtils.isMobileNumberValid
 import com.dev.batchfinal.app_utils.MyUtils.isValidEmail
 import com.dev.batchfinal.app_common.BaseActivity
-import com.dev.batchfinal.app_modules.activity.CheckOutActivity
+import com.dev.batchfinal.app_modules.shopping.view.CheckOutActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.gson.JsonObject
