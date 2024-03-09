@@ -2,12 +2,16 @@ package com.example.bottomanimationmydemo.adapter
 
 import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.databinding.ItemWeeksdayDataBinding
 import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class WeekdaysAdapter(
     val requireActivity: FragmentActivity, val dates: ArrayList<String?>, val days: ArrayList<String?>, var backDate: String?,
@@ -26,6 +30,18 @@ class WeekdaysAdapter(
                 val day = y1.toInt()
                 binding.tvDate.text = y1
                 binding.tvDays.text = days
+            val inputFormat: java.text.DateFormat = SimpleDateFormat("yyyy-MM-dd")
+            val current_date: Date = inputFormat.parse(currentDate)
+            val check_date: Date = inputFormat.parse(dates)
+            if(check_date.after(current_date)){
+                binding.calMeal.visibility=View.GONE
+
+            }else{
+                binding.calMeal.visibility=View.VISIBLE
+
+            }
+
+
 //            }else{
 //                val item2: List<String> = backDate!!.split("-")
 //                val bkDt = item2[2]

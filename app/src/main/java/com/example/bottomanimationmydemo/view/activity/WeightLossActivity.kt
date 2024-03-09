@@ -25,8 +25,6 @@ import com.example.bottomanimationmydemo.`interface`.PositionCourseWorkoutClick
 import com.example.bottomanimationmydemo.model.course_detail.Data
 import com.example.bottomanimationmydemo.model.courseorderlist.Course_duration
 import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
-import com.example.bottomanimationmydemo.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
-import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
 import com.example.bottomanimationmydemo.out.AuthViewModel
 import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
 import com.example.bottomanimationmydemo.utils.MyConstant

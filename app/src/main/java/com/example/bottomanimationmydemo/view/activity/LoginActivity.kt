@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
 import com.example.bottomanimationmydemo.databinding.ActivityLoginBinding
+import com.example.bottomanimationmydemo.meals.meal_unpurchase.view.activity.CheckOutActivity
 import com.example.bottomanimationmydemo.out.AuthViewModel
 import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
 import com.example.bottomanimationmydemo.utils.MyConstant

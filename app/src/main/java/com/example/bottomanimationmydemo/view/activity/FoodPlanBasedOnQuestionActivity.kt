@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import com.airbnb.lottie.LottieDrawable
 import com.example.bottomanimationmydemo.R
 import com.example.bottomanimationmydemo.databinding.ActivityFoodPlanBasedOnQuestionBinding
+import com.example.bottomanimationmydemo.meals.meal_unpurchase.view.activity.MealDetailsActivity
 import com.example.bottomanimationmydemo.view.BaseActivity
 import com.example.bottomanimationmydemo.viewmodel.AllViewModel
 import com.example.bottomanimationmydemo.viewmodel.BaseViewModel

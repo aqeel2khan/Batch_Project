@@ -14,6 +14,7 @@ import com.example.bottomanimationmydemo.adapter.BatchWorkoutTypeAdapter
 import com.example.bottomanimationmydemo.adapter.WorkoutTypeListAdapter
 import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
 import com.example.bottomanimationmydemo.databinding.ActivityCourseDetailBinding
+import com.example.bottomanimationmydemo.meals.meal_unpurchase.view.activity.BuySubscriptionActivity
 import com.example.bottomanimationmydemo.model.course_detail.CourseDuration
 import com.example.bottomanimationmydemo.model.course_detail.Data
 import com.example.bottomanimationmydemo.model.course_detail.WorkoutType

@@ -19,7 +19,7 @@
             android:name=".view.activity.RecyclerViewActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.MealDetailsActivity"
+            android:name=".meals.meal_unpurchase.view.activity.MealDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".view.activity.ProfileActivity"
@@ -36,23 +36,21 @@
         <activity
             android:name=".view.activity.RegistrationActivity"
             android:exported="false" />
+
         <activity
-            android:name=".view.activity.BatchMealPlanActivity"
+            android:name=".meals.meal_purchase.view.activity.MealPlanActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.MealPlanActivity"
+            android:name=".meals.meal_unpurchase.view.activity.ChosenMealDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.ChosenMealDetailActivity"
+            android:name=".meals.meal_purchase.view.activity.CurrentMealDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.CurrentMealDetailActivity"
+            android:name=".meals.meal_unpurchase.view.activity.OrderCompleteActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.OrderCompleteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.activity.CheckOutActivity"
+            android:name=".meals.meal_unpurchase.view.activity.CheckOutActivity"
             android:exported="false" />
         <activity
             android:name=".view.activity.SelectWorkoutTimeActivity"

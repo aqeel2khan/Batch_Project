@@ -15,18 +15,18 @@ import com.example.bottomanimationmydemo.databinding.FragmentScaningBinding
 import com.example.bottomanimationmydemo.databinding.HomeMealDialogBinding
 import com.example.bottomanimationmydemo.`interface`.CourseOrderListItemPosition
 import com.example.bottomanimationmydemo.`interface`.MealSubscribeListPosition
-import com.example.bottomanimationmydemo.model.chosen_meal_details_model.ChosenMealDetailsResponse.InternalData
+import com.example.bottomanimationmydemo.meals.meal_purchase.model.subscribe_list_model.MealSubscribeListRequest
+import com.example.bottomanimationmydemo.meals.meal_purchase.model.subscribe_list_model.MealSubscribeListResponse
+import com.example.bottomanimationmydemo.meals.meal_purchase.view.activity.CurrentMealDetailActivity
+import com.example.bottomanimationmydemo.meals.meal_purchase.view.fragment.MealBatchFragment
 import com.example.bottomanimationmydemo.model.courseorderlist.Data
 import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
-import com.example.bottomanimationmydemo.model.meal_plan_subscribe.MealSubscribedRequest
-import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
-import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListResponse.InternalDatum
+
 import com.example.bottomanimationmydemo.out.AuthViewModel
 import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
 import com.example.bottomanimationmydemo.utils.MyConstant
 import com.example.bottomanimationmydemo.utils.MyCustom
 import com.example.bottomanimationmydemo.view.BaseFragment
-import com.example.bottomanimationmydemo.view.activity.CurrentMealDetailActivity
 import com.example.bottomanimationmydemo.view.activity.WeightLossActivity
 import com.example.bottomanimationmydemo.viewmodel.AllViewModel
 import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
@@ -54,7 +54,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
     override fun initUi() {
         buttonClicks()
         getMealSubscribeListApi()
-        getCourseOrderListApi()
+        //getCourseOrderListApi()
         setAllCourseOrderAdapter(courseList) //hide code
     }
      //TODO
@@ -208,15 +208,16 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         }
     }
 
-    private fun setAllMealSubscribeListAdapter(internalDatum: List<InternalDatum>) {
+    private fun setAllMealSubscribeListAdapter(internalDatum: List<MealSubscribeListResponse.InternalDatum>) {
         binding.recyclerMealSubscribe.layoutManager =
             LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerMealSubscribe.adapter = MealSubscribeListAdapter(context, internalDatum, object :
             MealSubscribeListPosition<Int> {
-            override fun onMealSubscribeListItemPosition(item: InternalDatum, position: Int) {
+            override fun onMealSubscribeListItemPosition(item: MealSubscribeListResponse.InternalDatum, position: Int) {
                 requireContext().startActivity(Intent(requireContext(), CurrentMealDetailActivity::class.java)
                     .putExtra("meal_id",item.id.toString())
                     .putExtra("subscribe_id",item.subscribedId.toString())
+                    .putExtra("goal_id",item.goalId.toString())
                 )
 
               /*  findNavController().navigate(

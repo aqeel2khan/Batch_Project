@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/mealFragment"
-        android:name="com.example.bottomanimationmydemo.view.fragments.MealFragment"
+        android:name="com.example.bottomanimationmydemo.meals.meal_unpurchase.view.fragment.MealFragment"
         android:label="fragment_meal"
         tools:layout="@layout/fragment_meal">
 
