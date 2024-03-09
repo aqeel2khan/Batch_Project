@@ -93,7 +93,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.VerificationActivity"
+            android:name="com.dev.batchfinal.app_modules.account.view.VerificationActivity"
             android:exported="false" />
         <activity
             android:name="com.dev.batchfinal.app_modules.account.view.LoginActivity"

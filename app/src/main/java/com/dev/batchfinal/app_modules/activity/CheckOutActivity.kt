@@ -50,7 +50,7 @@ import com.myfatoorah.sdk.views.MFSDK
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.dev.batchfinal.out.Resource
-import com.dev.batchfinal.session.UserSessionManager
+import com.dev.batchfinal.app_session.UserSessionManager
 
 
 @AndroidEntryPoint

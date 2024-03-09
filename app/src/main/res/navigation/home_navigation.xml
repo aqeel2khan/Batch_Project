@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.dev.batchfinal.app_modules.fragments.HomeFragment"
+        android:name="com.dev.batchfinal.app_modules.batchboard.view_frag.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/trainingFragment"
-        android:name="com.dev.batchfinal.app_modules.fragments.TrainingFragment"
+        android:name="com.dev.batchfinal.app_modules.workout.view_frag.TrainingFragment"
         android:label="fragment_training"
         tools:layout="@layout/fragment_training">
 
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/mealFragment"
-        android:name="com.dev.batchfinal.app_modules.fragments.MealFragment"
+        android:name="com.dev.batchfinal.app_modules.meal.view_frag.MealFragment"
         android:label="fragment_meal"
         tools:layout="@layout/fragment_meal">
 
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/shopFragment"
-        android:name="com.dev.batchfinal.app_modules.fragments.ShoppingFragment"
+        android:name="com.dev.batchfinal.app_modules.shopping.view_frag.ShoppingFragment"
         android:label="fragment_shopping"
         tools:layout="@layout/fragment_shopping">
 

@@ -1,6 +1,7 @@
 package com.dev.batchfinal.app_modules.account.network_service
 
 import com.dev.batchfinal.app_modules.account.model.SignInModel
+import com.dev.batchfinal.app_modules.account.model.UpdateProfileModel
 import com.dev.batchfinal.app_utils.MyConstant.BASE_URL
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -12,7 +13,10 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.Body
+import retrofit2.http.Header
+import retrofit2.http.HeaderMap
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import java.util.concurrent.TimeUnit
 
 interface AccountNetworkService {
@@ -20,6 +24,8 @@ interface AccountNetworkService {
     @POST("auth/signin")     //Login + Token
     fun requestLogin(@Body request: RequestBody): retrofit2.Call<SignInModel>
 
+    @PUT("account/profile")     //Login + Token
+    fun requestUpdateProfile(@HeaderMap headersMap: Map<String, String>, @Body request: RequestBody): retrofit2.Call<UpdateProfileModel>
 
     companion object {
         var logging = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

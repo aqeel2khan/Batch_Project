@@ -74,12 +74,16 @@ object MyCustom {
 
             Log.d("loginMsg", msg)
             val iterator = error.keys()
-            while (iterator.hasNext()) {
-                val key = iterator.next().toString()
-                val errorValue = error.optString(key)
-                val errorValue_new = errorValue.replace("[", "").replace("]", "");
-                context.showToast(errorValue_new)
-                Log.d("loginMsg++++", errorValue_new)
+            if (iterator.iterator() != null)
+            {
+                while (iterator.hasNext()) {
+                    val key = iterator.next().toString()
+                    val errorValue = error.optString(key)
+                    val errorValue_new = errorValue.replace("[", "").replace("]", "");
+                    context.showToast(errorValue_new)
+                    Log.d("loginMsg++++", errorValue_new)
+                }
+
             }
         } catch (e: Exception) {
             e.printStackTrace()

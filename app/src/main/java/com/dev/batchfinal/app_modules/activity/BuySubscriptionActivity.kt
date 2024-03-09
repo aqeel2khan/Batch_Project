@@ -30,7 +30,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.dev.batchfinal.out.Resource
-import com.dev.batchfinal.session.UserSessionManager
+import com.dev.batchfinal.app_session.UserSessionManager
 
 @AndroidEntryPoint
 class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {

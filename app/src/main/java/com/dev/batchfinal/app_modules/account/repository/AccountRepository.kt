@@ -5,5 +5,7 @@ import okhttp3.RequestBody
 
 class AccountRepository constructor(private val retrofitService: AccountNetworkService){
     fun requestLogin(requestBody: RequestBody) = retrofitService.requestLogin(requestBody)
+    fun requestUpdateProfile(headersMap: HashMap<String, String>,requestBody: RequestBody) =
+        retrofitService.requestUpdateProfile(headersMap,requestBody)
 
 }

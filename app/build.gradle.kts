@@ -64,6 +64,9 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta4")
 
     implementation("com.github.bumptech.glide:glide:4.13.2")
+    kapt("com.github.bumptech.glide:compiler:4.13.2")
+    implementation("com.squareup.picasso:picasso:2.71828")  // Use the latest version
+
 //region Hilt for di
     implementation("com.google.dagger:hilt-android:2.42")
     kapt("com.google.dagger:hilt-android-compiler:2.42")

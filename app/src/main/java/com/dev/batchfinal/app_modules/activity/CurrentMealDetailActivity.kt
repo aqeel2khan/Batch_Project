@@ -15,11 +15,15 @@ import com.dev.batchfinal.adapter.WeekdaysAdapter
 import com.dev.batchfinal.databinding.FragmentCurrentMealDetailBinding
 import com.dev.batchfinal.`interface`.PositionItemClickListener
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_utils.CheckNetworkConnection
+import com.dev.batchfinal.app_utils.MyCustom
+import com.dev.batchfinal.app_utils.showToast
+import com.dev.batchfinal.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
+import com.dev.batchfinal.out.AuthViewModel
+import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
-//import com.example.bottomanimationmydemo.R
-//import com.example.bottomanimationmydemo.databinding.FragmentCurrentMealDetailBinding
-import com.google.gson.JsonObject
+
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import org.json.JSONObject

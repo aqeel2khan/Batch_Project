@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:gravity="center_horizontal"
-    tools:context="com.dev.batchfinal.app_modules.activity.VerificationActivity">
+    tools:context="com.dev.batchfinal.app_modules.account.view.VerificationActivity">
 
     <ImageView
         android:id="@+id/backButtonLogin"

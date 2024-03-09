@@ -1,5 +1,6 @@
 package com.dev.batchfinal.app_utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -18,6 +19,7 @@ import com.bumptech.glide.request.target.Target
 import com.dev.batchfinal.R
 import com.dev.batchfinal.databinding.ActivityLoginBinding
 import com.dev.batchfinal.databinding.ActivityRegistrationBinding
+import com.squareup.picasso.Picasso
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -30,8 +32,8 @@ object MyUtils {
     private var passwordNotVisible = 0
     private var newPasswordNotVisible = 0
     private var confirmPasswordNotVisible = 0
-    private val showPassword  =  InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-    private val hidePassword  =   InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+    private val showPassword = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+    private val hidePassword = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
     private val showEyeImage = R.drawable.visible_eye
     private val hideEyeImage = R.drawable.invisible_eye
 
@@ -46,6 +48,7 @@ object MyUtils {
         }
         return isValid
     }
+
     // Function to validate mobile number length
     fun isMobileNumberValid(phoneNumber: String): Boolean {
         val minLength = 9
@@ -60,7 +63,8 @@ object MyUtils {
 
     @Throws(IOException::class)
     fun getFile(context: Context, uri: Uri): File? {
-        val destinationFilename = File(context.filesDir.path + File.separatorChar + queryName(context, uri))
+        val destinationFilename =
+            File(context.filesDir.path + File.separatorChar + queryName(context, uri))
         try {
             context.contentResolver.openInputStream(uri).use { ins ->
                 createFileFromStream(ins!!, destinationFilename)
@@ -71,6 +75,7 @@ object MyUtils {
         }
         return destinationFilename
     }
+
     fun createFileFromStream(ins: InputStream, destination: File?) {
         try {
             FileOutputStream(destination).use { os ->
@@ -86,6 +91,7 @@ object MyUtils {
             ex.printStackTrace()
         }
     }
+
     private fun queryName(context: Context, uri: Uri): String {
         val returnCursor = context.contentResolver.query(uri, null, null, null, null)!!
         val nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
@@ -95,43 +101,88 @@ object MyUtils {
         return name
     }
 
+    @SuppressLint("CheckResult")
     fun loadBackgroundImage(view: ImageView, url: String?) {
-        Glide.with(view.context)
+        Picasso.get()
             .load(url)
-            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-            .skipMemoryCache(true)
-            .thumbnail(0.5f)
-            .placeholder(R.drawable.exercise_image)
-            .listener(object : RequestListener<Drawable?> {
-                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>?, isFirstResource: Boolean): Boolean {
-                    return false
-                }
-                override fun onResourceReady(
-                    resource: Drawable?, model: Any?, target: Target<Drawable?>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                    return false
-                }
-            })
+            .placeholder(R.drawable.exercise_image)  // Optional: Set a placeholder image while loading
+            .error(R.drawable.exercise_image)  // Optional: Set an error image if loading fails
             .into(view)
+        //Generating Exception
+
+//Commented@BBh
+        /*
+                Glide.with(view.context)
+                    .load(url)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .skipMemoryCache(true)
+                    .thumbnail(0.5f)
+                    .placeholder(R.drawable.exercise_image)
+                    .into(view)
+        */
+//Commented@- BBh
+        /*
+                Glide.with(view.context)
+                    .load(url)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .skipMemoryCache(true)
+                    .thumbnail(0.5f)
+                    .placeholder(R.drawable.exercise_image)
+                    .listener(object : RequestListener<Drawable?>
+                    {
+                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>?, isFirstResource: Boolean): Boolean {
+                            return false
+                        }
+                        override fun onResourceReady(
+                            resource: Drawable?, model: Any?, target: Target<Drawable?>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                            return false
+                        }
+                    }
+                    )
+                    .into(view)
+        */
     }
+
     fun loadImage(view: ImageView, url: String?) {
-        Glide.with(view.context)
+        Picasso.get()
             .load(url)
-            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-            .skipMemoryCache(true)
-            .apply(RequestOptions.circleCropTransform())
-            .thumbnail(0.5f)
-            .placeholder(R.drawable.avtar)
-            .listener(object : RequestListener<Drawable?> {
-                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>?, isFirstResource: Boolean): Boolean {
-                    return false
-                }
-                override fun onResourceReady(
-                    resource: Drawable?, model: Any?, target: Target<Drawable?>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                    return false
-                }
-            })
+            .placeholder(R.drawable.exercise_image)  // Optional: Set a placeholder image while loading
+            .error(R.drawable.exercise_image)  // Optional: Set an error image if loading fails
             .into(view)
+
+        //Generating Exception
+        /*
+                Glide.with(view.context)
+                    .load(url)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .skipMemoryCache(true)
+                    .thumbnail(0.5f)
+                    .placeholder(R.drawable.exercise_image)
+                    .into(view)
+        */
+//Commented@ BBh
+
+        /*
+                Glide.with(view.context)
+                    .load(url)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .skipMemoryCache(true)
+                    .apply(RequestOptions.circleCropTransform())
+                    .thumbnail(0.5f)
+                    .placeholder(R.drawable.avtar)
+                    .listener(object : RequestListener<Drawable?> {
+                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>?, isFirstResource: Boolean): Boolean {
+                            return false
+                        }
+                        override fun onResourceReady(
+                            resource: Drawable?, model: Any?, target: Target<Drawable?>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                            return false
+                        }
+                    })
+                    .into(view)
+        */
     }
+
     fun passwordShowHide(binding: ViewBinding, s: String) {
         if (binding is ActivityLoginBinding) {
             if (s == MyConstant.newPassword) {
@@ -169,40 +220,40 @@ object MyUtils {
                 }
             }*/
         }
-       /* else if (binding is ActivityChangePasswordBinding){
-            if (s == MyConstant.oldPassword) {
-                if (passwordNotVisible == 0) {
-                    binding.oldPassword.inputType = showPassword
-                    binding.oldPassHideShow.setImageResource(showEyeImage)
-                    passwordNotVisible = 1
-                } else {
-                    binding.oldPassword.inputType = hidePassword
-                    binding.oldPassHideShow.setImageResource(hideEyeImage)
-                    passwordNotVisible = 0
-                }
-            }else if (s == MyConstant.newPassword) {
-                if (newPasswordNotVisible == 0) {
-                    binding.newPassword.inputType = showPassword
-                    binding.newPassHideShow.setImageResource(showEyeImage)
-                    newPasswordNotVisible = 1
-                } else {
-                    binding.newPassword.inputType = hidePassword
-                    binding.newPassHideShow.setImageResource(hideEyeImage)
-                    newPasswordNotVisible = 0
-                }
-            }
-            else if (s == MyConstant.confirmNewPassword) {
-                if (confirmPasswordNotVisible == 0) {
-                    binding.confirmPassword.inputType = showPassword
-                    binding.confirmPassHideShow.setImageResource(showEyeImage)
-                    confirmPasswordNotVisible = 1
-                } else {
-                    binding.confirmPassword.inputType = hidePassword
-                    binding.confirmPassHideShow.setImageResource(hideEyeImage)
-                    confirmPasswordNotVisible = 0
-                }
-            }
-        }*/
+        /* else if (binding is ActivityChangePasswordBinding){
+             if (s == MyConstant.oldPassword) {
+                 if (passwordNotVisible == 0) {
+                     binding.oldPassword.inputType = showPassword
+                     binding.oldPassHideShow.setImageResource(showEyeImage)
+                     passwordNotVisible = 1
+                 } else {
+                     binding.oldPassword.inputType = hidePassword
+                     binding.oldPassHideShow.setImageResource(hideEyeImage)
+                     passwordNotVisible = 0
+                 }
+             }else if (s == MyConstant.newPassword) {
+                 if (newPasswordNotVisible == 0) {
+                     binding.newPassword.inputType = showPassword
+                     binding.newPassHideShow.setImageResource(showEyeImage)
+                     newPasswordNotVisible = 1
+                 } else {
+                     binding.newPassword.inputType = hidePassword
+                     binding.newPassHideShow.setImageResource(hideEyeImage)
+                     newPasswordNotVisible = 0
+                 }
+             }
+             else if (s == MyConstant.confirmNewPassword) {
+                 if (confirmPasswordNotVisible == 0) {
+                     binding.confirmPassword.inputType = showPassword
+                     binding.confirmPassHideShow.setImageResource(showEyeImage)
+                     confirmPasswordNotVisible = 1
+                 } else {
+                     binding.confirmPassword.inputType = hidePassword
+                     binding.confirmPassHideShow.setImageResource(hideEyeImage)
+                     confirmPasswordNotVisible = 0
+                 }
+             }
+         }*/
 
 //        else if (binding is ActivityUpdatePasswordBinding){
 //            if (s == MyConstant.newPassword) {

@@ -33,7 +33,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.example.bottomanimationmydemo.custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -56,7 +56,7 @@
                 android:background="@color/txt_light2"
                 android:padding="@dimen/_10sdp">
 
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/tv_meal_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -72,14 +72,14 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true">
 
-                    <com.dev.batchfinal.custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomTextView
                         android:id="@+id/tv_duration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="4/14"
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/white" />
-                    <com.dev.batchfinal.custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="days"
@@ -88,7 +88,7 @@
                         android:layout_marginStart="@dimen/_2sdp"
                         android:layout_marginEnd="@dimen/_2sdp"/>
                 </LinearLayout>
-                <com.dev.batchfinal.custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/tv_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

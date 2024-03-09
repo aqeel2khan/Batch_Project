@@ -3,10 +3,15 @@ package com.dev.batchfinal.app_modules.account.view
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.View
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.FollowingListAdapter
 import com.dev.batchfinal.app_common.AppBaseActivity
+import com.dev.batchfinal.app_modules.account.network_service.AccountNetworkService
+import com.dev.batchfinal.app_modules.account.repository.AccountRepository
+import com.dev.batchfinal.app_modules.account.viewmodel.AccountFactoryModel
+import com.dev.batchfinal.app_modules.account.viewmodel.AccountViewModel
 import com.dev.batchfinal.databinding.ActivityProfileBinding
 import com.dev.batchfinal.databinding.ProfileEditDialogBinding
 import com.dev.batchfinal.app_session.UserSessionManager
@@ -16,16 +21,28 @@ import java.util.*
 
 @AndroidEntryPoint
 class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
-        //BBh
-    override fun getViewBinding() = ActivityProfileBinding.inflate(layoutInflater)
+    private lateinit var mViewModel: AccountViewModel
+    private val retrofitService = AccountNetworkService.create()
     private lateinit var profileEditBinding: ProfileEditDialogBinding
     private lateinit var sessionManager: UserSessionManager
     private var courseImg = ArrayList(listOf(R.drawable.profile_image, R.drawable.normal_boy, R.drawable.profile_image))
+    override fun getViewBinding() = ActivityProfileBinding.inflate(layoutInflater)
+
     override fun initUI() {
         sessionManager = UserSessionManager(this@ProfileActivity)
         setProfileDetails()
         onClickOperation()
     }
+
+    override fun onStart() {
+        super.onStart()
+        mViewModel = ViewModelProvider(
+            this,
+            AccountFactoryModel(AccountRepository(retrofitService))
+        )[AccountViewModel::class.java]
+
+    }
+
 
     @SuppressLint("SetTextI18n")
     private fun setProfileDetails() {
@@ -107,6 +124,7 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                 profileEditBinding.editFullName.setText(sessionManager.getName())
                 profileEditBinding.editPhone.setText(sessionManager.getMobileNo())
                 profileEditBinding.editEmail.setText(sessionManager.getEmail())
+                profileEditBinding.editEmail.isEnabled=false
                 profileEditBinding.editDob.isEnabled=false
                 if(sessionManager.getDob()!="null")
                 {
@@ -132,6 +150,8 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                 }
                 profileEditBinding.btnSave.setOnClickListener {
                     //code for save week price
+                    requestProfileUpdate(profileEditBinding.editPhone.text.toString(),profileEditBinding.editFullName.text.toString(),
+                        profileEditBinding.editDob.text.toString(),profileEditBinding.textGender.text.toString() )
                     dialog.dismiss()
                 }
             }
@@ -169,6 +189,23 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
 
 
         dialog.show()
+    }
+
+    private fun requestProfileUpdate(
+        mobile: String,
+        name: String,
+        dob: String,
+        gender: String
+    ) {
+        if (checkNetwork(this))
+        {
+            showLoader()
+            mViewModel.requestUpdateProfile(mobile, name,dob,gender,sessionManager.getUserToken())
+        }else
+        {
+            showAlertInfo("Please check internet connection",this)
+        }
+
     }
 
 }

@@ -7,13 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.databinding.ItemMealSubscribeListBinding
 import com.dev.batchfinal.`interface`.MealSubscribeListPosition
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListResponse
-//import com.example.bottomanimationmydemo.databinding.ItemMealSubscribeListBinding
-//import com.example.bottomanimationmydemo.`interface`.CourseOrderListItemPosition
-//import com.dev.batchfinal.`interface`.MealSubscribeListPosition
-//import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
-//import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListResponse
-//import com.example.bottomanimationmydemo.utils.MyConstant
-//import com.example.bottomanimationmydemo.utils.MyUtils
+
 
 class MealSubscribeListAdapter(
     val context: Context?,
