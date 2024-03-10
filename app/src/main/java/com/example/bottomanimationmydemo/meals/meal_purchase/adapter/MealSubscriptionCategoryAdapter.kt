@@ -18,12 +18,17 @@ class MealSubscriptionCategoryAdapter(
     inner class ViewHolder(val binding: ItemMealPlanBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(category: MutableList<MealSubscriptionCategoryResponse>, position: Int) {
             binding.tvMealName.text = category[position].categoryName
-            if(category[position].selected==true){
+            if (position==previousPosition){
+                previousPosition=-1
                 binding.llBreakfast.setBackgroundResource(R.drawable.button_selected)
             }else{
-                binding.llBreakfast.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-
+                if(category[position].selected==true){
+                    binding.llBreakfast.setBackgroundResource(R.drawable.button_selected)
+                }else{
+                    binding.llBreakfast.setBackgroundResource(R.drawable.rectangle_button_gry_search)
+                }
             }
+
             binding.root.setOnClickListener {
                 listner.onMealSubscriptionCategoryListItemPosition(category, position)
                 if(category[position].selected==false){
@@ -37,7 +42,6 @@ class MealSubscriptionCategoryAdapter(
                         }
                 }else {
                     notifyDataSetChanged()
-
                 }
 
 

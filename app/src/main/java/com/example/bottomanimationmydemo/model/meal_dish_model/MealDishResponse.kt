@@ -41,7 +41,10 @@ data class MealDishData(
     @SerializedName("order_in_menu")
     val orderInMenu: Int,
     @SerializedName("price")
-    val price: String
+    val price: String,
+    @SerializedName("selected")
+    var selected: String
+
 )
 
 class Error

@@ -105,9 +105,14 @@ class AuthRepository @Inject constructor(private val api: ApiService) : SafeApiC
 
     suspend fun mealSubscribeDetails(mealSubscriptionDetailsRequest: MealSubscriptionDetailsRequest) = safeApiCall {
         api.mealSubscribeDetails(mealSubscriptionDetailsRequest)
+
     }
 
     suspend fun mealSubscribeCheck(jsonObject: JsonObject) = safeApiCall {
         api.mealSubscribeCheck(jsonObject)
+    }
+
+    suspend fun mealSubscribeUpdate(jsonObject: JsonObject) = safeApiCall {
+        api.mealSubscribeUpdate(jsonObject)
     }
 }

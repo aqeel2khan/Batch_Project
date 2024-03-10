@@ -228,13 +228,17 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
             layoutManager = GridLayoutManager(this@MealDetailsActivity, 2)
             adapter = AllTypeOfMealAdapter(this@MealDetailsActivity, mealdishList,"meal_details",
                 object : MealDishListItemPosition<Int> {
-                    override fun onMealDishListItemPosition(item: MealDishData, position: Int) {
+                    override fun onMealDishListItemPosition(item: List<MealDishData>, position: Int) {
                      //redirect code here
                         val intent = Intent(this@MealDetailsActivity, ChosenMealDetailActivity::class.java)
-                        intent.putExtra("dish_id",item.dishId.toString())
-                        intent.putExtra("meal_id",item.mealId.toString())
+                        intent.putExtra("dish_id",item[position].dishId.toString())
+                        intent.putExtra("meal_id",item[position].mealId.toString())
                         intent.putExtra("goal_id",gole_id)
                         startActivity(intent)
+                    }
+
+                    override fun onMealDishSelectItemPosition(item: List<MealDishData>, position: Int) {
+                        TODO("Not yet implemented")
                     }
                 })
         }

@@ -2,6 +2,7 @@ package com.example.bottomanimationmydemo.network
 
 import com.example.bottomanimationmydemo.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
 import com.example.bottomanimationmydemo.meals.meal_purchase.model.meal_plan_subscribe.MealsSubscribedRespnse
+import com.example.bottomanimationmydemo.meals.meal_purchase.model.meal_plan_subscription_update.MealPlanSubscriptionUpdateResponse
 import com.example.bottomanimationmydemo.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
 import com.example.bottomanimationmydemo.meals.meal_purchase.model.subscribe_list_model.MealSubscribeListRequest
 import com.example.bottomanimationmydemo.meals.meal_purchase.model.subscribe_list_model.MealSubscribeListResponse
@@ -47,6 +48,7 @@ import com.example.bottomanimationmydemo.utils.MyConstant.MEAL_SUBSCRIBE
 import com.example.bottomanimationmydemo.utils.MyConstant.MEAL_SUBSCRIBE_CHECK
 import com.example.bottomanimationmydemo.utils.MyConstant.MEAL_SUBSCRIBE_DETAILS
 import com.example.bottomanimationmydemo.utils.MyConstant.MEAL_SUBSCRIBE_LIST
+import com.example.bottomanimationmydemo.utils.MyConstant.MEAL_SUBSCRIBE_UPDATE
 import com.example.bottomanimationmydemo.utils.MyConstant.ORDERCREATE
 import com.example.bottomanimationmydemo.utils.MyConstant.SIGNUP
 import com.example.bottomanimationmydemo.utils.MyConstant.STARTWORKOUTSTATUS
@@ -127,4 +129,7 @@ interface ApiService {
 
     @POST(MEAL_SUBSCRIBE_CHECK)
     suspend fun mealSubscribeCheck(@Body jsonObject: JsonObject): CheckSubscribeModel
+
+    @PUT(MEAL_SUBSCRIBE_UPDATE)
+    suspend fun mealSubscribeUpdate(@Body jsonObject: JsonObject): MealPlanSubscriptionUpdateResponse
 }

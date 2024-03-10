@@ -19,6 +19,7 @@ import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
 import com.example.bottomanimationmydemo.meals.meal_purchase.adapter.MealSubscriptionCategoryAdapter
 import com.example.bottomanimationmydemo.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionCategoryResponse
 import com.example.bottomanimationmydemo.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
+import com.example.bottomanimationmydemo.meals.meal_unpurchase.view.activity.CheckOutActivity
 import com.example.bottomanimationmydemo.model.meal_dish_model.MealDishData
 
 import com.example.bottomanimationmydemo.out.AuthViewModel
@@ -29,6 +30,7 @@ import com.example.bottomanimationmydemo.utils.showToast
 import com.example.bottomanimationmydemo.view.BaseActivity
 import com.example.bottomanimationmydemo.viewmodel.AllViewModel
 import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
+import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import net.simplifiedcoding.data.network.Resource
@@ -58,6 +60,13 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
     val category_list_array = ArrayList<String>()
     val category_dish = ArrayList<MealDishData>()
     private var goal_id: String? = null
+    private var selected: String? = "0"
+    private var selected_map: String? = "0"
+    var first_category:String=""
+    var category_map_with:String=""
+    var category_map:String=""
+    var  suspend_day:String=""
+    var  suspend_month:String=""
 
     override fun getViewModel(): BaseViewModel {
         return viewModel
@@ -115,9 +124,11 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
                                     getWeekDays(start_date,end_date)
 
                                     try {
+                                        var count:Int=0
                                          category_list = meal_details.getJSONObject("category_list")
                                         val mealSubscriptionCategoryResponse: MutableList<MealSubscriptionCategoryResponse> = ArrayList()
                                         for (key in category_list!!.keys()) {
+                                            count++
                                            // val dishObject = category_list.getJSONObject(key)
                                             val jsonObj: JSONObject = category_list!!.getJSONObject(key)
                                             val data = MealSubscriptionCategoryResponse()
@@ -126,8 +137,15 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
                                             data.categoryType=jsonObj.getString("category_type")
                                              category_dishes = jsonObj.getJSONObject("category_dishes")
                                             mealSubscriptionCategoryResponse.add(data)
+                                            category_map_with=jsonObj.getString("category_id")
+
+                                             if (count==1){
+                                                 first_category=jsonObj.getString("category_id").first().toString()
+
+                                             }
                                         }
                                         setupMealPlanList(mealSubscriptionCategoryResponse)
+                                        getCategoryDish(first_category!!.toString());
 
                                     } catch (e: JSONException) {
                                         e.printStackTrace()
@@ -187,19 +205,32 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
                 category_dishes = jsonObject.getJSONObject("category_dishes")
                 for (key in category_dishes!!.keys()) {
                     val dishObject = category_dishes!!.getJSONObject(key)
+                  /*  if (category_map==category_map_with){
+                        selected_map=selected
+                    }else{
+                        selected_map="0"
+                    }*/
                     val data = MealDishData(
                         "",
-                        0,
-                        "fafafa",
-                        "fsfs",
+                        categoryId.toInt(),
+                        "",
+                        "",
                         dishObject.getString("dish_id").toInt(),
                         0,
                         dishObject.getString("dish_name"),
                         "",
                         0,
-                        ""
+                        "",
+                        "0"
                     )
                     category_dish.add(data)
+                    val jsonObject_update_dish_categoryId = JsonObject()
+                    jsonObject_update_dish_categoryId.addProperty(suspend_day,sharedPreferences.userId)
+
+                    val jsonObject_update_dish_day = JsonObject()
+                    jsonObject_update_dish_day.addProperty(suspend_day,sharedPreferences.userId)
+
+
                     setUpAllMealsAdapter(category_dish)
 
                 }
@@ -284,13 +315,17 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
             layoutManager = GridLayoutManager(this@MealPlanActivity, 2)
             adapter = AllTypeOfMealAdapter(this@MealPlanActivity, mealdishList,"meal_plan",
                 object : MealDishListItemPosition<Int> {
-                    override fun onMealDishListItemPosition(item: MealDishData, position: Int) {
+                    override fun onMealDishListItemPosition(item: List<MealDishData>, position: Int) {
                         //redirect code here
                        /* val intent = Intent(this@MealPlanActivity, ChosenMealDetailActivity::class.java)
                         intent.putExtra("dish_id",item.dishId.toString())
                         intent.putExtra("meal_id",item.mealId.toString())
                         intent.putExtra("goal_id",gole_id)
                         startActivity(intent)*/
+                    }
+
+                    override fun onMealDishSelectItemPosition(item: List<MealDishData>, position: Int) {
+
                     }
                 })
         }
@@ -311,7 +346,16 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
 
     private fun buttonClicks() {
         binding.btnNext.setOnClickListener {
-            startActivity(Intent(this@MealPlanActivity, CurrentMealDetailActivity::class.java).putExtra("next", "Next"))
+            val jsonObject = JsonObject()
+            jsonObject.addProperty("user_id",sharedPreferences.userId)
+            jsonObject.addProperty("subscribed_id",subscribe_id)
+            jsonObject.addProperty("meal_id",meal_id)
+            jsonObject.addProperty("day_dishes","")
+            jsonObject.addProperty("day","")
+            jsonObject.addProperty("month","")
+
+
+            // startActivity(Intent(this@MealPlanActivity, CurrentMealDetailActivity::class.java).putExtra("next", "Next"))
         }
     }
 
@@ -362,8 +406,10 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
     private fun setWeekdayAdapter(dates: ArrayList<String?>, days: ArrayList<String?>, backDate: String?) {
         val inputFormat: java.text.DateFormat = SimpleDateFormat("yyyy-MM-dd")
         val date: Date = inputFormat.parse(date_filter)
-        val suspend_month = DateFormat.format("d", date) as String // Thursday
-        setDish(suspend_month)
+        suspend_day = DateFormat.format("d", date) as String // Thursday
+        suspend_month = DateFormat.format("M", date) as String // Thursday
+
+        setDish(suspend_day)
         binding.weekdaysList.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.weekdaysList.adapter = WeekdaysAdapter(this,
@@ -390,8 +436,10 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
 
                     val itFormat: java.text.DateFormat = SimpleDateFormat("EEEE, MMMM dd, yyyy")
                     val otFormat: java.text.DateFormat = SimpleDateFormat("yyyy-MM-dd")
-                    val suspend_month = DateFormat.format("d", date) as String // Thursday
-                    setDish(suspend_month)
+                     suspend_day = DateFormat.format("d", date) as String // Thursday
+                     suspend_month = DateFormat.format("M", date) as String // Thursday
+                   // showToast(suspend_month)
+                    setDish(suspend_day)
                     val date2: Date = itFormat.parse(outputDateStr)
                     val otDateStr: String = otFormat.format(date2)
 
@@ -408,10 +456,11 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
                 val jsonObject = JSONObject(item.toString())
                 for (key in jsonObject.keys()) {
                     category_list_array.add(key)
+                    category_map=key
                     val cat_Object = jsonObject.getJSONObject(key)
-
                     for (key in cat_Object.keys()) {
                         val dishObject = cat_Object.getJSONObject(key)
+                        selected=dishObject.getString("selected")
                         dishArray.add(dishObject)
                     }
                     catArray.add(cat_Object)
@@ -428,6 +477,44 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
     }
 
 
+    private fun checkMealSubscriptionUpdate() {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            val jsonObject = JsonObject()
+
+            authViewModel.mealSubscribeUpdateApiCall(jsonObject)
+            authViewModel.mealPlanSubscriptionUpdateResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.mealPlanSubscriptionUpdateResponse.removeObservers(this)
+                        if (authViewModel.mealPlanSubscriptionUpdateResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                if (response.status == MyConstant.success) {
+
+                                }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.mealPlanSubscriptionUpdateResponse.removeObservers(this)
+                        if (authViewModel.mealPlanSubscriptionUpdateResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
 
 
 
