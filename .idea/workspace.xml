@@ -225,7 +225,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="developmet_main_new" />
+        <entry key="$PROJECT_DIR$" value="development_main2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -251,7 +251,7 @@
     "android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomTextView.kt_SELECTED": "MyCustomTextView",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "dev__bharat__main",
+    "git-widget-placeholder": "development__main__pradeep__latest",
     "last_directory_selection": "D:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java",
     "last_opened_file_path": "D:/BBh_Bag/Github_Batch_WS/app/src/main/res/layout"
   }
@@ -495,7 +495,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710095016567</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="raw">
+      <option name="closed" value="true" />
+      <created>1710095328307</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1710095328307</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
