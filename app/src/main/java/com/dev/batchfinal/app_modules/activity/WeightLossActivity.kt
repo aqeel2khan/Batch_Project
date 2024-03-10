@@ -16,10 +16,8 @@ import com.ct7ct7ct7.androidvimeoplayer.model.PlayerState
 import com.ct7ct7ct7.androidvimeoplayer.model.TextTrack
 import com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerActivity
 import com.dev.batchfinal.R
-//import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.WorkoutTypeAdapter
 import com.dev.batchfinal.databinding.ActivityWeightLossBinding
-//import com.dev.batchfinal.databinding.ActivityWeightLossBinding
 import com.dev.batchfinal.`interface`.PositionCourseWorkoutClick
 import com.dev.batchfinal.model.course_detail.Data
 import com.dev.batchfinal.model.courseorderlist.Course_duration
@@ -28,29 +26,12 @@ import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_common.BaseActivity
-import com.dev.batchfinal.app_modules.workout.view.WorkOutDetailScreen
+import com.dev.batchfinal.app_modules.workout_motivator.view.WorkOutDetailScreen
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
-///import com.example.bottomanimationmydemo.adapter.WorkoutTypeAdapter
-//import com.example.bottomanimationmydemo.custom.CustomToast.Companion.showToast
-///import com.example.bottomanimationmydemo.`interface`.PositionCourseWorkoutClick
-//import com.example.bottomanimationmydemo.model.course_detail.Data
-//import com.example.bottomanimationmydemo.model.courseorderlist.Course_duration
-//import com.example.bottomanimationmydemo.model.courseorderlist.OrderList
-//import com.example.bottomanimationmydemo.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
-//import com.example.bottomanimationmydemo.model.subscribe_list_model.MealSubscribeListRequest
-//import com.example.bottomanimationmydemo.out.AuthViewModel
-//import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
-//import com.example.bottomanimationmydemo.utils.MyConstant
-//import com.example.bottomanimationmydemo.utils.MyCustom
-//import com.example.bottomanimationmydemo.utils.MyUtils
-//import com.example.bottomanimationmydemo.view.BaseActivity
-//import com.example.bottomanimationmydemo.viewmodel.AllViewModel
-//import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-//import net.simplifiedcoding.data.network.Resource
 import java.util.*
 
 @AndroidEntryPoint
@@ -85,11 +66,15 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
         binding.userName.text = courseData.course_detail.coach_detail.name.toString()
         binding.txtLevel.text = courseData.course_detail.course_level.level_name.toString()
         binding.tvExerciseDay.text = "day " + courseData.course_detail.duration
-        MyUtils.loadImage(binding.profileImage, MyConstant.IMAGE_BASE_URL + courseData.course_detail.coach_detail.profile_photo_path)
+        MyUtils.loadImage(
+            binding.profileImage,
+            MyConstant.IMAGE_BASE_URL + courseData.course_detail.coach_detail.profile_photo_path
+        )
 
 
         buttonClicks()
-        val aniSlide: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
+        val aniSlide: Animation =
+            AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
         binding.relWeightLayout.startAnimation(aniSlide)
 
         setVideoOnBanner()
@@ -100,21 +85,23 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
     @SuppressLint("SuspiciousIndentation")
     private fun setVideoOnBanner() {
 
-       val courseDurationList=  courseData.course_detail.course_duration
-        if(!courseDurationList.isNullOrEmpty()){
+        val courseDurationList = courseData.course_detail.course_duration
+        if (!courseDurationList.isNullOrEmpty()) {
 
-         val courseDurationData= courseDurationList[0]
-            if(courseDurationData!=null && !courseDurationData.course_duration_exercise.isNullOrEmpty()){
+            val courseDurationData = courseDurationList[0]
+            if (courseDurationData != null && !courseDurationData.course_duration_exercise.isNullOrEmpty()) {
 
-                val videoId=      courseDurationData?.course_duration_exercise?.get(0)?.video_detail?.video_id
-                if(videoId!=null){
+                val videoId =
+                    courseDurationData?.course_duration_exercise?.get(0)?.video_detail?.video_id
+                if (videoId != null) {
 
-                 var videoIdInt=   videoId.toInt()
+                    var videoIdInt = videoId.toInt()
 
 
                     binding.vimeoPlayerView.initialize(true, videoIdInt)
 
-                    binding.vimeoPlayerView.defaultControlPanelView.vimeoPlayButton.visibility = View.INVISIBLE
+                    binding.vimeoPlayerView.defaultControlPanelView.vimeoPlayButton.visibility =
+                        View.INVISIBLE
 
                     //vimeoPlayerView.initialize(true, {YourPrivateVideoId}, "SettingsEmbeddedUrl")
                     //vimeoPlayerView.initialize(true, {YourPrivateVideoId},"VideoHashKey", "SettingsEmbeddedUrl")
@@ -134,12 +121,12 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
                             duration: Float,
                             textTrackArray: Array<TextTrack>
                         ) {
-                         //   binding.vimeoPlayerView.play()
-                         //   binding.playerStateTextView.text = getString(R.string.player_state, "onReady")
+                            //   binding.vimeoPlayerView.play()
+                            //   binding.playerStateTextView.text = getString(R.string.player_state, "onReady")
                         }
 
                         override fun onInitFailed() {
-                          //  binding.playerStateTextView.text = getString(R.string.player_state, "onInitFailed")
+                            //  binding.playerStateTextView.text = getString(R.string.player_state, "onInitFailed")
                         }
                     })
 
@@ -162,9 +149,14 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
 
                     binding.vimeoPlayerView.setFullscreenClickListener {
                         var requestOrientation = VimeoPlayerActivity.REQUEST_ORIENTATION_AUTO
-                        startActivityForResult(VimeoPlayerActivity.createIntent(this, requestOrientation, binding.vimeoPlayerView), REQUEST_CODE)
+                        startActivityForResult(
+                            VimeoPlayerActivity.createIntent(
+                                this,
+                                requestOrientation,
+                                binding.vimeoPlayerView
+                            ), REQUEST_CODE
+                        )
                     }
-
 
 
                 }
@@ -183,7 +175,8 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             var playAt = data!!.getFloatExtra(VimeoPlayerActivity.RESULT_STATE_VIDEO_PLAY_AT, 0f)
             binding.vimeoPlayerView.seekTo(playAt)
 
-            var playerState = PlayerState.valueOf(data!!.getStringExtra(VimeoPlayerActivity.RESULT_STATE_PLAYER_STATE)!!)
+            var playerState =
+                PlayerState.valueOf(data!!.getStringExtra(VimeoPlayerActivity.RESULT_STATE_PLAYER_STATE)!!)
             when (playerState) {
                 PlayerState.PLAYING -> binding.vimeoPlayerView.play()
                 PlayerState.PAUSED -> binding.vimeoPlayerView.pause()
@@ -193,9 +186,9 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
     }
 
 
-
     private fun setWorkoutTypeAdapter() {
-        binding.recyclerWorkoutType.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.recyclerWorkoutType.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.recyclerWorkoutType.adapter = WorkoutTypeAdapter(this@WeightLossActivity,
             courseData.course_detail.course_duration,
             courseData.course_detail.duration,
@@ -225,15 +218,15 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             try {
                 val gson = Gson()
 
-                var  data = ""
-                var  data2 = ""
+                var data = ""
+                var data2 = ""
 
-                if(courseData!=null && courseData.course_detail!=null && courseData.course_detail.course_duration!=null){
-                     data =  gson.toJson( courseData.course_detail.course_duration[0])
+                if (courseData != null && courseData.course_detail != null && courseData.course_detail.course_duration != null) {
+                    data = gson.toJson(courseData.course_detail.course_duration[0])
                 }
 
-                if(courseData!=null){
-                    data2=   gson.toJson(courseData)
+                if (courseData != null) {
+                    data2 = gson.toJson(courseData)
                 }
 
                 startActivity(
@@ -261,7 +254,6 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
 
         dialog.show()
     }
-
 
 
     override fun getViewBinding() = ActivityWeightLossBinding.inflate(layoutInflater)

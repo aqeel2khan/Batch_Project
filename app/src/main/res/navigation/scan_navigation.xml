@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/mealBatchFragment"
-        android:name="com.dev.batchfinal.app_modules.meal.view_frag.MealBatchFragment"
+        android:name="com.dev.batchfinal.app_modules.batchboard.view_frag.MealBatchFragment"
         android:label="fragment_meal_batch"
         tools:layout="@layout/fragment_meal_batch">
 

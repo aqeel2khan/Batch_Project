@@ -13,7 +13,7 @@ import com.dev.batchfinal.adapter.DemoMotivatorListAdapter
 import com.dev.batchfinal.adapter.SliderAdapter
 import com.dev.batchfinal.databinding.FragmentHomeBinding
 import com.dev.batchfinal.`interface`.PositionItemClickListener
-import com.dev.batchfinal.app_modules.workout.view.MotivatorDetailActivity
+import com.dev.batchfinal.app_modules.workout_motivator.view.MotivatorDetailActivity
 import com.dev.batchfinal.app_modules.activity.WeightLossActivity
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType
 import com.smarteist.autoimageslider.SliderAnimations

@@ -4,7 +4,7 @@
     <string name="terms_condition">I agree to the company <font color='#516634'>Terms &amp; Conditions</font></string>
     <string name="terms_service_police">I agree to the company <font color='#516634'>Terms of Service</font> and\n<font color='#516634'>Privacy Police</font></string>
 
-    <!--add new string-->
+     <!--add new string-->
     <string name="please_check_internet">Please check Internet connection and try again.</string>
     <string name="txt_batch">Batches</string>
     <string name="sign_in">Sign In</string>
@@ -212,7 +212,6 @@ Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagitt
     <string name="txt_change_photo">Change the photo</string>
     <string name="txt_log_out">Log out</string>
     <string name="txt_login">Login</string>
-
     <string name="txt_dob">Date of birth</string>
     <string name="txt_gender">Gender</string>
     <string name="txt_all_notification">All notifications</string>
@@ -263,4 +262,5 @@ Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagitt
     <string name="txt_workout_goal">Goal</string>
     <string name="pay_now">Pay Now</string>
     <string name="english">English</string>
+    <string name="already_subscription">You have already a subscription on this Meal</string>
 </resources>

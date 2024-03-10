@@ -62,6 +62,19 @@ class UserSessionManager(con: Context?) {
         editor.commit()
     }
 
+    fun updateUserSession(
+        mobile_no: String,
+        user_name: String,
+        user_dob: String,
+        user_gender: String
+    ) {
+
+        editor.putString(KEY_MOBILE_NO, mobile_no)
+        editor.putString(KEY_USER_NAME, user_name)
+        editor.putString(KEY_DOB, user_dob)
+        editor.putString(KEY_GENDER, user_gender)
+        editor.commit()
+    }
 
 
 
@@ -83,6 +96,7 @@ class UserSessionManager(con: Context?) {
         return pref.getString(KEY_DOB, null).toString();
 
     }
+
     fun getProfileImgPath(): String {
         return pref.getString(KEY_USER_IMG, null).toString();
 
@@ -97,10 +111,10 @@ class UserSessionManager(con: Context?) {
         return pref.getString(KEY_MOBILE_NO, null).toString();
     }
 
-
     fun getName(): String {
         return pref.getString(KEY_USER_NAME, null).toString();
     }
+
 
     fun getEmail(): String {
         return pref.getString(KEY_EMAIL, null).toString();

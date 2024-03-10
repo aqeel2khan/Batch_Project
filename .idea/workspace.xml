@@ -5,6 +5,26 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_buy_subscription.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_checkout.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chosen_meal_detail.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_complate_workout.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_explore.xml">
         <config>
           <theme>@style/Theme.BatchFinal</theme>
@@ -20,7 +40,32 @@
           <theme>@style/Theme.BatchFinal</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_meal_details.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_meal_plan.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_motivator_detail.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_on_boarding.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_order_complete.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_play_workout_video.xml">
         <config>
           <theme>@style/Theme.BatchFinal</theme>
         </config>
@@ -30,12 +75,42 @@
           <theme>@style/Theme.BatchFinal</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_slide_workout_video_copy.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_work_out_detail_screen.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/alert_info_batch.xml">
         <config>
           <theme>@style/Theme.BatchFinal</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/already_meal_subscribe_dialog.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_current_meal_detail.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_education.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_meal.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_meal_batch.xml">
         <config>
           <theme>@style/Theme.BatchFinal</theme>
         </config>
@@ -50,6 +125,21 @@
           <theme>@style/Theme.BatchFinal</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_dish_nutrition_list.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_ingredients_list.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_meal_plan.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_meal_subscribe_list.xml">
         <config>
           <theme>@style/Theme.BatchFinal</theme>
@@ -60,7 +150,27 @@
           <theme>@style/Theme.BatchFinal</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/navigation/home_navigation.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/navigation/main_graph.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/navigation/meal_navigation.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/navigation/scan_navigation.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/navigation/shop_navigation.xml">
         <config>
           <theme>@style/Theme.BatchFinal</theme>
         </config>
@@ -71,51 +181,124 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="Account Network|Tab Module Creation| Merge Fixing|Profile">
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="Profile access validation|Meal Moudle Merging| Post Merging Issue Fix">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/batchboard/model/BatchModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/batchboard/network_service/BatchNetworkInterface.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/batchboard/repository/BatchRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/batchboard/viewmodel/BatchFactoryModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/batchboard/viewmodel/BatchViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/adapter/ChosenMealListAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/adapter/MealSubscriptionCategoryAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/adapter/WeekdaysAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/model/meal_plan_subscribe/MealSubscribedRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/model/meal_plan_subscribe/MealsSubscribedRespnse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/model/meal_subscription_details_model/DaysDishesModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/model/meal_subscription_details_model/MealSubscriptionCategoryResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/model/meal_subscription_details_model/MealSubscriptionDetailsRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/model/meal_subscription_details_model/MealSubscriptionDetailsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/model/sdfs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/model/subscribe_list_model/MealSubscribeListRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/model/subscribe_list_model/MealSubscribeListResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/adapter/IngredientsAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/adapter/NutritionListAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/adapter/ReviewListAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/model/chosen_meal_details_model/ChosenMealDetailsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/model/chosen_meal_details_model/DishDetailsRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/model/dsfs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/model/subscribe/CheckSubscribeModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/activity/BuySubscriptionActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/activity/CheckOutActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/activity/OrderCompleteActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/repostitory/MealRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/viewmodel/MealFactoryModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/viewmodel/MealViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/model/MealSubscriptionDetailsResponse.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/model/ScanningModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/network_service/ScanningNetworkService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/repository/ScanningRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/viewmodel/ScanningFactoryModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/viewmodel/ScanningViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/model/ShoppingModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/network_interface/ShoppingNetworkService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/repository/ShoppingRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/viewmodel/ShoppingFactoryModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/viewmodel/ShoppingViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/model/ShoppingModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/network_service/WorkoutNetworkService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/repository/WorkoutRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/viewmodel/WorkoutFactoryModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/viewmodel/WorkoutViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/interface/MealSubscriptionCategoryListItemPosition.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_selected.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/already_meal_subscribe_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/IngredientsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/IngredientsAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/NutritionListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/NutritionListAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/ReviewListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/ReviewListAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_common/AppBaseActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_common/AppBaseActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/ProfileActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/ProfileActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/RegistrationActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/RegistrationActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/BatchMealPlanActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/batchboard/view/BatchMealPlanActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/BuySubscriptionActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/view/BuySubscriptionActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/CheckOutActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/view/CheckOutActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/ChosenMealDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view/ChosenMealDetailActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/ComplateWorkoutActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/ComplateWorkoutActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/CourseDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/view/CourseDetailActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/CurrentMealDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view/CurrentMealDetailActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/SplashActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/SplashActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/FoodPlanBasedOnQuestionActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/FoodPlanBasedOnQuestionActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/MealDetailsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view/MealDetailsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/MealPlanActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view/MealPlanActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/MotivatorDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/MotivatorDetailActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/PlayWorkoutVideoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/PlayWorkoutVideoActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/SelectWorkoutTimeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/SelectWorkoutTimeActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/SlideWorkoutVideoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/SlideWorkoutVideoActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WorkOutDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/WorkOutDetailScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/batchboard/view_frag/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/batchboard/view_frag/HomeFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view_frag/MealBatchFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view_frag/MealBatchFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view_frag/MealFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view_frag/MealFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view/ChosenMealDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/activity/ChosenMealDetailActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view/CurrentMealDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view/MealDetailsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/activity/MealDetailsActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view/MealPlanActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view_frag/MealBatchFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/fragment/MealBatchFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meal/view_frag/MealFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/fragment/MealFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view_frag/TrainingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view_frag/TrainingFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_batch_meal_plan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_batch_meal_plan.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/view/CheckOutActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/view/CheckOutActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/ComplateWorkoutActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/ComplateWorkoutActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/MotivatorDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/MotivatorDetailActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/PlayWorkoutVideoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/PlayWorkoutVideoActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/SelectWorkoutTimeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/SelectWorkoutTimeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/SlideWorkoutVideoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/SlideWorkoutVideoActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view/WorkOutDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view_frag/MotivatorFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/MotivatorFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout/view_frag/TrainingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_session/UserSessionManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_session/UserSessionManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_utils/MyConstant.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_utils/MyConstant.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/network/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/network/ApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/out/AuthRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/out/AuthRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/out/AuthViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/out/AuthViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_buy_subscription.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_buy_subscription.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_checkout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_checkout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_chosen_meal_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_chosen_meal_detail.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_complate_workout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_complate_workout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_course_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_course_detail.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_meal_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_meal_details.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_meal_plan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_meal_plan.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_motivator_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_motivator_detail.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_order_complete.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_order_complete.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_play_workout_video.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_play_workout_video.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_select_workout_time.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_select_workout_time.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_slide_workout_video.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_slide_workout_video.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_slide_workout_video_copy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_slide_workout_video_copy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_work_out_detail_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_work_out_detail_screen.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_current_meal_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_current_meal_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_education.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_education.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meal_batch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meal_batch.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_training.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_training.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_dish_nutrition_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_dish_nutrition_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_ingredients_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_ingredients_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_meal_plan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_meal_plan.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/home_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/home_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/main_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/main_graph.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/meal_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/meal_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/scan_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/scan_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/trainer_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/trainer_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +308,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\user\.android\avd\Pixel_3a_API_34_extension_level_7_x86_64.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[96386080180006H]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -151,9 +334,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Kotlin Class" />
         <option value="Kotlin File" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -171,28 +354,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DEBUGGABLE_DEVICE&quot;: &quot;vivo-v2059-96386080180006H&quot;,
-    &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.dev.batchfinal&quot;,
-    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
-    &quot;android-custom-viewD:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java/com/example/bottomanimationmydemo/custom/MyCustomButton.kt_SELECTED&quot;: &quot;MyCustomButton&quot;,
-    &quot;android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomTextView.kt_SELECTED&quot;: &quot;MyCustomTextView&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;D:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/BBh_Bag/Github_Batch_WS/app/src/main/res/xml&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DEBUGGABLE_DEVICE": "vivo-v2059-96386080180006H",
+    "DEBUGGABLE_PROCESS": "com.dev.batchfinal",
+    "DEBUGGER_ID": "Auto",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHOW_ALL_PROCESSES": "false",
+    "android-custom-viewD:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java/com/example/bottomanimationmydemo/custom/MyCustomButton.kt_SELECTED": "MyCustomButton",
+    "android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomTextView.kt_SELECTED": "MyCustomTextView",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "last_directory_selection": "D:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java",
+    "last_opened_file_path": "D:/BBh_Bag/Github_Batch_WS/app/src/main/res/layout"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\xml" />
-      <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\drawable" />
       <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\layout" />
+      <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\java\com\dev\batchfinal\app_modules\meals\meal_purchase\adapter" />
+      <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\drawable" />
+      <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\java\com\dev\batchfinal\app_modules" />
+      <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\xml" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\java\com\dev\batchfinal\app_modules\batchboard\view" />
@@ -200,15 +385,18 @@
       <recent name="D:\BBh_Bag\BatchFinal\Batch_Final_BBh\app\src\main\java\com\dev\batchfinal" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.dev.batchfinal.app_modules.batchboard.view_frag" />
       <recent name="com.dev.batchfinal.app_modules.shopping.view" />
       <recent name="com.dev.batchfinal.app_modules.workout.view" />
       <recent name="com.dev.batchfinal.app_modules.meal.view" />
       <recent name="com.dev.batchfinal.app_modules.workout.view_frag" />
-      <recent name="com.dev.batchfinal.app_modules.batchboard.view_frag" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="com.dev.batchfinal.app_utils" />
       <recent name="com.dev.batchfinal.view.account" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.dev.batchfinal.app_modules.scanning.model" />
     </key>
   </component>
   <component name="RunManager">
@@ -374,7 +562,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709984562432</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Packing file">
+      <option name="closed" value="true" />
+      <created>1709989570601</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709989570601</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -406,19 +602,21 @@
     <MESSAGE value="raw" />
     <MESSAGE value="unused import" />
     <MESSAGE value="Account Network|Tab Module Creation| Merge Fixing|Profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Account Network|Tab Module Creation| Merge Fixing|Profile" />
+    <MESSAGE value="Packing file" />
+    <MESSAGE value="Profile access validation|Meal Moudle Merging| Post Merging Issue Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Profile access validation|Meal Moudle Merging| Post Merging Issue Fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt</url>
-          <line>163</line>
+          <line>171</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt</url>
-          <line>157</line>
+          <line>165</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

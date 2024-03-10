@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dev.batchfinal.app_modules.workout.view.MotivatorDetailActivity">
+    tools:context="com.dev.batchfinal.app_modules.workout_motivator.view.MotivatorDetailActivity">
 
     <LinearLayout
         android:id="@+id/exercise_image"

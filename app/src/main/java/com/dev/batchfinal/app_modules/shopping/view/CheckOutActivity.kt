@@ -19,7 +19,6 @@ import com.dev.batchfinal.databinding.ActivityCheckoutBinding
 import com.dev.batchfinal.databinding.BottomSheetBinding
 import com.dev.batchfinal.`interface`.OnListFragmentInteractionListener
 import com.dev.batchfinal.model.course_detail.Data
-import com.dev.batchfinal.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
@@ -30,6 +29,7 @@ import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.app_modules.activity.OrderCompleteActivity
+import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -621,7 +621,6 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     private fun mealSubscribe(paymentType: String,transactionId: String,paymentStatus: String,startDate: String,duration: String) {
         if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
             showLoader()
-
             val mealSubscribedRequest = MealSubscribedRequest()
             mealSubscribedRequest.userId=sharedPreferences.userId
             mealSubscribedRequest.mealId=meal_id

@@ -3,9 +3,8 @@ package com.dev.batchfinal.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.ChosenMealDetailActivity
 import com.dev.batchfinal.databinding.ItemIngredientsListBinding
-import com.dev.batchfinal.app_modules.meal.view.ChosenMealDetailActivity
-
 
 
 class IngredientsAdapter(val chosenMealDetailActivity: ChosenMealDetailActivity, var ingredientsList: List<String>) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {

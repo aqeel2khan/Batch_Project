@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/txt_light2"
-    tools:context="com.dev.batchfinal.app_modules.workout.view.SlideWorkoutVideoActivity">
+    tools:context="com.dev.batchfinal.app_modules.workout_motivator.view.SlideWorkoutVideoActivity">
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"

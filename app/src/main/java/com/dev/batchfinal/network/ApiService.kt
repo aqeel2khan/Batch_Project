@@ -1,5 +1,8 @@
 package com.dev.batchfinal.network
 
+import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
+import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.subscribe.CheckSubscribeModel
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
 import com.dev.batchfinal.model.coach_detail_model.CoachDetailResponse
 import com.dev.batchfinal.model.coach_filter_list.CoachFilterListResponse
@@ -15,9 +18,7 @@ import com.dev.batchfinal.model.meal_detail_model.MealDetailResponse
 import com.dev.batchfinal.model.meal_dish_model.MealDishResponse
 import com.dev.batchfinal.model.meal_filter_model.MealFilterResponse
 import com.dev.batchfinal.model.meal_list.MealResponseList
-import com.dev.batchfinal.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.model.meal_plan_subscribe.MealsSubscribedRespnse
-import com.dev.batchfinal.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
 import com.dev.batchfinal.model.order_model.OrederCreateResponse
 import com.dev.batchfinal.model.registeration_model.SignUpResponseModel
 import com.dev.batchfinal.model.search_curse_filter.SearchCourseListByFilterResponse
@@ -38,6 +39,7 @@ import com.dev.batchfinal.app_utils.MyConstant.MEALDISH
 import com.dev.batchfinal.app_utils.MyConstant.MEALFILTER
 import com.dev.batchfinal.app_utils.MyConstant.MEALLIST
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE
+import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_CHECK
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_DETAILS
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_LIST
 import com.dev.batchfinal.app_utils.MyConstant.ORDERCREATE
@@ -121,4 +123,7 @@ interface ApiService {
     suspend fun mealSubscribeList(@Body mealSubscribeListRequest: MealSubscribeListRequest): MealSubscribeListResponse
     @POST(MEAL_SUBSCRIBE_DETAILS)
     suspend fun mealSubscribeDetails(@Body mealSubscriptionDetailsRequest: MealSubscriptionDetailsRequest): JsonObject
+
+    @POST(MEAL_SUBSCRIBE_CHECK)
+    suspend fun mealSubscribeCheck(@Body jsonObject: JsonObject): CheckSubscribeModel
 }

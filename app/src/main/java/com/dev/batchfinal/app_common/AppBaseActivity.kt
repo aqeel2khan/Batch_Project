@@ -4,10 +4,12 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.provider.Settings
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
@@ -15,15 +17,21 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.viewbinding.ViewBinding
 import com.dev.batchfinal.R
+import com.dev.batchfinal.app_modules.account.view.LoginActivity
+import com.dev.batchfinal.databinding.ProfileEditDialogBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 abstract class AppBaseActivity<B : ViewBinding> : AppCompatActivity() {
     protected lateinit var binding: B
     private var progressDialog: ProgressDialog? = null
+    private lateinit var dialogOptionBinding: ProfileEditDialogBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         binding = getViewBinding()
         setContentView(binding.root)
@@ -45,6 +53,26 @@ abstract class AppBaseActivity<B : ViewBinding> : AppCompatActivity() {
         builder.setCanceledOnTouchOutside(true)
         builder.show()
     }
+
+     fun askUserForLogin(sessionInfo:String,mContext:Context) {
+        dialogOptionBinding = ProfileEditDialogBinding.inflate(layoutInflater)
+        val dialog = BottomSheetDialog(mContext)
+        dialog.setContentView(dialogOptionBinding.root)
+        dialogOptionBinding.llNotifiPlan.visibility = View.GONE
+        dialogOptionBinding.llLogOut.visibility = View.GONE
+        dialogOptionBinding.llLogin.visibility= View.VISIBLE
+        dialogOptionBinding.txtLoginContent.text =sessionInfo
+        dialogOptionBinding.btnOkay.setOnClickListener {
+            //code for save week price
+            mContext.startActivity(
+                Intent(mContext, LoginActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK))
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
 
     protected fun checkNetwork(context: Context): Boolean {
         val connectivityManager =

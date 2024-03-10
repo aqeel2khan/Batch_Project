@@ -1,5 +1,6 @@
 package com.dev.batchfinal.app_modules.scanning.view_frag
 
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.View
@@ -37,8 +38,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.adapter.MealSubscribeListAdapter
-import com.dev.batchfinal.app_modules.meal.view.CurrentMealDetailActivity
-import com.dev.batchfinal.app_modules.meal.view_frag.MealBatchFragment
+import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.CurrentMealDetailActivity
+import com.dev.batchfinal.app_modules.meals.meal_purchase.view.fragment.MealBatchFragment
 
 @AndroidEntryPoint
 class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
@@ -62,9 +63,16 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
     override fun initUi() {
         sessionManager= UserSessionManager(requireContext())
         buttonClicks()
-        getMealSubscribeListApi()
-        getCourseOrderListApi()
-        setAllCourseOrderAdapter(courseList) //hide code
+        if (sessionManager.isloggin())
+        {
+            getMealSubscribeListApi()
+            getCourseOrderListApi()
+            setAllCourseOrderAdapter(courseList)
+        }else
+        {
+           askUserForLogin("Required authorization to access scanning batch.")
+        }
+
     }
 
     private fun buttonClicks() {

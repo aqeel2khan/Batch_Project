@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context="com.dev.batchfinal.app_modules.workout.view_frag.MotivatorFragment">
+    tools:context="com.dev.batchfinal.app_modules.workout_motivator.view_frag.MotivatorFragment">
 
     <RelativeLayout
         android:id="@+id/rl_motivator_search"

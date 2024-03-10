@@ -3,10 +3,9 @@ package com.dev.batchfinal.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.ChosenMealDetailActivity
 import com.dev.batchfinal.databinding.ItemDishNutritionListBinding
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
-import com.dev.batchfinal.app_modules.meal.view.ChosenMealDetailActivity
-
 
 
 class NutritionListAdapter(val chosenMealDetailActivity: ChosenMealDetailActivity, var nutritionDetailList: List<ChosenMealDetailsResponse.NutritionDetail>) : RecyclerView.Adapter<NutritionListAdapter.ViewHolder>() {

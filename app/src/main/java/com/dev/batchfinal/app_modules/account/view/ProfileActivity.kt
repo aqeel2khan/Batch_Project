@@ -1,8 +1,12 @@
 package com.dev.batchfinal.app_modules.account.view
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
 import android.view.View
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
@@ -25,7 +29,9 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
     private val retrofitService = AccountNetworkService.create()
     private lateinit var profileEditBinding: ProfileEditDialogBinding
     private lateinit var sessionManager: UserSessionManager
-    private var courseImg = ArrayList(listOf(R.drawable.profile_image, R.drawable.normal_boy, R.drawable.profile_image))
+    private var courseImg =
+        ArrayList(listOf(R.drawable.profile_image, R.drawable.normal_boy, R.drawable.profile_image))
+
     override fun getViewBinding() = ActivityProfileBinding.inflate(layoutInflater)
 
     override fun initUI() {
@@ -43,10 +49,29 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        mViewModel.getUpdatedProfile.observe(this, Observer {
+            sessionManager.updateUserSession(
+                it.data!!.mobile.toString(),
+                it.data!!.name.toString(),
+                it.data!!.dob.toString(),
+                it.data!!.gender.toString()
+            )
+            showAlertInfo(it.message.toString(), this)
+            hideLoader()
+        })
+        mViewModel.errorMessage.observe(this, Observer {
+            showAlertInfo(it.toString(), this)
+            hideLoader()
+        })
+
+
+    }
+
     @SuppressLint("SetTextI18n")
     private fun setProfileDetails() {
-        if (sessionManager.isloggin())
-        {
+        if (sessionManager.isloggin()) {
             binding.layerLogin.visibility = View.GONE
             binding.logOut.visibility = View.VISIBLE
             when {
@@ -58,8 +83,7 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                 }
             }
 
-        }else
-        {
+        } else {
             binding.layerLogin.visibility = View.VISIBLE
             binding.logOut.visibility = View.GONE
             binding.txtUserName.text = "Hi, Unknown User"
@@ -69,16 +93,35 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
 
     private fun onClickOperation() {
         binding.llPersonalInfo.setOnClickListener {
-            showPersonalDialog("personal_info")
+            if (sessionManager.isloggin()) {
+                showPersonalDialog("personal_info")
+            } else {
+                askUserForLogin("Required authorization to access personal info.", this)
+            }
         }
         binding.rlFollowing.setOnClickListener {
-            showPersonalDialog("following")
+            if (sessionManager.isloggin()) {
+                showPersonalDialog("following")
+            } else {
+                askUserForLogin("Required authorization to access following.", this)
+            }
+
         }
         binding.rlDeliveryDetail.setOnClickListener {
-            showPersonalDialog("delivery_details")
+            if (sessionManager.isloggin()) {
+                showPersonalDialog("delivery_details")
+            } else {
+                askUserForLogin("Required authorization to access delivery details.", this)
+            }
+
         }
         binding.rlNotificationSetting.setOnClickListener {
-            showPersonalDialog("notification_setting")
+            if (sessionManager.isloggin()) {
+                showPersonalDialog("notification_setting")
+            } else {
+                askUserForLogin("Required authorization to access notification settings.", this)
+            }
+
         }
         binding.logOut.setOnClickListener {
             showLogOutDialog()
@@ -123,24 +166,20 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                 profileEditBinding.editFullName.setText(sessionManager.getName())
                 profileEditBinding.editPhone.setText(sessionManager.getMobileNo())
                 profileEditBinding.editEmail.setText(sessionManager.getEmail())
-                profileEditBinding.editEmail.isEnabled=false
-                profileEditBinding.editDob.isEnabled=false
-                if(sessionManager.getDob()!="null")
-                {
+                profileEditBinding.editEmail.isEnabled = false
+                profileEditBinding.editDob.isEnabled = false
+                if (sessionManager.getDob() != "null") {
                     profileEditBinding.editDob.setText(sessionManager.getDob())
-                }else
-                {
+                } else {
                     profileEditBinding.editDob.setText("DD-MM-YYYY")
 
                 }
-                if (getSetting("GENDER","")!!.isNotEmpty())
-                profileEditBinding.textGender.text=getSetting("GENDER","").toString()
-                else if(sessionManager.getGender().isNotEmpty())
-                {
-                    profileEditBinding.textGender.text=sessionManager.getGender()
-                }else
-                {
-                    profileEditBinding.textGender.text="Gender"
+                if (getSetting("GENDER", "")!!.isNotEmpty())
+                    profileEditBinding.textGender.text = getSetting("GENDER", "").toString()
+                else if (sessionManager.getGender().isNotEmpty()) {
+                    profileEditBinding.textGender.text = sessionManager.getGender()
+                } else {
+                    profileEditBinding.textGender.text = "Gender"
                 }
 
                 // profileEditBinding.editDob.setOnClickListener {}
@@ -149,24 +188,34 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                 }
                 profileEditBinding.btnSave.setOnClickListener {
                     //code for save week price
-                    requestProfileUpdate(profileEditBinding.editPhone.text.toString(),profileEditBinding.editFullName.text.toString(),
-                        profileEditBinding.editDob.text.toString(),profileEditBinding.textGender.text.toString() )
+                    requestProfileUpdate(
+                        profileEditBinding.editPhone.text.toString(),
+                        profileEditBinding.editFullName.text.toString(),
+                        profileEditBinding.editDob.text.toString(),
+                        profileEditBinding.textGender.text.toString()
+                    )
                     dialog.dismiss()
                 }
             }
+
             "following" -> {
                 profileEditBinding.llFollowing.visibility = View.VISIBLE
                 profileEditBinding.btnSave.visibility = View.GONE
                 profileEditBinding.txtTitle.text = resources.getString(R.string.txt_following)
                 profileEditBinding.recyclerFollowing.apply {
                     layoutManager =
-                        LinearLayoutManager(this@ProfileActivity, LinearLayoutManager.VERTICAL, false)
+                        LinearLayoutManager(
+                            this@ProfileActivity,
+                            LinearLayoutManager.VERTICAL,
+                            false
+                        )
                     adapter = FollowingListAdapter(this@ProfileActivity, courseImg)
                 }
                 profileEditBinding.closePersonalInfo.setOnClickListener {
                     dialog.dismiss()
                 }
             }
+
             "delivery_details" -> {
                 profileEditBinding.llMap.visibility = View.VISIBLE
                 profileEditBinding.txtTitle.text = resources.getString(R.string.txt_delivery_detail)
@@ -176,9 +225,11 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                     dialog.dismiss()
                 }
             }
+
             "notification_setting" -> {
                 profileEditBinding.llNotfySetting.visibility = View.VISIBLE
-                profileEditBinding.txtTitle.text = resources.getString(R.string.txt_notification_setting)
+                profileEditBinding.txtTitle.text =
+                    resources.getString(R.string.txt_notification_setting)
                 profileEditBinding.btnSave.setOnClickListener {
                     //code for save week price
                     dialog.dismiss()
@@ -196,13 +247,17 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
         dob: String,
         gender: String
     ) {
-        if (checkNetwork(this))
-        {
+        if (checkNetwork(this)) {
             showLoader()
-            mViewModel.requestUpdateProfile(mobile, name,dob,gender,sessionManager.getUserToken())
-        }else
-        {
-            showAlertInfo("Please check internet connection",this)
+            mViewModel.requestUpdateProfile(
+                mobile,
+                name,
+                dob,
+                gender,
+                sessionManager.getUserToken()
+            )
+        } else {
+            showAlertInfo("Please check internet connection", this)
         }
 
     }

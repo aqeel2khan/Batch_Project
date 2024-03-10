@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context="com.dev.batchfinal.app_modules.meal.view.MealPlanActivity">
+    >
 
     <LinearLayout
         android:id="@+id/rl_header"
