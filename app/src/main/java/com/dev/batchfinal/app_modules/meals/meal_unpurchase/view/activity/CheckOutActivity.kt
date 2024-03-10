@@ -17,6 +17,7 @@ import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.MyItemRecyclerViewAdapter
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
+import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyConstant.status
@@ -55,6 +56,8 @@ import kotlinx.coroutines.launch
 class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
+    private lateinit var sessionManager: UserSessionManager
+
     var strValue: String? = null
     var Date: String? = null
     private var meal_id: String? = null
@@ -75,6 +78,8 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     }
 
     override fun initUi() {
+        sessionManager= UserSessionManager(this)
+
         strValue = intent.getStringExtra("screen")
         meal_id = intent.getStringExtra("meal_id")
         meal_name = intent.getStringExtra("meal_name")

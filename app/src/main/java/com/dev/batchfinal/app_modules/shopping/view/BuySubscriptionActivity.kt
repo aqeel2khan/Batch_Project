@@ -24,6 +24,7 @@ import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.app_modules.account.view.LoginActivity
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.CheckOutActivity
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog

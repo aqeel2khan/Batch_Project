@@ -1,6 +1,7 @@
 package com.dev.batchfinal.network
 
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
+import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscription_update.MealPlanSubscriptionUpdateResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.subscribe.CheckSubscribeModel
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
@@ -42,6 +43,7 @@ import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_CHECK
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_DETAILS
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_LIST
+import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_UPDATE
 import com.dev.batchfinal.app_utils.MyConstant.ORDERCREATE
 import com.dev.batchfinal.app_utils.MyConstant.SIGNUP
 import com.dev.batchfinal.app_utils.MyConstant.STARTWORKOUTSTATUS
@@ -126,4 +128,7 @@ interface ApiService {
 
     @POST(MEAL_SUBSCRIBE_CHECK)
     suspend fun mealSubscribeCheck(@Body jsonObject: JsonObject): CheckSubscribeModel
+
+    @PUT(MEAL_SUBSCRIBE_UPDATE)
+    suspend fun mealSubscribeUpdate(@Body jsonObject: JsonObject): MealPlanSubscriptionUpdateResponse
 }

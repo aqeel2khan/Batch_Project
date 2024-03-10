@@ -14,7 +14,8 @@ import java.util.ArrayList
 class ChosenMealListAdapter(
     val context: Context?,
     val mealName: ArrayList<JSONObject>,
-    val listener: PositionItemClickListener<Int>
+    val listener: ArrayList<String>,
+    param: PositionItemClickListener<Int>
 ) : RecyclerView.Adapter<ChosenMealListAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: ItemChosenMealListBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(name: JSONObject, position: Int) {

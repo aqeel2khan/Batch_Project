@@ -10,10 +10,13 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
-import com.dev.batchfinal.app_modules.meals.meal_purchase.adapter.ChosenMealListAdapter
+import com.dev.batchfinal.adapter.ChosenMealListAdapter
+import com.dev.batchfinal.adapter.WeekdaysAdapter
 import com.dev.batchfinal.app_common.BaseActivity
-import com.dev.batchfinal.app_modules.meals.meal_purchase.adapter.WeekdaysAdapter
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
+import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.MealPlanActivity
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.ChosenMealDetailActivity
+import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.app_utils.showToast
@@ -23,24 +26,9 @@ import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
-//import com.example.bottomanimationmydemo.R
-//import com.dev.batchfinal.app_modules.meals.meal_purchase.adapter.ChosenMealListAdapter
-//import com.dev.batchfinal.app_modules.meals.meal_purchase.adapter.WeekdaysAdapter
-//import com.example.bottomanimationmydemo.databinding.FragmentCurrentMealDetailBinding
-//import com.example.bottomanimationmydemo.`interface`.PositionItemClickListener
-//import com.example.bottomanimationmydemo.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
-//import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.MealPlanActivity
-import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.ChosenMealDetailActivity
-//import com.example.bottomanimationmydemo.out.AuthViewModel
-//import com.example.bottomanimationmydemo.utils.CheckNetworkConnection
-//import com.example.bottomanimationmydemo.utils.MyCustom
-//import com.example.bottomanimationmydemo.utils.showToast
-//import com.example.bottomanimationmydemo.view.BaseActivity
-//import com.example.bottomanimationmydemo.viewmodel.AllViewModel
-//import com.example.bottomanimationmydemo.viewmodel.BaseViewModel
+
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-//import net.simplifiedcoding.data.network.Resource
 import org.json.JSONObject
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -50,6 +38,7 @@ import java.util.*
 class CurrentMealDetailActivity : BaseActivity<FragmentCurrentMealDetailBinding>() {
     private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
+    private lateinit var sessionManager: UserSessionManager
 
     var calendar: Calendar = Calendar.getInstance()
     var date_filter: String? = null
@@ -70,6 +59,8 @@ class CurrentMealDetailActivity : BaseActivity<FragmentCurrentMealDetailBinding>
     }
 
     override fun initUi() {
+        sessionManager= UserSessionManager(this)
+
         buttonClicks()
         meal_id = intent.getStringExtra("meal_id")
         subscribe_id = intent.getStringExtra("subscribe_id")
@@ -95,7 +86,7 @@ class CurrentMealDetailActivity : BaseActivity<FragmentCurrentMealDetailBinding>
         if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
             showLoader()
             val mealSubscriptionDetailsRequest = MealSubscriptionDetailsRequest()
-            mealSubscriptionDetailsRequest.userId=sharedPreferences.userId
+            mealSubscriptionDetailsRequest.userId=sessionManager.getUserId()
             mealSubscriptionDetailsRequest.mealId=meal_id
             mealSubscriptionDetailsRequest.subscribedId=subscription_id
             mealSubscriptionDetailsRequest.goalId=goal_id

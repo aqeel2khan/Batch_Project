@@ -181,7 +181,48 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="raw" />
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="raw">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/adapter/AllTypeOfMealAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/model/meal_plan_subscription_update/MealPlanSubscriptionUpdateResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/AllTypeOfMealAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/ChosenMealListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/ChosenMealListAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/RegistrationActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/RegistrationActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/FoodPlanBasedOnQuestionActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/FoodPlanBasedOnQuestionActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/adapter/MealSubscriptionCategoryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/adapter/MealSubscriptionCategoryAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/activity/CheckOutActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/activity/CheckOutActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/activity/MealDetailsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/activity/MealDetailsActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/fragment/MealFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/fragment/MealFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/view/BuySubscriptionActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/view/BuySubscriptionActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/view/CheckOutActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/view/CourseDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/shopping/view/CourseDetailActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_utils/MyConstant.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_utils/MyConstant.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/interface/MealDishListItemPosition.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/interface/MealDishListItemPosition.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/model/meal_dish_model/MealDishResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/model/meal_dish_model/MealDishResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/network/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/network/ApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/out/AuthRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/out/AuthRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/out/AuthViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/out/AuthViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_all_type_meal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_all_type_meal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,7 +231,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Hp\.android\avd\Medium_Phone_API_33.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RZCT30H95VY]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -230,6 +271,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/res/values/themes.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2dH6xJV4tl3rRqkFXzoTo9Mt01H" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -240,7 +289,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DEBUGGABLE_DEVICE": "vivo-v2059-96386080180006H",
+    "DEBUGGABLE_DEVICE": "samsung-sm_e236b-RZCT30H95VY",
     "DEBUGGABLE_PROCESS": "com.dev.batchfinal",
     "DEBUGGER_ID": "Auto",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -251,18 +300,21 @@
     "android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomTextView.kt_SELECTED": "MyCustomTextView",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "development__main__pradeep__latest",
     "last_directory_selection": "D:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java",
-    "last_opened_file_path": "D:/BBh_Bag/Github_Batch_WS/app/src/main/res/layout"
+    "last_opened_file_path": "/Users/mayank/Documents/Batch_Project/app/src/main/res/layout",
+    "memory.settings.postsync.last.time.stamp": "1710096712607",
+    "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/adapter" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity" />
       <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\layout" />
       <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\java\com\dev\batchfinal\app_modules\meals\meal_purchase\adapter" />
-      <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\drawable" />
-      <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\java\com\dev\batchfinal\app_modules" />
-      <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\xml" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\java\com\dev\batchfinal\app_modules\batchboard\view" />
@@ -277,10 +329,12 @@
       <recent name="com.dev.batchfinal.app_modules.workout.view_frag" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity" />
       <recent name="com.dev.batchfinal.app_utils" />
       <recent name="com.dev.batchfinal.view.account" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscription_update" />
       <recent name="com.dev.batchfinal.app_modules.scanning.model" />
     </key>
   </component>
@@ -311,8 +365,6 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Auto>
       <Hybrid>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -320,21 +372,14 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Hybrid>
-      <Java>
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Java>
+      <Java />
       <Native>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
         <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
@@ -551,6 +596,39 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt</url>
           <line>165</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt</url>
+          <line>67</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt</url>
+          <line>87</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt</url>
+          <line>89</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt</url>
+          <line>88</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt</url>
+          <line>92</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt</url>
+          <line>84</line>
+          <properties class="com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.CurrentMealDetailActivity" method="getMealSubscribeDetailsApi">
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

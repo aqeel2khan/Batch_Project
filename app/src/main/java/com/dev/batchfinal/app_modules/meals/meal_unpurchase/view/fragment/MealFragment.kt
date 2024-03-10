@@ -15,7 +15,7 @@ import com.dev.batchfinal.app_common.BaseFragment
 import com.dev.batchfinal.app_modules.activity.ChatActivity
 
 import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.CurrentMealDetailActivity
-import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.MealDetailsActivity
+import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.MealDetailsActivity
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyConstant.status

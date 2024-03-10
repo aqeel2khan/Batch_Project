@@ -66,7 +66,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         if (sessionManager.isloggin())
         {
             getMealSubscribeListApi()
-            getCourseOrderListApi()
+            //getCourseOrderListApi()
             setAllCourseOrderAdapter(courseList)
         }else
         {
@@ -240,6 +240,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                 requireContext().startActivity(Intent(requireContext(), CurrentMealDetailActivity::class.java)
                     .putExtra("meal_id",item.id.toString())
                     .putExtra("subscribe_id",item.subscribedId.toString())
+                    .putExtra("goal_id",item.goalId.toString())
                 )
 
               /*  findNavController().navigate(

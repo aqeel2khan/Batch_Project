@@ -23,6 +23,7 @@ import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -34,6 +35,8 @@ import com.dev.batchfinal.out.Resource
 class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
     private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
+    private lateinit var sessionManager: UserSessionManager
+
     private var course_id: String? = null
     private var course_price: String? = null
     private lateinit var courseDetailData: Data
@@ -45,6 +48,8 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
     }
 
     override fun initUi() {
+        sessionManager= UserSessionManager(this)
+
         buttonClicks()
         startRelativeAnimation(binding.relWeightLayout)
         course_id = intent.getStringExtra("course_id")

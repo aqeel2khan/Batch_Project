@@ -1,5 +1,6 @@
-package com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity
+package com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity
 
+import AllTypeOfMealAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -15,14 +16,16 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
-import com.dev.batchfinal.adapter.AllTypeOfMealAdapter
 import com.dev.batchfinal.adapter.MealPlanListAdapter
 import com.dev.batchfinal.app_common.BaseActivity
-import com.dev.batchfinal.app_custom.CustomToast.Companion.showToast
 import com.dev.batchfinal.app_modules.account.view.LoginActivity
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.CheckOutActivity
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.ChosenMealDetailActivity
+import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyCustom
+import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.databinding.ActivityMealDetailsBinding
 import com.dev.batchfinal.databinding.AlreadyMealSubscribeDialogBinding
 import com.dev.batchfinal.`interface`.CategoryListItemPosition
@@ -44,6 +47,8 @@ import kotlinx.coroutines.launch
 class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
     private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
+    private lateinit var sessionManager: UserSessionManager
+
     private var meal_id: String? = null
     private var gole_id: String? = null
     private var meal_name: String? = null
@@ -64,6 +69,8 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
     }
 
     override fun initUi() {
+        sessionManager= UserSessionManager(this)
+
         meal_id = intent.getStringExtra("id")
         buttonClicks()
         getMealDetails()
@@ -227,16 +234,19 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
     private fun setUpAllMealsAdapter(mealdishList: List<MealDishData>) {
         binding.recyclerAllMeal.apply {
             layoutManager = GridLayoutManager(this@MealDetailsActivity, 2)
-            //"meal_details"
-            adapter = AllTypeOfMealAdapter(this@MealDetailsActivity, mealdishList,
+            adapter = AllTypeOfMealAdapter(this@MealDetailsActivity, mealdishList,"meal_details",
                 object : MealDishListItemPosition<Int> {
-                    override fun onMealDishListItemPosition(item: MealDishData, position: Int) {
-                     //redirect code here
+                    override fun onMealDishListItemPosition(item: List<MealDishData>, position: Int) {
+                        //redirect code here
                         val intent = Intent(this@MealDetailsActivity, ChosenMealDetailActivity::class.java)
-                        intent.putExtra("dish_id",item.dishId.toString())
-                        intent.putExtra("meal_id",item.mealId.toString())
+                        intent.putExtra("dish_id",item[position].dishId.toString())
+                        intent.putExtra("meal_id",item[position].mealId.toString())
                         intent.putExtra("goal_id",gole_id)
                         startActivity(intent)
+                    }
+
+                    override fun onMealDishSelectItemPosition(item: List<MealDishData>, position: Int) {
+                        TODO("Not yet implemented")
                     }
                 })
         }
@@ -244,14 +254,14 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
 
     private fun buttonClicks() {
         binding.imgBack.setOnClickListener {
-           onBackPressed()
+            onBackPressed()
         }
         binding.txtAddPromo.setOnClickListener {
             showBottomSheetDialog()
         }
         binding.btnSubscribePlan.setOnClickListener {
-            if (sharedPreferences.token != "") {
-                checkMealSubscribeStatus(sharedPreferences.userId!!,meal_id!!)
+            if (sessionManager.getTokenID() != "") {
+                checkMealSubscribeStatus(sessionManager.getUserId()!!,meal_id!!)
 
 
             } else {
@@ -320,7 +330,7 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
         dialogBinding = AlreadyMealSubscribeDialogBinding.inflate(layoutInflater)
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(dialogBinding.root)
-       // dialogBinding.txtTitle.text = resources.getString(R.string.txt_personal_info)
+        // dialogBinding.txtTitle.text = resources.getString(R.string.txt_personal_info)
         dialogBinding.btnSave.setOnClickListener {
             //code for save week price
             dialog.dismiss()

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
+import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscription_update.MealPlanSubscriptionUpdateResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.subscribe.CheckSubscribeModel
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
@@ -254,5 +255,14 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     fun mealSubscribeCheckApiCall(jsonObject: JsonObject) = viewModelScope.launch {
         _mealCheckSubscribeModelResponse.value = Resource.Loading
         _mealCheckSubscribeModelResponse.value = repository.mealSubscribeCheck(jsonObject)
+    }
+
+    // meal Subscribe Update api
+    private val _mealPlanSubscriptionUpdateResponse: MutableLiveData<Resource<MealPlanSubscriptionUpdateResponse>> = MutableLiveData()
+    val mealPlanSubscriptionUpdateResponse: LiveData<Resource<MealPlanSubscriptionUpdateResponse>> get() = _mealPlanSubscriptionUpdateResponse
+
+    fun mealSubscribeUpdateApiCall(jsonObject: JsonObject) = viewModelScope.launch {
+        _mealPlanSubscriptionUpdateResponse.value = Resource.Loading
+        _mealPlanSubscriptionUpdateResponse.value = repository.mealSubscribeUpdate(jsonObject)
     }
 }

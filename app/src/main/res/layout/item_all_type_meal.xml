@@ -17,7 +17,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_140sdp"
+            android:layout_height="@dimen/_150sdp"
             android:background="@drawable/meal_bg">
 
             <RadioButton
@@ -29,6 +29,7 @@
                 android:visibility="gone" />
 
             <ImageView
+                android:id="@+id/bt_radio"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -39,7 +40,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_75sdp"
+                android:layout_marginTop="@dimen/_95sdp"
                 android:background="@color/txt_light">
 
 
@@ -129,7 +130,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.example.bottomanimationmydemo.custom.MyCustomTextView
                                 android:id="@+id/product_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -141,7 +142,7 @@
                                 android:fontFamily="@font/outfit_extra_bold"
                                 android:textSize="@dimen/_14ssp"
                                 android:textStyle="bold" />
-                            <com.dev.batchfinal.custom.MyCustomTextView
+                            <com.example.bottomanimationmydemo.custom.MyCustomTextView
                                 android:id="@+id/product_price"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
