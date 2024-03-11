@@ -2,6 +2,7 @@ package com.dev.batchfinal.app_common
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
@@ -24,12 +25,15 @@ import com.dev.batchfinal.R
 import com.dev.batchfinal.app_modules.account.view.LoginActivity
 import com.dev.batchfinal.databinding.ProfileEditDialogBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import java.util.Calendar
 
 abstract class AppBaseActivity<B : ViewBinding> : AppCompatActivity() {
     protected lateinit var binding: B
     private var progressDialog: ProgressDialog? = null
     private lateinit var dialogOptionBinding: ProfileEditDialogBinding
-
+    private var mYear = 0
+    private  var mMonth = 0
+    private  var mDay = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
@@ -103,6 +107,35 @@ abstract class AppBaseActivity<B : ViewBinding> : AppCompatActivity() {
 
         //progressDialog
         progressDialog?.dismiss()
+    }
+
+
+    fun showDatePickerDialog(tvLoadingDate:TextView,context: Context) {
+        // Get Current Date
+        val c = Calendar.getInstance()
+        mYear = c[Calendar.YEAR]
+        mMonth = c[Calendar.MONTH]
+        mDay = c[Calendar.DAY_OF_MONTH]
+        val datePickerDialog = DatePickerDialog(
+            context,
+            { view, year, monthOfYear, dayOfMonth ->
+                var day = "00"
+                var month = "00"
+                day = if (dayOfMonth < 10) {
+                    "0$dayOfMonth"
+                } else {
+                    dayOfMonth.toString()
+                }
+                month = if (monthOfYear + 1 < 10) {
+                    "0" + (monthOfYear + 1).toString()
+                } else {
+                    (monthOfYear + 1).toString()
+                }
+                tvLoadingDate.text = "$year-$month-$day"
+            }, mYear, mMonth, mDay
+        )
+       datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
+        datePickerDialog.show()
     }
 
     protected fun showLoader() {

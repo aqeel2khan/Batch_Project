@@ -58,6 +58,8 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                 it.data!!.dob.toString(),
                 it.data!!.gender.toString()
             )
+            binding.txtUserName.text = "Hi, ${sessionManager.getName()}"
+
             showAlertInfo(it.message.toString(), this)
             hideLoader()
         })
@@ -167,10 +169,11 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                 profileEditBinding.editPhone.setText(sessionManager.getMobileNo())
                 profileEditBinding.editEmail.setText(sessionManager.getEmail())
                 profileEditBinding.editEmail.isEnabled = false
-                profileEditBinding.editDob.isEnabled = false
+               // profileEditBinding.editDob.isEnabled = false
                 if (sessionManager.getDob() != "null") {
                     profileEditBinding.editDob.setText(sessionManager.getDob())
-                } else {
+                }
+                else {
                     profileEditBinding.editDob.setText("DD-MM-YYYY")
 
                 }
@@ -182,19 +185,44 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                     profileEditBinding.textGender.text = "Gender"
                 }
 
-                // profileEditBinding.editDob.setOnClickListener {}
+                profileEditBinding.editDob.setOnClickListener {
+                     showDatePickerDialog(profileEditBinding.editDob,this@ProfileActivity)
+                 }
                 profileEditBinding.closePersonalInfo.setOnClickListener {
                     dialog.dismiss()
                 }
                 profileEditBinding.btnSave.setOnClickListener {
                     //code for save week price
-                    requestProfileUpdate(
-                        profileEditBinding.editPhone.text.toString(),
-                        profileEditBinding.editFullName.text.toString(),
-                        profileEditBinding.editDob.text.toString(),
-                        profileEditBinding.textGender.text.toString()
-                    )
-                    dialog.dismiss()
+                    if (checkNetwork(this@ProfileActivity))
+                    {
+                        if (profileEditBinding.editFullName.text.toString().isEmpty())
+                        {
+                            showAlertInfo("Please enter name.",this@ProfileActivity)
+                        }else if(profileEditBinding.editPhone.text.toString().isEmpty())
+                        {
+                            showAlertInfo("Please enter mobile number.",this@ProfileActivity)
+
+                        }else if(profileEditBinding.editPhone.text!!.length<10)
+                        {
+                            showAlertInfo("Please enter correct mobile number.",this@ProfileActivity)
+
+                        }else
+                        {
+                            requestProfileUpdate(
+                                profileEditBinding.editPhone.text.toString(),
+                                profileEditBinding.editFullName.text.toString(),
+                                profileEditBinding.editDob.text.toString(),
+                                profileEditBinding.textGender.text.toString()
+                            )
+                            dialog.dismiss()
+
+
+                        }
+
+                    }else
+                    {
+                        showAlertInfo("Please check internet connection.",this@ProfileActivity)
+                    }
                 }
             }
 
