@@ -15,7 +15,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/backButtonLogin"
+                android:id="@+id/onCLickBack"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_20sdp"
@@ -206,7 +206,26 @@
 
                 </LinearLayout>
 
+
             </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_go_toCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:elevation="@dimen/_2sdp"
+                android:padding="@dimen/_2sdp"
+                android:background="@drawable/rectangle_button_gry"
+                android:fontFamily="@font/outfit_regular"
+                android:outlineSpotShadowColor="#516634"
+                android:text="@string/go_to_checkout"
+                android:textSize="@dimen/_12ssp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:ignore="UnusedAttribute" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -376,24 +395,6 @@
                     tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_go_toCheckout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:elevation="@dimen/_2sdp"
-                android:padding="@dimen/_2sdp"
-                android:background="@drawable/rectangle_button_gry"
-                android:fontFamily="@font/outfit_regular"
-                android:outlineSpotShadowColor="#516634"
-                android:text="@string/go_to_checkout"
-                android:textSize="@dimen/_12ssp"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                tools:ignore="UnusedAttribute" />
         </LinearLayout>
     </ScrollView>
 

@@ -5,9 +5,12 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.dev.batchfinal.MainActivity
 import com.dev.batchfinal.R
+import com.dev.batchfinal.app_common.AppBaseActivity
 import com.dev.batchfinal.app_custom.CustomToast.Companion.showToast
 import com.dev.batchfinal.databinding.ActivityRegistrationBinding
 import com.dev.batchfinal.out.AuthViewModel
@@ -19,7 +22,12 @@ import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_utils.MyUtils.isMobileNumberValid
 import com.dev.batchfinal.app_utils.MyUtils.isValidEmail
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_modules.account.network_service.AccountNetworkService
+import com.dev.batchfinal.app_modules.account.repository.AccountRepository
+import com.dev.batchfinal.app_modules.account.viewmodel.AccountFactoryModel
+import com.dev.batchfinal.app_modules.account.viewmodel.AccountViewModel
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.CheckOutActivity
+import com.dev.batchfinal.databinding.ActivityProfileBinding
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.gson.JsonObject
@@ -28,22 +36,59 @@ import kotlinx.coroutines.launch
 import com.dev.batchfinal.out.Resource
 
 @AndroidEntryPoint
-class RegistrationActivity : BaseActivity<ActivityRegistrationBinding>() {
-    private val viewModel: AllViewModel by viewModels()
-    private val authViewModel by viewModels<AuthViewModel>()
-   // private var strValue: String? = null
+class RegistrationActivity : AppBaseActivity<ActivityRegistrationBinding>() {
+
+
     private lateinit var  sessionManager:UserSessionManager
+    private lateinit var mViewModel: AccountViewModel
+    private val retrofitService = AccountNetworkService.create()
 
-    override fun getViewModel(): BaseViewModel {
-        return viewModel
+    override fun getViewBinding() = ActivityRegistrationBinding.inflate(layoutInflater)
+
+    override fun initUI() {
+        sessionManager = UserSessionManager(this@RegistrationActivity)
+
+        onCLickOperation()
     }
 
-    override fun initUi() {
-       // strValue = intent.getStringExtra("batchMeal")
-       buttonClicks()
+    override fun onStart() {
+        super.onStart()
+        mViewModel = ViewModelProvider(
+            this,
+            AccountFactoryModel(AccountRepository(retrofitService))
+        )[AccountViewModel::class.java]
+
     }
 
-    private fun buttonClicks() {
+    override fun onResume() {
+        super.onResume()
+
+        mViewModel.getSignUpResponse.observe(this, Observer {
+            try {
+                hideLoader()
+                sessionManager.createUserSession(
+                    ""+it.data!!.id.toString(),
+                    it.token.toString(),
+                    ""+it.data!!.mobile,
+                    ""+it.data!!.email, ""+it.data!!.name,
+                    ""+it.data!!.dob, ""+it.data!!.gender,
+                    "",true
+                )
+
+                startActivity(Intent(Intent(this@RegistrationActivity, MainActivity::class.java)))
+            }catch (_:Exception){startActivity(Intent(Intent(this@RegistrationActivity, MainActivity::class.java))) }
+
+        })
+
+        mViewModel.errorMessage.observe(this, Observer {
+            showAlertInfo(it.toString(), this)
+            hideLoader()
+        })
+
+
+    }
+
+    private fun onCLickOperation() {
         binding.emailEditText.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -57,7 +102,7 @@ class RegistrationActivity : BaseActivity<ActivityRegistrationBinding>() {
             }
         })
         binding.btnGoToCheckout.setOnClickListener {
-            validation()
+            requestSignUp()
         }
         binding.passHideShow.setOnClickListener {
             MyUtils.passwordShowHide(binding, MyConstant.newPassword)
@@ -78,84 +123,59 @@ class RegistrationActivity : BaseActivity<ActivityRegistrationBinding>() {
 
             }
         })
+        binding.onCLickBack.setOnClickListener {
+            finish()
+        }
 
     }
 
-    private fun validation() {
-        if (binding.fullNameEditText.text.toString().isEmpty()) {
-            showToast("Please enter Full Name")
-        } else if (binding.phoneEditText.text.toString().isEmpty()) {
-            showToast("Please enter Mobile")
-        } else if (!isMobileNumberValid(binding.phoneEditText.text.toString())) {
-            showToast("Enter Valid Mobile Number")
-        }else if (binding.emailEditText.text.toString().isEmpty()) {
-            showToast("Please enter Email")
-        } else if (!isValidEmail(binding.emailEditText.text.toString())) {
-            showToast("Enter Valid Email Address")
-        }
-        else if (!binding.agreeCheckBox.isChecked) {
-            showToast("Please Agree Terms & Conditions")
-        } else {
-            MyConstant.jsonObject.addProperty("email",binding.emailEditText.text?.trim().toString())
-            MyConstant.jsonObject.addProperty("password",binding.password.text?.trim().toString())
-            MyConstant.jsonObject.addProperty("mobile",binding.phoneEditText.text?.trim().toString())
-            MyConstant.jsonObject.addProperty("name",binding.fullNameEditText.text?.trim().toString())
-            signUp(MyConstant.jsonObject)
-        }
-    }
-
-    private fun signUp(jsonObject: JsonObject) {
-        if (CheckNetworkConnection.isConnection(this,binding.root, true)) {
-            showLoader()
-            authViewModel.signUpApiCall(jsonObject)
-            authViewModel.signUpResponse.observe(this){
-                when(it){
-                    is Resource.Success->{
-                        hideLoader()
-                        authViewModel.signUpResponse.removeObservers(this)
-                        if (authViewModel.signUpResponse.hasObservers()) return@observe
-                        lifecycleScope.launch {
-                            it.let {
-                                val response = it.value
-                                if (response.status == MyConstant.success){
-
-                                   // sharedPreferences.saveToken(response.token.toString())
-                                    sessionManager= UserSessionManager(this@RegistrationActivity)
-                                    sessionManager.createUserSession(
-                                        ""+response.data.id.toString(),
-                                        response.token,
-                                        ""+response.data.mobile,
-                                        ""+response.data.email, ""+response.data.name,
-                                        ""+response.data.dob, ""+response.data.gender,
-                                        "",true
-                                    )
-
-                                    if (!intent.getStringExtra("batchMeal").isNullOrEmpty())
-                                    startActivity(Intent(this@RegistrationActivity, CheckOutActivity::class.java).putExtra("screen", intent.getStringExtra("batchMeal").toString()))
-                                    else
-                                        startActivity(Intent(Intent(this@RegistrationActivity, MainActivity::class.java)))
-                                }
-                            }
-                        }
-                    }
-                    is Resource.Loading-> {
-                        hideLoader()
-                    }
-                    is Resource.Failure-> {
-                        authViewModel.signUpResponse.removeObservers(this)
-                        if (authViewModel.signUpResponse.hasObservers()) return@observe
-                        hideLoader()
-//                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
-                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
-                    }
-                }
+    private fun requestSignUp() {
+        when {
+            binding.fullNameEditText.text.toString().isEmpty() -> {
+                showAlertInfo("Please enter Full Name",this)
             }
-        }else{
-            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+            binding.phoneEditText.text.toString().isEmpty() -> {
+                showAlertInfo("Please enter Mobile Number",this)
+
+            }
+            !isMobileNumberValid(binding.phoneEditText.text.toString()) -> {
+                showAlertInfo("Enter Valid Mobile Number",this)
+            }
+            binding.emailEditText.text.toString().isEmpty() -> {
+                showAlertInfo("Please enter Email",this)
+
+            }
+            !isValidEmail(binding.emailEditText.text.toString()) -> {
+                showAlertInfo("Enter Valid Email Address",this)
+
+            }
+            binding.password.text.toString().isEmpty() -> {
+                showAlertInfo("Please enter Password",this)
+            }
+            !binding.agreeCheckBox.isChecked -> {
+                showToast("Please Agree Terms & Conditions")
+            }
+            else -> {
+
+                if (checkNetwork(this)) {
+                    showLoader()
+                    mViewModel.requestSignUp(
+                        binding.emailEditText.text.toString(),
+                        binding.password.text.toString(),
+                        binding.phoneEditText.text.toString(),
+                        binding.fullNameEditText.text.toString()
+                    )
+                } else {
+                    showAlertInfo("Please check internet connection", this)
+                }
+
+
+            }
         }
     }
 
-    override fun getViewBinding() = ActivityRegistrationBinding.inflate(layoutInflater)
+
+
 
     private fun setDividerWidth(divider: View) {
         val windowManager = windowManager

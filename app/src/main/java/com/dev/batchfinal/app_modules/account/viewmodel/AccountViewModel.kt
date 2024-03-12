@@ -2,11 +2,15 @@ package com.dev.batchfinal.app_modules.account.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.dev.batchfinal.app_modules.account.model.DeliveryAddressModel
+import com.dev.batchfinal.app_modules.account.model.GetDelivaryAddressModel
 import com.dev.batchfinal.app_modules.account.model.SignInModel
+import com.dev.batchfinal.app_modules.account.model.SignUpModel
 import com.dev.batchfinal.app_modules.account.model.UpdateProfileData
 import com.dev.batchfinal.app_modules.account.model.UpdateProfileModel
 import com.dev.batchfinal.app_modules.account.repository.AccountRepository
 import com.dev.batchfinal.app_utils.LogUtil
+import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.RequestHeadersUtility
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -18,8 +22,14 @@ import retrofit2.Response
 class AccountViewModel constructor(private val repository: AccountRepository) : ViewModel(){
 
     val getLoginDetails = MutableLiveData<SignInModel>()
+    val getSignUpResponse= MutableLiveData<SignUpModel>()
     val getUpdatedProfile = MutableLiveData<UpdateProfileModel>()
+    val getAddDelivaryAddress=MutableLiveData<DeliveryAddressModel>()
+    val getGetDelivaryAddress=MutableLiveData<GetDelivaryAddressModel>()
+
+
     val errorMessage = MutableLiveData<String>()
+
     fun requestLogin(username: String, password: String,deviceId: String) {
 
         val jsonParams: MutableMap<String?, Any?> = HashMap()
@@ -56,6 +66,44 @@ class AccountViewModel constructor(private val repository: AccountRepository) : 
             }
         })
     }
+
+    fun requestSignUp(email: String, password: String,mobile: String,username: String) {
+        val jsonParams: MutableMap<String?, Any?> = HashMap()
+        jsonParams["email"] = email
+        jsonParams["password"] = password
+        jsonParams["mobile"] = mobile
+        jsonParams["name"] = username
+
+        val requestBody = JSONObject(jsonParams).toString().toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
+        val res = repository.requestSignUp(requestBody)
+        res.enqueue(object : Callback<SignUpModel> {
+            override fun onResponse(
+                call: Call<SignUpModel>?,
+                response: Response<SignUpModel>?
+            ) {
+                if (response!!.isSuccessful) {
+                    LogUtil.showLog("LOGIN RES", response!!.body().toString())
+
+                    if (response.body()?.status!!)
+                    {
+                        // val mResObject: ResLoginModel = Gson().fromJson<Any?>(response.body().toString(), ResLoginModel::class.java) as ResLoginModel
+                        getSignUpResponse.postValue(response.body())
+                    }else
+                    {
+                        errorMessage.postValue(response.body()!!.message+" ERROR CODE-" + response.code())
+                    }
+                } else {
+
+                    errorMessage.postValue("Some error occurred, ERROR CODE-" + response.code())
+                }
+            }
+
+            override fun onFailure(call: Call<SignUpModel>?, t: Throwable?) {
+                errorMessage.postValue(t?.message)
+            }
+        })
+    }
+
 
     fun requestUpdateProfile(mobile: String, name: String,dob: String, gender:String,authToken:String) {
         val requestHeaders = RequestHeadersUtility.requestHeaderAuthorization(authToken)
@@ -94,7 +142,81 @@ class AccountViewModel constructor(private val repository: AccountRepository) : 
     }
 
 
+    fun requestAddDelivaryAddress(authToken: String, mCountry: String,mState: String,mCity: String
+                                  ,mAddress1: String,mAddress2: String,mPostalCode: String,mType: String,isDefault: String) {
+        val requestHeaders = RequestHeadersUtility.requestHeaderAuthorization(authToken)
 
+        val jsonParams: MutableMap<String?, Any?> = HashMap()
+        jsonParams["country"] = mCountry
+        jsonParams["state"] = mState
+        jsonParams["city"] = mCity
+        jsonParams["address_line_1"] = mAddress1
+        jsonParams["address_line_2"] = mAddress2
+        jsonParams["postal_code"] = mPostalCode
+        jsonParams["type"] = mType
+        jsonParams["is_default"] = isDefault
+
+
+
+
+        val requestBody = JSONObject(jsonParams).toString().toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
+        val res = repository.requestAddDelivaryAddress(requestHeaders,requestBody)
+        res.enqueue(object : Callback<DeliveryAddressModel> {
+            override fun onResponse(
+                call: Call<DeliveryAddressModel>?,
+                response: Response<DeliveryAddressModel>?
+            ) {
+                if (response!!.isSuccessful) {
+                    LogUtil.showLog("LOGIN RES", response!!.body().toString())
+
+                    if (response.body()?.status!!)
+                    {
+                        getAddDelivaryAddress.postValue(response.body())
+                    }else
+                    {
+                        errorMessage.postValue(response.body()!!.message+" ERROR CODE-" + response.code())
+                    }
+                } else {
+
+                    errorMessage.postValue("Some error occurred, ERROR CODE-" + response.code())
+                }
+            }
+
+            override fun onFailure(call: Call<DeliveryAddressModel>?, t: Throwable?) {
+                errorMessage.postValue(t?.message)
+            }
+        })
+    }
+
+    fun getGetDelivaryAddress(authToken: String) {
+        val requestHeaders = RequestHeadersUtility.requestHeaderAuthorization(authToken)
+        val res = repository.requestGetDelivaryAddress(requestHeaders)
+        res.enqueue(object : Callback<GetDelivaryAddressModel> {
+            override fun onResponse(
+                call: Call<GetDelivaryAddressModel>?,
+                response: Response<GetDelivaryAddressModel>?
+            ) {
+                if (response!!.isSuccessful) {
+                    LogUtil.showLog("LOGIN RES", response!!.body().toString())
+
+                    if (response.body()?.status!!)
+                    {
+                        getGetDelivaryAddress.postValue(response.body())
+                    }else
+                    {
+                        errorMessage.postValue(response.body()!!.message+" ERROR CODE-" + response.code())
+                    }
+                } else {
+
+                    errorMessage.postValue("Some error occurred, ERROR CODE-" + response.code())
+                }
+            }
+
+            override fun onFailure(call: Call<GetDelivaryAddressModel>?, t: Throwable?) {
+                errorMessage.postValue(t?.message)
+            }
+        })
+    }
 
 
 

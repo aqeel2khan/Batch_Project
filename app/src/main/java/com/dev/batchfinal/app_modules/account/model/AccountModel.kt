@@ -53,3 +53,64 @@ data class UpdateProfileData
     @SerializedName("created_at"         ) var createdAt        : String? = null,
     @SerializedName("updated_at"         ) var updatedAt        : String? = null
             )
+
+/**
+ *
+ *  ADD DELIVARY ADDRESS MODEL
+ * */
+
+data class DeliveryAddressModel
+    (
+    @SerializedName("status"  ) var status  : Boolean? = null,
+    @SerializedName("message" ) var message : String?  = null
+            )
+
+// GET DELIVARY ADDRESS
+
+data class GetDelivaryAddressModel
+    (
+    @SerializedName("status"  ) var status  : Boolean? = null,
+    @SerializedName("message" ) var message : String?  = null,
+    @SerializedName("data"    ) var data    : GetDelivaryAddresData?    = GetDelivaryAddresData(),
+    @SerializedName("error"   ) var error   : Error?   = Error()
+            )
+data class GetDelivaryAddresData
+    (
+    @SerializedName("id"             ) var id           : Int?    = null,
+    @SerializedName("user_id"        ) var userId       : Int?    = null,
+    @SerializedName("address_line_1" ) var addressLine1 : String? = null,
+    @SerializedName("address_line_2" ) var addressLine2 : String? = null,
+    @SerializedName("city"           ) var city         : String? = null,
+    @SerializedName("postal_code"    ) var postalCode   : String? = null,
+    @SerializedName("state"          ) var state        : String? = null,
+    @SerializedName("country"        ) var country      : String? = null,
+    @SerializedName("type"           ) var type         : String? = null,
+    @SerializedName("is_default"     ) var isDefault    : Int?    = null,
+    @SerializedName("created_at"     ) var createdAt    : String? = null,
+    @SerializedName("updated_at"     ) var updatedAt    : String? = null
+
+)
+
+//SIGN UP
+
+data class SignUpModel
+    (
+    @SerializedName("status"  ) var status  : Boolean? = null,
+    @SerializedName("message" ) var message : String?  = null,
+    @SerializedName("data"    ) var data    : SignUpData?    = SignUpData(),
+    @SerializedName("token"   ) var token   : String?  = null
+
+)
+data class SignUpData
+    (
+    @SerializedName("id"         ) var id        : Int?    = null,
+    @SerializedName("name"       ) var name      : String? = null,
+    @SerializedName("mobile"     ) var mobile    : String? = null,
+    @SerializedName("email"      ) var email     : String? = null,
+    @SerializedName("dob"        ) var dob       : String? = null,
+    @SerializedName("gender"     ) var gender    : String? = null,
+    @SerializedName("created_at" ) var createdAt : String? = null,
+    @SerializedName("updated_at" ) var updatedAt : String? = null
+
+)
+
