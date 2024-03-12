@@ -164,14 +164,13 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
     private fun buttonClicks() {
         binding.btnSubscribe.setOnClickListener {
             startActivity(
-                Intent(
-                    this@CourseDetailActivity,
-                    BuySubscriptionActivity::class.java
-                )
-                /*.putExtra("course_id", course_id)*/
+                Intent(this@CourseDetailActivity, BuySubscriptionActivity::class.java)
+                .putExtra("course_id", course_id)
             )
         }
     }
+
+
 
     private fun showBottomSheetDialog() {
         val view = layoutInflater.inflate(R.layout.bottom_sheet, null)

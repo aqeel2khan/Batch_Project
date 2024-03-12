@@ -34,6 +34,7 @@ import com.dev.batchfinal.app_utils.MyConstant.COURSEFILTERENTITY
 import com.dev.batchfinal.app_utils.MyConstant.COURSEORDERLIST
 import com.dev.batchfinal.app_utils.MyConstant.COURSEPROMOCODELIST
 import com.dev.batchfinal.app_utils.MyConstant.COURSEWORKOUTLIST
+import com.dev.batchfinal.app_utils.MyConstant.COURSE_SUBSCRIBE_CHECK
 import com.dev.batchfinal.app_utils.MyConstant.LOGIN
 import com.dev.batchfinal.app_utils.MyConstant.MEALDETAILS
 import com.dev.batchfinal.app_utils.MyConstant.MEALDISH
@@ -53,6 +54,7 @@ import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListResponse
 
 import com.google.gson.JsonObject
 import retrofit2.http.*
+import java.util.HashMap
 
 
 interface ApiService {
@@ -128,6 +130,9 @@ interface ApiService {
 
     @POST(MEAL_SUBSCRIBE_CHECK)
     suspend fun mealSubscribeCheck(@Body jsonObject: JsonObject): CheckSubscribeModel
+
+    @POST(COURSE_SUBSCRIBE_CHECK)
+    suspend fun courseSubscribeCheck(@Body jsonObject: JsonObject): CheckSubscribeModel
 
     @PUT(MEAL_SUBSCRIBE_UPDATE)
     suspend fun mealSubscribeUpdate(@Body jsonObject: JsonObject): MealPlanSubscriptionUpdateResponse

@@ -7,6 +7,7 @@ import com.dev.batchfinal.network.ApiService
 
 import com.google.gson.JsonObject
 import net.simplifiedcoding.data.network.SafeApiCall
+import java.util.HashMap
 
 import javax.inject.Inject
 
@@ -109,6 +110,9 @@ class AuthRepository @Inject constructor(private val api: ApiService) : SafeApiC
 
     suspend fun mealSubscribeCheck(jsonObject: JsonObject) = safeApiCall {
         api.mealSubscribeCheck(jsonObject)
+    }
+    suspend fun courseSubscribeCheck(jsonObject: JsonObject) = safeApiCall {
+        api.courseSubscribeCheck(jsonObject)
     }
 
     suspend fun mealSubscribeUpdate(jsonObject: JsonObject) = safeApiCall {

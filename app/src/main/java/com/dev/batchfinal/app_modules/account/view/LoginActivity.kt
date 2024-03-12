@@ -16,6 +16,7 @@ import com.dev.batchfinal.app_modules.account.network_service.AccountNetworkServ
 import com.dev.batchfinal.app_modules.account.repository.AccountRepository
 import com.dev.batchfinal.app_modules.account.viewmodel.AccountFactoryModel
 import com.dev.batchfinal.app_modules.account.viewmodel.AccountViewModel
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.CheckOutActivity
 import com.dev.batchfinal.databinding.ActivityLoginBinding
 import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.MyConstant
@@ -29,9 +30,15 @@ class LoginActivity : AppBaseActivity<ActivityLoginBinding>() {
     private lateinit var mViewModel: AccountViewModel
     private val retrofitService = AccountNetworkService.create()
     private lateinit var sessionManager: UserSessionManager
+    var screen: String? = null
+    var product_id: String? = null
+
     override fun getViewBinding() = ActivityLoginBinding.inflate(layoutInflater)
     override fun initUI() {
         sessionManager = UserSessionManager(this@LoginActivity)
+        screen = intent.getStringExtra("screen")
+        product_id = intent.getStringExtra("product_id")
+
         onCickOperation()
     }
 
@@ -55,8 +62,24 @@ class LoginActivity : AppBaseActivity<ActivityLoginBinding>() {
                 "" + it.data!!.name,it.data!!.dob.toString(),
                 it.data!!.gender.toString(),it.data!!.profilePhotoPath.toString(),true
             )
-            startActivity(Intent(Intent(this@LoginActivity, MainActivity::class.java)))
-            finish()
+            if(screen.equals("workout_batch")){
+                startActivity(
+                    Intent(this@LoginActivity, CheckOutActivity::class.java)
+                        .putExtra("screen", screen)
+                        .putExtra("product_id", product_id))
+                finish()
+            }else if(screen.equals("meal_batch")){
+                startActivity(
+                    Intent(this@LoginActivity, CheckOutActivity::class.java)
+                        .putExtra("screen", screen)
+                        .putExtra("product_id", product_id))
+                finish()
+            }else{
+                startActivity(Intent(Intent(this@LoginActivity, MainActivity::class.java)))
+                finish()
+            }
+
+
             dismissProgress()
         })
         mViewModel.errorMessage.observe(this, Observer {

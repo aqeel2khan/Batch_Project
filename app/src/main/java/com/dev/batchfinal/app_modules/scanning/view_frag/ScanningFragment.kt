@@ -66,7 +66,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         if (sessionManager.isloggin())
         {
             getMealSubscribeListApi()
-            //getCourseOrderListApi()
+            getCourseOrderListApi()
             setAllCourseOrderAdapter(courseList)
         }else
         {

@@ -21,10 +21,12 @@ class MealSubscribeListAdapter(
 
             // MyUtils.loadBackgroundImage(binding.backgroundImg, MyConstant.IMAGE_BASE_URL + courseData.course_detail.course_image)
 
+            try {
+                binding.tvDuration.text = mealSubscribeListResponse.duration.toString()
+                binding.tvMealName.text = mealSubscribeListResponse.name.toString()
+                binding.tvDescription.text = mealSubscribeListResponse.description.toString()
+            }catch (e:Exception){}
 
-            binding.tvDuration.text = mealSubscribeListResponse.duration.toString()
-            binding.tvMealName.text = mealSubscribeListResponse.name.toString()
-            binding.tvDescription.text = mealSubscribeListResponse.description.toString()
 
 //            if (courseData.course_detail.course_duration.isEmpty()) {
 //                binding.tvCal.text =

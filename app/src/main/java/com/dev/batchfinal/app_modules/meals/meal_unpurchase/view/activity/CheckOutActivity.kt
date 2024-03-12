@@ -16,6 +16,7 @@ import com.dev.batchfinal.MainActivity
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.MyItemRecyclerViewAdapter
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_modules.account.view.LoginActivity
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
@@ -71,6 +72,20 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     lateinit var dialogBinding: BottomSheetBinding
     private lateinit var adapter: MyItemRecyclerViewAdapter
     private var selectedPaymentMethod: PaymentMethod? = null
+    var course_id: String? = null
+
+
+    var screen: String? = null
+    var product_id: String? = null
+    var product_name: String? = null
+    var product_price: String? = null
+    var product_cal: String? = null
+    var product_img: String? = null
+    var product_count: String? = null
+    var product_snack: String? = null
+    var product_updated: String? = null
+
+
 
     val request = MFInitiatePaymentRequest(0.100, MFCurrencyISO.KUWAIT_KWD)
     override fun getViewModel(): BaseViewModel {
@@ -80,45 +95,15 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     override fun initUi() {
         sessionManager= UserSessionManager(this)
 
-        strValue = intent.getStringExtra("screen")
-        meal_id = intent.getStringExtra("meal_id")
-        meal_name = intent.getStringExtra("meal_name")
-        meal_price = intent.getStringExtra("meal_price")
-        meal_cal = intent.getStringExtra("meal_cal")
-        meal_img = intent.getStringExtra("meal_img")
-        meal_count = intent.getStringExtra("meal_count")
-        meal_snack = intent.getStringExtra("meal_snack")
+        screen = intent.getStringExtra("screen")
+        product_id = intent.getStringExtra("product_id")
+
         buttonClicks()
 
-        if (strValue.equals("BatchMeal")) {
-            binding.relMealPlan.visibility = View.VISIBLE
-            binding.rlDeliveryFee.visibility = View.VISIBLE
-            binding.cardWorkout.visibility = View.GONE
-
-            binding.tvMealPlan.text = meal_name
-            binding.mealPrice.text = "$"+meal_price
-            binding.mealCal.text = meal_cal + " "
-            binding.mealCount.text = meal_count + " "
-            binding.mealSnack.text = meal_snack + " "
-            binding.tvSubtotalValue.text = "$"+meal_price
-            binding.tvTotalValue.text = "$"+meal_price
-            binding.coachName.text = meal_name
-            MyUtils.loadImage(
-                binding.coachProfile,
-                MyConstant.IMAGE_BASE_URL + meal_img
-            )
-            MyUtils.loadBackgroundImage(
-                binding.backgroundBg,
-                MyConstant.IMAGE_BASE_URL + meal_img
-            )
-           // binding.tvDuration.text = courseData.duration + " mins"
-
-        } else {
-            binding.rlMealBatch.visibility = View.GONE
-            binding.rlDeliveryFee.visibility = View.GONE
-            binding.cardWorkout.visibility = View.VISIBLE
-            getCourseDetailData(sharedPreferences.myCourseId)
-
+        if (screen=="meal_batch") {
+            getMealDetails(product_id)
+        } else if (screen=="workout_batch"){
+            getCourseDetailData(product_id)
         }
         initiateSession()
     }
@@ -171,7 +156,31 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
                             it.let {
                                 val response = it.value
                                 if (response.status == MyConstant.success) {
-                                    setUpDetails(response.data)
+                                    binding.rlMealBatch.visibility = View.GONE
+                                    binding.rlDeliveryFee.visibility = View.GONE
+                                    binding.cardWorkout.visibility = View.VISIBLE
+                                    meal_price=response.data.coursePrice
+                                    binding.courseName.text = response.data.courseName
+                                    binding.coursePrice.text = response.data.coursePrice + "KWD"
+                                    binding.tvSubtotalValue.text = response.data.coursePrice + "KWD"
+                                    binding.tvTotalValue.text = response.data.coursePrice + "KWD"
+                                    binding.coachName.text = response.data.coachDetail.name
+
+                                    product_id=response.data.courseId.toString()
+                                    product_name=response.data.courseName.toString()
+                                    product_price=response.data.coursePrice.toString()
+                                    product_count="5"
+                                    product_updated=response.data.updatedAt.toString()
+
+                                    MyUtils.loadImage(
+                                        binding.coachProfile,
+                                        MyConstant.IMAGE_BASE_URL + response.data.coachDetail.profilePhotoPath
+                                    )
+                                    MyUtils.loadBackgroundImage(
+                                        binding.backgroundBg,
+                                        MyConstant.IMAGE_BASE_URL + response.data.courseImage
+                                    )
+                                    binding.tvDuration.text = response.data.duration + " mins"
                                 }
                             }
                         }
@@ -194,22 +203,71 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun setUpDetails(courseData: Data) {
-        binding.courseName.text = courseData.courseName
-        binding.coursePrice.text = courseData.coursePrice + "KWD"
-        binding.tvSubtotalValue.text = courseData.coursePrice + "KWD"
-        binding.tvTotalValue.text = courseData.coursePrice + "KWD"
-        binding.coachName.text = courseData.coachDetail.name
-        MyUtils.loadImage(
-            binding.coachProfile,
-            MyConstant.IMAGE_BASE_URL + courseData.coachDetail.profilePhotoPath
-        )
-        MyUtils.loadBackgroundImage(
-            binding.backgroundBg,
-            MyConstant.IMAGE_BASE_URL + courseData.courseImage
-        )
-        binding.tvDuration.text = courseData.duration + " mins"
+    private fun getMealDetails(meal_id: String?) {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            authViewModel.mealDetailApiCall(meal_id!!)
+            authViewModel.mealDetailResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.mealDetailResponse.removeObservers(this)
+                        if (authViewModel.mealDetailResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                if (response.status == MyConstant.success) {
+//                                    sharedPreferences.saveCourseId(response.data.courseId.toString())
+                                    binding.relMealPlan.visibility = View.VISIBLE
+                                    binding.rlDeliveryFee.visibility = View.VISIBLE
+                                    binding.cardWorkout.visibility = View.GONE
+
+                                    binding.tvMealPlan.text = response.data.data.name
+                                    binding.mealPrice.text = "$"+response.data.data.price
+                                    binding.mealCal.text = response.data.data.avgCalPerDay + " "
+                                    binding.mealCount.text = response.data.data.mealCount.toString() + " "
+                                    binding.mealSnack.text = response.data.data.snack_count.toString() + " "
+                                    binding.tvSubtotalValue.text = "$"+response.data.data.price
+                                    binding.tvTotalValue.text = "$"+response.data.data.price
+                                    binding.coachName.text = response.data.data.name
+
+                                    product_id=meal_id
+                                    product_name=response.data.data.name.toString()
+                                    product_price=response.data.data.price.toString()
+                                    product_count=response.data.data.duration.toString()
+                                    product_updated="29-02-2024"
+
+
+
+                                    MyUtils.loadImage(
+                                        binding.coachProfile,
+                                        MyConstant.IMAGE_BASE_URL + response.data.data.meal_image
+                                    )
+                                    MyUtils.loadBackgroundImage(
+                                        binding.backgroundBg,
+                                        MyConstant.IMAGE_BASE_URL + response.data.data.meal_image
+                                    )
+                                    // binding.tvDuration.text = courseData.duration + " mins"
+                                                              }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.mealDetailResponse.removeObservers(this)
+                        if (authViewModel.mealDetailResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
     }
 
     private fun buttonClicks() {
@@ -217,11 +275,9 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
            // showPaymentMethodDialog()
         }
         binding.btnCheckout.setOnClickListener {
-            if (strValue.equals("BatchMeal")) {
+            showPaymentMethodDialog()
 
-            } else {
-                validation()
-            }
+
 
 
         }
@@ -247,59 +303,9 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     private fun validation() {
         var sub_total = binding.tvSubtotalValue.text.trim().toString()
         var total = binding.tvTotalValue.text.trim().toString()
-        MyConstant.jsonObject.addProperty("course_id", sharedPreferences.myCourseId)
-        MyConstant.jsonObject.addProperty("subtotal", 50)
-//        MyConstant.jsonObject.addProperty("subtotal", sub_total.toDouble())
-        MyConstant.jsonObject.addProperty("discount", 0)
-        MyConstant.jsonObject.addProperty("total", 50)
-        MyConstant.jsonObject.addProperty("payment_type", "master card")
-        MyConstant.jsonObject.addProperty("transaction_id", 28)
-        MyConstant.jsonObject.addProperty("payment_status", "completed")
-        courseOrderCreate(MyConstant.jsonObject)
+
     }
 
-    private fun courseOrderCreate(jsonObject: JsonObject) {
-        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
-            showLoader()
-            authViewModel.courseOrderCreateApiCall("Bearer " + sharedPreferences.token, jsonObject)
-            authViewModel.courseOrderCreateResponse.observe(this) {
-                when (it) {
-                    is Resource.Success -> {
-                        hideLoader()
-                        authViewModel.courseOrderCreateResponse.removeObservers(this)
-                        if (authViewModel.courseOrderCreateResponse.hasObservers()) return@observe
-                        lifecycleScope.launch {
-                            it.let {
-                                val response = it.value
-                                if (response.status == status) {
-                                    showToast(response.message)
-                                    startActivity(
-                                        Intent(
-                                            this@CheckOutActivity,
-                                            OrderCompleteActivity::class.java
-                                        ).putExtra("message", response.message)
-                                    )
-                                }
-                            }
-                        }
-                    }
-
-                    is Resource.Loading -> {
-                        hideLoader()
-                    }
-
-                    is Resource.Failure -> {
-                        authViewModel.courseOrderCreateResponse.removeObservers(this)
-                        if (authViewModel.courseOrderCreateResponse.hasObservers()) return@observe
-                        hideLoader()
-                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
-                    }
-                }
-            }
-        } else {
-            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
-        }
-    }
 
     private fun showDeliveryTime(type: String) {
         dialogBinding = BottomSheetBinding.inflate(layoutInflater)
@@ -460,7 +466,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         binding.pbLoading.visibility = View.VISIBLE
 
 //        val invoiceAmount = etAmount.text.toString().toDouble()
-        val request = MFInitiatePaymentRequest(meal_price!!.toDouble(), MFCurrencyISO.KUWAIT_KWD)
+        val request = MFInitiatePaymentRequest(product_price!!.toDouble(), MFCurrencyISO.KUWAIT_KWD)
 
         MFSDK.initiatePayment(
             request,
@@ -527,7 +533,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     private fun executePayment(paymentMethod: Int) {
 
 //        val invoiceAmount = etAmount.text.toString().toDouble()
-        val request = MFExecutePaymentRequest(paymentMethod, meal_price!!.toDouble())
+        val request = MFExecutePaymentRequest(paymentMethod, product_price!!.toDouble())
 
 //        request.recurringModel = RecurringModel(MFRecurringType.DAILY, 5)
 
@@ -542,12 +548,27 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
             when (result) {
                 is MFResult.Success -> {
                     Log.d("CheckoutFatoora", "Response: " + Gson().toJson(result.response))
-                    mealSubscribe(result.response.invoiceTransactions!!.get(0).paymentGateway,
-                        result.response.invoiceTransactions!!.get(0).transactionId,
-                        result.response.invoiceTransactions!!.get(0).transactionStatus,
-                        "29-02-2024","1")
+                    if (screen.equals("meal_batch")) {
+                        mealSubscribe(result.response.invoiceTransactions!!.get(0).paymentGateway,
+                            result.response.invoiceTransactions!!.get(0).transactionId,
+                            result.response.invoiceTransactions!!.get(0).transactionStatus,
+                            product_updated.toString(),"5")
 
-                    showAlertDialog("Payment done successfully")
+                        showAlertDialog("Payment done successfully")
+                    } else if (screen.equals("workout_batch")){
+                        courseOrderCreate(result.response.invoiceTransactions!!.get(0).paymentGateway,
+                            result.response.invoiceTransactions!!.get(0).transactionId,
+                            result.response.invoiceTransactions!!.get(0).transactionStatus,
+                            product_updated.toString(),"5")
+
+                        showAlertDialog("Payment done successfully")
+
+                    }else{
+
+                    }
+
+
+
                 }
                 is MFResult.Fail -> {
                     Log.d("CheckoutFatoora", "Fail: " + Gson().toJson(result.error))
@@ -619,16 +640,70 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
 
         dialog.show()
     }
+    private fun courseOrderCreate(paymentType: String,transactionId: String,paymentStatus: String,startDate: String,duration: String) {
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("course_id", product_id)
+        jsonObject.addProperty("subtotal", product_price)
+//        MyConstant.jsonObject.addProperty("subtotal", sub_total.toDouble())
+        jsonObject.addProperty("discount", 0)
+        jsonObject.addProperty("total", product_price)
+        jsonObject.addProperty("payment_type", paymentType)
+        jsonObject.addProperty("transaction_id", transactionId)
+        jsonObject.addProperty("payment_status", paymentStatus)
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            authViewModel.courseOrderCreateApiCall("Bearer " + sessionManager.getUserToken(), jsonObject)
+            authViewModel.courseOrderCreateResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.courseOrderCreateResponse.removeObservers(this)
+                        if (authViewModel.courseOrderCreateResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                if (response.status == status) {
+                                    showToast(response.message)
+                                    startActivity(
+                                        Intent(this@CheckOutActivity, OrderCompleteActivity::class.java
+                                        ).putExtra("message", response.message)
+                                            .putExtra("meal_name", product_name)
+                                            .putExtra("meal_price", product_price)
+                                            .putExtra("meal_cal", "5")
+                                            .putExtra("meal_img", product_img)
+                                            .putExtra("meal_count", "")
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.courseOrderCreateResponse.removeObservers(this)
+                        if (authViewModel.courseOrderCreateResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
 
     private fun mealSubscribe(paymentType: String,transactionId: String,paymentStatus: String,startDate: String,duration: String) {
         if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
             showLoader()
 
             val mealSubscribedRequest = MealSubscribedRequest()
-            mealSubscribedRequest.userId=sharedPreferences.userId
-            mealSubscribedRequest.mealId=meal_id
-            mealSubscribedRequest.subtotal=meal_price
-            mealSubscribedRequest.total=meal_price
+            mealSubscribedRequest.userId=sessionManager.getUserId()
+            mealSubscribedRequest.mealId=product_id
+            mealSubscribedRequest.subtotal=product_price
+            mealSubscribedRequest.total=product_price
             mealSubscribedRequest.discount="0"
             mealSubscribedRequest.tax="0"
             mealSubscribedRequest.paymentType=paymentType
@@ -656,11 +731,11 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
                                             this@CheckOutActivity,
                                             OrderCompleteActivity::class.java
                                         ).putExtra("message", response.message)
-                                            .putExtra("meal_name", meal_name)
-                                            .putExtra("meal_price", meal_price)
-                                            .putExtra("meal_cal", meal_cal)
-                                            .putExtra("meal_img", meal_img)
-                                            .putExtra("meal_count", meal_count)
+                                            .putExtra("meal_name", product_name)
+                                            .putExtra("meal_price", product_price)
+                                            .putExtra("meal_cal", product_cal)
+                                            .putExtra("meal_img", product_img)
+                                            .putExtra("meal_count", "")
 
                                     )
 

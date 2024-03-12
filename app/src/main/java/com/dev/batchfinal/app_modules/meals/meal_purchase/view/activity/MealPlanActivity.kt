@@ -1,5 +1,6 @@
 package com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity
 
+
 import AllTypeOfMealAdapter
 import android.text.SpannableString
 import android.text.format.DateFormat
@@ -29,8 +30,6 @@ import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
-
-
 import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -39,7 +38,6 @@ import org.json.JSONObject
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
 class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
@@ -68,6 +66,8 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
     var category_map:String=""
     var  suspend_day:String=""
     var  suspend_month:String=""
+    val jsonObject_update_dish_categoryId = JsonObject()
+    var map : HashMap<String, String> = HashMap<String, String> ()
 
     override fun getViewModel(): BaseViewModel {
         return viewModel
@@ -201,6 +201,10 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
     }
     private fun getCategoryDish(categoryId:String){
         category_dish.clear()
+        val jsonObject_update_dish_day = JsonObject()
+        val jsonObject_update_dish = JsonObject()
+
+
         try {
             var item = category_list!!.optJSONObject(categoryId)
             if (item!=null){
@@ -227,11 +231,14 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
                         "0"
                     )
                     category_dish.add(data)
-                    val jsonObject_update_dish_categoryId = JsonObject()
-                    jsonObject_update_dish_categoryId.addProperty(suspend_day,sharedPreferences.userId)
+                  /*  jsonObject_update_dish_categoryId.add(categoryId,jsonObject_update_dish)
+                    jsonObject_update_dish.addProperty("dish_id",dishObject.getString("dish_id").toInt())
+                    jsonObject_update_dish.addProperty("month",suspend_month)
+                    jsonObject_update_dish.addProperty("day",suspend_day)
+                    jsonObject_update_dish.addProperty("category_id",categoryId)
+                    jsonObject_update_dish.addProperty("selected",data.selected)*/
 
-                    val jsonObject_update_dish_day = JsonObject()
-                    jsonObject_update_dish_day.addProperty(suspend_day,sharedPreferences.userId)
+
 
 
                     setUpAllMealsAdapter(category_dish)
@@ -328,6 +335,15 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
                     }
 
                     override fun onMealDishSelectItemPosition(item: List<MealDishData>, position: Int) {
+                        val jsonObject_update_dish = JsonObject()
+
+                       jsonObject_update_dish_categoryId.add(item[position].categoryId.toString(),jsonObject_update_dish)
+                        jsonObject_update_dish.addProperty("dish_id",item[position].dishId.toString())
+                        jsonObject_update_dish.addProperty("month",suspend_month)
+                        jsonObject_update_dish.addProperty("day",suspend_day)
+                        jsonObject_update_dish.addProperty("category_id",item[position].categoryId.toString())
+                        jsonObject_update_dish.addProperty("selected","1")
+                        map.put(item[position].categoryId.toString(), jsonObject_update_dish.toString())
 
                     }
                 })
@@ -349,13 +365,33 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
 
     private fun buttonClicks() {
         binding.btnNext.setOnClickListener {
+            val jsonObject_update_dish_day = JsonObject()
+
+
+            var map_days : HashMap<String, Any> = HashMap<String, Any> ()
+            map_days.put(suspend_day,map)
+
+           jsonObject_update_dish_day.add(suspend_day,jsonObject_update_dish_categoryId)
+
+            var map_update : HashMap<String, Any> = HashMap<String, Any> ()
+            map_update.put("user_id",sessionManager.getUserId())
+            map_update.put("subscribed_id",subscribe_id.toString())
+            map_update.put("meal_id",meal_id.toString())
+            map_update.put("day_dishes",map_days)
+            map_update.put("day",suspend_day)
+            map_update.put("month",suspend_month)
+
+
+
+
             val jsonObject = JsonObject()
             jsonObject.addProperty("user_id",sessionManager.getUserId())
             jsonObject.addProperty("subscribed_id",subscribe_id)
             jsonObject.addProperty("meal_id",meal_id)
-            jsonObject.addProperty("day_dishes","")
-            jsonObject.addProperty("day","")
-            jsonObject.addProperty("month","")
+            jsonObject.add("day_dishes",jsonObject_update_dish_day)
+            jsonObject.addProperty("day",suspend_day)
+            jsonObject.addProperty("month",suspend_month)
+            checkMealSubscriptionUpdate(jsonObject)
 
 
             // startActivity(Intent(this@MealPlanActivity, CurrentMealDetailActivity::class.java).putExtra("next", "Next"))
@@ -480,10 +516,10 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
     }
 
 
-    private fun checkMealSubscriptionUpdate() {
+    private fun checkMealSubscriptionUpdate(jsonObject: JsonObject) {
         if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
             showLoader()
-            val jsonObject = JsonObject()
+            //val jsonObject = JsonObject()
 
             authViewModel.mealSubscribeUpdateApiCall(jsonObject)
             authViewModel.mealPlanSubscriptionUpdateResponse.observe(this) {

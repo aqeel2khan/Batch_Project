@@ -289,21 +289,25 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
                             it.let {
                                 val response = it.value
                                 if (response.status == MyConstant.success) {
-                                    if (response.data.internaldata.subscribed=="0"){
+                                    if (sessionManager.isloggin()){
+                                        if (response.data.internaldata.subscribed=="0"){
+                                            startActivity(
+                                                Intent(this@MealDetailsActivity, CheckOutActivity::class.java)
+                                                    .putExtra("screen", "meal_batch")
+                                                    .putExtra("product_id", meal_id)
+                                            )
+                                        }else{
+                                            showCheckSubscriptionDialog()
+                                        }
+                                    } else {
                                         startActivity(
-                                            Intent(this@MealDetailsActivity, CheckOutActivity::class.java)
-                                                .putExtra("meal_id", meal_id)
-                                                .putExtra("screen", "BatchMeal")
-                                                .putExtra("meal_name", meal_name)
-                                                .putExtra("meal_price", meal_price)
-                                                .putExtra("meal_cal", meal_cal)
-                                                .putExtra("meal_img", meal_img)
-                                                .putExtra("meal_count", meal_count)
-                                                .putExtra("meal_snack", meal_snack)
+                                            Intent(this@MealDetailsActivity, LoginActivity::class.java)
+                                                .putExtra("screen", "meal_batch")
+                                                .putExtra("product_id", meal_id)
                                         )
-                                    }else{
-                                        showLogOutDialog()
                                     }
+
+
                                 }
                             }
                         }
@@ -326,7 +330,7 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
         }
     }
 
-    private fun showLogOutDialog() {
+    private fun showCheckSubscriptionDialog() {
         dialogBinding = AlreadyMealSubscribeDialogBinding.inflate(layoutInflater)
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(dialogBinding.root)

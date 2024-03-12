@@ -51,6 +51,7 @@ object MyConstant {
 
     const val MEAL_SUBSCRIBE_CHECK = "subscription/check-subscribed"
     const val MEAL_SUBSCRIBE_UPDATE = "subscription/single-update"
+    const val COURSE_SUBSCRIBE_CHECK = "course/checkSubscribed"
 
 
 //    const val DOLLER_SIGN = "$"

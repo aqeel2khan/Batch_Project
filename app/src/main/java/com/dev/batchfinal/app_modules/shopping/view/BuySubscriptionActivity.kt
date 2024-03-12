@@ -32,6 +32,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.app_session.UserSessionManager
+import com.dev.batchfinal.databinding.AlreadyMealSubscribeDialogBinding
+import com.google.gson.JsonObject
 
 @AndroidEntryPoint
 class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
@@ -39,6 +41,7 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
     private val authViewModel by viewModels<AuthViewModel>()
     var statusList = ArrayList<StatusModel>()
     var status_id: Int = 0
+    var course_id: String? = null
     var isStatusPending = false
     var planName: String? = null
     var grand_total: String? = null
@@ -47,6 +50,7 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
     val dataList: ArrayList<String> = ArrayList()
     val weekString = " Weeks "
     private lateinit var sessionManager: UserSessionManager
+    lateinit var dialogBinding: AlreadyMealSubscribeDialogBinding
 
     override fun getViewModel(): BaseViewModel {
         return viewModel
@@ -55,7 +59,7 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
     override fun initUi() {
         sessionManager = UserSessionManager(this@BuySubscriptionActivity)
         buttonClicks()
-//        course_id = intent.getStringExtra("course_id")
+        course_id = intent.getStringExtra("course_id")
         statusList = arrayListOf<StatusModel>(
             StatusModel(id = -1, status = "Select Plan Duration"),
             StatusModel(id = 0, status = "Weekly"),
@@ -134,19 +138,83 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
             if (binding.setPlanData.text.toString().isNullOrEmpty()){
                 showToast("Please select plan duration")
             }else{
-                if (sessionManager.isloggin()){
-
-                    startActivity(
-                        Intent(this@BuySubscriptionActivity, CheckOutActivity::class.java).putExtra("course_id", sharedPreferences.myCourseId)
-                    )
-                } else {
-                    startActivity(
-                        Intent(this@BuySubscriptionActivity, LoginActivity::class.java)
-                    )
-                }
+                checkMealSubscribeStatus(sessionManager.getUserId(),course_id!!)
             }
         }
     }
+
+    private fun checkMealSubscribeStatus(user_id:String,meal_id:String) {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            val jsonObject = JsonObject()
+            jsonObject.addProperty("user_id",user_id)
+            jsonObject.addProperty("course_id",meal_id)
+            authViewModel.courseSubscribeCheckApiCall(jsonObject)
+            authViewModel.courseSubscribeCheckResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.courseSubscribeCheckResponse.removeObservers(this)
+                        if (authViewModel.courseSubscribeCheckResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                if (response.status == MyConstant.success) {
+                                    if (sessionManager.isloggin()){
+                                        if (response.data.internaldata.subscribed=="0"){
+                                            startActivity(
+                                                Intent(this@BuySubscriptionActivity, CheckOutActivity::class.java)
+                                                    .putExtra("screen", "workout_batch")
+                                                    .putExtra("product_id", course_id)
+                                            )
+                                        }else{
+                                            showCheckSubscriptionDialog()
+                                        }
+                                    } else {
+                                        startActivity(
+                                            Intent(this@BuySubscriptionActivity, LoginActivity::class.java)
+                                                .putExtra("screen", "workout_batch")
+                                                .putExtra("product_id", course_id)
+                                        )
+                                    }
+
+
+                                }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.courseSubscribeCheckResponse.removeObservers(this)
+                        if (authViewModel.courseSubscribeCheckResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+    private fun showCheckSubscriptionDialog() {
+        dialogBinding = AlreadyMealSubscribeDialogBinding.inflate(layoutInflater)
+        val dialog = BottomSheetDialog(this)
+        dialog.setContentView(dialogBinding.root)
+        // dialogBinding.txtTitle.text = resources.getString(R.string.txt_personal_info)
+        dialogBinding.btnSave.setOnClickListener {
+            //code for save week price
+            dialog.dismiss()
+        }
+
+
+        dialog.show()
+    }
+
+
 
     private fun showBottomSheetDialog() {
         val view = layoutInflater.inflate(R.layout.bottom_sheet, null)
