@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:orientation="vertical"
-    tools:context="com.dev.batchfinal.app_modules.activity.QuestionActivity">
+    tools:context="com.dev.batchfinal.app_modules.question.view.QuestionActivity">
 
     <RelativeLayout
         android:id="@+id/header_title"
@@ -168,8 +168,10 @@
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/ll_fitness"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_above="@id/btn_next1"
                 android:orientation="vertical">
                 <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                     android:layout_width="match_parent"
@@ -179,65 +181,11 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="@dimen/_15ssp"/>
-                <!--F5F6F4-->
-                <com.dev.batchfinal.app_custom.MyCustomTextView
-                    android:id="@+id/btn_loss_Weight"
+                <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:background="@drawable/rectangle_button_gry"
-                    android:fontFamily="@font/outfit_regular"
-                    android:outlineSpotShadowColor="#516634"
-                    android:text="@string/txt_loss"
-                    android:textAllCaps="false"
-                    android:textAlignment="center"
-                    android:padding="@dimen/_10sdp"
-                    android:elevation="@dimen/_2sdp"
-                    android:textColor="@color/welcome_txt"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold"
-                    tools:ignore="UnusedAttribute" />
-
-                <com.dev.batchfinal.app_custom.MyCustomTextView
-                    android:id="@+id/btn_gain_weight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:background="@drawable/rectangle_button_gry"
-                    android:fontFamily="@font/outfit_regular"
-                    android:outlineSpotShadowColor="#516634"
-                    android:text="@string/txt_gain"
-                    android:textAllCaps="false"
-                    android:textAlignment="center"
-                    android:elevation="@dimen/_2sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:textColor="@color/welcome_txt"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold"
-                    tools:ignore="UnusedAttribute" />
-
-                <com.dev.batchfinal.app_custom.MyCustomTextView
-                    android:id="@+id/btn_maintain"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_25sdp"
-                    android:background="@drawable/rectangle_button_gry"
-                    android:fontFamily="@font/outfit_regular"
-                    android:outlineSpotShadowColor="#516634"
-                    android:text="@string/txt_maintain"
-                    android:padding="@dimen/_10ssp"
-                    android:elevation="@dimen/_2sdp"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textColor="@color/welcome_txt"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold"
-                    tools:ignore="UnusedAttribute" />
+                    android:id="@+id/recycler_meal_goals"
+                    android:layout_marginTop="@dimen/_20sdp"/>
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -256,8 +204,6 @@
                 android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 tools:ignore="UnusedAttribute" />
-
-
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/ll_your_age"
@@ -323,13 +269,39 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/height_picker"
                 android:layout_below="@id/header"
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_above="@id/ll_tab_layout"/>
-
+            <com.dev.batchfinal.app_utils.RulerView
+                android:id="@+id/height_ruler"
+                android:layout_width="100dp"
+                android:layout_height="500dp"
+                android:layout_centerInParent="true"
+                android:layout_below="@id/header"
+                android:layout_above="@id/ll_tab_layout"
+                app:rulerDivideByFiveHeight="40dp"
+                app:rulerDivideByFiveWidth="2dp"
+                app:rulerDivideByTenHeight="50dp"
+                app:rulerDivideByTenWidth="2dp"
+                app:rulerIntervalDistance="5dp"
+                app:rulerIntervalValue="0.1"
+                app:rulerHighlightColor="#D81111"
+                app:rulerIsDivideByFive="true"
+                app:rulerIsDivideByTen="true"
+                app:rulerMaxValue="150"
+                app:rulerMinValue="40"
+                app:rulerOrientation="vertical"
+                app:rulerRetainLength="1"
+                app:rulerColor="@color/welcome_txt_gry"
+                app:rulerLineHeight="20dp"
+                app:rulerLineWidth="1dp"
+                app:rulerTextBaseLineDistance="3dp"
+                app:rulerTextColor="@android:color/black"
+                app:rulerTextSize="13sp" />
             <LinearLayout
                 android:id="@+id/ll_tab_layout"
                 android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_above="@id/btn_next3"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
@@ -345,14 +317,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="@dimen/_5sdp"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_4sdp"
                     android:background="@drawable/demo"
                     android:gravity="center">
 
                     <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                         android:id="@+id/tv_batch"
                         android:layout_width="@dimen/_60sdp"
-                        android:layout_height="@dimen/_25sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:text="@string/txt_cm"
                         android:padding="@dimen/_5sdp"
                         android:textAlignment="center"
@@ -364,7 +336,7 @@
                 <LinearLayout
                     android:id="@+id/ll_motivator"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/_3ssp"
                     android:layout_weight="1"
                     android:gravity="center">
@@ -420,6 +392,7 @@
                 android:textSize="@dimen/_15ssp"/>
 
             <ImageView
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/height_picker"
@@ -428,9 +401,89 @@
                 android:layout_above="@id/ll_kg_lbs"/>
 
             <LinearLayout
-                android:id="@+id/ll_kg_lbs"
-                android:layout_width="wrap_content"
+                android:layout_below="@id/header_weight"
+                android:id="@+id/ll_current_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Current Weight"
+                android:textColor="@color/welcome_txt_gry"
+                android:id="@+id/current_weight"
+                android:textSize="@dimen/_11ssp"/>
+
+            <com.dev.batchfinal.app_utils.RulerView
+                android:id="@+id/current_ruler"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                app:rulerDivideByFiveHeight="40dp"
+                app:rulerDivideByFiveWidth="2dp"
+                app:rulerDivideByTenHeight="50dp"
+                app:rulerDivideByTenWidth="2dp"
+                app:rulerHighlightColor="#D81111"
+                app:rulerIntervalDistance="10dp"
+                app:rulerIntervalValue="0.1"
+                app:rulerIsDivideByFive="true"
+                app:rulerIsDivideByTen="true"
+                app:rulerMaxValue="30"
+                app:rulerMinValue="0"
+                app:rulerOrientation="horizontal"
+                app:rulerRetainLength="1"
+                app:rulerColor="#000"
+                app:rulerLineHeight="20dp"
+                app:rulerLineWidth="2dp"
+                app:rulerTextBaseLineDistance="5dp"
+                app:rulerTextColor="@android:color/black"
+                app:rulerTextSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@id/ll_current_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Target Weight"
+                    android:textColor="@color/welcome_txt_gry"
+                    android:id="@+id/target_weight"
+                    android:textSize="@dimen/_11ssp"/>
+                <com.dev.batchfinal.app_utils.RulerView
+                    android:id="@+id/target_ruler"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    app:rulerDivideByFiveHeight="40dp"
+                    app:rulerDivideByFiveWidth="2dp"
+                    app:rulerDivideByTenHeight="50dp"
+                    app:rulerDivideByTenWidth="2dp"
+                    app:rulerHighlightColor="#D81111"
+                    app:rulerIntervalDistance="10dp"
+                    app:rulerIntervalValue="0.1"
+                    app:rulerIsDivideByFive="true"
+                    app:rulerIsDivideByTen="true"
+                    app:rulerMaxValue="30"
+                    app:rulerMinValue="0"
+                    app:rulerOrientation="horizontal"
+                    app:rulerRetainLength="1"
+                    app:rulerColor="#000"
+                    app:rulerLineHeight="20dp"
+                    app:rulerLineWidth="2dp"
+                    app:rulerTextBaseLineDistance="5dp"
+                    app:rulerTextColor="@android:color/black"
+                    app:rulerTextSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_kg_lbs"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_above="@id/btn_next4"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
@@ -451,8 +504,8 @@
 
                     <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                         android:id="@+id/tv_kg"
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:text="@string/txt_cm"
                         android:padding="@dimen/_5sdp"
                         android:textAlignment="center"
@@ -471,8 +524,8 @@
 
                     <com.dev.batchfinal.app_custom.MyCustomTextView
                         android:id="@+id/tv_lbs"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:gravity="center"
                         android:textAlignment="center"
                         android:text="@string/txt_feet"
@@ -522,7 +575,13 @@
                     android:gravity="center"
                     android:textSize="@dimen/_15ssp"/>
                 <!--F5F6F4-->
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:id="@+id/recycler_how_are_active"/>
+               <!-- <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/btn_low_mobility"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -597,7 +656,7 @@
                     android:textColor="@color/welcome_txt"
                     android:textSize="@dimen/_12ssp"
                     android:textStyle="bold"
-                    tools:ignore="UnusedAttribute" />
+                    tools:ignore="UnusedAttribute" />-->
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -627,6 +686,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -639,8 +699,14 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="@dimen/_15ssp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/choose_diet"
+                    android:layout_marginTop="@dimen/_20sdp"/>
                 <!--F5F6F4-->
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+              <!--  <com.dev.batchfinal.app_custom.MyCustomTextView
                     android:id="@+id/txt_vegan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -715,7 +781,7 @@
                     android:textColor="@color/welcome_txt"
                     android:textSize="@dimen/_12ssp"
                     android:textStyle="bold"
-                    tools:ignore="UnusedAttribute" />
+                    tools:ignore="UnusedAttribute" />-->
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -736,7 +802,6 @@
                 tools:ignore="UnusedAttribute" />
 
         </RelativeLayout>
-
         <RelativeLayout
             android:visibility="gone"
             android:id="@+id/txt_allergic"
@@ -763,7 +828,11 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_below="@id/title"
                 android:orientation="vertical">
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/recycler_meal_allergies"/>
+              <!--  <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp">
@@ -1075,7 +1144,7 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
-                </LinearLayout>
+                </LinearLayout>-->
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton

@@ -242,6 +242,7 @@
             tools:ignore="UnusedAttribute" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:visibility="gone"
             android:id="@+id/btn_talk"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"

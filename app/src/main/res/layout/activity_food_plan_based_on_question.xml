@@ -93,6 +93,7 @@
             android:layout_marginTop="@dimen/_8sdp"/>
 
         <androidx.cardview.widget.CardView
+            android:visibility="gone"
             android:id="@+id/you_meal_batch"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_150sdp"
@@ -119,6 +120,7 @@
             </LinearLayout>
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">

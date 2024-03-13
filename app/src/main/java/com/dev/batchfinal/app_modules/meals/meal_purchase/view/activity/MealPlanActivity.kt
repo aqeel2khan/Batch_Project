@@ -2,6 +2,7 @@ package com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity
 
 
 import AllTypeOfMealAdapter
+import android.content.Intent
 import android.text.SpannableString
 import android.text.format.DateFormat
 import android.text.style.UnderlineSpan
@@ -362,10 +363,10 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
 //                })
         }
     }
-
+    val jsonObject_update_dish_day = JsonObject()
     private fun buttonClicks() {
         binding.btnNext.setOnClickListener {
-            val jsonObject_update_dish_day = JsonObject()
+
 
 
             var map_days : HashMap<String, Any> = HashMap<String, Any> ()
@@ -521,7 +522,7 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
             showLoader()
             //val jsonObject = JsonObject()
 
-            authViewModel.mealSubscribeUpdateApiCall(jsonObject)
+            authViewModel.mealSubscribeUpdateApiCall(sessionManager.getUserId(),subscribe_id.toString(),meal_id.toString(),jsonObject_update_dish_day.toString(),suspend_day,suspend_month)
             authViewModel.mealPlanSubscriptionUpdateResponse.observe(this) {
                 when (it) {
                     is Resource.Success -> {
@@ -532,7 +533,11 @@ class MealPlanActivity : BaseActivity<ActivityMealPlanBinding>() {
                             it.let {
                                 val response = it.value
                                 if (response.status == MyConstant.success) {
-
+                                    startActivity(
+                                        Intent(this@MealPlanActivity, CurrentMealDetailActivity::class.java)
+                                        .putExtra("meal_id",meal_id)
+                                        .putExtra("subscribe_id",subscribe_id)
+                                        .putExtra("goal_id",goal_id))
                                 }
                             }
                         }
