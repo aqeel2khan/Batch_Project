@@ -237,11 +237,25 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         binding.recyclerMealSubscribe.adapter = MealSubscribeListAdapter(context, internalDatum, object :
             MealSubscribeListPosition<Int> {
             override fun onMealSubscribeListItemPosition(item: MealSubscribeListResponse.InternalDatum, position: Int) {
-                requireContext().startActivity(Intent(requireContext(), CurrentMealDetailActivity::class.java)
-                    .putExtra("meal_id",item.id.toString())
-                    .putExtra("subscribe_id",item.subscribedId.toString())
-                    .putExtra("goal_id",item.goalId.toString())
-                )
+              var mIntent= Intent(requireContext(), CurrentMealDetailActivity::class.java)
+
+                if(item!=null && item.id!=null){
+                    mIntent .putExtra("meal_id",item.id.toString())
+                }else{
+                    mIntent .putExtra("meal_id","")
+                }
+                if(item!=null && item.subscribedId!=null){
+                    mIntent .putExtra("subscribe_id",item.subscribedId.toString())
+                }else{
+                    mIntent .putExtra("subscribe_id","")
+                }
+                if(item!=null && item.goalId!=null){
+                    mIntent .putExtra("goal_id",item.goalId.toString())
+                }else{
+                    mIntent .putExtra("goal_id","")
+                }
+
+                requireContext().startActivity(mIntent)
 
               /*  findNavController().navigate(
                     R.id.action_scanFragment_to_mealBatchFragment,
@@ -260,11 +274,17 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
 //                courseDetailData as Serializable
 //                activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
                 val gson = Gson()
-                requireContext().startActivity(Intent(requireContext(), WeightLossActivity::class.java)
-                    .putExtra("order_list", gson.toJson(item))
+
+                var mIntent= Intent(requireContext(), WeightLossActivity::class.java)
+                if(item!=null){
+                    mIntent .putExtra("order_list", gson.toJson(item))
+                }else{
+                    mIntent .putExtra("order_list", "")
+                }
 
 
-                )
+                requireContext().startActivity(mIntent)
+
             }
         })
     }
