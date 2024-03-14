@@ -20,10 +20,13 @@ import java.util.*
 
 object MyCustom {
 
-    fun parseErrorBody(context: Context, error: String?, stringValue: String):String {
+    fun parseErrorBody( jsonString: String?, stringValue: String):String {
+        var errorValueMsg="Some error occurred"
+
         try {
-            val jsonObject = JSONObject(error)
-            val error = jsonObject.optJSONObject("error")
+
+            val jsonObject: JSONObject = JSONObject(jsonString)
+            val error = jsonObject.optJSONObject("errors")
             val msg = jsonObject.optString("message")
             when (stringValue) {
                 "emp_list" -> {}
@@ -37,20 +40,22 @@ object MyCustom {
                 }
             }
 
-            Log.d("loginMsg", msg)
+            Log.d("ERROR_MSG", msg)
             val iterator = error.keys()
             while (iterator.hasNext()) {
                 val key = iterator.next().toString()
                 val errorValue = error.optString(key)
-                val errorValue_new = errorValue.replace("[", "").replace("]", "");
+                errorValueMsg = errorValue.replace("[", "").replace("]", "");
                 //  context.showToast(errorValue_new)
-                return errorValue_new
-                Log.d("loginMsg++++", errorValue_new)
+               // return errorValue_new
+                Log.d("ERROR VALUE", errorValueMsg)
             }
+
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        return  "Some error occurred"
+        return errorValueMsg
+
     }
 
 

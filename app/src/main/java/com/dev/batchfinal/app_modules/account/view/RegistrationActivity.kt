@@ -152,8 +152,12 @@ class RegistrationActivity : AppBaseActivity<ActivityRegistrationBinding>() {
             binding.password.text.toString().isEmpty() -> {
                 showAlertInfo("Please enter Password",this)
             }
+            binding.password.text.toString().length<8 -> {
+                showAlertInfo("Password length must be 8(eight)",this)
+            }
             !binding.agreeCheckBox.isChecked -> {
-                showToast("Please Agree Terms & Conditions")
+                showAlertInfo("Please Agree Terms & Conditions",this)
+
             }
             else -> {
 

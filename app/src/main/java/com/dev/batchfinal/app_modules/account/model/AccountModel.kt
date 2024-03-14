@@ -100,6 +100,7 @@ data class SignUpModel
     @SerializedName("data"    ) var data    : SignUpData?    = SignUpData(),
     @SerializedName("token"   ) var token   : String?  = null
 
+
 )
 data class SignUpData
     (
@@ -111,6 +112,21 @@ data class SignUpData
     @SerializedName("gender"     ) var gender    : String? = null,
     @SerializedName("created_at" ) var createdAt : String? = null,
     @SerializedName("updated_at" ) var updatedAt : String? = null
+
+)
+
+
+
+
+data class SignUpError
+    (
+    @SerializedName("status"  ) var status  : Boolean? = null,
+    @SerializedName("message" ) var message : String?  = null,
+    @SerializedName("errors"  ) var errors  : Errors?  = Errors()
+            )
+data class Errors (
+
+    @SerializedName("email" ) var email : ArrayList<String> = arrayListOf()
 
 )
 

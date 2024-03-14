@@ -264,4 +264,10 @@ Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagitt
     <string name="pay_now">Pay Now</string>
     <string name="english">English</string>
     <string name="already_subscription">You have already a subscription on this Meal</string>
+
+    <string-array name="optionGender">
+        <item>Select Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 </resources>

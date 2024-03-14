@@ -39,6 +39,8 @@
                 android:textColor="@color/welcome_txt"
                 android:textSize="@dimen/_12ssp" />
         </RelativeLayout>
+        <!--            android:visibility="gone"
+-->
         <LinearLayout
             android:id="@+id/ll_persona_data"
             android:layout_width="match_parent"
@@ -159,9 +161,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:background="@null"
-                        android:visibility="gone" />
+                        android:entries="@array/optionGender"
+                        />
 
-                    <TextView
+                    <Spinner
                         android:id="@+id/text_gender"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -170,6 +173,7 @@
                         android:layout_weight="1"
                         android:maxLines="1"
                         android:text="Gender"
+                        android:visibility="gone"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
                 </LinearLayout>

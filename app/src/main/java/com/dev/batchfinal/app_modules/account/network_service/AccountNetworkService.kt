@@ -32,14 +32,14 @@ interface AccountNetworkService {
     fun requestUpdateProfile(@HeaderMap headersMap: Map<String, String>, @Body request: RequestBody): retrofit2.Call<UpdateProfileModel>
 
 
-    @POST("/account/address")
+    @POST("account/address")
     fun requestAddDeliveryAddress(@HeaderMap headersMap: Map<String, String>, @Body request: RequestBody): retrofit2.Call<DeliveryAddressModel>
 
-    @GET("/account/address")
+    @GET("account/address")
     fun requestGetDeliveryAddress(@HeaderMap headersMap: Map<String, String>,): retrofit2.Call<GetDelivaryAddressModel>
 
-    @POST("/auth/signup")
-    fun requestSignUp(@Body request: RequestBody): retrofit2.Call<SignUpModel>
+    @POST("auth/signup")
+    fun requestSignUp(@Body params: Map<String, String>): retrofit2.Call<SignUpModel>
 
     companion object {
         var logging = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

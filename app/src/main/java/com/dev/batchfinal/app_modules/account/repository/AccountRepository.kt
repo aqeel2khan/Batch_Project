@@ -13,7 +13,7 @@ class AccountRepository constructor(private val retrofitService: AccountNetworkS
 
     fun requestGetDelivaryAddress(headersMap: HashMap<String, String>)
             = retrofitService.requestGetDeliveryAddress(headersMap)
-    fun requestSignUp(requestBody: RequestBody) = retrofitService.requestSignUp(requestBody)
+    fun requestSignUp(requestMap: HashMap<String, String>) = retrofitService.requestSignUp(requestMap)
 
 
 }

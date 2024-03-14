@@ -178,11 +178,32 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
 
                 }
                 if (getSetting("GENDER", "")!!.isNotEmpty())
-                    profileEditBinding.textGender.text = getSetting("GENDER", "").toString()
+                   // profileEditBinding.textGender.text = getSetting("GENDER", "").toString()
+                if(getSetting("GENDER", "").toString()=="Male")
+                profileEditBinding.spinnerGender.setSelection(1)
+                else if(getSetting("GENDER", "").toString()=="Female")
+                {
+                    profileEditBinding.spinnerGender.setSelection(2)
+
+                }
+
                 else if (sessionManager.getGender().isNotEmpty()) {
-                    profileEditBinding.textGender.text = sessionManager.getGender()
+                   // profileEditBinding.textGender.text = sessionManager.getGender()
+                    if(sessionManager.getGender()=="Male")
+                        profileEditBinding.spinnerGender.setSelection(1)
+                    else if(sessionManager.getGender()=="Female")
+                    {
+                        profileEditBinding.spinnerGender.setSelection(2)
+
+                    }else if(sessionManager.getGender()=="null")
+                    {
+                        profileEditBinding.spinnerGender.setSelection(0)
+
+                    }
                 } else {
-                    profileEditBinding.textGender.text = "Gender"
+                   // profileEditBinding.textGender.text = "Gender"
+                    profileEditBinding.spinnerGender.setSelection(0)
+
                 }
 
                 profileEditBinding.editDob.setOnClickListener {
@@ -206,13 +227,18 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                         {
                             showAlertInfo("Please enter correct mobile number.",this@ProfileActivity)
 
+                        }else if(profileEditBinding.spinnerGender.selectedItem.toString()=="Select Gender")
+                        {
+                            showAlertInfo("Please select gender.",this@ProfileActivity)
+
                         }else
                         {
+                            //                                profileEditBinding.textGender.text.toString()
                             requestProfileUpdate(
                                 profileEditBinding.editPhone.text.toString(),
                                 profileEditBinding.editFullName.text.toString(),
                                 profileEditBinding.editDob.text.toString(),
-                                profileEditBinding.textGender.text.toString()
+                                profileEditBinding.spinnerGender.selectedItem.toString()
                             )
                             dialog.dismiss()
 
