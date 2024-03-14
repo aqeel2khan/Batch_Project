@@ -34,35 +34,44 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
     }
 
     override fun initUi() {
-        val gson = Gson()
-        val strObj = intent.getStringExtra("duration_work_position")
-        workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
+        try {
+            val gson = Gson()
+            val strObj = intent.getStringExtra("duration_work_position")
+            workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
 
-        val strObj1 = intent.getStringExtra("course_data")
-        courseData = gson.fromJson(strObj1, OrderList::class.java)
+            val strObj1 = intent.getStringExtra("course_data")
+            courseData = gson.fromJson(strObj1, OrderList::class.java)
 
-        workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
-        binding.weightLossText.text = workout_duration_detail.day_name
-        binding.txtDetailContent.text = workout_duration_detail.description
-        binding.userName.text = courseData.course_detail.coach_detail.name.toString()
-        MyUtils.loadImage(
-            binding.profileImage,
-            MyConstant.IMAGE_BASE_URL + courseData.course_detail.coach_detail.profile_photo_path
-        )
+            workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
+            binding.weightLossText.text = workout_duration_detail.day_name
+            binding.txtDetailContent.text = workout_duration_detail.description
+            binding.userName.text = courseData.course_detail.coach_detail.name.toString()
+            MyUtils.loadImage(
+                binding.profileImage,
+                MyConstant.IMAGE_BASE_URL + courseData.course_detail.coach_detail.profile_photo_path
+            )
+        }catch (e:Exception){
+
+        }
+
         buttonClicks()
         startRelativeAnimation(binding.relWeightDetailLayout)
     }
 
     private fun buttonClicks() {
-
-        MyConstant.jsonObject.addProperty("course_id", courseData.course_id)
-        MyConstant.jsonObject.addProperty("workout_id", workout_duration_detail.course_duration_id)
+        try {
+            MyConstant.jsonObject.addProperty("course_id", courseData.course_id)
+            MyConstant.jsonObject.addProperty("workout_id", workout_duration_detail.course_duration_id)
 //        MyConstant.jsonObject.addProperty("subtotal", sub_total.toDouble())
-        MyConstant.jsonObject.addProperty(
-            "workout_exercise_id",
-            workout_duration_detail.course_duration_exercise.get(0).course_duration_exercise_id
-        )
-        MyConstant.jsonObject.addProperty("exercise_status", "started")
+            MyConstant.jsonObject.addProperty(
+                "workout_exercise_id",
+                workout_duration_detail.course_duration_exercise.get(0).course_duration_exercise_id
+            )
+            MyConstant.jsonObject.addProperty("exercise_status", "started")
+        }catch (e:Exception){
+
+        }
+
 
 
         binding.btnStartWorkout.setOnClickListener {

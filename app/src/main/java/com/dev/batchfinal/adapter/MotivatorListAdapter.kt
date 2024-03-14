@@ -13,6 +13,7 @@ import com.dev.batchfinal.app_utils.MyUtils
 class MotivatorListAdapter(
     val requireContext: Context,
     var coachList: List<Data>,
+    var screen:String,
     var listener: CoachListItemPosition<Int>
 ) : RecyclerView.Adapter<MotivatorListAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemListMotivatorBinding) :
@@ -38,7 +39,12 @@ class MotivatorListAdapter(
     }
 
     override fun getItemCount(): Int {
-        return coachList.size
+        if (screen=="motivator_home"){
+            return 5
+        }else{
+            return coachList.size
+
+        }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

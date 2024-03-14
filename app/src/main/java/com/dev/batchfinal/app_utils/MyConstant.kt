@@ -57,5 +57,7 @@ object MyConstant {
     const val MEAL_ALLERGIES = "meal/allergies"
     const val MEAL_QUESTIONS = "meal/questions"
 
+    const val TOP_RATED = "meal/top-rated-meals"
+
 //    const val DOLLER_SIGN = "$"
 }

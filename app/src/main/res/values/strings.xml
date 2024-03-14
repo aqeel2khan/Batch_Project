@@ -89,6 +89,7 @@ Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagitt
     <string name="txt_add_pro">Add Promo code</string>
     <string name="txt_remove_pro">Remove Promo code</string>
     <string name="txt_meal_title">Meal Batch</string>
+    <string name="txt_top_rated_title">Top Rated Meal</string>
     <string name="shop_title">Shopping Batch</string>
     <string name="scan_title">Scanning Batch</string>
     <string name="txt_start_workout">Start the Workout</string>

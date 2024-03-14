@@ -133,4 +133,8 @@ class AuthRepository @Inject constructor(private val api: ApiService) : SafeApiC
     suspend fun submitQueApi(jsonObject: JsonObject) = safeApiCall {
         api.submitAllQuestion(jsonObject)
     }
+    suspend fun topRatedApi() = safeApiCall {
+        api.topRated()
+    }
+
 }

@@ -40,6 +40,9 @@
             android:name="com.dev.batchfinal.app_modules.account.view.ProfileActivity"
             android:exported="false" />
         <activity
+            android:name=".app_modules.activity.WeightLossActivity"
+            android:exported="false" />
+        <activity
             android:name="com.dev.batchfinal.app_modules.activity.ChatActivity"
             android:exported="false" />
         <activity

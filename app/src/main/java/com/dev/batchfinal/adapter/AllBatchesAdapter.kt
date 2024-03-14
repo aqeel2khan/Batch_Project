@@ -11,8 +11,7 @@ import com.dev.batchfinal.app_utils.MyConstant.IMAGE_BASE_URL
 import com.dev.batchfinal.app_utils.MyUtils
 import kotlin.collections.ArrayList
 
-class AllBatchesAdapter(val context: Context?, /*var courseList: ArrayList<ListData>,*/ var listener: CourseListItemPosition<Int>) : RecyclerView.Adapter<AllBatchesAdapter.ViewHolder>(){
-    var courseList: ArrayList<ListData> = ArrayList()
+class AllBatchesAdapter(val context: Context?, var courseList: ArrayList<ListData>,var screen:String, var listener: CourseListItemPosition<Int>) : RecyclerView.Adapter<AllBatchesAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: ItemAllBatchesBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(courseData: ListData, position: Int) {
 
@@ -44,7 +43,12 @@ class AllBatchesAdapter(val context: Context?, /*var courseList: ArrayList<ListD
     }
 
     override fun getItemCount(): Int {
-        return courseList.size
+        if (screen=="home_screen"){
+            return 5
+        }else{
+            return courseList.size
+
+        }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

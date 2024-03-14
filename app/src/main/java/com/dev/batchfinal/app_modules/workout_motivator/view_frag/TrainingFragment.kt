@@ -64,7 +64,6 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
     override fun initUi() {
         buttonClicks()
-        setAllBatchesAdapter(/*courseList*/) //hide code
         getCourseListApi()
         print(sharedPreferences.token)
     }
@@ -119,14 +118,12 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                             try {
                                 it.let {
                                     val response = it.value
-                                    allBatchesAdapter?.clearData()
                                     if (response.status == MyConstant.success){
     //                                    courseList = response.data.list
                                         Log.d("list", courseList.toString())
 
-                                        allBatchesAdapter!!.setdata(response.data.list)
 
-    //                                    setAllBatchesAdapter(courseList)
+                                        setAllBatchesAdapter(response.data.list)
                                     }
                                 }
                             } catch (e: Exception) {
@@ -567,9 +564,9 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     }
 
 
-    private fun setAllBatchesAdapter(/*courseList: ArrayList<ListData>*/) {
+    private fun setAllBatchesAdapter(courseList: ArrayList<ListData>) {
         binding.recyclerAllBatch.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
-        allBatchesAdapter = AllBatchesAdapter(context, /*courseList,*/ object :
+       var allBatchesAdapter = AllBatchesAdapter(context, courseList,"training_screen", object :
             CourseListItemPosition<Int> {
             override fun onCourseListItemPosition(item: ListData, position: Int) {
                 val course_id = item.courseId
@@ -582,7 +579,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     private fun setMotivatorListAdapter(coachList: List<Data>) {
         binding.recyclerAllMotivator.apply {
             layoutManager = GridLayoutManager(requireActivity(), 2)
-            adapter = MotivatorListAdapter(requireContext(), coachList,
+            adapter = MotivatorListAdapter(requireContext(), coachList,"motivator_training",
                 object : CoachListItemPosition<Int> {
                     override fun onCoachListItemPosition(item: Data, position: Int) {
                         val coach_id = item.id

@@ -1,5 +1,6 @@
 package com.dev.batchfinal.network
 
+import com.dev.batchfinal.app_modules.batchboard.model.toprated.TopRatedResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscription_update.MealPlanSubscriptionUpdateResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
@@ -56,6 +57,7 @@ import com.dev.batchfinal.app_utils.MyConstant.MEAL_TAGS
 import com.dev.batchfinal.app_utils.MyConstant.ORDERCREATE
 import com.dev.batchfinal.app_utils.MyConstant.SIGNUP
 import com.dev.batchfinal.app_utils.MyConstant.STARTWORKOUTSTATUS
+import com.dev.batchfinal.app_utils.MyConstant.TOP_RATED
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListRequest
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListResponse
 
@@ -161,4 +163,7 @@ interface ApiService {
 
     @POST(MEAL_QUESTIONS)
     suspend fun submitAllQuestion(@Body jsonObject: JsonObject): SubmitAllQueResponse
+
+    @POST(TOP_RATED)
+    suspend fun topRated(): MealResponseList
 }

@@ -217,7 +217,6 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
         binding.startWorkout.setOnClickListener {
             try {
                 val gson = Gson()
-
                 var data = ""
                 var data2 = ""
 
@@ -231,8 +230,7 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
 
                 startActivity(
                     Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java).putExtra(
-                        "duration_work_position",
-                        gson.toJson(data)
+                        "duration_work_position", gson.toJson(data)
                     ).putExtra("course_data", data2)
                 )
             } catch (e: Exception) {

@@ -11,7 +11,7 @@ import com.dev.batchfinal.databinding.ItemMealBatchesBinding
 import com.dev.batchfinal.`interface`.MealListItemPosition
 import com.dev.batchfinal.model.meal_list.MealList
 
-class MealBatchPlanAdapter(val context: Context?, var mealList: List<MealList>, var listener: MealListItemPosition<Int>) : RecyclerView.Adapter<MealBatchPlanAdapter.ViewHolder>(){
+class MealBatchPlanAdapter(val context: Context?, var mealList: List<MealList>,var screen:String, var listener: MealListItemPosition<Int>) : RecyclerView.Adapter<MealBatchPlanAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: ItemMealBatchesBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(mealList: MealList, position: Int) {
             if (!mealList.name.isNullOrEmpty()){
@@ -22,12 +22,17 @@ class MealBatchPlanAdapter(val context: Context?, var mealList: List<MealList>, 
             }
             binding.tvKcal.text = mealList.avgCalPerDay
             binding.tvMealCount.text = mealList.mealCount.toString()
+            if (screen=="meal_home"|| screen=="meal_top_home"){
 
-            if (position  == 2){
-                binding.cardCalculate.visibility = View.VISIBLE
             }else{
-                binding.cardCalculate.visibility = View.GONE
+                if (position  == 2){
+                    binding.cardCalculate.visibility = View.VISIBLE
+                }else{
+                    binding.cardCalculate.visibility = View.GONE
+                }
             }
+
+
             binding.btnCalculate.setOnClickListener {
                 context!!.startActivity(Intent(context, QuestionActivity::class.java))
 //                context!!.startActivity(Intent(context, FoodPlanBasedOnQuestionActivity::class.java))
@@ -46,7 +51,14 @@ class MealBatchPlanAdapter(val context: Context?, var mealList: List<MealList>, 
     }
 
     override fun getItemCount(): Int {
-        return mealList.size
+        if (screen=="meal_home"){
+            return 5
+        }else if (screen=="meal_top_home"){
+            return 4
+        }else{
+            return mealList.size
+
+        }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

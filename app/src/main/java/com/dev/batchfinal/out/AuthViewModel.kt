@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.dev.batchfinal.app_modules.batchboard.model.toprated.TopRatedResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscription_update.MealPlanSubscriptionUpdateResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
@@ -314,5 +315,14 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     fun submitAllQuestionApiCall(jsonObject: JsonObject) = viewModelScope.launch {
         _submitAllQuestionResponse.value = Resource.Loading
         _submitAllQuestionResponse.value = repository.submitQueApi(jsonObject)
+    }
+
+    // top Rated api
+    private val _topRatedResponseResponse: MutableLiveData<Resource<MealResponseList>> = MutableLiveData()
+    val topRatedResponseResponse: LiveData<Resource<MealResponseList>> get() = _topRatedResponseResponse
+
+    fun topRatedApiCall() = viewModelScope.launch {
+        _topRatedResponseResponse.value = Resource.Loading
+        _topRatedResponseResponse.value = repository.topRatedApi()
     }
 }

@@ -268,7 +268,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
     private fun setMealBatchPlanAdapter(mealList: List<MealList>) {
         binding.recyclerMealPlan.apply {
             layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
-            adapter = MealBatchPlanAdapter(context, mealList, object : MealListItemPosition<Int> {
+            adapter = MealBatchPlanAdapter(context, mealList,"meal_meal", object : MealListItemPosition<Int> {
                 override fun onMealListItemPosition(item: MealList, position: Int) {
                     activity!!.startActivity(Intent(requireContext(), MealDetailsActivity::class.java).putExtra("id", item.id.toString()))
                 }
