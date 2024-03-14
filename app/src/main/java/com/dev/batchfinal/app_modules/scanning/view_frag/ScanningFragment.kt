@@ -217,12 +217,9 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                         authViewModel.courseOrderListResponse.removeObservers(this)
                         if (authViewModel.courseOrderListResponse.hasObservers()) return@observe
                         hideLoader()
-//                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
                         Log.e("RES_SCANNING",it.errorBody.toString())
                         MyCustom.errorBody(binding.root.context, it.errorBody, "")
-                       // askUserForLogin(MyCustom.parseErrorBody(binding.root.context, it.errorBody, "").toString())
 
-                        //askUserForLogin("Required authorization to access scanning batch.")
                     }
                 }
             }
@@ -237,31 +234,31 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         binding.recyclerMealSubscribe.adapter = MealSubscribeListAdapter(context, internalDatum, object :
             MealSubscribeListPosition<Int> {
             override fun onMealSubscribeListItemPosition(item: MealSubscribeListResponse.InternalDatum, position: Int) {
-              var mIntent= Intent(requireContext(), CurrentMealDetailActivity::class.java)
+                try {
+                    var mIntent= Intent(requireContext(), CurrentMealDetailActivity::class.java)
 
-                if(item!=null && item.id!=null){
-                    mIntent .putExtra("meal_id",item.id.toString())
-                }else{
-                    mIntent .putExtra("meal_id","")
+                    if(item!=null && item.id!=null){
+                        mIntent .putExtra("meal_id",item.id.toString())
+                    }else{
+                        mIntent .putExtra("meal_id","")
+                    }
+                    if(item!=null && item.subscribedId!=null){
+                        mIntent .putExtra("subscribe_id",item.subscribedId.toString())
+                    }else{
+                        mIntent .putExtra("subscribe_id","")
+                    }
+                    if(item!=null && item.goalId!=null){
+                        mIntent .putExtra("goal_id",item.goalId.toString())
+                    }else{
+                        mIntent .putExtra("goal_id","")
+                    }
+
+                    requireContext().startActivity(mIntent)
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
-                if(item!=null && item.subscribedId!=null){
-                    mIntent .putExtra("subscribe_id",item.subscribedId.toString())
-                }else{
-                    mIntent .putExtra("subscribe_id","")
-                }
-                if(item!=null && item.goalId!=null){
-                    mIntent .putExtra("goal_id",item.goalId.toString())
-                }else{
-                    mIntent .putExtra("goal_id","")
-                }
 
-                requireContext().startActivity(mIntent)
-
-              /*  findNavController().navigate(
-                    R.id.action_scanFragment_to_mealBatchFragment,
-                    MealBatchFragment.getBundle(item.id.toString(),item.subscribedId.toString())
-
-                ) */           }
+            }
         })
     }
     private fun setAllCourseOrderAdapter(courseList: ArrayList<OrderList>) {
@@ -270,21 +267,18 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         binding.recyclerCourseOrder.adapter = CourseOrderAdapter(context, courseList, object :
             CourseOrderListItemPosition<Int> {
             override fun onCourseOrderListItemPosition(item: OrderList, position: Int) {
-//                val course_id = item.courseId
-//                courseDetailData as Serializable
-//                activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
-                val gson = Gson()
-
-                var mIntent= Intent(requireContext(), WeightLossActivity::class.java)
-                if(item!=null){
-                    mIntent .putExtra("order_list", gson.toJson(item))
-                }else{
-                    mIntent .putExtra("order_list", "")
+                try {
+                    val gson = Gson()
+                    var mIntent= Intent(requireContext(), WeightLossActivity::class.java)
+                    if(item!=null){
+                        mIntent .putExtra("order_list", gson.toJson(item))
+                    }else{
+                        mIntent .putExtra("order_list", "")
+                    }
+                    requireContext().startActivity(mIntent)
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
-
-
-                requireContext().startActivity(mIntent)
-
             }
         })
     }
