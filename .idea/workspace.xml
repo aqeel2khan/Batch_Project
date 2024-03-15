@@ -196,7 +196,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="try catch on start activity">
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="null check on Weight loss , workout details ,slide workout activity">
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -204,14 +204,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/CourseOrderAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/CourseOrderAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/WorkoutTypeAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/WorkoutTypeAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/SlideWorkoutVideoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/SlideWorkoutVideoActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_utils/MyUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_utils/MyUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/model/courseorderlist.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/model/courseorderlist.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,28 +269,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DEBUGGABLE_DEVICE": "samsung-sm_m307f-RZ8N202RDCN",
-    "DEBUGGABLE_PROCESS": "com.dev.batchfinal",
-    "DEBUGGER_ID": "Auto",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHOW_ALL_PROCESSES": "false",
-    "android-custom-viewC:/Users/Hp/Desktop/ws_batch_07_03_24/library/src/main/java/com/ct7ct7ct7/androidvimeoplayer/view/VimeoPlayerView.java_SELECTED": "VimeoPlayerView",
-    "android-custom-viewD:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java/com/example/bottomanimationmydemo/custom/MyCustomButton.kt_SELECTED": "MyCustomButton",
-    "android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomTextView.kt_SELECTED": "MyCustomTextView",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "development__main__pradeep__latest",
-    "last_directory_selection": "D:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java",
-    "last_opened_file_path": "/Users/mayank/Documents/Batch_Project/app/src/main/res/layout",
-    "memory.settings.postsync.last.time.stamp": "1710096712607",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;samsung-sm_m307f-RZ8N202RDCN&quot;,
+    &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.dev.batchfinal&quot;,
+    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
+    &quot;android-custom-viewC:/Users/Hp/Desktop/ws_batch_07_03_24/library/src/main/java/com/ct7ct7ct7/androidvimeoplayer/view/VimeoPlayerView.java_SELECTED&quot;: &quot;VimeoPlayerView&quot;,
+    &quot;android-custom-viewD:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java/com/example/bottomanimationmydemo/custom/MyCustomButton.kt_SELECTED&quot;: &quot;MyCustomButton&quot;,
+    &quot;android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomTextView.kt_SELECTED&quot;: &quot;MyCustomTextView&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development__main__pradeep__latest&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mayank/Documents/Batch_Project/app/src/main/res/layout&quot;,
+    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1710096712607&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
@@ -571,7 +563,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710454935731</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="null check on Weight loss , workout details ,slide workout activity">
+      <option name="closed" value="true" />
+      <created>1710460879403</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1710460879403</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -585,7 +585,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="origin/development_latest_bharat" />
                       </list>
                     </value>
                   </entry>
@@ -608,7 +608,8 @@
     <MESSAGE value="meal_with_branch_pradeep" />
     <MESSAGE value="null check on click of meal and batch click listener" />
     <MESSAGE value="try catch on start activity" />
-    <option name="LAST_COMMIT_MESSAGE" value="try catch on start activity" />
+    <MESSAGE value="null check on Weight loss , workout details ,slide workout activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="null check on Weight loss , workout details ,slide workout activity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -640,152 +641,152 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>203</line>
+          <line>204</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>233</line>
+          <line>234</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>234</line>
+          <line>235</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>236</line>
+          <line>237</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>238</line>
+          <line>239</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>237</line>
+          <line>238</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>337</line>
+          <line>338</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>339</line>
+          <line>340</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>340</line>
+          <line>341</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>386</line>
+          <line>387</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>388</line>
+          <line>389</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>373</line>
+          <line>374</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>390</line>
+          <line>391</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>392</line>
+          <line>393</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>391</line>
+          <line>392</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>347</line>
+          <line>348</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>375</line>
+          <line>376</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>376</line>
+          <line>377</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>378</line>
+          <line>379</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>381</line>
+          <line>382</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>519</line>
+          <line>520</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>523</line>
+          <line>524</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>524</line>
+          <line>525</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>528</line>
+          <line>529</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>530</line>
+          <line>531</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>529</line>
+          <line>530</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>533</line>
+          <line>534</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>545</line>
+          <line>550</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>546</line>
+          <line>551</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/out/AuthViewModel.kt</url>
-          <line>264</line>
+          <line>269</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -885,12 +886,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
-          <line>574</line>
+          <line>571</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
-          <line>575</line>
+          <line>572</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -955,7 +956,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt</url>
-          <line>119</line>
+          <line>120</line>
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -970,58 +971,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt</url>
-          <line>94</line>
+          <line>96</line>
           <option name="timeStamp" value="130" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt</url>
-          <line>90</line>
-          <option name="timeStamp" value="131" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt</url>
-          <line>76</line>
+          <line>91</line>
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt</url>
-          <line>182</line>
+          <line>183</line>
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt</url>
-          <line>38</line>
+          <line>48</line>
           <option name="timeStamp" value="138" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt</url>
-          <line>65</line>
-          <option name="timeStamp" value="139" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt</url>
-          <line>98</line>
-          <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/SlideWorkoutVideoActivity.kt</url>
           <line>43</line>
           <option name="timeStamp" value="142" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt</url>
-          <line>248</line>
-          <option name="timeStamp" value="143" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt</url>
-          <line>42</line>
-          <option name="timeStamp" value="147" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt</url>
-          <line>45</line>
-          <option name="timeStamp" value="148" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt</url>
@@ -1033,16 +1004,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
-          <line>518</line>
-          <properties class="com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.MealPlanActivity" method="checkMealSubscriptionUpdate">
+          <line>519</line>
+          <properties class="com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.MealPlanActivity">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/network/ApiService.kt</url>
-          <line>137</line>
-          <properties class="com.dev.batchfinal.network.ApiService" method="mealSubscribeUpdate">
+          <line>147</line>
+          <properties class="com.dev.batchfinal.network.ApiService">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="50" />
@@ -1065,8 +1036,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
-          <line>569</line>
-          <properties class="com.dev.batchfinal.app_modules.workout_motivator.view_frag.TrainingFragment" method="setAllBatchesAdapter">
+          <line>566</line>
+          <properties class="com.dev.batchfinal.app_modules.workout_motivator.view_frag.TrainingFragment">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="100" />
