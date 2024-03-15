@@ -196,7 +196,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="" />
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="home_with_top_rated_filter" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,7 +205,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RZCT30H95VY]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -584,7 +584,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710465061955</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="home_with_top_rated_filter">
+      <created>1710532169126</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1710532169126</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -598,7 +605,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/development_latest_bharat" />
+                        <option value="development_main_pradeep_latest" />
                       </list>
                     </value>
                   </entry>
@@ -625,7 +632,8 @@
     <MESSAGE value="Validation|calender popup" />
     <MESSAGE value="API-Signup, update address get Address" />
     <MESSAGE value="Account- SIgn Up,error body handling, update profile correction , Google Fit- In Progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Account- SIgn Up,error body handling, update profile correction , Google Fit- In Progress" />
+    <MESSAGE value="home_with_top_rated_filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="home_with_top_rated_filter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
