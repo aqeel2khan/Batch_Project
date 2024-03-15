@@ -196,17 +196,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-    </list>
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -215,7 +205,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RZ8N202RDCN]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -262,6 +252,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/res/values/attrs.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/src/main/res/values/themes.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -276,28 +267,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DEBUGGABLE_DEVICE": "samsung-sm_m307f-RZ8N202RDCN",
-    "DEBUGGABLE_PROCESS": "com.dev.batchfinal",
-    "DEBUGGER_ID": "Auto",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHOW_ALL_PROCESSES": "false",
-    "android-custom-viewC:/Users/Hp/Desktop/ws_batch_07_03_24/library/src/main/java/com/ct7ct7ct7/androidvimeoplayer/view/VimeoPlayerView.java_SELECTED": "VimeoPlayerView",
-    "android-custom-viewD:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java/com/example/bottomanimationmydemo/custom/MyCustomButton.kt_SELECTED": "MyCustomButton",
-    "android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomTextView.kt_SELECTED": "MyCustomTextView",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "development__main__15__march",
-    "last_directory_selection": "D:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java",
-    "last_opened_file_path": "/Users/mayank/Documents/Batch_Project/app/src/main/res/layout",
-    "memory.settings.postsync.last.time.stamp": "1710096712607",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;samsung-sm_m307f-RZ8N202RDCN&quot;,
+    &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.dev.batchfinal&quot;,
+    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
+    &quot;android-custom-viewC:/Users/Hp/Desktop/ws_batch_07_03_24/library/src/main/java/com/ct7ct7ct7/androidvimeoplayer/view/VimeoPlayerView.java_SELECTED&quot;: &quot;VimeoPlayerView&quot;,
+    &quot;android-custom-viewD:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java/com/example/bottomanimationmydemo/custom/MyCustomButton.kt_SELECTED&quot;: &quot;MyCustomButton&quot;,
+    &quot;android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomTextView.kt_SELECTED&quot;: &quot;MyCustomTextView&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development__main__15__march&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mayank/Documents/Batch_Project/app/src/main/res/layout&quot;,
+    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1710096712607&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
@@ -355,8 +346,6 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Auto>
       <Hybrid>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -364,21 +353,14 @@
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Hybrid>
-      <Java>
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Java>
+      <Java />
       <Native>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
         <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
@@ -1047,7 +1029,7 @@
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/network/ApiService.kt</url>
           <line>147</line>
-          <properties class="com.dev.batchfinal.network.ApiService" method="mealSubscribeUpdate">
+          <properties class="com.dev.batchfinal.network.ApiService">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="50" />
@@ -1071,7 +1053,7 @@
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
           <line>566</line>
-          <properties class="com.dev.batchfinal.app_modules.workout_motivator.view_frag.TrainingFragment" method="setAllBatchesAdapter">
+          <properties>
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="100" />
