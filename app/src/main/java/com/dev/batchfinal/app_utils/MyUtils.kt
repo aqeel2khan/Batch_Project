@@ -144,11 +144,15 @@ object MyUtils {
     }
 
     fun loadImage(view: ImageView, url: String?) {
-        Picasso.get()
-            .load(url)
-            .placeholder(R.drawable.exercise_image)  // Optional: Set a placeholder image while loading
-            .error(R.drawable.exercise_image)  // Optional: Set an error image if loading fails
-            .into(view)
+        try {
+            Picasso.get()
+                .load(url)
+                .placeholder(R.drawable.exercise_image)  // Optional: Set a placeholder image while loading
+                .error(R.drawable.exercise_image)  // Optional: Set an error image if loading fails
+                .into(view)
+        } catch (e: Exception) {
+           e.printStackTrace()
+        }
 
         //Generating Exception
         /*

@@ -122,7 +122,7 @@ data class Course_duration(
 
     @SerializedName("course_duration_id") val course_duration_id : Int,
     @SerializedName("course_id") val course_id : Int,
-    @SerializedName("day_name") val day_name : String,
+    @SerializedName("day_name") var day_name : String,
     @SerializedName("description") val description : String,
     @SerializedName("no_of_exercise") val no_of_exercise : Int,
     @SerializedName("calorie_burn") val calorie_burn : String,

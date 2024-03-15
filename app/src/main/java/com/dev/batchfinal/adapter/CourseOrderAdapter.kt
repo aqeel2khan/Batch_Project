@@ -40,7 +40,11 @@ class CourseOrderAdapter(
 
 
             binding.root.setOnClickListener {
-                listener.onCourseOrderListItemPosition(courseData, position)
+                try {
+                    listener.onCourseOrderListItemPosition(courseData, position)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
         }
     }

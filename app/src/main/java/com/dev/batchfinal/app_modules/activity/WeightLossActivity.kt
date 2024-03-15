@@ -36,7 +36,7 @@ import java.util.*
 
 @AndroidEntryPoint
 class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
-    private lateinit var courseData: OrderList
+    private  var courseData: OrderList?= null
     private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
     var REQUEST_CODE = 1234
@@ -57,112 +57,130 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
     }
 
     override fun initUi() {
-        val gson = Gson()
-        val strObj = intent.getStringExtra("order_list")
-        courseData = gson.fromJson(strObj, OrderList::class.java)
-//        getCourseDetailData(courseData.course_detail.course_id)
-        binding.weightLossText.text = courseData.course_detail.course_name
-        binding.messageText.text = courseData.course_detail.description.toString()
-        binding.userName.text = courseData.course_detail.coach_detail.name.toString()
-        binding.txtLevel.text = courseData.course_detail.course_level.level_name.toString()
-        binding.tvExerciseDay.text = "day " + courseData.course_detail.duration
-        MyUtils.loadImage(
-            binding.profileImage,
-            MyConstant.IMAGE_BASE_URL + courseData.course_detail.coach_detail.profile_photo_path
-        )
+        try {
+            val gson = Gson()
+            var strObj= ""
+            if(intent!=null){
+                if(intent.hasExtra("order_list")){
+                    strObj = intent.getStringExtra("order_list").toString()
+                }
+                if(strObj.isNotEmpty()){
+                    courseData = gson.fromJson(strObj, OrderList::class.java)
+                }
+            }
 
 
-        buttonClicks()
-        val aniSlide: Animation =
-            AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
-        binding.relWeightLayout.startAnimation(aniSlide)
 
-        setVideoOnBanner()
+            binding.weightLossText.text = courseData?.course_detail?.course_name?:""
+            binding.messageText.text = courseData?.course_detail?.description?.toString()
+            binding.userName.text = courseData?.course_detail?.coach_detail?.name?.toString()
+            binding.txtLevel.text = courseData?.course_detail?.course_level?.level_name?.toString()
+            binding.tvExerciseDay.text = ("day " + courseData?.course_detail?.duration)
+            MyUtils.loadImage(
+                binding.profileImage,
+                (MyConstant.IMAGE_BASE_URL + courseData?.course_detail?.coach_detail?.profile_photo_path)
 
-        setWorkoutTypeAdapter()
+            )
+
+
+            buttonClicks()
+            val aniSlide: Animation =
+                AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
+            binding.relWeightLayout.startAnimation(aniSlide)
+
+            setVideoOnBanner()
+
+            setWorkoutTypeAdapter()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     @SuppressLint("SuspiciousIndentation")
     private fun setVideoOnBanner() {
 
-        val courseDurationList = courseData.course_detail.course_duration
-        if (!courseDurationList.isNullOrEmpty()) {
+        try {
+            val courseDurationList = courseData?.course_detail?.course_duration
+            if (!courseDurationList.isNullOrEmpty()) {
 
-            val courseDurationData = courseDurationList[0]
-            if (courseDurationData != null && !courseDurationData.course_duration_exercise.isNullOrEmpty()) {
+                val courseDurationData = courseDurationList[0]
+                if (courseDurationData != null && !courseDurationData.course_duration_exercise.isNullOrEmpty()) {
 
-                val videoId =
-                    courseDurationData?.course_duration_exercise?.get(0)?.video_detail?.video_id
-                if (videoId != null) {
+                    val videoId =
+                        courseDurationData?.course_duration_exercise?.get(0)?.video_detail?.video_id
+                    if (videoId != null) {
 
-                    var videoIdInt = videoId.toInt()
+                        var videoIdInt = videoId.toInt()
 
 
-                    binding.vimeoPlayerView.initialize(true, videoIdInt)
+                        binding.vimeoPlayerView.initialize(true, videoIdInt)
 
-                    binding.vimeoPlayerView.defaultControlPanelView.vimeoPlayButton.visibility =
-                        View.INVISIBLE
+                        binding.vimeoPlayerView.defaultControlPanelView.vimeoPlayButton.visibility =
+                            View.INVISIBLE
 
-                    //vimeoPlayerView.initialize(true, {YourPrivateVideoId}, "SettingsEmbeddedUrl")
-                    //vimeoPlayerView.initialize(true, {YourPrivateVideoId},"VideoHashKey", "SettingsEmbeddedUrl")
+                        //vimeoPlayerView.initialize(true, {YourPrivateVideoId}, "SettingsEmbeddedUrl")
+                        //vimeoPlayerView.initialize(true, {YourPrivateVideoId},"VideoHashKey", "SettingsEmbeddedUrl")
 
-                    binding.vimeoPlayerView.addTimeListener { second ->
-//                        binding.playerCurrentTimeTextView.text =
-//                            getString(R.string.player_current_time, second.toString())
+                        binding.vimeoPlayerView.addTimeListener { second ->
+    //                        binding.playerCurrentTimeTextView.text =
+    //                            getString(R.string.player_current_time, second.toString())
+                        }
+
+                        binding.vimeoPlayerView.addErrorListener { message, method, name ->
+                            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                        }
+
+                        binding.vimeoPlayerView.addReadyListener(object : VimeoPlayerReadyListener {
+                            override fun onReady(
+                                title: String?,
+                                duration: Float,
+                                textTrackArray: Array<TextTrack>
+                            ) {
+                                //   binding.vimeoPlayerView.play()
+                                //   binding.playerStateTextView.text = getString(R.string.player_state, "onReady")
+                            }
+
+                            override fun onInitFailed() {
+                                //  binding.playerStateTextView.text = getString(R.string.player_state, "onInitFailed")
+                            }
+                        })
+
+                        binding.vimeoPlayerView.addStateListener(object : VimeoPlayerStateListener {
+                            override fun onPlaying(duration: Float) {
+    //                            binding.playerStateTextView.text = getString(R.string.player_state, "onPlaying")
+                            }
+
+                            override fun onPaused(seconds: Float) {
+    //                            binding.playerStateTextView.text = getString(R.string.player_state, "onPaused")
+                            }
+
+                            override fun onEnded(duration: Float) {
+    //                            binding.playerStateTextView.text = getString(R.string.player_state, "onEnded")
+                            }
+                        })
+                        binding.vimeoPlayerView.addVolumeListener { volume ->
+    //                        binding.playerVolumeTextView.text = getString(R.string.player_volume, volume.toString())
+                        }
+
+                        binding.vimeoPlayerView.setFullscreenClickListener {
+                            var requestOrientation = VimeoPlayerActivity.REQUEST_ORIENTATION_AUTO
+                            startActivityForResult(
+                                VimeoPlayerActivity.createIntent(
+                                    this,
+                                    requestOrientation,
+                                    binding.vimeoPlayerView
+                                ), REQUEST_CODE
+                            )
+                        }
+
+
                     }
-
-                    binding.vimeoPlayerView.addErrorListener { message, method, name ->
-                        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-                    }
-
-                    binding.vimeoPlayerView.addReadyListener(object : VimeoPlayerReadyListener {
-                        override fun onReady(
-                            title: String?,
-                            duration: Float,
-                            textTrackArray: Array<TextTrack>
-                        ) {
-                            //   binding.vimeoPlayerView.play()
-                            //   binding.playerStateTextView.text = getString(R.string.player_state, "onReady")
-                        }
-
-                        override fun onInitFailed() {
-                            //  binding.playerStateTextView.text = getString(R.string.player_state, "onInitFailed")
-                        }
-                    })
-
-                    binding.vimeoPlayerView.addStateListener(object : VimeoPlayerStateListener {
-                        override fun onPlaying(duration: Float) {
-//                            binding.playerStateTextView.text = getString(R.string.player_state, "onPlaying")
-                        }
-
-                        override fun onPaused(seconds: Float) {
-//                            binding.playerStateTextView.text = getString(R.string.player_state, "onPaused")
-                        }
-
-                        override fun onEnded(duration: Float) {
-//                            binding.playerStateTextView.text = getString(R.string.player_state, "onEnded")
-                        }
-                    })
-                    binding.vimeoPlayerView.addVolumeListener { volume ->
-//                        binding.playerVolumeTextView.text = getString(R.string.player_volume, volume.toString())
-                    }
-
-                    binding.vimeoPlayerView.setFullscreenClickListener {
-                        var requestOrientation = VimeoPlayerActivity.REQUEST_ORIENTATION_AUTO
-                        startActivityForResult(
-                            VimeoPlayerActivity.createIntent(
-                                this,
-                                requestOrientation,
-                                binding.vimeoPlayerView
-                            ), REQUEST_CODE
-                        )
-                    }
-
-
                 }
+
+
             }
-
-
+        } catch (e: Exception) {
+           e.printStackTrace()
         }
 
 
@@ -190,8 +208,8 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
         binding.recyclerWorkoutType.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.recyclerWorkoutType.adapter = WorkoutTypeAdapter(this@WeightLossActivity,
-            courseData.course_detail.course_duration,
-            courseData.course_detail.duration,
+            courseData?.course_detail?.course_duration,
+            courseData?.course_detail?.duration!!,
             object :
                 PositionCourseWorkoutClick<Int> {
                 override fun onCourseWorkoutItemPosition(item: Course_duration, postions: Int) {
@@ -206,6 +224,7 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             })
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun buttonClicks() {
         binding.imgBack.setOnClickListener {
             onBackPressed()
@@ -218,23 +237,40 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             try {
                 val gson = Gson()
 
-                var data = ""
+//                var data = ""
                 var data2 = ""
 
-                if (courseData != null && courseData.course_detail != null && courseData.course_detail.course_duration != null) {
-                    data = gson.toJson(courseData.course_detail.course_duration[0])
-                }
+
 
                 if (courseData != null) {
                     data2 = gson.toJson(courseData)
                 }
 
-                startActivity(
-                    Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java).putExtra(
-                        "duration_work_position",
-                        gson.toJson(data)
-                    ).putExtra("course_data", data2)
-                )
+             var mIntent=   Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java)
+                    if (courseData != null && courseData?.course_detail != null && courseData?.course_detail?.course_duration != null && courseData?.course_detail?.course_duration!!.size>0) {
+                     val   data = gson.toJson(courseData?.course_detail!!.course_duration[0]!!)
+
+                        mIntent. putExtra(
+                            "duration_work_position",
+                            data)
+                    }
+
+                if(data2!=null) {
+                    if (courseData != null) {
+                     val   data2 = gson.toJson(courseData)
+                        mIntent.putExtra("course_data", data2)
+                    }
+                    mIntent.putExtra("course_data", data2)
+                }
+
+                startActivity(mIntent)
+
+//                startActivity(
+//                    Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java).putExtra(
+//                        "duration_work_position",
+//                        gson.toJson(data)
+//                    ).putExtra("course_data", data2))
+
             } catch (e: Exception) {
                 e.printStackTrace()
             }

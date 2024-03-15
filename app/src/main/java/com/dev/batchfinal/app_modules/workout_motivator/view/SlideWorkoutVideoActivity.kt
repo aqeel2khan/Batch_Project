@@ -31,7 +31,7 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
 
     private val authViewModel by viewModels<AuthViewModel>()
 
-    private lateinit var workout_duration_detail: Course_duration
+    private  var workout_duration_detail: Course_duration?=null
     private lateinit var courseData: OrderList
 
     override fun getViewModel(): BaseViewModel {
@@ -59,12 +59,12 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
                             MyConstant.jsonObject.addProperty("course_id", courseData.course_id)
                             MyConstant.jsonObject.addProperty(
                                 "workout_id",
-                                workout_duration_detail.course_duration_id
+                                workout_duration_detail?.course_duration_id
                             )
 //        MyConstant.jsonObject.addProperty("subtotal", sub_total.toDouble())
                             MyConstant.jsonObject.addProperty(
                                 "workout_exercise_id",
-                                workout_duration_detail.course_duration_exercise.get(0).course_duration_exercise_id
+                                workout_duration_detail?.course_duration_exercise!!.get(0).course_duration_exercise_id
                             )
                             MyConstant.jsonObject.addProperty("exercise_status", "completed")
 
@@ -94,8 +94,17 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
         val videoItems: MutableList<VideoItem> = ArrayList<VideoItem>()
 
         val gson = Gson()
-        val strObj = intent.getStringExtra("duration_work_position")
-        workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
+
+        var strObj= ""
+        if(intent.hasExtra("duration_work_position")){
+            strObj = intent.getStringExtra("duration_work_position").toString()
+        }
+
+        if(strObj.isNotEmpty()){
+            workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
+        }
+
+
 
         val strObj1 = intent.getStringExtra("course_data")
         courseData = gson.fromJson(strObj1, OrderList::class.java)
