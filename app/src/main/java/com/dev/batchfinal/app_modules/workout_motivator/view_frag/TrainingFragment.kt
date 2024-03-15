@@ -56,6 +56,11 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     var typeId: Int = 0
     var goalId: Int = 0
     var levelId: Int = 0
+    var cource_workout_Id: Int = 0
+
+    var motivator_exp_Id: Int = 0
+    var motivator_type_Id: Int = 0
+
     private var allBatchesAdapter: AllBatchesAdapter? = null
 
     override fun getViewModel(): BaseViewModel {
@@ -64,7 +69,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
     override fun initUi() {
         buttonClicks()
-        getCourseListApi()
+        getCourseListApi("")
         print(sharedPreferences.token)
     }
 
@@ -79,7 +84,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
             binding.rlMotivatorSearch.visibility = View.GONE
             binding.recyclerAllBatch.visibility = View.VISIBLE
             binding.recyclerAllMotivator.visibility = View.GONE
-            getCourseListApi()
+            getCourseListApi("")
             binding.rlWorkoutFilter.visibility = View.VISIBLE
         }
         binding.llMotivator.setOnClickListener {
@@ -103,11 +108,35 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     }
 
     /*course list api code*/
-    private fun getCourseListApi() {
+    private fun getCourseListApi(searchQuery: String) {
         courseList.clear()
         if (CheckNetworkConnection.isConnection(requireContext(),binding.root, true)) {
-            showLoader()
-            authViewModel.courseListApiCall()
+            when (searchQuery) {
+                "" -> {
+                    showLoader()
+                    authViewModel.courseListApiCall()
+                }
+                "course_filter" -> {
+                    showLoader()
+
+                    jsonObject.addProperty("course_level",levelId)
+                    jsonObject.addProperty("workout_type_id",cource_workout_Id)
+                    jsonObject.addProperty("goal_id",goalId)
+                   // authViewModel.searchCoachListApiCall(jsonObject)
+                    authViewModel.searchCourseFilterListApiCall(jsonObject)
+
+                }
+                else -> {
+                    hideLoader()
+                    jsonObject.addProperty("keyword",binding.editQuery.text.trim().toString())
+                   // authViewModel.searchCoachListApiCall(jsonObject)
+                    authViewModel.searchCourseFilterListApiCall(jsonObject)
+
+                }
+            }
+
+
+           // showLoader()
             authViewModel.courseListResponse.observe(this){
                 when(it){
                     is Resource.Success->{
@@ -171,7 +200,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
             }
         })
     }
-    /*coach list api code*/
+    //  Motivator Api with filter
     private fun getCoachListApi(searchQuery: String) {
         if (CheckNetworkConnection.isConnection(requireContext(),binding.root, true)) {
             when (searchQuery) {
@@ -181,8 +210,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 }
                 "coach_filter" -> {
                     showLoader()
-                    jsonObject.addProperty("experience","1")
-                    jsonObject.addProperty("workout_type","")
+                    jsonObject.addProperty("experience",motivator_exp_Id)
+                    jsonObject.addProperty("workout_type",motivator_type_Id)
                     authViewModel.searchCoachListApiCall(jsonObject)
                 }
                 else -> {
@@ -241,10 +270,12 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 //code for save week price
 //                dialogBinding.btnApply.text = "Apply()"
                 //course filter by list
-                jsonObject.addProperty("course_level","2")
-                jsonObject.addProperty("workout_type_id","2")
-                jsonObject.addProperty("goal_id","2")
+                jsonObject.addProperty("course_level",levelId)
+                jsonObject.addProperty("workout_type_id",cource_workout_Id)
+                jsonObject.addProperty("goal_id",goalId)
+               // searchCourseListByFilterApi(jsonObject, dialogBinding)
                 searchCourseListByFilterApi(jsonObject, dialogBinding)
+                getCourseListApi("course_filter")
                 dialog.dismiss()
             }
         }else{
@@ -275,6 +306,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                                 Log.d("filterData", response.toString())
                                 if (response.status == MyConstant.status){
                                     requireActivity().showToast(response.message)
+
                                 }
                             }
                         }
@@ -352,7 +384,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         })
 
         dialogBinding.idCoachExperience.setOnTagClickListener(ExperienceTagFlowLayout.OnTagClickListener { view, position, parent ->
-            typeId = experiences[position].id
+            motivator_exp_Id = experiences[position].id
             requireActivity().showToast(experiences[position].id.toString())
             true
         })
@@ -374,7 +406,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         })
 
         dialogBinding.idCoachWt.setOnTagClickListener(CoachWtTagFlowLayout.OnTagClickListener { view, position, parent ->
-            typeId = workoutType[position].id
+            motivator_type_Id = workoutType[position].id
             requireActivity().showToast(workoutType[position].id.toString())
             true
         })
@@ -441,7 +473,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         })
 
         dialogBinding.idFlowlayout.setOnTagClickListener(TagFlowLayout.OnTagClickListener { view, position, parent ->
-            typeId = workoutTypes[position].id
+            cource_workout_Id = workoutTypes[position].id
             requireActivity().showToast(workoutTypes[position].id.toString())
             //view.setVisibility(View.GONE);
             true

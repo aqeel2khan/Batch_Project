@@ -92,6 +92,8 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
         _courseListResponse.value = repository.courseList()
     }
 
+
+
     // course detail api
     private val _courseDetailResponse: MutableLiveData<Resource<CourseDetailResponse>> = MutableLiveData()
     val courseDetailResponse: LiveData<Resource<CourseDetailResponse>> get() = _courseDetailResponse
