@@ -1,9 +1,14 @@
 package com.dev.batchfinal.network
 
+import com.dev.batchfinal.app_modules.batchboard.model.toprated.TopRatedResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscription_update.MealPlanSubscriptionUpdateResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.subscribe.CheckSubscribeModel
+import com.dev.batchfinal.app_modules.question.model.all_question.SubmitAllQueResponse
+import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergiesResponse
+import com.dev.batchfinal.app_modules.question.model.meal_goals.MealGoalsResponse
+import com.dev.batchfinal.app_modules.question.model.meal_tags.MealTagsResponse
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
 import com.dev.batchfinal.model.coach_detail_model.CoachDetailResponse
 import com.dev.batchfinal.model.coach_filter_list.CoachFilterListResponse
@@ -40,14 +45,19 @@ import com.dev.batchfinal.app_utils.MyConstant.MEALDETAILS
 import com.dev.batchfinal.app_utils.MyConstant.MEALDISH
 import com.dev.batchfinal.app_utils.MyConstant.MEALFILTER
 import com.dev.batchfinal.app_utils.MyConstant.MEALLIST
+import com.dev.batchfinal.app_utils.MyConstant.MEAL_ALLERGIES
+import com.dev.batchfinal.app_utils.MyConstant.MEAL_GOALS
+import com.dev.batchfinal.app_utils.MyConstant.MEAL_QUESTIONS
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_CHECK
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_DETAILS
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_LIST
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_UPDATE
+import com.dev.batchfinal.app_utils.MyConstant.MEAL_TAGS
 import com.dev.batchfinal.app_utils.MyConstant.ORDERCREATE
 import com.dev.batchfinal.app_utils.MyConstant.SIGNUP
 import com.dev.batchfinal.app_utils.MyConstant.STARTWORKOUTSTATUS
+import com.dev.batchfinal.app_utils.MyConstant.TOP_RATED
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListRequest
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListResponse
 
@@ -135,5 +145,25 @@ interface ApiService {
     suspend fun courseSubscribeCheck(@Body jsonObject: JsonObject): CheckSubscribeModel
 
     @PUT(MEAL_SUBSCRIBE_UPDATE)
-    suspend fun mealSubscribeUpdate(@Body jsonObject: JsonObject): MealPlanSubscriptionUpdateResponse
+    suspend fun mealSubscribeUpdate(@Query("user_id") user_id : String,
+                                    @Query("subscribed_id") subscribed_id : String,
+                                    @Query("meal_id") meal_id : String,
+                                    @Query("day_dishes") day_dishes : String,
+                                    @Query("day") day : String,
+                                    @Query("month") month : String): MealPlanSubscriptionUpdateResponse
+
+    @GET(MEAL_GOALS)
+    suspend fun mealGoalsList(): MealGoalsResponse
+
+    @GET(MEAL_TAGS)
+    suspend fun mealTagsList(): MealTagsResponse
+
+    @GET(MEAL_ALLERGIES)
+    suspend fun mealAllergiesList(): MealAllergiesResponse
+
+    @POST(MEAL_QUESTIONS)
+    suspend fun submitAllQuestion(@Body jsonObject: JsonObject): SubmitAllQueResponse
+
+    @POST(TOP_RATED)
+    suspend fun topRated(): MealResponseList
 }

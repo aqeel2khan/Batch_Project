@@ -38,7 +38,6 @@ class LoginActivity : AppBaseActivity<ActivityLoginBinding>() {
         sessionManager = UserSessionManager(this@LoginActivity)
         screen = intent.getStringExtra("screen")
         product_id = intent.getStringExtra("product_id")
-
         onCickOperation()
     }
 

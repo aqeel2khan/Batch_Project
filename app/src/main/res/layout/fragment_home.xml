@@ -129,7 +129,7 @@
              android:layout_height="wrap_content"
              android:id="@+id/recycler_workbatches"
              android:layout_marginTop="@dimen/_10sdp"
-             android:layout_marginHorizontal="@dimen/_15sdp"/>
+             />
 
          <RelativeLayout
              android:layout_width="match_parent"
@@ -160,7 +160,69 @@
              android:layout_height="wrap_content"
              android:id="@+id/recycler_motivators"
              android:layout_marginTop="@dimen/_10sdp"
-             android:layout_marginHorizontal="@dimen/_15sdp"/>
+            />
+
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/_10sdp"
+             android:layout_marginHorizontal="@dimen/_15sdp">
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_meal_title"
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/outfit_regular"/>
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                android:id="@+id/tv_meal_showw_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_show_all"
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_12ssp"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/outfit_regular"/>
+
+         </RelativeLayout>
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/recycler_meal"
+             android:layout_marginTop="@dimen/_10sdp"
+             />
+
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/_10sdp"
+             android:layout_marginHorizontal="@dimen/_15sdp">
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_top_rated_title"
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/outfit_regular"/>
+            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                android:id="@+id/tv_top_rated_showw_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_show_all"
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_12ssp"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/outfit_regular"/>
+
+         </RelativeLayout>
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/recycler_toprated"
+             android:layout_marginTop="@dimen/_10sdp"
+             />
       </LinearLayout>
    </ScrollView>
 

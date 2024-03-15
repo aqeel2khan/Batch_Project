@@ -115,7 +115,26 @@ class AuthRepository @Inject constructor(private val api: ApiService) : SafeApiC
         api.courseSubscribeCheck(jsonObject)
     }
 
-    suspend fun mealSubscribeUpdate(jsonObject: JsonObject) = safeApiCall {
-        api.mealSubscribeUpdate(jsonObject)
+    suspend fun mealSubscribeUpdate(userId:String,subscribeId:String,mealId:String,day_dishes:String,day:String,month:String) = safeApiCall {
+        api.mealSubscribeUpdate(userId,subscribeId,mealId,day_dishes,day,month)
     }
+
+    suspend fun mealGoalsList() = safeApiCall {
+        api.mealGoalsList()
+    }
+
+    suspend fun mealTagsList() = safeApiCall {
+        api.mealTagsList()
+    }
+    suspend fun mealAllergies() = safeApiCall {
+        api.mealAllergiesList()
+    }
+
+    suspend fun submitQueApi(jsonObject: JsonObject) = safeApiCall {
+        api.submitAllQuestion(jsonObject)
+    }
+    suspend fun topRatedApi() = safeApiCall {
+        api.topRated()
+    }
+
 }

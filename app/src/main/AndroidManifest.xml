@@ -28,6 +28,9 @@
         <activity
             android:name="com.dev.batchfinal.app_modules.activity.RecyclerViewActivity"
             android:exported="false" />
+        <activity
+            android:name=".app_modules.question.view.ProcessingQuestionActivity"
+            android:exported="false" />
 <!--
         <activity
             android:name="com.dev.batchfinal.app_modules.meals.meal.view.MealDetailsActivity"
@@ -37,13 +40,16 @@
             android:name="com.dev.batchfinal.app_modules.account.view.ProfileActivity"
             android:exported="false" />
         <activity
+            android:name=".app_modules.activity.WeightLossActivity"
+            android:exported="false" />
+        <activity
             android:name="com.dev.batchfinal.app_modules.activity.ChatActivity"
             android:exported="false" />
         <activity
             android:name="com.dev.batchfinal.app_modules.activity.FoodPlanBasedOnQuestionActivity"
             android:exported="false" />
         <activity
-            android:name="com.dev.batchfinal.app_modules.activity.QuestionActivity"
+            android:name=".app_modules.question.view.QuestionActivity"
             android:exported="false" />
         <activity
             android:name="com.dev.batchfinal.app_modules.account.view.RegistrationActivity"

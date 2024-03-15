@@ -4,10 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.dev.batchfinal.app_modules.batchboard.model.toprated.TopRatedResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscription_update.MealPlanSubscriptionUpdateResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.subscribe.CheckSubscribeModel
+import com.dev.batchfinal.app_modules.question.model.all_question.SubmitAllQueResponse
+import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergiesResponse
+import com.dev.batchfinal.app_modules.question.model.meal_goals.MealGoalsResponse
+import com.dev.batchfinal.app_modules.question.model.meal_tags.MealTagsResponse
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
 import com.dev.batchfinal.model.coach_detail_model.CoachDetailResponse
 import com.dev.batchfinal.model.coach_filter_list.CoachFilterListResponse
@@ -261,9 +266,9 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     private val _mealPlanSubscriptionUpdateResponse: MutableLiveData<Resource<MealPlanSubscriptionUpdateResponse>> = MutableLiveData()
     val mealPlanSubscriptionUpdateResponse: LiveData<Resource<MealPlanSubscriptionUpdateResponse>> get() = _mealPlanSubscriptionUpdateResponse
 
-    fun mealSubscribeUpdateApiCall(jsonObject: JsonObject) = viewModelScope.launch {
+    fun mealSubscribeUpdateApiCall(userId:String,subscribeId:String,mealId:String,day_dishes:String,day:String,month:String) = viewModelScope.launch {
         _mealPlanSubscriptionUpdateResponse.value = Resource.Loading
-        _mealPlanSubscriptionUpdateResponse.value = repository.mealSubscribeUpdate(jsonObject)
+        _mealPlanSubscriptionUpdateResponse.value = repository.mealSubscribeUpdate(userId,subscribeId,mealId,day_dishes,day,month)
     }
 
 
@@ -274,5 +279,50 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     fun courseSubscribeCheckApiCall(jsonObject: JsonObject) = viewModelScope.launch {
         _courseSubscribeCheckResponse.value = Resource.Loading
         _courseSubscribeCheckResponse.value = repository.courseSubscribeCheck(jsonObject)
+    }
+
+    // meal Goals api
+    private val _mealGoalsResponse: MutableLiveData<Resource<MealGoalsResponse>> = MutableLiveData()
+    val mealGoalsResponse: LiveData<Resource<MealGoalsResponse>> get() = _mealGoalsResponse
+
+    fun mealGoalsApiCall() = viewModelScope.launch {
+        _mealGoalsResponse.value = Resource.Loading
+        _mealGoalsResponse.value = repository.mealGoalsList()
+    }
+
+    // meal Tags api
+    private val _mealTagsResponse: MutableLiveData<Resource<MealTagsResponse>> = MutableLiveData()
+    val mealTagsResponse: LiveData<Resource<MealTagsResponse>> get() = _mealTagsResponse
+
+    fun mealTagsApiCall() = viewModelScope.launch {
+        _mealTagsResponse.value = Resource.Loading
+        _mealTagsResponse.value = repository.mealTagsList()
+    }
+
+    // meal allergies api
+    private val _mealAllergiesResponse: MutableLiveData<Resource<MealAllergiesResponse>> = MutableLiveData()
+    val mealAllergiesResponse: LiveData<Resource<MealAllergiesResponse>> get() = _mealAllergiesResponse
+
+    fun mealAllergiesApiCall() = viewModelScope.launch {
+        _mealAllergiesResponse.value = Resource.Loading
+        _mealAllergiesResponse.value = repository.mealAllergies()
+    }
+
+    // meal all submit question api
+    private val _submitAllQuestionResponse: MutableLiveData<Resource<SubmitAllQueResponse>> = MutableLiveData()
+    val submitAllQuestionResponse: LiveData<Resource<SubmitAllQueResponse>> get() = _submitAllQuestionResponse
+
+    fun submitAllQuestionApiCall(jsonObject: JsonObject) = viewModelScope.launch {
+        _submitAllQuestionResponse.value = Resource.Loading
+        _submitAllQuestionResponse.value = repository.submitQueApi(jsonObject)
+    }
+
+    // top Rated api
+    private val _topRatedResponseResponse: MutableLiveData<Resource<MealResponseList>> = MutableLiveData()
+    val topRatedResponseResponse: LiveData<Resource<MealResponseList>> get() = _topRatedResponseResponse
+
+    fun topRatedApiCall() = viewModelScope.launch {
+        _topRatedResponseResponse.value = Resource.Loading
+        _topRatedResponseResponse.value = repository.topRatedApi()
     }
 }
