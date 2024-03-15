@@ -123,14 +123,16 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                     jsonObject.addProperty("workout_type_id",cource_workout_Id)
                     jsonObject.addProperty("goal_id",goalId)
                    // authViewModel.searchCoachListApiCall(jsonObject)
-                    authViewModel.searchCourseFilterListApiCall(jsonObject)
+                    //authViewModel.searchCourseFilterListApiCall(jsonObject)
+                    authViewModel.filterCourseListApiCall(jsonObject)
 
                 }
                 else -> {
                     hideLoader()
                     jsonObject.addProperty("keyword",binding.editQuery.text.trim().toString())
                    // authViewModel.searchCoachListApiCall(jsonObject)
-                    authViewModel.searchCourseFilterListApiCall(jsonObject)
+                    //authViewModel.searchCourseFilterListApiCall(jsonObject)
+                    authViewModel.filterCourseListApiCall(jsonObject)
 
                 }
             }
@@ -270,11 +272,11 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 //code for save week price
 //                dialogBinding.btnApply.text = "Apply()"
                 //course filter by list
-                jsonObject.addProperty("course_level",levelId)
+               /* jsonObject.addProperty("course_level",levelId)
                 jsonObject.addProperty("workout_type_id",cource_workout_Id)
-                jsonObject.addProperty("goal_id",goalId)
+                jsonObject.addProperty("goal_id",goalId)*/
                // searchCourseListByFilterApi(jsonObject, dialogBinding)
-                searchCourseListByFilterApi(jsonObject, dialogBinding)
+               // searchCourseListByFilterApi(jsonObject, dialogBinding)
                 getCourseListApi("course_filter")
                 dialog.dismiss()
             }

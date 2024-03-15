@@ -92,6 +92,11 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
         _courseListResponse.value = repository.courseList()
     }
 
+    fun filterCourseListApiCall(jsonObject: JsonObject) = viewModelScope.launch {
+        _courseListResponse.value = Resource.Loading
+        _courseListResponse.value = repository.filterCourseList(jsonObject)
+    }
+
 
 
     // course detail api

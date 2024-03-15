@@ -85,6 +85,9 @@ interface ApiService {
     @POST(COURSE)
     suspend fun courseList(): CourseListResponse
 
+    @POST(COURSE)
+    suspend fun filterCourseList(@Body jsonObject: JsonObject): CourseListResponse
+
     @GET(COURSEDETAIL)
     suspend fun courseDetail(@Path("id") id: String): CourseDetailResponse
 
