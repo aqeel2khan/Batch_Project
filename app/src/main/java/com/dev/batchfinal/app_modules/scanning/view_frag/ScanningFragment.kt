@@ -40,6 +40,7 @@ import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.adapter.MealSubscribeListAdapter
 import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.CurrentMealDetailActivity
 import com.dev.batchfinal.app_modules.meals.meal_purchase.view.fragment.MealBatchFragment
+
 //import com.google.android.gms.auth.api.signin.GoogleSignIn
 //import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 //import com.google.android.gms.auth.api.signin.GoogleSignInOptions
