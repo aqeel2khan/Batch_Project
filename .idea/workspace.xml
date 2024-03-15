@@ -196,7 +196,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="home_with_top_rated_filter" />
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="home_with_top_rated_filter">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -591,7 +597,28 @@
       <option name="project" value="LOCAL" />
       <updated>1710532169126</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="home_with_top_rated_filter">
+      <created>1710533030563</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1710533030563</updated>
+    </task>
+    <task id="LOCAL-00026" summary="home_with_top_rated_api">
+      <created>1710533391443</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1710533391443</updated>
+    </task>
+    <task id="LOCAL-00027" summary="home_with_top_rated_filter">
+      <created>1710533466431</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1710533466431</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -632,6 +659,7 @@
     <MESSAGE value="Validation|calender popup" />
     <MESSAGE value="API-Signup, update address get Address" />
     <MESSAGE value="Account- SIgn Up,error body handling, update profile correction , Google Fit- In Progress" />
+    <MESSAGE value="home_with_top_rated_api" />
     <MESSAGE value="home_with_top_rated_filter" />
     <option name="LAST_COMMIT_MESSAGE" value="home_with_top_rated_filter" />
   </component>
@@ -810,12 +838,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/out/AuthViewModel.kt</url>
-          <line>269</line>
+          <line>276</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/out/AuthRepository.kt</url>
-          <line>118</line>
+          <line>121</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -910,12 +938,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
-          <line>571</line>
+          <line>605</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
-          <line>572</line>
+          <line>606</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -1036,8 +1064,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/network/ApiService.kt</url>
-          <line>147</line>
-          <properties class="com.dev.batchfinal.network.ApiService">
+          <line>150</line>
+          <properties class="com.dev.batchfinal.network.ApiService" method="mealSubscribeUpdate">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="50" />
@@ -1060,8 +1088,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
-          <line>566</line>
-          <properties>
+          <line>600</line>
+          <properties class="com.dev.batchfinal.app_modules.workout_motivator.view_frag.TrainingFragment" method="setAllBatchesAdapter">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="100" />
