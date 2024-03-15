@@ -210,10 +210,10 @@ Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagitt
     <string name="txt_following">Following</string>
     <string name="txt_delivery_detail">Delivery Details</string>
     <string name="txt_notification_setting">Notification Setting</string>
-    <string name="txt_change_photo">Change the photo</string>
+    <string name="txt_change_photo"><u>Change the photo</u></string>
     <string name="txt_log_out">Log out</string>
     <string name="txt_login">Login</string>
-    <string name="txt_dob">Date of birth</string>
+    <string name="txt_dob">Date of Birth</string>
     <string name="txt_gender">Gender</string>
     <string name="txt_all_notification">All notifications</string>
     <string name="txt_training_notify">Training notifications</string>

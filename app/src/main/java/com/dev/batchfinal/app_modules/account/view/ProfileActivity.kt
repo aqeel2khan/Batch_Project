@@ -94,6 +94,9 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
     }
 
     private fun onClickOperation() {
+        binding.tvUpdateProfilePic.setOnClickListener {
+
+        }
         binding.llPersonalInfo.setOnClickListener {
             if (sessionManager.isloggin()) {
                 showPersonalDialog("personal_info")
@@ -164,6 +167,8 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
         when (strValue) {
             "personal_info" -> {
                 profileEditBinding.llPersonaData.visibility = View.VISIBLE
+               // profileEditBinding.btnSave.visibility=View.VISIBLE
+                //profileEditBinding.btnApply.visibility=View.GONE
                 profileEditBinding.txtTitle.text = resources.getString(R.string.txt_personal_info)
                 profileEditBinding.editFullName.setText(sessionManager.getName())
                 profileEditBinding.editPhone.setText(sessionManager.getMobileNo())
@@ -255,6 +260,7 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
             "following" -> {
                 profileEditBinding.llFollowing.visibility = View.VISIBLE
                 profileEditBinding.btnSave.visibility = View.GONE
+               // profileEditBinding.btnApply.visibility=View.GONE
                 profileEditBinding.txtTitle.text = resources.getString(R.string.txt_following)
                 profileEditBinding.recyclerFollowing.apply {
                     layoutManager =
@@ -274,8 +280,13 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                 profileEditBinding.llMap.visibility = View.VISIBLE
                 profileEditBinding.txtTitle.text = resources.getString(R.string.txt_delivery_detail)
                 profileEditBinding.btnSave.text = ("Apply")
+                //profileEditBinding.btnSave.visibility=View.GONE
+               // profileEditBinding.btnApply.visibility=View.VISIBLE
                 profileEditBinding.btnSave.setOnClickListener {
                     //code for save week price
+                    dialog.dismiss()
+                }
+                profileEditBinding.closePersonalInfo.setOnClickListener {
                     dialog.dismiss()
                 }
             }
@@ -284,10 +295,16 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
                 profileEditBinding.llNotfySetting.visibility = View.VISIBLE
                 profileEditBinding.txtTitle.text =
                     resources.getString(R.string.txt_notification_setting)
+                profileEditBinding.btnSave.visibility=View.VISIBLE
+                //profileEditBinding.btnApply.visibility=View.GONE
                 profileEditBinding.btnSave.setOnClickListener {
                     //code for save week price
                     dialog.dismiss()
                 }
+                profileEditBinding.closePersonalInfo.setOnClickListener {
+                    dialog.dismiss()
+                }
+
             }
         }
 

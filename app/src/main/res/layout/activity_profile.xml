@@ -62,9 +62,11 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_profile"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:src="@drawable/avtar"/>
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:background="@drawable/view_circle"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_dummy_user"/>
 
             <com.dev.batchfinal.app_custom.MyCustomBoldTextView
                 android:id="@+id/txtUserName"
@@ -78,7 +80,7 @@
                 android:textStyle="bold"/>
 
             <com.dev.batchfinal.app_custom.MyCustomTextView
-                android:id="@+id/tv_change_photo"
+                android:id="@+id/tvUpdateProfilePic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_change_photo"
