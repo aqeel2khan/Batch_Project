@@ -40,14 +40,14 @@ import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.adapter.MealSubscribeListAdapter
 import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.CurrentMealDetailActivity
 import com.dev.batchfinal.app_modules.meals.meal_purchase.view.fragment.MealBatchFragment
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.fitness.Fitness
-import com.google.android.gms.fitness.data.DataType
-import com.google.android.gms.fitness.data.Field
-import com.google.android.gms.fitness.request.DataReadRequest
+//import com.google.android.gms.auth.api.signin.GoogleSignIn
+//import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+//import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+//import com.google.android.gms.common.api.ApiException
+//import com.google.android.gms.fitness.Fitness
+//import com.google.android.gms.fitness.data.DataType
+//import com.google.android.gms.fitness.data.Field
+//import com.google.android.gms.fitness.request.DataReadRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import java.util.Calendar
@@ -143,48 +143,48 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
 
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-        GlobalScope.launch(Dispatchers.Main) {
-            try {
-                val account = task.getResult(ApiException::class.java)
-                val historyClient = Fitness.getHistoryClient(requireContext(), account)
-                val calendar = Calendar.getInstance()
-                calendar.add(Calendar.DAY_OF_MONTH, -1)
-                val endTime = calendar.timeInMillis
-                calendar.add(Calendar.DAY_OF_MONTH, -1)
-                val startTime = calendar.timeInMillis
-
-                val readRequest = DataReadRequest.Builder()
-                    .aggregate(DataType.TYPE_STEP_COUNT_DELTA, DataType.AGGREGATE_STEP_COUNT_DELTA)
-                    .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
-                    .build()
-
-                historyClient.readData(readRequest)
-                    .addOnSuccessListener { dataReadResponse ->
-                        val dataSet = dataReadResponse.getDataSet(DataType.TYPE_STEP_COUNT_DELTA)
-                        for (dataPoint in dataSet.dataPoints) {
-                            // Access data from the data point
-                            val timestamp = dataPoint.getTimestamp(TimeUnit.MILLISECONDS)
-                            val stepCount = dataPoint.getValue(Field.FIELD_STEPS).asInt()
-                            Log.e("TAG-STEPCOUT", stepCount.toString())
-                            Log.e("TAG-TIMESTAMP", timestamp.toString())
-
-                        }
-                    }
-                    .addOnFailureListener { e ->
-                        Log.e("TAG", "There was an error reading data from Google Fit", e)
-                    }
-            } catch (e: ApiException) {
-                // Handle sign-in failure
-                e.statusCode
-                Log.e("API_EXCEPTION",""+e.statusCode)
-            }
-
-
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+//        GlobalScope.launch(Dispatchers.Main) {
+//            try {
+//                val account = task.getResult(ApiException::class.java)
+//                val historyClient = Fitness.getHistoryClient(requireContext(), account)
+//                val calendar = Calendar.getInstance()
+//                calendar.add(Calendar.DAY_OF_MONTH, -1)
+//                val endTime = calendar.timeInMillis
+//                calendar.add(Calendar.DAY_OF_MONTH, -1)
+//                val startTime = calendar.timeInMillis
+//
+//                val readRequest = DataReadRequest.Builder()
+//                    .aggregate(DataType.TYPE_STEP_COUNT_DELTA, DataType.AGGREGATE_STEP_COUNT_DELTA)
+//                    .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
+//                    .build()
+//
+//                historyClient.readData(readRequest)
+//                    .addOnSuccessListener { dataReadResponse ->
+//                        val dataSet = dataReadResponse.getDataSet(DataType.TYPE_STEP_COUNT_DELTA)
+//                        for (dataPoint in dataSet.dataPoints) {
+//                            // Access data from the data point
+//                            val timestamp = dataPoint.getTimestamp(TimeUnit.MILLISECONDS)
+//                            val stepCount = dataPoint.getValue(Field.FIELD_STEPS).asInt()
+//                            Log.e("TAG-STEPCOUT", stepCount.toString())
+//                            Log.e("TAG-TIMESTAMP", timestamp.toString())
+//
+//                        }
+//                    }
+//                    .addOnFailureListener { e ->
+//                        Log.e("TAG", "There was an error reading data from Google Fit", e)
+//                    }
+//            } catch (e: ApiException) {
+//                // Handle sign-in failure
+//                e.statusCode
+//                Log.e("API_EXCEPTION",""+e.statusCode)
+//            }
+//
+//
+//        }
+//    }
 
 
 
