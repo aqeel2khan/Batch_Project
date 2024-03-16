@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
@@ -21,7 +22,10 @@ import com.dev.batchfinal.app_modules.activity.WeightLossActivity
 import com.dev.batchfinal.app_modules.batchboard.model.toprated.TopRatedResponse.Internaldatum
 import com.dev.batchfinal.app_modules.fragments.NetworkConnectivityFragment.Companion.showLoader
 import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.MealDetailsActivity
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.fragment.MealFragment
 import com.dev.batchfinal.app_modules.shopping.view.CourseDetailActivity
+import com.dev.batchfinal.app_modules.shopping.view_frag.ShoppingFragment
+import com.dev.batchfinal.app_modules.workout_motivator.view_frag.TrainingFragment
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyCustom
@@ -322,24 +326,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
     private fun buttonClicks() {
-        /*binding.btnTraining.setOnClickListener {
+        binding.tvWorkoutShowAll.setOnClickListener {
             findNavController().navigate(
                 R.id.action_batchboardFragment_to_trainingFragment,
                 TrainingFragment.getBundle("")
             )
         }
 
-        binding.btnMeal.setOnClickListener {
+        binding.tvMotivatorShowAll.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_batchboardFragment_to_trainingFragment,
+                TrainingFragment.getBundle("")
+            )
+        }
+        binding.tvMealShowAll.setOnClickListener {
             findNavController().navigate(
                 R.id.action_batchboardFragment_to_mealFragment,
                 MealFragment.getBundle("")
             )
         }
-        binding.btnShop.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_batchboardFragment_to_shopFragment,
-                ShoppingFragment.getBundle("")
-            )
-        }*/
+
     }
 }

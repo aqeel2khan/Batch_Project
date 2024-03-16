@@ -170,7 +170,7 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
                 val selectedValue = dataList[position]
                 // Append the selected value to the string variable
                 selectedValuesString += if (selectedValuesString.isEmpty()) selectedValue else ", $selectedValue"
-                showToast(selectedValuesString)
+               // showToast(selectedValuesString)
             }
 
             override fun onNothingSelected(parentView: AdapterView<*>) {
@@ -246,7 +246,6 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
                     }
 
                     override fun onMealDishSelectItemPosition(item: List<MealDishData>, position: Int) {
-                        TODO("Not yet implemented")
                     }
                 })
         }

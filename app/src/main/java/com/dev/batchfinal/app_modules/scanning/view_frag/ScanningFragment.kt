@@ -192,12 +192,12 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
 
 
     private fun buttonClicks() {
-        binding.cdCurrentMeal.setOnClickListener {
+       /* binding.cdCurrentMeal.setOnClickListener {
             findNavController().navigate(
                 R.id.action_scanFragment_to_mealBatchFragment,
                 MealBatchFragment.getBundle("","")
             )
-        }
+        }*/
 //        binding.currentWorkoutCard.setOnClickListener {
 //            requireContext().startActivity(Intent(requireContext(), WeightLossActivity::class.java))
 //        }

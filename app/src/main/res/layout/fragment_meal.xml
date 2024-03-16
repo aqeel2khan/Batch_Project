@@ -30,8 +30,8 @@
                     android:orientation="horizontal">
                     <ImageView
                         android:id="@+id/search_bar"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:src="@drawable/search"/>
                     <com.dev.batchfinal.app_custom.MyCustomEditText
@@ -47,7 +47,7 @@
                         android:gravity="center_vertical"
                         android:singleLine="true"
                         android:hint="Search"
-                        android:textSize="@dimen/_9sdp"/>
+                        android:textSize="@dimen/_12sdp"/>
 
                     <ImageView
                         android:id="@+id/icon_filter"
@@ -237,7 +237,7 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_15ssp"
                 android:textFontWeight="500"/>
 
             <androidx.recyclerview.widget.RecyclerView

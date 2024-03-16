@@ -52,7 +52,7 @@
                     android:text="Batch Vegan Meal Plan"
                     android:textColor="@color/welcome_txt"
                     android:textFontWeight="500"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_15ssp" />
 
                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/tv_meal_price"
@@ -63,7 +63,7 @@
                     android:text="$35"
                     android:textColor="@color/welcome_txt"
                     android:textFontWeight="500"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_13ssp" />
 
                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/fromText"
@@ -74,9 +74,9 @@
                     android:layout_toLeftOf="@id/tv_meal_price"
                     android:text="from"
                     android:textColor="#101215"
-                    android:textSize="@dimen/_8ssp" />
+                    android:textSize="@dimen/_10ssp" />
 
-                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                <com.dev.batchfinal.app_custom.MyCustomLightTextView
                     android:id="@+id/tv_meal_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                                     android:text="1700-1800 kcl"
                                     android:id="@+id/tv_meal_kcl"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_8ssp" />
+                                    android:textSize="@dimen/_10ssp" />
                             </LinearLayout>
                         </LinearLayout>
 
@@ -156,7 +156,7 @@
                                     android:id="@+id/tv_meal_count"
                                     android:layout_marginStart="@dimen/_2sdp"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_8ssp" />
+                                    android:textSize="@dimen/_10ssp" />
                             </LinearLayout>
                         </LinearLayout>
 
@@ -190,7 +190,7 @@
                                     android:id="@+id/meal_type"
                                     android:layout_marginStart="@dimen/_2sdp"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_8ssp" />
+                                    android:textSize="@dimen/_10ssp" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -222,8 +222,8 @@
                             android:text="Duration"
                             android:textStyle="bold"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12ssp" />
-                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                            android:textSize="@dimen/_13ssp" />
+                        <com.dev.batchfinal.app_custom.MyCustomLightTextView
                             android:id="@+id/grantText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -275,7 +275,7 @@
                         android:layout_centerVertical="true"
                         android:textColor="@color/welcome_txt"
                         android:textFontWeight="500"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_13ssp" />
                     <ImageView
                         android:visibility="gone"
                         android:id="@+id/meal_calender"
@@ -299,7 +299,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginBottom="@dimen/_10sdp" />
+                    android:layout_marginBottom="@dimen/_20sdp" />
             </RelativeLayout>
 
         </ScrollView>
@@ -326,7 +326,7 @@
             android:layout_height="wrap_content"
             android:text="$35"
             android:id="@+id/selected_item"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_15sdp"
             android:textSize="@dimen/_12ssp"
             android:layout_alignParentRight="true"

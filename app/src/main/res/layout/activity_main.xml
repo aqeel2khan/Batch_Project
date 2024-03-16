@@ -19,7 +19,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/_15sdp">
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/tv_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
             <LinearLayout
                 android:id="@+id/ll_bottomBar"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_65sdp"
+                android:layout_height="@dimen/_55sdp"
                 android:layout_gravity="bottom"
                 android:background="#FFFFFF"
                 android:gravity="bottom"
@@ -110,8 +110,8 @@
 
                 <ImageView
                     android:id="@+id/iv_meal"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:src="@drawable/iv_meal"/>

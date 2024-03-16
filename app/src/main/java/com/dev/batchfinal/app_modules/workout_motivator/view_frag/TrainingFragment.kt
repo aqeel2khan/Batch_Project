@@ -272,8 +272,10 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         if (filterType.equals("workoutFilter")){
             getCourseFilter(dialogBinding)
             dialogBinding.llWorkoutFilter.visibility = View.VISIBLE
+            dialogBinding.cardExpr.visibility = View.GONE
+            dialogBinding.newCard.visibility = View.GONE
             val count = typeId + goalId + levelId
-            dialogBinding.btnApply.text = "Apply"+"("+ count + ")"
+            dialogBinding.btnApply.text = "Apply"
             dialogBinding.btnApply.setOnClickListener {
                 //code for save week price
 //                dialogBinding.btnApply.text = "Apply()"
@@ -393,7 +395,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
         dialogBinding.idCoachExperience.setOnTagClickListener(ExperienceTagFlowLayout.OnTagClickListener { view, position, parent ->
             motivator_exp_Id = experiences[position].id
-            requireActivity().showToast(experiences[position].id.toString())
+            //requireActivity().showToast(experiences[position].id.toString())
             true
         })
 
@@ -415,7 +417,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
         dialogBinding.idCoachWt.setOnTagClickListener(CoachWtTagFlowLayout.OnTagClickListener { view, position, parent ->
             motivator_type_Id = workoutType[position].id
-            requireActivity().showToast(workoutType[position].id.toString())
+           // requireActivity().showToast(workoutType[position].id.toString())
             true
         })
 
@@ -482,7 +484,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
         dialogBinding.idFlowlayout.setOnTagClickListener(TagFlowLayout.OnTagClickListener { view, position, parent ->
             cource_workout_Id = workoutTypes[position].id
-            requireActivity().showToast(workoutTypes[position].id.toString())
+            //requireActivity().showToast(workoutTypes[position].id.toString())
+
             //view.setVisibility(View.GONE);
             true
         })
@@ -528,7 +531,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
         dialogBinding.idFlowlayoutLevel.setOnTagClickListener(LevelTagFlowLayout.OnTagClickListener { view, position, parent ->
             levelId = batchLevel[position].id
-            requireActivity().showToast(batchLevel[position].id.toString())
+           // requireActivity().showToast(batchLevel[position].id.toString())
             //view.setVisibility(View.GONE);
             true
         })
@@ -574,7 +577,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
         dialogBinding.idFlowlayoutGole.setOnTagClickListener(GoalTagFlowLayout.OnTagClickListener { view, position, parent ->
             goalId = batchGoal[position].id
-            requireActivity().showToast(batchGoal[position].id.toString())
+            //requireActivity().showToast(batchGoal[position].id.toString())
             //view.setVisibility(View.GONE);
             true
         })
