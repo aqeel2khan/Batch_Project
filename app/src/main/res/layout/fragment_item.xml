@@ -22,7 +22,7 @@
             android:layout_marginEnd="@dimen/_4sdp"
             android:textAppearance="?attr/textAppearanceListItem" />
 
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_5sdp"

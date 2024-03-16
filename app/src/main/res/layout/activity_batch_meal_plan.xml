@@ -44,7 +44,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_15sdp">
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/weight_loss_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                     android:textFontWeight="500"
                     android:textSize="@dimen/_12ssp" />
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/dollerText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                     android:textFontWeight="500"
                     android:textSize="@dimen/_10ssp" />
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/fromText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     android:textColor="#101215"
                     android:textSize="@dimen/_8ssp" />
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/messageText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
                                     android:src="@drawable/flash_icon"
                                     app:tint="@color/welcome_txt" />
 
-                                <com.dev.batchfinal.app_custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -147,7 +147,7 @@
                                     android:src="@drawable/meal_sm_icon"
                                     app:tint="@color/welcome_txt" />
 
-                                <com.dev.batchfinal.app_custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -180,7 +180,7 @@
                                     android:layout_gravity="center"
                                     android:src="@drawable/icon_vegan" />
 
-                                <com.dev.batchfinal.app_custom.MyCustomTextView
+                                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -212,7 +212,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -220,7 +220,7 @@
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12ssp" />
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/grantText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -263,7 +263,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_below="@id/view1">
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:id="@+id/workout_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -310,7 +310,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:orientation="vertical"
         android:background="@drawable/rounded_bg_main">
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Grand total"
@@ -318,7 +318,7 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:textSize="@dimen/_14ssp"
             android:textColor="@color/welcome_txt"/>
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$35"
@@ -349,7 +349,7 @@
             android:textStyle="bold"
             tools:ignore="UnusedAttribute" />
 
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:id="@+id/txt_add_promo"
             android:layout_below="@id/btn_subscribe_plan"
             android:layout_width="wrap_content"

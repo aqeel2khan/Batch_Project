@@ -24,7 +24,7 @@
             android:layout_marginStart="@dimen/_5sdp"
             app:cardCornerRadius="@dimen/_10sdp">
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/nutrition_value"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:textColor="@color/welcome_txt"
                 android:textSize="@dimen/_12ssp" />
         </androidx.cardview.widget.CardView>
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:id="@+id/nutrition_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

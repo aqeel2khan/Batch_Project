@@ -113,7 +113,7 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
         binding.coachName.text = courseData.coachDetail.name
         MyUtils.loadImage(binding.coachProfile, MyConstant.IMAGE_BASE_URL + courseData.coachDetail.profilePhotoPath)
         MyUtils.loadBackgroundImage(binding.backgroundBg, MyConstant.IMAGE_BASE_URL + courseData.courseImage)
-        binding.tvDuration.text = courseData.duration + " mins"
+        binding.tvDuration.text = courseData.duration
         binding.dollerText2.text = courseData.coursePrice + "KWD"
         if (!courseData.duration.isNullOrEmpty()){
             durationList.add(courseData.duration)
@@ -140,6 +140,9 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
             }else{
                 checkMealSubscribeStatus(sessionManager.getUserId(),course_id!!)
             }
+        }
+        binding.imgBack.setOnClickListener {
+            finish()
         }
     }
 

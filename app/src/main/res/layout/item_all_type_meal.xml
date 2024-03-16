@@ -51,7 +51,7 @@
                     android:layout_marginHorizontal="@dimen/_8sdp"
                     android:orientation="vertical">
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:id="@+id/product_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                             android:src="@drawable/flash_icon"
                             app:tint="@color/white" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1700 - 1800"
@@ -87,7 +87,7 @@
                             android:textSize="@dimen/_10ssp"
                             android:textStyle="bold" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_boost_kcal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

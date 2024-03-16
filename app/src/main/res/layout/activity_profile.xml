@@ -29,7 +29,7 @@
             android:layout_centerInParent="true"
             android:layout_marginStart="@dimen/_15sdp">
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/tv_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,11 +62,13 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_profile"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:src="@drawable/avtar"/>
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:background="@drawable/view_circle"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_dummy_user"/>
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/txtUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,8 +79,8 @@
                 android:textSize="@dimen/_15ssp"
                 android:textStyle="bold"/>
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
-                android:id="@+id/tv_change_photo"
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                android:id="@+id/tvUpdateProfilePic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_change_photo"
@@ -118,13 +120,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_toRightOf="@+id/select_date">
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/txt_personal_info"
                             android:textColor="@color/welcome_txt"
                             android:textSize="@dimen/_12ssp"/>
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:visibility="gone"
                             android:id="@+id/txt_selected_date"
                             android:layout_width="wrap_content"
@@ -169,13 +171,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_toRightOf="@+id/img_drop_off">
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/txt_following"
                             android:textColor="@color/welcome_txt"
                             android:textSize="@dimen/_12ssp"/>
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -218,13 +220,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_toRightOf="@+id/img_add_address">
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/txt_delivery_detail"
                             android:textColor="@color/welcome_txt"
                             android:textSize="@dimen/_12ssp"/>
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -267,13 +269,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_toRightOf="@+id/img_delivery_arriving">
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/txt_notification_setting"
                             android:textColor="@color/welcome_txt"
                             android:textSize="@dimen/_12ssp"/>
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -311,7 +313,7 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:src="@drawable/logout"/>
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_log_out"
@@ -330,7 +332,7 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:src="@drawable/logout"/>
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_login"

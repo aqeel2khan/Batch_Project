@@ -27,7 +27,7 @@
             android:layout_centerInParent="true"
             android:layout_marginStart="@dimen/_15sdp">
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/tv_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

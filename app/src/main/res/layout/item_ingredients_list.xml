@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/_2sdp"
         android:layout_marginTop="@dimen/_10sdp">
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:id="@+id/ingredient_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

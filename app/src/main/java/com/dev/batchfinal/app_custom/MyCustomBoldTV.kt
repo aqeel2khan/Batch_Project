@@ -8,7 +8,7 @@ import com.dev.batchfinal.R
 import com.dev.batchfinal.app_utils.FontCache
 
 
-class MyCustomTextView : AppCompatTextView {
+class MyCustomBoldTV : AppCompatTextView {
     constructor(context: Context) : super(context) {
         applyCustomFont(context, null)
     }
@@ -26,27 +26,27 @@ class MyCustomTextView : AppCompatTextView {
         val attributeArray = context.obtainStyledAttributes(attrs, R.styleable.CustomView)
         val fontName = attributeArray.getString(R.styleable.CustomView_fontcustom)
 
-        val textStyle = attrs!!.getAttributeIntValue(ANDROID_SCHEMA, "textStyle", Typeface.NORMAL)
+        val textStyle = attrs!!.getAttributeIntValue(ANDROID_SCHEMA, "textStyle", Typeface.BOLD)
 
-        val customFont = selectTypeface(context, fontName, textStyle)
+        val customFont = setTypeface(context, fontName, textStyle)
         typeface = customFont
         attributeArray.recycle()
     }
 
 
-    private fun selectTypeface(context: Context, fontName: String?, textStyle: Int): Typeface? {
+    private fun setTypeface(context: Context, fontName: String?, textStyle: Int): Typeface? {
         return if (fontName == null) {
-            FontCache.getTypeface("outfit_medium.ttf", context)
-        } else if (fontName.contentEquals("outfit_medium.ttf")) {
-            FontCache.getTypeface("outfit_medium", context)
+            FontCache.getTypeface("outfit_bold.ttf", context)
+        } else if (fontName.contentEquals("outfit_bold.ttf")) {
+            FontCache.getTypeface("outfit_bold", context)
         } else {
-            FontCache.getTypeface("outfit_regular.ttf", context)
+            FontCache.getTypeface("outfit_medium.ttf", context)
         }
     }
 
     companion object {
 
-        val ANDROID_SCHEMA = "http://schemas.android.com/apk/res/android"
+        const val ANDROID_SCHEMA = "http://schemas.android.com/apk/res/android"
     }
 
 }
