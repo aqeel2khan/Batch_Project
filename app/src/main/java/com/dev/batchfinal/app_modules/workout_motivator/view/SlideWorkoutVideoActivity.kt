@@ -104,8 +104,6 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
             workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
         }
 
-
-
         val strObj1 = intent.getStringExtra("course_data")
         courseData = gson.fromJson(strObj1, OrderList::class.java)
 

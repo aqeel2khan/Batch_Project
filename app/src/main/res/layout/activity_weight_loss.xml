@@ -7,6 +7,37 @@
     android:background="@color/white"
     tools:context="com.dev.batchfinal.app_modules.activity.WeightLossActivity">
 
+    <FrameLayout
+        android:id="@+id/video_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@android:color/black">
+
+        <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView
+            android:id="@+id/vimeoPlayerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:autoPlay="true"
+            app:showFullscreenOption="true"
+            app:backgroundColor="#00FFFF"
+            />
+
+        <!--            <com.example.vimeoplayer2.UniversalVideoView-->
+        <!--                android:id="@+id/videoView"-->
+        <!--                android:layout_width="fill_parent"-->
+        <!--                android:layout_height="fill_parent"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                app:uvv_autoRotation="true"-->
+        <!--                app:uvv_fitXY="false" />-->
+
+        <!--            <com.example.vimeoplayer2.UniversalMediaController-->
+        <!--                android:id="@+id/media_controller"-->
+        <!--                android:layout_width="fill_parent"-->
+        <!--                android:layout_height="fill_parent"-->
+        <!--                app:uvv_scalable="true" />-->
+
+    </FrameLayout>
     <LinearLayout
         android:id="@+id/exercise_image"
         android:layout_width="match_parent"
@@ -14,42 +45,14 @@
         android:background="@drawable/exercise_image"
         android:orientation="horizontal">
 
-        <FrameLayout
-            android:id="@+id/video_layout"
+        <ImageView
+            android:id="@+id/background_img"
             android:layout_width="fill_parent"
             android:layout_height="250dp"
-            android:background="@android:color/black">
+            android:scaleType="centerCrop"
+            android:src="@drawable/exercise_image" />
 
-            <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView
-                android:id="@+id/vimeoPlayerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:autoPlay="false"
-                app:backgroundColor="#00FFFF"
-                app:loop="false"
-                app:muted="false"
-                app:quality="auto"
-                app:showFullscreenOption="true"
-                app:showMenuOption="false"
-                app:showOriginalControls="false"
-                app:showTitle="false"
-                app:topicColor="#FFFF00" />
 
-<!--            <com.example.vimeoplayer2.UniversalVideoView-->
-<!--                android:id="@+id/videoView"-->
-<!--                android:layout_width="fill_parent"-->
-<!--                android:layout_height="fill_parent"-->
-<!--                android:layout_gravity="center"-->
-<!--                app:uvv_autoRotation="true"-->
-<!--                app:uvv_fitXY="false" />-->
-
-<!--            <com.example.vimeoplayer2.UniversalMediaController-->
-<!--                android:id="@+id/media_controller"-->
-<!--                android:layout_width="fill_parent"-->
-<!--                android:layout_height="fill_parent"-->
-<!--                app:uvv_scalable="true" />-->
-
-        </FrameLayout>
 
         <ImageView
             android:id="@+id/img_back"

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerStateListener
 import com.dev.batchfinal.databinding.ItemVideoPlayBinding
+//import com.dev.batchfinal.databinding.ItemVideoPlayBinding
 import com.dev.batchfinal.`interface`.ItemVideoFinishClick
 import com.dev.batchfinal.model.courseorderlist.Course_duration_exercise
 

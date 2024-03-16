@@ -69,6 +69,11 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
                 binding.profileImage,
                 MyConstant.IMAGE_BASE_URL + courseData?.course_detail?.coach_detail?.profile_photo_path
             )
+
+            MyUtils.loadBackgroundImage(
+                binding.backgroundImg,
+                MyConstant.IMAGE_BASE_URL + courseData?.course_detail?.course_image
+            )
             buttonClicks()
             startRelativeAnimation(binding.relWeightDetailLayout)
         } catch (e: Exception) {

@@ -17,7 +17,7 @@ import com.ct7ct7ct7.androidvimeoplayer.model.TextTrack
 import com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerActivity
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.WorkoutTypeAdapter
-import com.dev.batchfinal.databinding.ActivityWeightLossBinding
+//import com.dev.batchfinal.databinding.ActivityWeightLossBinding
 import com.dev.batchfinal.`interface`.PositionCourseWorkoutClick
 import com.dev.batchfinal.model.course_detail.Data
 import com.dev.batchfinal.model.courseorderlist.Course_duration
@@ -27,6 +27,7 @@ import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.app_modules.workout_motivator.view.WorkOutDetailScreen
+import com.dev.batchfinal.databinding.ActivityWeightLossBinding
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -83,12 +84,18 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             )
 
 
+            MyUtils.loadBackgroundImage(
+                binding.backgroundImg,
+                MyConstant.IMAGE_BASE_URL + courseData?.course_detail?.course_image
+            )
+
+
             buttonClicks()
             val aniSlide: Animation =
                 AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
             binding.relWeightLayout.startAnimation(aniSlide)
 
-            setVideoOnBanner()
+        //    setVideoOnBanner()
 
             setWorkoutTypeAdapter()
         } catch (e: Exception) {
@@ -100,85 +107,37 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
     private fun setVideoOnBanner() {
 
         try {
-            val courseDurationList = courseData?.course_detail?.course_duration
-            if (!courseDurationList.isNullOrEmpty()) {
 
-                val courseDurationData = courseDurationList[0]
-                if (courseDurationData != null && !courseDurationData.course_duration_exercise.isNullOrEmpty()) {
+            binding.backgroundImg.setOnClickListener {
 
-                    val videoId =
-                        courseDurationData?.course_duration_exercise?.get(0)?.video_detail?.video_id
-                    if (videoId != null) {
-
-                        var videoIdInt = videoId.toInt()
+                binding.videoLayout.visibility = View.VISIBLE
 
 
-                        binding.vimeoPlayerView.initialize(true, videoIdInt)
+                val courseDurationList = courseData?.course_detail?.course_duration
+                if (!courseDurationList.isNullOrEmpty()) {
 
-                        binding.vimeoPlayerView.defaultControlPanelView.vimeoPlayButton.visibility =
-                            View.INVISIBLE
+                    val courseDurationData = courseDurationList[0]
+                    if (courseDurationData != null && !courseDurationData.course_duration_exercise.isNullOrEmpty()) {
 
-                        //vimeoPlayerView.initialize(true, {YourPrivateVideoId}, "SettingsEmbeddedUrl")
-                        //vimeoPlayerView.initialize(true, {YourPrivateVideoId},"VideoHashKey", "SettingsEmbeddedUrl")
+                        val videoId =
+                            courseDurationData?.course_duration_exercise?.get(0)?.video_detail?.video_id
+                        if (videoId != null) {
 
-                        binding.vimeoPlayerView.addTimeListener { second ->
-    //                        binding.playerCurrentTimeTextView.text =
-    //                            getString(R.string.player_current_time, second.toString())
+                            var videoIdInt = videoId.toInt()
+
+                            binding.vimeoPlayerView.initialize(true, videoIdInt)
+
                         }
-
-                        binding.vimeoPlayerView.addErrorListener { message, method, name ->
-                            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-                        }
-
-                        binding.vimeoPlayerView.addReadyListener(object : VimeoPlayerReadyListener {
-                            override fun onReady(
-                                title: String?,
-                                duration: Float,
-                                textTrackArray: Array<TextTrack>
-                            ) {
-                                //   binding.vimeoPlayerView.play()
-                                //   binding.playerStateTextView.text = getString(R.string.player_state, "onReady")
-                            }
-
-                            override fun onInitFailed() {
-                                //  binding.playerStateTextView.text = getString(R.string.player_state, "onInitFailed")
-                            }
-                        })
-
-                        binding.vimeoPlayerView.addStateListener(object : VimeoPlayerStateListener {
-                            override fun onPlaying(duration: Float) {
-    //                            binding.playerStateTextView.text = getString(R.string.player_state, "onPlaying")
-                            }
-
-                            override fun onPaused(seconds: Float) {
-    //                            binding.playerStateTextView.text = getString(R.string.player_state, "onPaused")
-                            }
-
-                            override fun onEnded(duration: Float) {
-    //                            binding.playerStateTextView.text = getString(R.string.player_state, "onEnded")
-                            }
-                        })
-                        binding.vimeoPlayerView.addVolumeListener { volume ->
-    //                        binding.playerVolumeTextView.text = getString(R.string.player_volume, volume.toString())
-                        }
-
-                        binding.vimeoPlayerView.setFullscreenClickListener {
-                            var requestOrientation = VimeoPlayerActivity.REQUEST_ORIENTATION_AUTO
-                            startActivityForResult(
-                                VimeoPlayerActivity.createIntent(
-                                    this,
-                                    requestOrientation,
-                                    binding.vimeoPlayerView
-                                ), REQUEST_CODE
-                            )
-                        }
-
-
                     }
+
+
                 }
 
 
             }
+
+
+
         } catch (e: Exception) {
            e.printStackTrace()
         }

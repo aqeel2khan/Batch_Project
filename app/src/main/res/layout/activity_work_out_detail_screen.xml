@@ -6,11 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.dev.batchfinal.app_modules.workout_motivator.view.WorkOutDetailScreen">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/exercise_image"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@drawable/exercise_image"
         android:orientation="horizontal">
 
         <ImageView
@@ -22,7 +21,14 @@
             android:src="@drawable/app_back_icon"
             app:tint="@color/white" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/background_img"
+            android:layout_width="fill_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/exercise_image" />
+
+    </FrameLayout>
 
     <RelativeLayout
         android:layout_above="@id/ll_start_workout"
