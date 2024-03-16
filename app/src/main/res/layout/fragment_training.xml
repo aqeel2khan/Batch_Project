@@ -8,14 +8,13 @@
     <LinearLayout
         android:id="@+id/ll_tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginRight="20dp"
+        android:layout_height="@dimen/_38sdp"
+        android:layout_marginVertical="@dimen/_16sdp"
+        android:layout_marginHorizontal="@dimen/_8sdp"
         android:background="@drawable/tab_un_sel_bg"
         android:elevation="@dimen/_2sdp"
         android:gravity="center"
-        android:padding="@dimen/_2sdp">
+        android:padding="@dimen/_1sdp">
 
         <LinearLayout
             android:id="@+id/ll_batch"
@@ -29,17 +28,15 @@
                 android:id="@+id/tv_batch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/outfit_semi_bold"
                 android:text="@string/txt_batch"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="@dimen/_14ssp" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_motivator"
             android:layout_width="0dp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_marginRight="@dimen/_3ssp"
             android:layout_weight="1"
             android:gravity="center">
 
@@ -47,11 +44,10 @@
                 android:id="@+id/tv_motivator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/outfit_semi_bold"
                 android:gravity="center"
                 android:text="@string/txt_motivators"
                 android:textColor="@color/welcome_txt_gry"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="@dimen/_14ssp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -60,8 +56,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ll_tab_layout"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginHorizontal="@dimen/_20sdp">
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_marginHorizontal="@dimen/_8sdp">
 
         <RelativeLayout
             android:id="@+id/rl_workout_filter"
@@ -72,15 +68,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/outfit_bold"
                 android:text="@string/workout_batchs"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/icon_workout_filter"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="@dimen/_35sdp"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/ic_workout_filter" />
         </RelativeLayout>
@@ -125,14 +120,14 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_centerInParent="true"
         android:id="@+id/recycler_all_batch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/rl_filter_search"
-        android:layout_marginTop="@dimen/_10sdp"
 
+        android:layout_centerInParent="true"
         android:layout_marginBottom="@dimen/_65sdp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:visibility="gone"
         android:id="@+id/recycler_all_motivator"

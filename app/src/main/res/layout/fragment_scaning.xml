@@ -16,7 +16,6 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
-                android:visibility="gone"
                 android:id="@+id/cd_current_meal"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_160sdp"
@@ -46,21 +45,21 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/outfit_regular"
+                        android:fontFamily="@font/outfit_bold"
                         android:background="@drawable/radius_shape"
                         android:paddingEnd="@dimen/_10sdp"
                         android:paddingStart="@dimen/_10sdp"
-                        android:textSize="@dimen/_10ssp"
+                        android:textSize="@dimen/_10sdp"
                         android:paddingTop="@dimen/_4sdp"
                         android:paddingBottom="@dimen/_4sdp"
                         android:text="@string/meal_batch"
                         android:textColor="@color/black"
-                        android:textStyle="bold" />
+                       />
 
                     <RelativeLayout
                         android:layout_width="match_parent"

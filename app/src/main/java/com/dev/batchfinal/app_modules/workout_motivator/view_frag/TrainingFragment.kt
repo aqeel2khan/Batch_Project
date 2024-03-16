@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -64,7 +65,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
     override fun initUi() {
         buttonClicks()
-        getCourseListApi()
+        getWorkoutBatches()
         print(sharedPreferences.token)
     }
 
@@ -79,7 +80,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
             binding.rlMotivatorSearch.visibility = View.GONE
             binding.recyclerAllBatch.visibility = View.VISIBLE
             binding.recyclerAllMotivator.visibility = View.GONE
-            getCourseListApi()
+            getWorkoutBatches()
             binding.rlWorkoutFilter.visibility = View.VISIBLE
         }
         binding.llMotivator.setOnClickListener {
@@ -103,7 +104,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     }
 
     /*course list api code*/
-    private fun getCourseListApi() {
+    private fun getWorkoutBatches() {
         courseList.clear()
         if (CheckNetworkConnection.isConnection(requireContext(),binding.root, true)) {
             showLoader()
@@ -122,8 +123,13 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     //                                    courseList = response.data.list
                                         Log.d("list", courseList.toString())
 
+                                        if(response.data.list.size>0)
+                                        {
+                                            setAllBatchesAdapter(response.data.list)
 
-                                        setAllBatchesAdapter(response.data.list)
+                                        }else{
+                                            Toast.makeText(requireContext(),"No workout batch found",Toast.LENGTH_SHORT).show()
+                                        }
                                     }
                                 }
                             } catch (e: Exception) {
@@ -569,8 +575,21 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
        var allBatchesAdapter = AllBatchesAdapter(context, courseList,"training_screen", object :
             CourseListItemPosition<Int> {
             override fun onCourseListItemPosition(item: ListData, position: Int) {
-                val course_id = item.courseId
-                activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
+               try {
+                   val course_id = item.courseId.toString()
+                   if (!course_id.isNullOrEmpty())
+                   {
+                       Log.e("COURSE_ID",course_id.toString())
+                       requireContext().startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
+                       //Replaced by BBh- activity by context
+                   }else
+                   {
+                       Toast.makeText(requireContext(),"Batch ID not found",Toast.LENGTH_SHORT).show()
+
+                   }
+
+               }catch (e:Exception){e.printStackTrace()}
+
             }
         })
         binding.recyclerAllBatch.adapter = allBatchesAdapter

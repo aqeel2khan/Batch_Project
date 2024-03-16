@@ -7,8 +7,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import com.dev.batchfinal.R
 import com.dev.batchfinal.app_utils.FontCache
 
-
-class MyCustomBoldTextView : AppCompatTextView {
+class MyCustomLightTextView : AppCompatTextView {
     constructor(context: Context) : super(context) {
         applyCustomFont(context, null)
     }
@@ -36,11 +35,11 @@ class MyCustomBoldTextView : AppCompatTextView {
 
     private fun setTypeface(context: Context, fontName: String?, textStyle: Int): Typeface? {
         return if (fontName == null) {
-            FontCache.getTypeface("outfit_bold.ttf", context)
-        } else if (fontName.contentEquals("outfit_bold.ttf")) {
-            FontCache.getTypeface("outfit_bold", context)
+            FontCache.getTypeface("outfit_light.ttf", context)
+        } else if (fontName.contentEquals("outfit_light.ttf")) {
+            FontCache.getTypeface("outfit_light", context)
         } else {
-            FontCache.getTypeface("outfit_medium.ttf", context)
+            FontCache.getTypeface("outfit_regular.ttf", context)
         }
     }
 

@@ -97,7 +97,9 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
 
     @SuppressLint("SetTextI18n")
     private fun setUpDetails(courseData: Data) {
-        if (courseData != null) {
+        //Check added by BBh
+        try
+        {
             course_price = courseData.coursePrice + "KWD"
             binding.courseName.text = courseData.courseName
             binding.courseDescription.text = courseData.description
@@ -109,27 +111,31 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
             binding.validateMin.text = courseData.duration + " min"
             binding.levelType.text = courseData.courseLevel.levelName
             binding.dollerText2.text = courseData.coursePrice + "KWD"
-            if (!courseData.workoutType.isNullOrEmpty()) {
+            if (courseData.workoutType.isNotEmpty()) {
                 setWorkoutType(courseData.workoutType as List<WorkoutType>)
             }
             //  setWorkoutType(courseData.workoutType as List<WorkoutType>)
-            if (!courseData.courseDuration.isNullOrEmpty()) {
+            if (courseData.courseDuration.isNotEmpty()) {
                 setWorkoutTypeAdapter(courseData.courseDuration as List<CourseDuration>)
             }
 
             durationList.add(courseData.duration)
-            for (item in durationList) {
-                if (item.equals("Select Duration")){
-                    val newItem = item
-                    dataList.add(newItem)
-                }else{
-                    val newItem = item + weekString
-                    dataList.add(newItem)
+            //Check added by BBh
+            if(durationList.size>0)
+            {
+                for (item in durationList) {
+                    if (item == "Select Duration"){
+                        dataList.add(item)
+                    }else{
+                        val newItem = item + weekString
+                        dataList.add(newItem)
+                    }
                 }
+                setSpinnerData(dataList)
 
             }
-            setSpinnerData(dataList)
-        }
+        }catch (e:Exception){e.printStackTrace()}
+
     }
 
     private fun setSpinnerData(dataList: ArrayList<String>) {
