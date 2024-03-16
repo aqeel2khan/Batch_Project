@@ -173,7 +173,7 @@
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:layout_above="@id/btn_next1"
                 android:orientation="vertical">
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_fitness_goal"
@@ -213,7 +213,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:orientation="vertical">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_age"
@@ -254,7 +254,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:orientation="vertical">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_height"
@@ -321,7 +321,7 @@
                     android:background="@drawable/demo"
                     android:gravity="center">
 
-                    <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTV
                         android:id="@+id/tv_batch"
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="@dimen/_30sdp"
@@ -381,7 +381,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:orientation="vertical">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_weight"
@@ -407,7 +407,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="vertical">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Current Weight"
@@ -447,7 +447,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="vertical">
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Target Weight"
@@ -502,7 +502,7 @@
                     android:background="@drawable/demo"
                     android:gravity="center">
 
-                    <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTV
                         android:id="@+id/tv_kg"
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="@dimen/_30sdp"
@@ -566,7 +566,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_active"
@@ -691,7 +691,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_choose_diet"
@@ -810,7 +810,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:orientation="vertical">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_allergic"

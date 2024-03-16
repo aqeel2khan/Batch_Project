@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/tv_meal_plan_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,14 +75,14 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_status"
                 android:layout_centerVertical="true"
                 android:textColor="@color/welcome_txt_gry"
                 android:textSize="@dimen/_12ssp"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/status_active"
@@ -91,7 +91,7 @@
                 android:layout_alignParentRight="true"
                 android:textColor="@color/color_active"
                 android:textSize="@dimen/_12ssp"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_freeze"
@@ -115,14 +115,14 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_duration"
                 android:layout_centerVertical="true"
                 android:textColor="@color/welcome_txt_gry"
                 android:textSize="@dimen/_12ssp"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/tv_duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -145,14 +145,14 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_exp_date"
                 android:layout_centerVertical="true"
                 android:textColor="@color/welcome_txt_gry"
                 android:textSize="@dimen/_12ssp"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/tv_expiration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -175,14 +175,14 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_delivery_days"
                 android:layout_centerVertical="true"
                 android:textColor="@color/welcome_txt_gry"
                 android:textSize="@dimen/_12ssp"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4/14"

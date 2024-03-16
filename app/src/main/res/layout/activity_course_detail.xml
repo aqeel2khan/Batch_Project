@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+
     tools:context="com.dev.batchfinal.app_modules.shopping.view.CourseDetailActivity"
     tools:ignore="MissingDefaultResource">
 
@@ -16,7 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -48,47 +50,48 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_15sdp">
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                >
 
-                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:id="@+id/course_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_bold"
                     android:text="Weight Loss"
                     android:textColor="@color/black"
-                    android:textFontWeight="500"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold"
+                   />
 
-                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:id="@+id/course_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:fontFamily="@font/outfit_bold"
                     android:text="$35"
-                    android:textColor="@color/black"
-                    android:textFontWeight="500"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textStyle="bold"
 
-                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp" />
+
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:id="@+id/fromText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/course_price"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_toLeftOf="@id/course_price"
-                    android:fontFamily="@font/outfit_regular"
+                    android:layout_marginHorizontal="@dimen/_3sdp"
+                    android:layout_toStartOf="@id/course_price"
                     android:text="from"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_10ssp" />
+                    android:paddingBottom="@dimen/_2ssp"
+                    android:textSize="@dimen/_10sdp" />
 
                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/course_description"
@@ -96,10 +99,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/course_name"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:fontFamily="@font/outfit_medium"
                     android:text="@string/weight_loss_content"
                     android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_12sdp" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
@@ -108,7 +110,7 @@
                     android:layout_below="@id/course_description"
                     android:layout_marginTop="15dp">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/coach_profile"
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
@@ -121,11 +123,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/_8sdp"
-                        android:fontFamily="@font/outfit_semi_bold"
+                        android:layout_marginStart="@dimen/_8sdp"
                         android:text="Cameron Williasom"
                         android:textColor="@color/txt_color"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="normal"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -333,11 +335,13 @@
                          </LinearLayout>-->
                     </LinearLayout>
 
+
+
                 </LinearLayout>
 
                 <View
                     android:id="@+id/view2"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_below="@id/linearLayout2"
@@ -351,15 +355,14 @@
                     android:layout_below="@id/view2"
                     android:layout_marginTop="@dimen/_20sdp">
 
-                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTV
                         android:id="@+id/grantText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:text="Duration"
-                        android:fontFamily="@font/outfit_bold"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_14ssp"/>
+                        android:textStyle="bold" android:textSize="@dimen/_14sdp"/>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -416,40 +419,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:background="@drawable/bg_layer_subscribe"
         android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/relative"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
-            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+            <com.dev.batchfinal.app_custom.MyCustomExtraBoldTv
                 android:id="@+id/durationText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginBottom="@dimen/_20sdp"
-                android:fontFamily="@font/outfit_bold"
                 android:text="Grand total"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
-                android:textStyle="bold" />
+                 />
 
-            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/dollerText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/outfit_bold"
                 android:gravity="center_vertical"
                 android:text="$35"
                 android:textColor="@color/black"
-                android:textFontWeight="500"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_14sdp" />
         </RelativeLayout>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -458,15 +458,14 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_10sdp"
             android:background="@drawable/rectangle_button"
-            android:fontFamily="@font/outfit_medium"
+            android:fontFamily="@font/outfit_bold"
             android:outlineSpotShadowColor="#516634"
-            android:padding="@dimen/_10sdp"
             android:text="@string/subscribe_for_a_course"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textFontWeight="500"
-            android:textSize="@dimen/_12ssp"
-            android:textStyle="bold"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="normal"
             tools:ignore="UnusedAttribute" />
     </LinearLayout>
 

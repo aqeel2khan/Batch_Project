@@ -20,8 +20,8 @@ class MyCustomEditText : AppCompatEditText {
     private var drawableLeft: Drawable? = null
     private var drawableTop: Drawable? = null
     private var drawableBottom: Drawable? = null
-    internal var actionX: Int = 0
-    internal var actionY: Int = 0
+    private var actionX: Int = 0
+    private var actionY: Int = 0
 
     constructor(context: Context) : super(context) {
         this.ctx = context
@@ -215,6 +215,6 @@ class MyCustomEditText : AppCompatEditText {
 
     companion object {
 
-        val ANDROID_SCHEMA = "http://schemas.android.com/apk/res/android"
+        const val ANDROID_SCHEMA = "http://schemas.android.com/apk/res/android"
     }
 }

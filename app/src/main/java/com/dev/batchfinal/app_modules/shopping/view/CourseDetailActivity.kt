@@ -161,14 +161,14 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
             layoutManager = LinearLayoutManager(
                 this@CourseDetailActivity,
                 LinearLayoutManager.HORIZONTAL,
-                false
-            )
+                false)
             adapter = WorkoutTypeListAdapter(this@CourseDetailActivity, workoutType)
         }
     }
 
     private fun buttonClicks() {
         binding.btnSubscribe.setOnClickListener {
+
             startActivity(
                 Intent(this@CourseDetailActivity, BuySubscriptionActivity::class.java)
                 .putExtra("course_id", course_id)

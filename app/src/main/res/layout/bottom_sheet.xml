@@ -589,7 +589,7 @@
                 android:layout_height="@dimen/_30sdp"
                 android:src="@drawable/icon_down"
                 android:id="@+id/img_down4"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_rate_meal"
@@ -639,7 +639,7 @@
                 android:src="@drawable/star"/>
         </LinearLayout>
 
-        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+        <com.dev.batchfinal.app_custom.MyCustomBoldTV
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Write a Review"
@@ -704,7 +704,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_gravity="center"
             android:src="@drawable/complete_icon"/>
-        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+        <com.dev.batchfinal.app_custom.MyCustomBoldTV
             android:id="@+id/success_msg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -768,7 +768,7 @@
                 android:layout_height="@dimen/_30sdp"
                 android:src="@drawable/icon_down"
                 android:id="@+id/img_down5"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_add_pro"
@@ -839,7 +839,7 @@
                 android:src="@drawable/icon_down"
                 android:id="@+id/img_down6"/>
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -1081,7 +1081,7 @@
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:orientation="horizontal"
                     android:layout_marginHorizontal="@dimen/_10sdp">
-                    <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTV
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Set default address"
@@ -1102,7 +1102,7 @@
                         android:textOn="" />
                 </RelativeLayout>
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_delivery_place"
@@ -1401,7 +1401,7 @@
                 android:src="@drawable/icon_down"
                 android:id="@+id/img_down7"/>
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/txt_new_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

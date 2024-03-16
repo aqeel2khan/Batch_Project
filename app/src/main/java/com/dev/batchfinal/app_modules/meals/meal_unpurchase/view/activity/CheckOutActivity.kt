@@ -296,6 +296,9 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         binding.rlDropOff.setOnClickListener {
             showDeliveryTime("dropOff")
         }
+        binding.imgBack.setOnClickListener {
+            finish()
+        }
     }
 
 

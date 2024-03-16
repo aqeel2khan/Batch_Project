@@ -36,7 +36,7 @@
                 android:layout_height="@dimen/_30sdp"
                 android:src="@drawable/icon_down" />
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -339,7 +339,7 @@
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:orientation="horizontal">
 
-                    <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTV
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/outfit_regular"
@@ -361,7 +361,7 @@
                         android:textOn="" />
                 </RelativeLayout>
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp"
@@ -441,7 +441,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal">
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/outfit_regular"
@@ -471,7 +471,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal">
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/outfit_regular"
@@ -501,7 +501,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal">
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/outfit_regular"
@@ -531,7 +531,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal">
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/outfit_regular"
@@ -561,7 +561,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal">
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/outfit_regular"
@@ -629,7 +629,7 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+        <com.dev.batchfinal.app_custom.MyCustomBoldTV
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -641,7 +641,7 @@
             android:textColor="@color/welcome_txt"
             android:textSize="@dimen/_14ssp" />
 
-        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+        <com.dev.batchfinal.app_custom.MyCustomBoldTV
             android:id="@+id/txt_log_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -699,7 +699,7 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+        <com.dev.batchfinal.app_custom.MyCustomBoldTV
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -711,7 +711,7 @@
             android:textColor="@color/welcome_txt"
             android:textSize="@dimen/_14ssp" />
 
-        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+        <com.dev.batchfinal.app_custom.MyCustomBoldTV
             android:id="@+id/txt_login_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

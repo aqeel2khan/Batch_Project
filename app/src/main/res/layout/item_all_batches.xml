@@ -37,10 +37,10 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+          >
 
             <!--current batch xml-->
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/workout_batch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,11 +64,10 @@
                 android:background="@color/txt_light2"
                 android:padding="@dimen/_8sdp">
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:id="@+id/tv_course_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/outfit_bold"
                     android:text="@string/workout_batch"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12sdp" />
@@ -87,11 +86,10 @@
                         android:textSize="@dimen/_8sdp"
                         />
 
-                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTV
                         android:id="@+id/tv_course_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/outfit_medium"
                         android:text="$35"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_10sdp" />
@@ -141,7 +139,8 @@
                             android:layout_height="@dimen/_14sdp"
                             android:layout_marginEnd="@dimen/_3sdp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/calender" />
+                            android:src="@drawable/clock"
+                            app:tint="@color/white"/>
 
                         <com.dev.batchfinal.app_custom.MyCustomLightTextView
                             android:layout_width="wrap_content"
@@ -198,12 +197,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/outfit_medium"
+                        android:layout_marginLeft="@dimen/_8sdp"
                         android:text="Bessie Cooper"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_12ssp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/_10sdp"
+                         />
                 </LinearLayout>
 
                 <SeekBar

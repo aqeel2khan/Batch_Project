@@ -67,7 +67,7 @@
                    android:layout_height="wrap_content"
                    android:layout_alignParentRight="true"
                    android:layout_centerVertical="true">
-                   <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                   <com.dev.batchfinal.app_custom.MyCustomBoldTV
                        android:id="@+id/txt_rating"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"

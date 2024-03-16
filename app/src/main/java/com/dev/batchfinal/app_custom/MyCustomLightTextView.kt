@@ -45,7 +45,7 @@ class MyCustomLightTextView : AppCompatTextView {
 
     companion object {
 
-        val ANDROID_SCHEMA = "http://schemas.android.com/apk/res/android"
+        const val ANDROID_SCHEMA = "http://schemas.android.com/apk/res/android"
     }
 
 }

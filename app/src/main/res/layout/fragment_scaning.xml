@@ -129,7 +129,7 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:padding="@dimen/_10sdp"
                 android:background="@drawable/meal_cal_bg">
-                <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_of_day"
@@ -148,7 +148,7 @@
                         android:gravity="center"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/border_circle">
-                        <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                        <com.dev.batchfinal.app_custom.MyCustomBoldTV
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1000"
@@ -256,7 +256,7 @@
                 android:layout_marginTop="@dimen/_10sdp"/>
 
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_apple_health"
@@ -312,7 +312,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:background="@drawable/ic_heart_grp">
-                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="110"
@@ -372,7 +372,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:background="@drawable/ic_step_gp">
-                            <com.dev.batchfinal.app_custom.MyCustomBoldTextView
+                            <com.dev.batchfinal.app_custom.MyCustomBoldTV
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="9,890"
