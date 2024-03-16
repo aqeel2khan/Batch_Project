@@ -73,33 +73,31 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
 
     private fun getMealList(searchQuery: String) {
         if (CheckNetworkConnection.isConnection(requireContext(),binding.root, true)) {
-       /*     when (searchQuery) {
+            when (searchQuery) {
                 "" -> {
                     showLoader()
-                    authViewModel.courseListApiCall()
+                    authViewModel.mealListApiCall()
                 }
-                "course_filter" -> {
+                "meal_filter" -> {
                     showLoader()
 
-                    MyConstant.jsonObject.addProperty("course_level",levelId)
-                    MyConstant.jsonObject.addProperty("workout_type_id",cource_workout_Id)
-                    MyConstant.jsonObject.addProperty("goal_id",goalId)
-                    // authViewModel.searchCoachListApiCall(jsonObject)
-                    //authViewModel.searchCourseFilterListApiCall(jsonObject)
-                    authViewModel.filterCourseListApiCall(MyConstant.jsonObject)
+                    MyConstant.jsonObject.addProperty("goal_id",goal_id)
+                    MyConstant.jsonObject.addProperty("tag_id",teg_id)
+                    MyConstant.jsonObject.addProperty("calories_from",calories_from)
+                    MyConstant.jsonObject.addProperty("calories_to",calories_to)
+                    authViewModel.mealListFilterApiCall(MyConstant.jsonObject)
 
                 }
                 else -> {
                     hideLoader()
-                    MyConstant.jsonObject.addProperty("keyword",binding.editQuery.text.trim().toString())
+                    MyConstant.jsonObject.addProperty("keyword",binding.etEmployeeSearch.text!!.trim().toString())
                     // authViewModel.searchCoachListApiCall(jsonObject)
                     //authViewModel.searchCourseFilterListApiCall(jsonObject)
-                    authViewModel.filterCourseListApiCall(MyConstant.jsonObject)
+                    authViewModel.mealListFilterApiCall(MyConstant.jsonObject)
 
                 }
-            }*/
+            }
             showLoader()
-            authViewModel.mealListApiCall()
             authViewModel.mealListResponse.observe(this){
                 when(it){
                     is Resource.Success->{
@@ -169,6 +167,8 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         dialogBinding.llMealFilter.visibility = View.VISIBLE
         dialogBinding.btnApply.setOnClickListener {
             //code for save week price
+            getMealList("meal_filter")
+
             dialog.dismiss()
         }
         dialog.show()

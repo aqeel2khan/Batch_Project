@@ -121,6 +121,9 @@ interface ApiService {
     @POST(MEALLIST)
     suspend fun getMealList(): MealResponseList
 
+    @POST(MEALLIST)
+    suspend fun getMealListFilter(@Body jsonObject: JsonObject): MealResponseList
+
     @GET(MEALDETAILS)
     suspend fun mealDetails(@Path("id") id: String): MealDetailResponse
 
