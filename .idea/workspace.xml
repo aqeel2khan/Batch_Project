@@ -140,6 +140,11 @@
           <theme>@style/Theme.BatchFinal</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_all_batches.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_dish_nutrition_list.xml">
         <config>
           <theme>@style/Theme.BatchFinal</theme>
@@ -196,16 +201,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="raw file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +214,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RZ8N202RDCN]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[96386080180006H]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -241,9 +240,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
         <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -255,7 +254,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="development_main_15_march_pradeep" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -278,7 +277,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DEBUGGABLE_DEVICE": "samsung-sm_m307f-RZ8N202RDCN",
+    "DEBUGGABLE_DEVICE": "vivo-v2059-96386080180006H",
     "DEBUGGABLE_PROCESS": "com.dev.batchfinal",
     "DEBUGGER_ID": "Auto",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -287,6 +286,8 @@
     "SHOW_ALL_PROCESSES": "false",
     "android-custom-viewC:/Users/Hp/Desktop/ws_batch_07_03_24/library/src/main/java/com/ct7ct7ct7/androidvimeoplayer/view/VimeoPlayerView.java_SELECTED": "VimeoPlayerView",
     "android-custom-viewD:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java/com/example/bottomanimationmydemo/custom/MyCustomButton.kt_SELECTED": "MyCustomButton",
+    "android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomBoldTextView.kt_SELECTED": "MyCustomBoldTextView",
+    "android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomLightTextView.kt_SELECTED": "MyCustomLightTextView",
     "android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomTextView.kt_SELECTED": "MyCustomTextView",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
@@ -602,7 +603,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710465061955</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="unused import removed">
+      <option name="closed" value="true" />
+      <created>1710509359153</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1710509359153</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Training- Design | Course Details-Crash Fix&#10;Batches Item-Design Fix">
+      <option name="closed" value="true" />
+      <created>1710563576753</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1710563576753</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -616,7 +633,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/development_latest_bharat" />
+                        <option value="origin/development_15_march_pradeep" />
                       </list>
                     </value>
                   </entry>
@@ -643,7 +660,10 @@
     <MESSAGE value="Validation|calender popup" />
     <MESSAGE value="API-Signup, update address get Address" />
     <MESSAGE value="Account- SIgn Up,error body handling, update profile correction , Google Fit- In Progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Account- SIgn Up,error body handling, update profile correction , Google Fit- In Progress" />
+    <MESSAGE value="unused import removed" />
+    <MESSAGE value="Training- Design | Course Details-Crash Fix&#10;Batches Item-Design Fix" />
+    <MESSAGE value="raw file" />
+    <option name="LAST_COMMIT_MESSAGE" value="raw file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -919,16 +939,6 @@
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
-          <line>571</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
-          <line>572</line>
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_unpurchase/view/activity/CheckOutActivity.kt</url>
           <line>737</line>
           <option name="timeStamp" value="106" />
@@ -955,27 +965,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt</url>
-          <line>372</line>
+          <line>373</line>
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt</url>
-          <line>352</line>
+          <line>353</line>
           <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt</url>
-          <line>392</line>
+          <line>393</line>
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt</url>
-          <line>386</line>
+          <line>387</line>
           <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt</url>
-          <line>394</line>
+          <line>395</line>
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -995,7 +1005,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt</url>
-          <line>370</line>
+          <line>371</line>
           <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -1027,6 +1037,16 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/SlideWorkoutVideoActivity.kt</url>
           <line>43</line>
           <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
+          <line>578</line>
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
+          <line>579</line>
+          <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt</url>
@@ -1070,7 +1090,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view_frag/TrainingFragment.kt</url>
-          <line>566</line>
+          <line>572</line>
           <properties class="com.dev.batchfinal.app_modules.workout_motivator.view_frag.TrainingFragment" method="setAllBatchesAdapter">
             <option name="WATCH_EXIT" value="false" />
           </properties>
