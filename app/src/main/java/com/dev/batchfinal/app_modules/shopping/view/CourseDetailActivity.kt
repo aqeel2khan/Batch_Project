@@ -72,6 +72,10 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
                                 if (response.status == MyConstant.success) {
                                     courseDetailData = response.data
                                     sharedPreferences.saveCourseId(response.data.courseId.toString())
+                                    try {
+                                        binding.tvDuration.text=response.data.duration.toString()+" days"
+
+                                    }catch (e:Exception){}
                                     setUpDetails(courseDetailData)
                                 }
                             }

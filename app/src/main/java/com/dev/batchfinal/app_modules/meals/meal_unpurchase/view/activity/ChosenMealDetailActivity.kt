@@ -76,15 +76,16 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
                         lifecycleScope.launch {
                             it.let {
                                 val response = it.value
-                                showToast(response.message)
+                               // showToast(response.message)
 
                                 if (response.status == MyConstant.success) {
-                                    showToast(response.status.toString())
+                                    binding.txtIngredientsValue.text=response.data.data.ingredients
+                                    //showToast(response.status.toString())
 
 //                                    sharedPreferences.saveCourseId(response.data.courseId.toString())
                                     dishNutritionListAdapter(response.data.data.nutritionDetails)
                                     val ingredientsArray: List<String> = response.data.data.ingredients.split(",")
-                                    ingredientsListAdapter(ingredientsArray)
+                                   // ingredientsListAdapter(ingredientsArray)
 
                                 }
                             }

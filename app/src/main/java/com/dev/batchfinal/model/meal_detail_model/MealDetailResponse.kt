@@ -56,7 +56,10 @@ data class Category(
     @SerializedName("category_id")
     val categoryId: Int,
     @SerializedName("category_name")
-    val categoryName: String
+    val categoryName: String,
+    @SerializedName("isSelected")
+    var isSelected: Boolean=false
+
 )
 
 class Error

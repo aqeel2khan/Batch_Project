@@ -9,12 +9,13 @@
    <ScrollView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_marginBottom="@dimen/_75sdp">
+       android:layout_marginBottom="@dimen/_55sdp">
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
          android:orientation="vertical">
          <RelativeLayout
+             android:visibility="gone"
              android:id="@+id/rl_motivator_search"
              android:layout_below="@id/ll_tab_layout"
              android:layout_width="match_parent"
@@ -105,15 +106,15 @@
              android:layout_height="wrap_content"
              android:layout_marginTop="@dimen/_10sdp"
              android:layout_marginHorizontal="@dimen/_15sdp">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/workout_batchs"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_15ssp"
                 android:fontFamily="@font/outfit_regular"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
-                android:id="@+id/tv_showw_all"
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                android:id="@+id/tv_workout_show_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_show_all"
@@ -136,15 +137,15 @@
              android:layout_height="wrap_content"
              android:layout_marginTop="@dimen/_10sdp"
              android:layout_marginHorizontal="@dimen/_15sdp">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_motivators"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_15ssp"
                 android:fontFamily="@font/outfit_regular"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
-                android:id="@+id/tv_mt_showw_all"
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                android:id="@+id/tv_motivator_show_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_show_all"
@@ -167,15 +168,15 @@
              android:layout_height="wrap_content"
              android:layout_marginTop="@dimen/_10sdp"
              android:layout_marginHorizontal="@dimen/_15sdp">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_meal_title"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_15ssp"
                 android:fontFamily="@font/outfit_regular"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
-                android:id="@+id/tv_meal_showw_all"
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                android:id="@+id/tv_meal_show_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_show_all"
@@ -198,14 +199,15 @@
              android:layout_height="wrap_content"
              android:layout_marginTop="@dimen/_10sdp"
              android:layout_marginHorizontal="@dimen/_15sdp">
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_top_rated_title"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_15ssp"
                 android:fontFamily="@font/outfit_regular"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                android:visibility="gone"
                 android:id="@+id/tv_top_rated_showw_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

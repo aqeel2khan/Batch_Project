@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_95sdp"
-                android:background="@color/txt_light">
+                android:background="@color/txt_light2">
 
 
                 <LinearLayout

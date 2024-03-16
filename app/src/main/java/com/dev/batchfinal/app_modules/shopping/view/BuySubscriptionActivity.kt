@@ -123,7 +123,7 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
                 val newItem = item
                 dataList.add(newItem)
             }else{
-                val newItem = item + weekString
+                val newItem = item + " days"
                 dataList.add(newItem)
             }
 
