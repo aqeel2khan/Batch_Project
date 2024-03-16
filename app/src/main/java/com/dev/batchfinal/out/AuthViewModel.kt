@@ -197,6 +197,11 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
         _mealListResponse.value = repository.getMealList()
     }
 
+    fun mealListFilterApiCall(jsonObject: JsonObject) = viewModelScope.launch {
+        _mealListResponse.value = Resource.Loading
+        _mealListResponse.value = repository.getMealListFilter(jsonObject)
+    }
+
     // meal detail api
     private val _mealDetailResponse: MutableLiveData<Resource<MealDetailResponse>> = MutableLiveData()
     val mealDetailResponse: LiveData<Resource<MealDetailResponse>> get() = _mealDetailResponse
