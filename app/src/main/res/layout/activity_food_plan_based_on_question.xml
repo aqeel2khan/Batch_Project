@@ -132,7 +132,7 @@
                     android:background="@color/txt_light2"
                     android:padding="@dimen/_10sdp">
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:id="@+id/tv_workout_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -186,14 +186,14 @@
                                 android:src="@drawable/flash_icon"
                                 app:tint="@color/white" />
 
-                            <com.dev.batchfinal.app_custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1700 - 1800"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_10ssp"
                                 android:textStyle="bold" />
-                            <com.dev.batchfinal.app_custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:id="@+id/tv_boost_kcal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -217,7 +217,7 @@
                                 android:layout_height="@dimen/_13sdp"
                                 android:src="@drawable/meal_sm_icon" />
 
-                            <com.dev.batchfinal.app_custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/_3sdp"
@@ -225,7 +225,7 @@
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_10ssp"
                                 android:textStyle="bold" />
-                            <com.dev.batchfinal.app_custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:id="@+id/tv_snacks_kcal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"

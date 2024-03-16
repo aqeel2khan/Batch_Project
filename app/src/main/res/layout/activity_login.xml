@@ -23,7 +23,7 @@
                 android:layout_gravity="start"
                 android:src="@drawable/app_back_icon" />
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/welcomeBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
                 android:textSize="@dimen/_21ssp"
                 android:textStyle="bold" />
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/signInAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                     android:layout_gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/outfit_regular"
@@ -153,7 +153,7 @@
                         android:textColor="@color/hint_txt_gry"
                         android:textSize="@dimen/_9ssp" />
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -211,7 +211,7 @@
                     tools:ignore="UnusedAttribute" />
             </RelativeLayout>
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/create_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -251,7 +251,7 @@
                     android:layout_marginBottom="@dimen/_8sdp"
                     android:background="@android:color/darker_gray" />
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:layout_weight="0.4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -294,7 +294,7 @@
                     android:importantForAccessibility="no"
                     android:src="@drawable/google" />
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#F0EFF2"
@@ -326,7 +326,7 @@
                     android:importantForAccessibility="no"
                     android:src="@drawable/microsoft" />
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#F0EFF2"
@@ -358,7 +358,7 @@
                     android:importantForAccessibility="no"
                     android:src="@drawable/facebook" />
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#F0EFF2"
@@ -390,7 +390,7 @@
                     android:importantForAccessibility="no"
                     android:src="@drawable/apple" />
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#F0EFF2"

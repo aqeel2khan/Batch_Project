@@ -25,7 +25,7 @@
             android:layout_marginStart="@dimen/_6sdp"
             android:orientation="vertical">
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/txt_trainer_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                 android:textColor="@color/welcome_txt"
                 android:textSize="@dimen/_12ssp" />
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/txt_profesion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

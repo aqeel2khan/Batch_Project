@@ -25,7 +25,7 @@
                 android:layout_height="@dimen/_25sdp"
                 android:src="@drawable/app_back_icon" />
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_meal_planning"
@@ -76,7 +76,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/_10sdp" />
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_15sdp"
@@ -103,7 +103,7 @@
                         android:background="@drawable/rectangle_button"
                         android:gravity="center">
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_breakfast"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
                         android:background="@drawable/rectangle_button"
                         android:gravity="center">
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_lunch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                         android:background="@drawable/rectangle_button"
                         android:gravity="center">
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_snack"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                         android:background="@drawable/rectangle_button"
                         android:gravity="center">
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_desserts"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:orientation="vertical"
         android:background="@drawable/rounded_bg_main">
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Selected meals"
@@ -201,7 +201,7 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:textSize="@dimen/_14ssp"
             android:textColor="@color/welcome_txt"/>
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4/4"

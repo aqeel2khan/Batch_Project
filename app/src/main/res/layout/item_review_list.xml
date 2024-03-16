@@ -41,7 +41,7 @@
                    android:layout_toEndOf="@id/customer_profile"
                    android:layout_marginStart="@dimen/_10sdp"
                    android:orientation="vertical">
-                   <com.dev.batchfinal.app_custom.MyCustomTextView
+                   <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                        android:id="@+id/tv_customer_name"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                        android:singleLine="true"
                        android:fontFamily="@font/outfit_regular"
                        android:textSize="@dimen/_12ssp" />
-                   <com.dev.batchfinal.app_custom.MyCustomTextView
+                   <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                        android:id="@+id/tv_review_day"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                </RelativeLayout>
            </RelativeLayout>
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"

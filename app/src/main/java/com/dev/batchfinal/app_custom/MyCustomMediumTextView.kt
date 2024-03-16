@@ -8,7 +8,7 @@ import com.dev.batchfinal.R
 import com.dev.batchfinal.app_utils.FontCache
 
 
-class MyCustomTextView : AppCompatTextView {
+class MyCustomMediumTextView : AppCompatTextView {
     constructor(context: Context) : super(context) {
         applyCustomFont(context, null)
     }

@@ -55,7 +55,7 @@
                 android:background="@color/txt_light2"
                 android:padding="@dimen/_10sdp">
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/tv_workout_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true">
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="4/14"
@@ -79,7 +79,7 @@
                         android:textSize="@dimen/_10ssp"
                         android:textStyle="bold" />
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_days"
@@ -109,7 +109,7 @@
                             android:src="@drawable/flash_icon"
                             app:tint="@color/white" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1700 - 1800"
@@ -118,7 +118,7 @@
                             android:textSize="@dimen/_10ssp"
                             android:textStyle="bold" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_boost_kcal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                             android:src="@drawable/flash_icon"
                             app:tint="@color/white" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="93"
@@ -153,7 +153,7 @@
                             android:textSize="@dimen/_10ssp"
                             android:textStyle="bold" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_min"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

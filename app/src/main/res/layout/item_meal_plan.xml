@@ -16,7 +16,7 @@
         android:background="@drawable/rectangle_button_gry_search"
         android:gravity="center">
 
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:id="@+id/tv_meal_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

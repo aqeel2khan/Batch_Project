@@ -21,7 +21,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:textColor="@color/welcome_txt"/>
 
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/txt_subscription"

@@ -29,7 +29,7 @@
             android:layout_centerInParent="true"
             android:layout_marginStart="@dimen/_15sdp">
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/tv_heading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                 android:textSize="@dimen/_15ssp"
                 android:textStyle="bold"/>
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/tvUpdateProfilePic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -120,13 +120,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_toRightOf="@+id/select_date">
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/txt_personal_info"
                             android:textColor="@color/welcome_txt"
                             android:textSize="@dimen/_12ssp"/>
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:visibility="gone"
                             android:id="@+id/txt_selected_date"
                             android:layout_width="wrap_content"
@@ -171,13 +171,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_toRightOf="@+id/img_drop_off">
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/txt_following"
                             android:textColor="@color/welcome_txt"
                             android:textSize="@dimen/_12ssp"/>
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -220,13 +220,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_toRightOf="@+id/img_add_address">
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/txt_delivery_detail"
                             android:textColor="@color/welcome_txt"
                             android:textSize="@dimen/_12ssp"/>
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -269,13 +269,13 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_toRightOf="@+id/img_delivery_arriving">
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/txt_notification_setting"
                             android:textColor="@color/welcome_txt"
                             android:textSize="@dimen/_12ssp"/>
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

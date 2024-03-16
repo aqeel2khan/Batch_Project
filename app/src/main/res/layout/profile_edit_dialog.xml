@@ -218,7 +218,7 @@
                 android:visibility="gone"
                 >
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp"
@@ -387,7 +387,7 @@
                         app:cardBackgroundColor="#F1E6DA"
                         app:cardCornerRadius="@dimen/_10sdp">
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/outfit_regular"
@@ -410,7 +410,7 @@
                         app:cardBackgroundColor="#F5F6F4"
                         app:cardCornerRadius="@dimen/_10sdp">
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/outfit_regular"

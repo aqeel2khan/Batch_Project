@@ -263,7 +263,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp">
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -275,7 +275,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_8ssp" />
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -286,7 +286,7 @@
                         android:layout_marginStart="@dimen/_5sdp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_8ssp" />
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -314,7 +314,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp">
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="@dimen/_70sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -326,7 +326,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_8ssp" />
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="@dimen/_70sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -338,7 +338,7 @@
                         android:layout_marginStart="@dimen/_5sdp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_8ssp" />
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="@dimen/_80sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -386,7 +386,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp">
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -398,7 +398,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_8ssp" />
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -409,7 +409,7 @@
                         android:layout_marginStart="@dimen/_5sdp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_8ssp" />
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="@dimen/_70sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -428,7 +428,7 @@
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp">
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -439,7 +439,7 @@
                         android:layout_marginStart="@dimen/_5sdp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_8ssp" />
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:layout_width="@dimen/_70sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

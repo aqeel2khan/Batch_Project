@@ -41,7 +41,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_15sdp">
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/weight_loss_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
                 android:textFontWeight="500"
                 android:textSize="@dimen/_13ssp" />
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/txt_detail_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                     android:layout_below="@id/messageText"
                     android:src="@drawable/profile_image" />
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/accessibility" />
 
-                            <com.dev.batchfinal.app_custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -145,7 +145,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/clock" />
 
-                            <com.dev.batchfinal.app_custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -175,7 +175,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/chat_icon" />
 
-                            <com.dev.batchfinal.app_custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -210,7 +210,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/accessibility" />
 
-                            <com.dev.batchfinal.app_custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -239,7 +239,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/accessibility" />
 
-                            <com.dev.batchfinal.app_custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -268,7 +268,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/accessibility" />
 
-                            <com.dev.batchfinal.app_custom.MyCustomTextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"

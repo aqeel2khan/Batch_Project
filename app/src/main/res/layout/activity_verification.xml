@@ -26,7 +26,7 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:id="@+id/welcomeBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:layout_weight="500"
             android:textStyle="bold" />
 
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:id="@+id/signInAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
 
         </LinearLayout>
 <!--validation check code-->
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

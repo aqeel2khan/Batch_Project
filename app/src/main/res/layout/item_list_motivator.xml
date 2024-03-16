@@ -21,7 +21,7 @@
         app:civ_border_width="2dp"
         app:civ_circle_background_color="@color/gry2" />
 
-    <com.dev.batchfinal.app_custom.MyCustomTextView
+    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
         android:id="@+id/txt_trainer_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         android:textSize="@dimen/_13ssp"
         android:textStyle="bold" />
 
-    <com.dev.batchfinal.app_custom.MyCustomTextView
+    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
         android:id="@+id/txt_profesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

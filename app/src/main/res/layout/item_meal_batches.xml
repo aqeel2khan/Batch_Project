@@ -42,7 +42,7 @@
                 android:background="@color/txt_light2"
                 android:padding="@dimen/_10sdp">
 
-                <com.dev.batchfinal.app_custom.MyCustomTextView
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/tv_meal_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                             android:src="@drawable/flash_icon"
                             app:tint="@color/white" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/tv_kcal"
@@ -105,7 +105,7 @@
                             android:textColor="@color/white"
                             android:textSize="@dimen/_10ssp"
                             android:textStyle="bold" />
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_boost_kcal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                             android:layout_height="@dimen/_13sdp"
                             android:src="@drawable/meal_sm_icon" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_3sdp"
@@ -138,7 +138,7 @@
                             android:textColor="@color/white"
                             android:textSize="@dimen/_10ssp"
                             android:textStyle="bold" />
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_snacks_kcal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                             android:layout_height="@dimen/_13sdp"
                             android:src="@drawable/meal_sm_icon" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_3sdp"
@@ -169,7 +169,7 @@
                             android:textColor="@color/white"
                             android:textSize="@dimen/_10ssp"
                             android:textStyle="bold" />
-                        <com.dev.batchfinal.app_custom.MyCustomTextView
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_meal_kcal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -198,7 +198,7 @@
         android:layout_marginEnd="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:background="@drawable/meal_cal_bg">
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/choosing_meal"
@@ -211,7 +211,7 @@
             android:layout_marginEnd="@dimen/_5sdp"
             android:gravity="center"
             android:textFontWeight="500"/>
-        <com.dev.batchfinal.app_custom.MyCustomTextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/choosing_meal_content"

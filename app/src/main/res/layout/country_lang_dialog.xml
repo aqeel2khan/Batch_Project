@@ -168,7 +168,7 @@
             android:layout_marginHorizontal="@dimen/_15sdp"
             android:orientation="vertical">
 
-            <com.dev.batchfinal.app_custom.MyCustomTextView
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/btn_english"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

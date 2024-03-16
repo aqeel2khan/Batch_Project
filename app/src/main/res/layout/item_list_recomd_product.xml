@@ -36,7 +36,7 @@
                     android:paddingLeft="@dimen/_5sdp"
                     android:paddingRight="@dimen/_5sdp">
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:id="@+id/product_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                         android:textSize="@dimen/_14ssp"
                         android:textStyle="bold" />
 
-                    <com.dev.batchfinal.app_custom.MyCustomTextView
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:id="@+id/product_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
