@@ -251,22 +251,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="raw">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/VideosAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/VideosAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/SlideWorkoutVideoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/SlideWorkoutVideoActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_weight_loss.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_weight_loss.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_work_out_detail_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_work_out_detail_screen.xml" afterDir="false" />
-    </list>
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="raw" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -275,7 +260,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[YSUCHUCYSO6HKZ6P]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Hp\.android\avd\Medium_Phone_API_33.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -352,7 +337,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "development__17__march__pradeep",
+    "git-widget-placeholder": "development__17__march__bharat",
     "last_directory_selection": "D:/BBh_Bag/Github_Batch_WS/app/src/main/res/drawable",
     "last_opened_file_path": "D:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag",
     "memory.settings.postsync.last.time.stamp": "1710533617134",
@@ -820,7 +805,8 @@
     <MESSAGE value="home_with_top_rated_api" />
     <MESSAGE value="home_with_top_rated_filter" />
     <MESSAGE value="raw" />
-    <option name="LAST_COMMIT_MESSAGE" value="raw" />
+    <MESSAGE value="set image on weighloss activity and detail activity,set orientation vertical on workout activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="set image on weighloss activity and detail activity,set orientation vertical on workout activity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
