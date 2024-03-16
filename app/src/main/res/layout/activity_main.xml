@@ -26,9 +26,8 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/txt_home"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_18ssp"
-                android:textFontWeight="500"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/_16sdp"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -57,7 +56,9 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/profile" />
+                android:background="@drawable/view_circle"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_dummy_user"                />
         </LinearLayout>
 
     </RelativeLayout>

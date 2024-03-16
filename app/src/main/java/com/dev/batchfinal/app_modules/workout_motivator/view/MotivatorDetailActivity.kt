@@ -212,6 +212,9 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
             binding.btnFollow.visibility = View.GONE
             binding.btnFollowing.visibility = View.VISIBLE
         }
+        binding.onClickBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun setUpRecommendedProductorAdapter() {

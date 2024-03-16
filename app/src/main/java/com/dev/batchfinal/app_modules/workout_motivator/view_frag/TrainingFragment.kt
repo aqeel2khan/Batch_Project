@@ -286,6 +286,9 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 getCourseListApi("course_filter")
                 dialog.dismiss()
             }
+            dialogBinding.onClickDismiss.setOnClickListener {
+                dialog.dismiss()
+            }
         }else{
             getCoachFilter(dialogBinding)
             dialogBinding.llMotivatorFilter.visibility = View.VISIBLE
@@ -294,6 +297,10 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 getCoachListApi("coach_filter")
                 dialog.dismiss()
             }
+            dialogBinding.onClickDismiss.setOnClickListener {
+                dialog.dismiss()
+            }
+
         }
         dialog.show()
     }
@@ -636,9 +643,15 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 object : CoachListItemPosition<Int> {
                     override fun onCoachListItemPosition(item: Data, position: Int) {
                         val coach_id = item.id
-                        Log.e("id", coach_id.toString())
-                        Timber.tag("id").i(coach_id.toString())
-                        activity!!.startActivity(Intent(context, MotivatorDetailActivity::class.java).putExtra("id", item.id.toString()))
+                        if (coach_id.toString().isNotEmpty())
+                        {
+                            Log.e("id", coach_id.toString())
+                            Timber.tag("id").i(coach_id.toString())
+                            requireContext()!!.startActivity(Intent(context, MotivatorDetailActivity::class.java).putExtra("id", item.id.toString()))
+
+                        }else{
+                            Toast.makeText(requireContext(),"Motivator details is not available",Toast.LENGTH_SHORT).show()
+                        }
                     }
                 })
         }

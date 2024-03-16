@@ -18,8 +18,8 @@
         android:layout_marginBottom="@dimen/_10sdp"
         android:elevation="@dimen/_2sdp"
         android:padding="@dimen/_2sdp"
-        app:cardCornerRadius="@dimen/_10sdp"
-        app:cardElevation="@dimen/_2sdp">
+        app:cardCornerRadius="@dimen/_17sdp"
+        app:cardElevation="@dimen/_1sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,6 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
+                android:layout_marginBottom="@dimen/_16sdp"
                 android:src="@drawable/food" />
 
         </LinearLayout>
@@ -56,12 +57,16 @@
                 android:textSize="@dimen/_10sdp"
                 android:visibility="gone"
                 />
+<!--
+            android:background="@color/txt_light2"
+-->
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="@color/txt_light2"
+                android:background="@drawable/ic_layer_workout_batch"
+
                 android:padding="@dimen/_8sdp">
 
                 <com.dev.batchfinal.app_custom.MyCustomBoldTV
@@ -92,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:text="$35"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_12sdp" />
                 </LinearLayout>
 
                 <LinearLayout

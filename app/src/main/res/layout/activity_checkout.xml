@@ -58,6 +58,7 @@
                 android:id="@+id/ll_work_check_out"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
@@ -65,9 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_170sdp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     app:cardCornerRadius="@dimen/_20sdp">
 
@@ -84,10 +83,10 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                     >
 
                         <com.dev.batchfinal.app_custom.MyCustomBoldTV
                             android:layout_width="wrap_content"
@@ -95,20 +94,18 @@
                             android:layout_marginStart="@dimen/_10sdp"
                             android:layout_marginTop="@dimen/_8sdp"
                             android:background="@drawable/radius_shape"
-                            android:paddingStart="@dimen/_10sdp"
-                            android:paddingTop="@dimen/_4sdp"
-                            android:paddingEnd="@dimen/_10sdp"
-                            android:paddingBottom="@dimen/_4sdp"
+                           android:paddingHorizontal="@dimen/_5sdp"
+                            android:paddingVertical="@dimen/_3sdp"
                             android:text="@string/workout_batch_capital"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"
+                            android:textSize="@dimen/_8sdp"
                            />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="@dimen/_55sdp"
-                            android:background="@color/txt_light2"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/ic_layer_workout_batch"
                             android:padding="@dimen/_10sdp">
 
                             <com.dev.batchfinal.app_custom.MyCustomBoldTV
@@ -118,7 +115,7 @@
                                 android:text="@string/txt_weight_loss"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_12sdp"
-                                android:textStyle="bold" />
+                             />
 
                             <LinearLayout
                                 android:id="@+id/workOutBath"
@@ -126,14 +123,14 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true">
 
-                                <TextView
+                                <com.dev.batchfinal.app_custom.MyCustomLightTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="@dimen/_2sdp"
                                     android:fontFamily="@font/outfit_medium"
                                     android:text="from"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/_9ssp" />
+                                    android:textSize="@dimen/_8sdp" />
 
                                 <com.dev.batchfinal.app_custom.MyCustomBoldTV
                                     android:id="@+id/course_price"
@@ -141,7 +138,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="$35"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textSize="@dimen/_12sdp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -249,7 +246,7 @@
                                      />
                             </LinearLayout>
                         </RelativeLayout>
-                    </LinearLayout>
+                    </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -736,12 +733,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:fontFamily="@font/outfit_bold"
                     android:text="@string/txt_payment_method"
                     android:textColor="@color/welcome_txt"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12sdp"
                     android:textStyle="bold" />
                 <ProgressBar
                     android:id="@+id/pbLoading"
@@ -814,9 +810,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
                     android:background="@drawable/layer_checkout_amount"
                     android:orientation="vertical"
@@ -833,8 +827,9 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/outfit_bold"
                             android:text="Subtotal"
+                            android:layout_centerVertical="true"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_10sdp" />
 
                         <com.dev.batchfinal.app_custom.MyCustomBoldTV
                             android:id="@+id/tv_subtotal_value"
@@ -842,6 +837,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:text="$35"
+                            android:layout_centerVertical="true"
+
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp" />
                     </RelativeLayout>
@@ -857,8 +854,10 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/outfit_bold"
                             android:text="Promotion"
+                            android:layout_centerVertical="true"
+
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_10sdp" />
 
                         <com.dev.batchfinal.app_custom.MyCustomBoldTV
                             android:id="@+id/tv_promotion_value"
@@ -866,6 +865,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:text="-$5"
+                            android:layout_centerVertical="true"
+
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp" />
                     </RelativeLayout>
@@ -876,26 +877,27 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:paddingHorizontal="@dimen/_10sdp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        >
 
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/outfit_regular"
                             android:text="Delivery Fee"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp"
-                            app:fontFamily="@font/outfit_bold" />
+                            android:layout_centerVertical="true"
+                            android:textSize="@dimen/_10sdp"
+                            />
 
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:fontFamily="@font/outfit_bold"
                             android:text="$0"
+                            android:layout_centerVertical="true"
+
 
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_12sdp" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -908,10 +910,9 @@
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/outfit_bold"
                             android:text="Total"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_14sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
                         <com.dev.batchfinal.app_custom.MyCustomBoldTV
                             android:id="@+id/tv_total_value"
@@ -920,7 +921,8 @@
                             android:layout_alignParentRight="true"
                             android:text="$30"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_12sdp" />
+                            android:textSize="@dimen/_12sdp"
+                            />
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -930,7 +932,7 @@
                 android:id="@+id/btn_checkout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_38sdp"
-                android:layout_marginHorizontal="@dimen/_25sdp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_80sdp"
                 android:background="@drawable/rectangle_button"

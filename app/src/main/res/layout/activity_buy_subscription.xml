@@ -80,7 +80,7 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/txt_light2"
+                            android:background="@drawable/ic_layer_workout_batch"
                             android:layout_alignParentBottom="true"
                             android:padding="@dimen/_8sdp">
 

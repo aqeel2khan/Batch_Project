@@ -23,7 +23,7 @@
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:src="@drawable/icon_down"
-                android:id="@+id/img_down7"/>
+                android:id="@+id/onClickDismiss"/>
 
             <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/txt_new_card"

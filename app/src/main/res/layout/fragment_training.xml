@@ -86,8 +86,9 @@
             android:layout_height="@dimen/_39sdp"
             android:background="@drawable/form_shape"
             android:gravity="center_vertical"
+            android:visibility="gone"
             android:paddingHorizontal="@dimen/_15sdp"
-            android:visibility="gone">
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -103,10 +104,13 @@
                     android:id="@+id/edit_query"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:background="@null"
                     android:hint="Search"
+                    android:textColorHint="#9F9CB0"
                     android:imeOptions="actionSearch"
+                    android:textSize="@dimen/_12sdp"
+                    android:fontFamily="@font/outfit_regular"
                     android:singleLine="true" />
             </LinearLayout>
 
@@ -129,14 +133,15 @@
         android:layout_marginBottom="@dimen/_65sdp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:visibility="gone"
         android:id="@+id/recycler_all_motivator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
+
         android:layout_below="@id/rl_filter_search"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_65sdp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_65sdp"
+         />
 
 
 </RelativeLayout>

@@ -14,8 +14,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="item_bootm_layer" />
-                            <entry key="sourceFile" value="C:\Users\user\Downloads\item_bootm_layer.svg" />
+                            <entry key="outputName" value="ic_cart" />
+                            <entry key="sourceFile" value="C:\Users\user\Downloads\ic_cart.svg" />
                           </map>
                         </option>
                       </PersistentState>

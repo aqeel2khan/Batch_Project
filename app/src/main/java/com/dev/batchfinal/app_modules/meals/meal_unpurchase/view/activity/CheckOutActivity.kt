@@ -448,7 +448,6 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         dialogBinding = BottomSheetBinding.inflate(layoutInflater)
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(dialogBinding.root)
-
         dialogBinding.llBottomChangeCourse.visibility = View.GONE
         dialogBinding.llPaymentMethod.visibility = View.VISIBLE
         dialogBinding.cardLayout.visibility = View.VISIBLE
@@ -457,10 +456,14 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
             addNewCardDialog()
             dialog.dismiss()
         }*/
+        dialogBinding.imgDown3.setOnClickListener {
+            dialog.dismiss()
+        }
         dialogBinding.btnApply.setOnClickListener {
             //code for save week price
             dialog.dismiss()
         }
+
 
         dialog.show()
     }

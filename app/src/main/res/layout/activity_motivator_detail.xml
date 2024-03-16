@@ -6,52 +6,41 @@
     android:layout_height="match_parent"
     tools:context="com.dev.batchfinal.app_modules.workout_motivator.view.MotivatorDetailActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/exercise_image"
+
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/background_img"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/exercise_image" />
-
-            <!--            <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView-->
-            <!--                android:id="@+id/vimeoPlayerView"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="250dp"-->
-            <!--                app:autoPlay="false"-->
-            <!--                app:backgroundColor="#00FFFF"-->
-            <!--                app:loop="false"-->
-            <!--                app:muted="false"-->
-            <!--                app:quality="auto"-->
-            <!--                app:showFullscreenOption="false"-->
-            <!--                app:showMenuOption="false"-->
-            <!--                app:showOriginalControls="false"-->
-            <!--                app:showTitle="true"-->
-            <!--                app:topicColor="#FFFF00" />-->
-
-        </LinearLayout>
-
+        android:layout_height="@dimen/_210sdp">
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:id="@+id/background_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/exercise_image" />
+        <ImageView
+            android:id="@+id/onClickBack"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/back_shape"
-            android:padding="8dp"
-            android:src="@drawable/arrow_back" />
+            android:src="@drawable/ic_back" />
+        <ImageView
+            android:id="@+id/onClickCart"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ic_cart" />
 
-    </LinearLayout>
+
+
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl_main_layout"
@@ -68,9 +57,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
+               android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_16sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -87,45 +75,47 @@
                             android:id="@+id/txt_trainer_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/outfit_bold"
                             android:text="Bessie Cooper"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_14ssp" />
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"/>
 
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/txt_profesion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/outfit_semi_bold"
                             android:text="0 followers"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_11ssp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="normal" />
                     </LinearLayout>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_follow"
-                        android:visibility="gone"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_weight="0.4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_22sdp"
+                        android:fontFamily="@font/outfit_regular"
                         android:background="@drawable/rectangle_follow_btn"
-                        android:fontFamily="@font/outfit_semi_bold"
                         android:text="@string/txt_follow"
+                        android:textAllCaps="false"
+                        android:layout_gravity="center_vertical"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_9sdp" />
-
+                        android:textSize="@dimen/_10sdp" />
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_following"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_weight="0.4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_22sdp"
+                        android:fontFamily="@font/outfit_regular"
                         android:background="@drawable/border_button"
-                        android:fontFamily="@font/outfit_semi_bold"
                         android:text="Following"
+                        android:layout_gravity="center_vertical"
+
+                        android:visibility="gone"
                         android:textColor="@color/terms_color"
-                        android:textSize="@dimen/_9sdp"
-                        android:visibility="gone" />
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/_10sdp" />
+
+
                 </LinearLayout>
 
                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
@@ -156,20 +146,20 @@
                         android:background="@drawable/radius_shape">
 
                         <LinearLayout
-                            android:layout_width="@dimen/_50sdp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_5sdp"
                             android:gravity="center">
 
-                            <TextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
-                                android:fontFamily="@font/outfit_medium"
 
                                 android:text="Yoga"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
+                                android:textSize="@dimen/_9sdp"
+                                />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -180,19 +170,19 @@
                         android:background="@drawable/radius_shape">
 
                         <LinearLayout
-                            android:layout_width="@dimen/_50sdp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_5sdp"
                             android:gravity="center">
 
-                            <TextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:fontFamily="@font/outfit_medium"
                                 android:text="Stretching"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
+                                android:textSize="@dimen/_9sdp"
+                                />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -203,19 +193,18 @@
                         android:background="@drawable/radius_shape">
 
                         <LinearLayout
-                            android:layout_width="@dimen/_50sdp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_5sdp"
                             android:gravity="center">
 
-                            <TextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:fontFamily="@font/outfit_medium"
                                 android:text="Palates"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
+                                android:textSize="@dimen/_9sdp" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -226,19 +215,18 @@
                         android:background="@drawable/radius_shape">
 
                         <LinearLayout
-                            android:layout_width="@dimen/_50sdp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_5sdp"
                             android:gravity="center">
 
-                            <TextView
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:fontFamily="@font/outfit_medium"
                                 android:text="Mobility"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
+                                android:textSize="@dimen/_9sdp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
