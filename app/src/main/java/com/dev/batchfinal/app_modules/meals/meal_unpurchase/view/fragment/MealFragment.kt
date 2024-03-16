@@ -56,18 +56,48 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
     private var goalSize: Int = 0
     private var totalSelected: Int = 0
 
+    private var calories_from: Int = 0
+    private var calories_to: Int = 0
+    private var teg_id: Int = 0
+    private var goal_id: Int = 0
+
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
 
     override fun initUi() {
         buttonClicks()
-        getMealList()
+        getMealList("")
         totalSelected = caloriesSize + tagSize + goalSize
     }
 
-    private fun getMealList() {
+    private fun getMealList(searchQuery: String) {
         if (CheckNetworkConnection.isConnection(requireContext(),binding.root, true)) {
+       /*     when (searchQuery) {
+                "" -> {
+                    showLoader()
+                    authViewModel.courseListApiCall()
+                }
+                "course_filter" -> {
+                    showLoader()
+
+                    MyConstant.jsonObject.addProperty("course_level",levelId)
+                    MyConstant.jsonObject.addProperty("workout_type_id",cource_workout_Id)
+                    MyConstant.jsonObject.addProperty("goal_id",goalId)
+                    // authViewModel.searchCoachListApiCall(jsonObject)
+                    //authViewModel.searchCourseFilterListApiCall(jsonObject)
+                    authViewModel.filterCourseListApiCall(MyConstant.jsonObject)
+
+                }
+                else -> {
+                    hideLoader()
+                    MyConstant.jsonObject.addProperty("keyword",binding.editQuery.text.trim().toString())
+                    // authViewModel.searchCoachListApiCall(jsonObject)
+                    //authViewModel.searchCourseFilterListApiCall(jsonObject)
+                    authViewModel.filterCourseListApiCall(MyConstant.jsonObject)
+
+                }
+            }*/
             showLoader()
             authViewModel.mealListApiCall()
             authViewModel.mealListResponse.observe(this){
@@ -197,6 +227,8 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
 
         dialogBinding.idCalories.setOnTagClickListener(CaloriesTagFlowLayout.OnTagClickListener { view, position, parent ->
 //            typeId = workoutTypes[position].id
+            calories_from=mealCalories[position].fromValue
+            calories_to=mealCalories[position].toValue
             requireActivity().showToast(mealCalories[position].id.toString())
             //view.setVisibility(View.GONE);
             true
@@ -225,6 +257,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
 
         dialogBinding.idMealGoal.setOnTagClickListener(MealGoalTagFlowLayout.OnTagClickListener { view, position, parent ->
 //            typeId = workoutTypes[position].id
+            goal_id=batchGoals[position].id
             requireActivity().showToast(batchGoals[position].id.toString())
             //view.setVisibility(View.GONE);
             true
@@ -250,7 +283,8 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         })
 
         dialogBinding.idMealTags.setOnTagClickListener(MealTagsTagFlowLayout.OnTagClickListener { view, position, parent ->
-//            typeId = workoutTypes[position].id
+           // typeId = workoutTypes[position].id
+            teg_id=mealTags[position].id
             requireActivity().showToast(mealTags[position].id.toString())
             //view.setVisibility(View.GONE);
             true
