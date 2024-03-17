@@ -1,23 +1,21 @@
 package com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.CalendarView
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dev.batchfinal.MainActivity
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.MyItemRecyclerViewAdapter
 import com.dev.batchfinal.app_common.BaseActivity
-import com.dev.batchfinal.app_modules.account.view.LoginActivity
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.adapter.DeliveryArrivingAdapter
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_arriving.DeliveryArrivingResponse
 import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
@@ -27,8 +25,10 @@ import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.databinding.ActivityCheckoutBinding
 import com.dev.batchfinal.databinding.BottomSheetBinding
+import com.dev.batchfinal.`interface`.CategoryListItemPosition
+import com.dev.batchfinal.`interface`.DeliveryArrivingListPosition
 import com.dev.batchfinal.`interface`.OnListFragmentInteractionListener
-import com.dev.batchfinal.model.course_detail.Data
+import com.dev.batchfinal.model.meal_detail_model.Category
 import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.viewmodel.AllViewModel
@@ -84,6 +84,9 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     var product_count: String? = null
     var product_snack: String? = null
     var product_updated: String? = null
+
+    var selectedDeliveryTimeValue: String? = null
+    val deliveryTimeList: ArrayList<String> = ArrayList()
 
 
 
@@ -315,11 +318,16 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(dialogBinding.root)
         if (type.equals("time")) {
+            dialogBinding.spinnerSelectDeliveryTime!!.visibility = View.VISIBLE
+
+            getDeliveryTime(dialogBinding.spinnerSelectDeliveryTime)
+
             dialogBinding.txtTitle!!.text = resources.getString(R.string.txt_delivery_time)
             dialogBinding.llBottomChangeCourse!!.visibility = View.GONE
             dialogBinding.llSelectCalender.visibility = View.GONE
             dialogBinding.llSelectDatePlan!!.visibility = View.VISIBLE
             dialogBinding.rlEditDeliveryTime!!.visibility = View.VISIBLE
+
 
             dialogBinding.btnDateApply!!.setOnClickListener {
                 //code for save week price
@@ -331,21 +339,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
             dialogBinding.llArrivingInfo.visibility = View.VISIBLE
             dialogBinding.llSelectCalender.visibility = View.GONE
             dialogBinding.llBottomChangeCourse!!.visibility = View.GONE
-            dialogBinding.cardCall.setOnClickListener {
-                dialogBinding.cardCall.setBackgroundResource(R.drawable.radius_shape)
-                dialogBinding.cardRingBell!!.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-                dialogBinding.cardNotification!!.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-            }
-            dialogBinding.cardRingBell!!.setOnClickListener {
-                dialogBinding.cardCall.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-                dialogBinding.cardRingBell.setBackgroundResource(R.drawable.radius_shape)
-                dialogBinding.cardNotification!!.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-            }
-            dialogBinding.cardNotification!!.setOnClickListener {
-                dialogBinding.cardCall.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-                dialogBinding.cardRingBell.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-                dialogBinding.cardNotification.setBackgroundResource(R.drawable.radius_shape)
-            }
+            getDeliveryArriving(dialogBinding.recyclerviewDeliveryArriving)
             dialogBinding.btnDateApply!!.setOnClickListener {
                 //code for save week price
                 dialog.dismiss()
@@ -355,21 +349,8 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
             dialogBinding.llDropOff.visibility = View.VISIBLE
             dialogBinding.llSelectDatePlan!!.visibility = View.VISIBLE
             dialogBinding.llSelectCalender.visibility = View.GONE
-            dialogBinding.cardMeetDoor.setOnClickListener {
-                dialogBinding.cardMeetDoor.setBackgroundResource(R.drawable.radius_shape)
-                dialogBinding.cardOutSide.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-                dialogBinding.cardLeave.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-            }
-            dialogBinding.cardOutSide.setOnClickListener {
-                dialogBinding.cardMeetDoor.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-                dialogBinding.cardOutSide.setBackgroundResource(R.drawable.radius_shape)
-                dialogBinding.cardLeave.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-            }
-            dialogBinding.cardLeave.setOnClickListener {
-                dialogBinding.cardMeetDoor.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-                dialogBinding.cardOutSide.setBackgroundResource(R.drawable.rectangle_button_gry_search)
-                dialogBinding.cardLeave.setBackgroundResource(R.drawable.radius_shape)
-            }
+            getDeliveryDrop(dialogBinding.recyclerviewDeliveryDrop)
+
             dialogBinding.btnDateApply!!.setOnClickListener {
                 //code for save week price
                 dialog.dismiss()
@@ -646,6 +627,169 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
 
         dialog.show()
     }
+
+    private fun getDeliveryTime(sp_plan_duration: Spinner?) {
+        deliveryTimeList.clear()
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            authViewModel.deliveryTimeApiCall()
+            authViewModel.deliveryTimeResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.deliveryTimeResponse.removeObservers(this)
+                        if (authViewModel.deliveryTimeResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                // showToast(response.message)
+
+                                if (response.status == MyConstant.success) {
+                                    for (item in response.data.internaldata) {
+                                        deliveryTimeList.add(item.timeSlot)
+
+
+
+                                    }
+                                    selectPlanDurationAdapter(deliveryTimeList, sp_plan_duration)
+
+
+                                }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.deliveryTimeResponse.removeObservers(this)
+                        if (authViewModel.deliveryTimeResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
+    private fun selectPlanDurationAdapter(dataList: ArrayList<String>, sp_plan_duration: Spinner?) {
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, dataList)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        sp_plan_duration!!.adapter = adapter
+
+        sp_plan_duration.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View, position: Int, id: Long) {
+                selectedDeliveryTimeValue = dataList[position]
+                // Append the selected value to the string variable
+//                Toast.makeText(this@BuySubscriptionActivity, selectedValue, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>) {
+                // Do nothing here
+            }
+        }
+    }
+    private fun getDeliveryArriving(delivery_recycler: RecyclerView) {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            authViewModel.deliveryArrivingApiCall()
+            authViewModel.deliveryArrivingResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.deliveryArrivingResponse.removeObservers(this)
+                        if (authViewModel.deliveryArrivingResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                // showToast(response.message)
+
+                                if (response.status == MyConstant.success) {
+                                    setupDeliveryArrivingAdapter(response.data.internaldata,delivery_recycler);
+
+                                }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.deliveryArrivingResponse.removeObservers(this)
+                        if (authViewModel.deliveryArrivingResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
+    private fun setupDeliveryArrivingAdapter(delivery_list:List<DeliveryArrivingResponse.Internaldatum>,delivery_recycler: RecyclerView) {
+        delivery_recycler.apply {
+            layoutManager = LinearLayoutManager(this@CheckOutActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = DeliveryArrivingAdapter(this@CheckOutActivity,delivery_list,
+                object :
+                    DeliveryArrivingListPosition<Int> {
+                    override fun onCategoryListItemPosition(
+                        item: DeliveryArrivingResponse.Internaldatum,
+                        position: Int
+                    ) {}
+                }                )
+        }
+    }
+
+    private fun getDeliveryDrop(delivery_recycler: RecyclerView) {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            authViewModel.deliveryDropApiCall()
+            authViewModel.deliveryDropOffResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.deliveryDropOffResponse.removeObservers(this)
+                        if (authViewModel.deliveryDropOffResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                // showToast(response.message)
+
+                                if (response.status == MyConstant.success) {
+                                    setupDeliveryArrivingAdapter(response.data.internaldata,delivery_recycler);
+
+
+                                }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.deliveryDropOffResponse.removeObservers(this)
+                        if (authViewModel.deliveryDropOffResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
+
+
     private fun courseOrderCreate(paymentType: String,transactionId: String,paymentStatus: String,startDate: String,duration: String) {
         val jsonObject = JsonObject()
         jsonObject.addProperty("course_id", product_id)

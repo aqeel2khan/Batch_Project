@@ -82,10 +82,12 @@ public class RulerView extends View implements GestureDetector.OnGestureListener
      */
     private boolean mFling = false;
 
+    private static final float DEFAULT_VALUE      = 50f;  // 默认指示刻度
+
     /**
      * 尺子的最大值与最小值
      */
-    private float mMaxValue, mMinValue;
+    private float mValue, mMaxValue, mMinValue;
     /**
      * 相邻刻度间代表的刻度值
      */
@@ -193,47 +195,25 @@ public class RulerView extends View implements GestureDetector.OnGestureListener
                 .obtainStyledAttributes(attrs, R.styleable.customRulerView);
         if (typedArray != null) {
             mOrientation = typedArray.getInt(R.styleable.customRulerView_rulerOrientation, HORIZONTAL);
-            mHighlightColor = typedArray
-                    .getColor(R.styleable.customRulerView_rulerHighlightColor,
-                            mHighlightColor);
-            mTextColor = typedArray.getColor(
-                    R.styleable.customRulerView_rulerTextColor, mTextColor);
-            mRulerColor = typedArray.getColor(R.styleable.customRulerView_rulerColor,
-                    mRulerColor);
-            mIntervalValue = typedArray
-                    .getFloat(R.styleable.customRulerView_rulerIntervalValue,
-                            mIntervalValue);
-            mMaxValue = typedArray
-                    .getFloat(R.styleable.customRulerView_rulerMaxValue,
-                            mMaxValue);
-            mMinValue = typedArray
-                    .getFloat(R.styleable.customRulerView_rulerMinValue, mMinValue);
-            mTextSize = typedArray.getDimension(
-                    R.styleable.customRulerView_rulerTextSize,
-                    mTextSize);
-            mRulerLineWidth = typedArray.getDimension(
-                    R.styleable.customRulerView_rulerLineWidth, mRulerLineWidth);
+            mHighlightColor = typedArray.getColor(R.styleable.customRulerView_rulerHighlightColor, mHighlightColor);
+            mTextColor = typedArray.getColor(R.styleable.customRulerView_rulerTextColor, mTextColor);
+            mRulerColor = typedArray.getColor(R.styleable.customRulerView_rulerColor, mRulerColor);
+            mIntervalValue = typedArray.getFloat(R.styleable.customRulerView_rulerIntervalValue, mIntervalValue);
+//            mValue = typedArray.getFloat(R.styleable.RulerView_rv_defaultValue, DEFAULT_VALUE);
+            mMaxValue = typedArray.getFloat(R.styleable.customRulerView_rulerMaxValue, mMaxValue);
+            mMinValue = typedArray.getFloat(R.styleable.customRulerView_rulerMinValue, mMinValue);
+            mTextSize = typedArray.getDimension(R.styleable.customRulerView_rulerTextSize, mTextSize);
+            mRulerLineWidth = typedArray.getDimension(R.styleable.customRulerView_rulerLineWidth, mRulerLineWidth);
             mIntervalDistance = typedArray.getDimension(R.styleable.customRulerView_rulerIntervalDistance, mIntervalDistance);
             mRetainLength = typedArray.getInteger(R.styleable.customRulerView_rulerRetainLength, 0);
-
-
-            mRulerLineHeight = typedArray.getDimension(
-                    R.styleable.customRulerView_rulerLineHeight, mRulerLineHeight);
-
+            mRulerLineHeight = typedArray.getDimension(R.styleable.customRulerView_rulerLineHeight, mRulerLineHeight);
             mIsDivideByFive = typedArray.getBoolean(R.styleable.customRulerView_rulerIsDivideByFive, mIsDivideByFive);
-            mDivideByFiveHeight = typedArray.getDimension(
-                    R.styleable.customRulerView_rulerDivideByFiveHeight, mDivideByFiveHeight);
-            mDivideByFiveWidth = typedArray.getDimension(
-                    R.styleable.customRulerView_rulerDivideByFiveWidth, mDivideByFiveWidth);
-
+            mDivideByFiveHeight = typedArray.getDimension(R.styleable.customRulerView_rulerDivideByFiveHeight, mDivideByFiveHeight);
+            mDivideByFiveWidth = typedArray.getDimension(R.styleable.customRulerView_rulerDivideByFiveWidth, mDivideByFiveWidth);
             mIsDivideByTen = typedArray.getBoolean(R.styleable.customRulerView_rulerIsDivideByTen, mIsDivideByTen);
-            mDivideByTenHeight = typedArray.getDimension(
-                    R.styleable.customRulerView_rulerDivideByTenHeight, mDivideByTenHeight);
+            mDivideByTenHeight = typedArray.getDimension(R.styleable.customRulerView_rulerDivideByTenHeight, mDivideByTenHeight);
             mDivideByTenWidth = typedArray.getDimension(R.styleable.customRulerView_rulerDivideByTenWidth, mDivideByTenWidth);
-
-            mTextBaseLineDistance = typedArray.getDimension(
-                    R.styleable.customRulerView_rulerTextBaseLineDistance,
-                    mTextBaseLineDistance);
+            mTextBaseLineDistance = typedArray.getDimension(R.styleable.customRulerView_rulerTextBaseLineDistance, mTextBaseLineDistance);
         }
         typedArray.recycle();
         checkRulerLineParam();
@@ -250,8 +230,25 @@ public class RulerView extends View implements GestureDetector.OnGestureListener
         mTextPaint.setTextSize(mTextSize);
 
         setSelectedIndex(mRulerCount / 2);
+
+//        initViewParam(mValue, mMinValue, mMaxValue, mIntervalValue);
     }
 
+
+    /*public void initViewParam(float defaultValue, float minValue, float maxValue,
+                              float perSpanValue) {
+        this.mValue = defaultValue;
+        this.mMaxValue = maxValue;
+        this.mMinValue = minValue;
+        this.inter = (int) (perSpanValue * 10.0f);
+
+        this.mTotalLine = (int) ((int) (mMaxValue * 10 - mMinValue * 10) / mPerSpanValue + 1);
+        mMaxOffset = -(mTotalLine - 1) * mItemSpacing;
+
+        mOffset = (mMinValue - mValue) / mPerSpanValue * mItemSpacing * 10;
+        invalidate();
+        setVisibility(VISIBLE);
+    }*/
     private void checkRulerLineParam() {
         float[] heights = new float[]{mRulerLineHeight, mDivideByFiveHeight, mDivideByTenHeight};
         float[] weights = new float[]{mRulerLineWidth, mDivideByFiveWidth, mDivideByTenWidth};
@@ -311,7 +308,7 @@ public class RulerView extends View implements GestureDetector.OnGestureListener
     private int measureHeight(int heightMeasure) {
         int measureMode = MeasureSpec.getMode(heightMeasure);
         int measureSize = MeasureSpec.getSize(heightMeasure);
-        int result ;
+        int result;
         if (mOrientation == HORIZONTAL) {
             result = (int) (mTextSize) * 4;
         } else {
@@ -363,16 +360,17 @@ public class RulerView extends View implements GestureDetector.OnGestureListener
 
     }
 
-    private   Rect mRect;
+    private Rect mRect;
     private DecimalFormat mDecimalFormat;
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if(mRect ==null){
-            mRect =new Rect();
+        if (mRect == null) {
+            mRect = new Rect();
         }
-        if(mDecimalFormat==null){
-            mDecimalFormat=new DecimalFormat("##0");
+        if (mDecimalFormat == null) {
+            mDecimalFormat = new DecimalFormat("##0");
         }
 
         int start = mSelectedIndex - mViewScopeSize;
@@ -450,7 +448,7 @@ public class RulerView extends View implements GestureDetector.OnGestureListener
                             }
 
                         } else {
-                            text =mDecimalFormat.format(i * mIntervalValue + mMinValue);
+                            text = mDecimalFormat.format(i * mIntervalValue + mMinValue);
                         }
                         mTextPaint.getTextBounds(text, 0, text.length(), mRect);
                         //文本的下边缘线中心位置
@@ -821,6 +819,12 @@ public class RulerView extends View implements GestureDetector.OnGestureListener
 
     public void setMaxValue(float mMaxValue) {
         this.mMaxValue = mMaxValue;
+        calculateTotal();
+        invalidate();
+    }
+
+    public void setDefaultValue(float mValue) {
+        this.mValue = mValue;
         calculateTotal();
         invalidate();
     }

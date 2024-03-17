@@ -58,6 +58,11 @@ object MyConstant {
     const val MEAL_QUESTIONS = "meal/questions"
 
     const val TOP_RATED = "meal/top-rated-meals"
+    const val DISH_REVIEW = "dish/reviews/list/{id}"
+
+    const val DELIVERY_TIME = "subscription/delivery_time"
+    const val DELIVERY_ARRIVING = "subscription/delivery_arriving"
+    const val DELIVERY_DROP = "subscription/delivery_drop"
 
 //    const val DOLLER_SIGN = "$"
 }

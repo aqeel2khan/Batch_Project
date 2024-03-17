@@ -200,6 +200,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun setMotivatorListAdapter(coachList: List<Data>) {
         binding.recyclerMotivators.apply {
+
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
             adapter = DashboardMotivatorAdapter(requireContext(), coachList,"motivator_home",

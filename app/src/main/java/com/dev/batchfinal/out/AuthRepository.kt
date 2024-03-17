@@ -143,4 +143,19 @@ class AuthRepository @Inject constructor(private val api: ApiService) : SafeApiC
         api.topRated()
     }
 
+    suspend fun mealDishReviewApi(id:Int) = safeApiCall {
+        api.mealDishReview(id)
+    }
+
+    suspend fun deliveryTimeApi() = safeApiCall {
+        api.deliveryTime()
+    }
+
+    suspend fun deliveryArrivingApi() = safeApiCall {
+        api.deliveryArriving()
+    }
+    suspend fun deliveryDropApi() = safeApiCall {
+        api.deliveryDrop()
+    }
+
 }
