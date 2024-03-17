@@ -1,10 +1,12 @@
 package com.dev.batchfinal.app_modules.question.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,12 +21,8 @@ import com.dev.batchfinal.app_modules.question.model.HowActiveYouModel
 import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergies
 import com.dev.batchfinal.app_modules.question.model.meal_goals.MealGoals
 import com.dev.batchfinal.app_modules.question.model.meal_tags.MealTags
-import com.dev.batchfinal.app_utils.CheckNetworkConnection
-import com.dev.batchfinal.app_utils.MyConstant
+import com.dev.batchfinal.app_utils.*
 import com.dev.batchfinal.app_utils.MyConstant.jsonObject
-import com.dev.batchfinal.app_utils.MyCustom
-import com.dev.batchfinal.app_utils.RulerView
-import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.databinding.ActivityQuestionBinding
 import com.dev.batchfinal.`interface`.HowActiveAreListItemPosition
 import com.dev.batchfinal.`interface`.MealAllergiesListItemPosition
@@ -117,8 +115,7 @@ class QuestionActivity : BaseActivity<ActivityQuestionBinding>() {
 
     private fun setMealGoalsAdapter(mealGoalsList: List<MealGoals>) {
         binding.recyclerMealGoals.apply {
-            layoutManager =
-                LinearLayoutManager(this@QuestionActivity, LinearLayoutManager.VERTICAL, false)
+            layoutManager = LinearLayoutManager(this@QuestionActivity, LinearLayoutManager.VERTICAL, false)
             adapter = MealGoalsListAdapter(this@QuestionActivity, mealGoalsList, object :
                 MealGoalsListItemPosition<Int> {
                 override fun onMealGoalsListItemPosition(item: List<MealGoals>, position: Int) {
@@ -128,6 +125,7 @@ class QuestionActivity : BaseActivity<ActivityQuestionBinding>() {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun buttonClicks() {
         binding.btnNext1.setOnClickListener {
             if (meal_goal_id == 0){
@@ -154,12 +152,48 @@ class QuestionActivity : BaseActivity<ActivityQuestionBinding>() {
                 binding.rlLine3.setBackgroundColor(Color.parseColor("#CDA87F"))
                 binding.llYourAge.visibility = View.GONE
                 binding.llHeight.visibility = View.VISIBLE
+                binding.heightRuler.visibility = View.VISIBLE
+                binding.heightFeetRuler.visibility = View.GONE
                 binding.heightRuler.setOnValueChangeListener(object : RulerView.OnValueChangeListener {
                     override fun onChange(view: RulerView?, value: Float) {
-                         selectedHeight = value
+                        selectedHeight = value
 //                        showToast("Your height is $value meters")
                     }
                 })
+                binding.llCm.setOnClickListener {
+                    binding.llCm.background = resources.getDrawable(R.drawable.demo_wt)
+                    binding.llFeet.background = resources.getDrawable(R.drawable.cmfeet_bg)
+                    binding.tvCm.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt))
+                    binding.tvFeet.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt_gry))
+//                    binding.heightRuler.setMinValue(50F)
+//                    binding.heightRuler.setDefaultValue(150F)
+//                    binding.heightRuler.setMaxValue(300F)
+                    binding.heightRuler.visibility = View.VISIBLE
+                    binding.heightFeetRuler.visibility = View.GONE
+                    binding.heightRuler.setOnValueChangeListener(object : RulerView.OnValueChangeListener {
+                        override fun onChange(view: RulerView?, value: Float) {
+                            selectedHeight = value
+//                        showToast("Your height is $value meters")
+                        }
+                    })
+                }
+                binding.llFeet.setOnClickListener {
+                    binding.llCm.background = resources.getDrawable(R.drawable.cmfeet_bg)
+                    binding.llFeet.background = resources.getDrawable(R.drawable.demo_wt)
+                    binding.tvCm.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt_gry))
+                    binding.tvFeet.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt))
+//                    binding.heightRuler.setDefaultValue(5.4f)
+//                    binding.heightRuler.setMinValue(1.64f)
+//                    binding.heightRuler.setMaxValue(9.84f)
+                    binding.heightRuler.visibility = View.GONE
+                    binding.heightFeetRuler.visibility = View.VISIBLE
+                    binding.heightFeetRuler.setOnValueChangeListener(object : RulerView.OnValueChangeListener {
+                        override fun onChange(view: RulerView?, value: Float) {
+                            selectedHeight = value
+//                        showToast("Your height is $value meters")
+                        }
+                    })
+                }
             }
         }
         binding.btnNext3.setOnClickListener {
@@ -170,18 +204,76 @@ class QuestionActivity : BaseActivity<ActivityQuestionBinding>() {
                 binding.rlLine4.setBackgroundColor(Color.parseColor("#CDA87F"))
                 binding.llHeight.visibility = View.GONE
                 binding.llWeight.visibility = View.VISIBLE
-                binding.currentRuler.setOnValueChangeListener(object : RulerView.OnValueChangeListener {
-                    override fun onChange(view: RulerView?, value: Float) {
-//                        showToast("Your height is $value meters")
+                //current weight
+                binding.ruler2.initViewParam(50F, 0F, 250F, 0.1f)
+                binding.ruler2.setChooseValueChangeListener(object : com.dev.batchfinal.app_custom.RulerView.OnChooseResulterListener {
+                    override fun onChooseValueChange(value: Float) {
+                        // TODO do some work
                         selectedCurrentWeight = value
                     }
                 })
-                binding.targetRuler.setOnValueChangeListener(object : RulerView.OnValueChangeListener {
-                    override fun onChange(view: RulerView?, value: Float) {
-//                        showToast("Your height is $value meters")
+                binding.llKg.setOnClickListener {
+                    binding.llKg.background = resources.getDrawable(R.drawable.demo_wt)
+                    binding.llLbs.background = resources.getDrawable(R.drawable.cmfeet_bg)
+                    binding.tvKg.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt))
+                    binding.tvLbs.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt_gry))
+                    //kg value data
+                    binding.ruler2.initViewParam(50F, 0F, 250F, 0.1f)
+                    binding.ruler2.setChooseValueChangeListener(object : com.dev.batchfinal.app_custom.RulerView.OnChooseResulterListener {
+                        override fun onChooseValueChange(value: Float) {
+                            // TODO do some work
+                            selectedCurrentWeight = value
+                        }
+                    })
+                }
+                binding.llLbs.setOnClickListener {
+                    binding.llKg.background = resources.getDrawable(R.drawable.cmfeet_bg)
+                    binding.llLbs.background = resources.getDrawable(R.drawable.demo_wt)
+                    binding.tvKg.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt_gry))
+                    binding.tvLbs.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt))
+                    //lbs value data
+                    binding.ruler2.initViewParam(150.0F, 0.0F, 551.16f, 0.1f)
+                    binding.ruler2.setChooseValueChangeListener(object : com.dev.batchfinal.app_custom.RulerView.OnChooseResulterListener {
+                        override fun onChooseValueChange(value: Float) {
+                            // TODO do some work
+                            selectedCurrentWeight = value
+                        }
+                    })
+                }
+                //target weight
+                binding.targetRuler.initViewParam(50.0F, 0.0F, 551.16f, 0.1f)
+                binding.targetRuler.setChooseValueChangeListener(object : com.dev.batchfinal.app_custom.RulerView.OnChooseResulterListener {
+                    override fun onChooseValueChange(value: Float) {
+                        // TODO do some work
                         selectedTargetWeight = value
                     }
                 })
+                binding.llTrKg.setOnClickListener {
+                    binding.llTrKg.background = resources.getDrawable(R.drawable.demo_wt)
+                    binding.llTrLbs.background = resources.getDrawable(R.drawable.cmfeet_bg)
+                    binding.tvTrKg.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt))
+                    binding.tvTrLbs.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt_gry))
+                    binding.targetRuler.initViewParam(50.0F, 0.0F, 551.16f, 0.1f)
+                    binding.targetRuler.setChooseValueChangeListener(object : com.dev.batchfinal.app_custom.RulerView.OnChooseResulterListener {
+                        override fun onChooseValueChange(value: Float) {
+                            // TODO do some work
+                            selectedTargetWeight = value
+                        }
+                    })
+                }
+                binding.llTrLbs.setOnClickListener {
+                    binding.llTrKg.background = resources.getDrawable(R.drawable.cmfeet_bg)
+                    binding.llTrLbs.background = resources.getDrawable(R.drawable.demo_wt)
+                    binding.tvTrKg.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt_gry))
+                    binding.tvTrLbs.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt))
+                    binding.targetRuler.initViewParam(150.0F, 0.0F, 551.16f, 0.1f)
+                    binding.targetRuler.setChooseValueChangeListener(object : com.dev.batchfinal.app_custom.RulerView.OnChooseResulterListener {
+                        override fun onChooseValueChange(value: Float) {
+                            // TODO do some work
+                            selectedTargetWeight = value
+                        }
+                    })
+                }
             }
 
         }
@@ -253,7 +345,7 @@ class QuestionActivity : BaseActivity<ActivityQuestionBinding>() {
                                     if (response.status == MyConstant.success) {
 //                                    showToast("success")
                                         showToast(response.data.internal.avgCalPerDay)
-                                        startActivity(Intent(this@QuestionActivity, ProcessingQuestionActivity::class.java).putExtra("avgCalPerDay", response.data.internal.avgCalPerDay))
+                                    startActivity(Intent(this@QuestionActivity, ProcessingQuestionActivity::class.java).putExtra("avgCalPerDay", response.data.internal.avgCalPerDay))
 //                                    startActivity(Intent(this@QuestionActivity, FoodPlanBasedOnQuestionActivity::class.java))
 //
 //                                        setMealAllergiesAdapter(response.data.data)
@@ -302,7 +394,6 @@ class QuestionActivity : BaseActivity<ActivityQuestionBinding>() {
 
         showToast(ageString)
     }
-
 
     private fun getMealAllergiesApi() {
         if (CheckNetworkConnection.isConnection(this, binding.root, true)) {

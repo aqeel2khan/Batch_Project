@@ -16,6 +16,7 @@ import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.adapter.IngredientsAdapter
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.adapter.NutritionListAdapter
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.adapter.ReviewListAdapter
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.review_list.ReviewModelResponse
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyCustom
@@ -51,7 +52,7 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
         meal_id = intent.getStringExtra("meal_id")
         goal_id = intent.getStringExtra("goal_id")
         getDishDetails(dish_id!!,meal_id!!,goal_id!!);
-        setupReviewListAdapter()
+        getReviewList(dish_id!!.toInt())
         startRelativeAnimation(binding.relWeightLayout)
     }
 
@@ -109,6 +110,49 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
         }
     }
 
+
+    private fun getReviewList(dish_id: Int) {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            authViewModel.mealDishReviewApiCall(dish_id)
+            authViewModel.reviewModelResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.reviewModelResponse.removeObservers(this)
+                        if (authViewModel.reviewModelResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                // showToast(response.message)
+
+                                if (response.status == MyConstant.success) {
+                                    binding.txtReview.text="Reviews ("+response.data.internaldata.size+")"
+                                    setupReviewListAdapter(response.data.internaldata)
+
+                                }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.dishDetailsResponse.removeObservers(this)
+                        if (authViewModel.dishDetailsResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
+
     private fun dishNutritionListAdapter(nutritionDetailList: List<ChosenMealDetailsResponse.NutritionDetail>) {
         binding.recyclerNutritionList.apply {
             layoutManager = LinearLayoutManager(this@ChosenMealDetailActivity, LinearLayoutManager.HORIZONTAL, false)
@@ -123,10 +167,10 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
         }
     }
 
-    private fun setupReviewListAdapter() {
+    private fun setupReviewListAdapter(review_list:List<ReviewModelResponse.Internaldatum>) {
         binding.recyclerReviewList.apply {
             layoutManager = LinearLayoutManager(this@ChosenMealDetailActivity, LinearLayoutManager.HORIZONTAL, false)
-            adapter = ReviewListAdapter(this@ChosenMealDetailActivity)
+            adapter = ReviewListAdapter(this@ChosenMealDetailActivity,review_list)
         }
     }
 

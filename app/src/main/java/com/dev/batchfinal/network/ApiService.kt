@@ -4,6 +4,10 @@ import com.dev.batchfinal.app_modules.batchboard.model.toprated.TopRatedResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscription_update.MealPlanSubscriptionUpdateResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_arriving.DeliveryArrivingResponse
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_drop_off.DeliveryDropOffResponse
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_time.DeliveryTimeResponse
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.review_list.ReviewModelResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.subscribe.CheckSubscribeModel
 import com.dev.batchfinal.app_modules.question.model.all_question.SubmitAllQueResponse
 import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergiesResponse
@@ -40,6 +44,10 @@ import com.dev.batchfinal.app_utils.MyConstant.COURSEORDERLIST
 import com.dev.batchfinal.app_utils.MyConstant.COURSEPROMOCODELIST
 import com.dev.batchfinal.app_utils.MyConstant.COURSEWORKOUTLIST
 import com.dev.batchfinal.app_utils.MyConstant.COURSE_SUBSCRIBE_CHECK
+import com.dev.batchfinal.app_utils.MyConstant.DELIVERY_ARRIVING
+import com.dev.batchfinal.app_utils.MyConstant.DELIVERY_DROP
+import com.dev.batchfinal.app_utils.MyConstant.DELIVERY_TIME
+import com.dev.batchfinal.app_utils.MyConstant.DISH_REVIEW
 import com.dev.batchfinal.app_utils.MyConstant.LOGIN
 import com.dev.batchfinal.app_utils.MyConstant.MEALDETAILS
 import com.dev.batchfinal.app_utils.MyConstant.MEALDISH
@@ -172,4 +180,16 @@ interface ApiService {
 
     @POST(TOP_RATED)
     suspend fun topRated(): MealResponseList
+
+    @GET(DISH_REVIEW)
+    suspend fun mealDishReview(@Path("id") id: Int): ReviewModelResponse
+
+    @GET(DELIVERY_TIME)
+    suspend fun deliveryTime(): DeliveryTimeResponse
+
+    @GET(DELIVERY_ARRIVING)
+    suspend fun deliveryArriving(): DeliveryArrivingResponse
+
+    @GET(DELIVERY_DROP)
+    suspend fun deliveryDrop(): DeliveryArrivingResponse
 }

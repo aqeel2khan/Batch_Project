@@ -1215,10 +1215,15 @@
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_1sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_20sdp"
             android:orientation="horizontal">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerview_delivery_arriving"
+                ></androidx.recyclerview.widget.RecyclerView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_call"
                 android:layout_weight="1"
@@ -1295,6 +1300,11 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_20sdp"
             android:orientation="horizontal">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerview_delivery_drop"
+                ></androidx.recyclerview.widget.RecyclerView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_meet_door"
                 android:layout_weight="1"

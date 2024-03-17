@@ -8,6 +8,10 @@ import com.dev.batchfinal.app_modules.batchboard.model.toprated.TopRatedResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscription_update.MealPlanSubscriptionUpdateResponse
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscription_details_model.MealSubscriptionDetailsRequest
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_arriving.DeliveryArrivingResponse
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_drop_off.DeliveryDropOffResponse
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_time.DeliveryTimeResponse
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.review_list.ReviewModelResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.subscribe.CheckSubscribeModel
 import com.dev.batchfinal.app_modules.question.model.all_question.SubmitAllQueResponse
 import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergiesResponse
@@ -336,5 +340,41 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     fun topRatedApiCall() = viewModelScope.launch {
         _topRatedResponseResponse.value = Resource.Loading
         _topRatedResponseResponse.value = repository.topRatedApi()
+    }
+
+    // Review list api
+    private val _reviewModelResponse: MutableLiveData<Resource<ReviewModelResponse>> = MutableLiveData()
+    val reviewModelResponse: LiveData<Resource<ReviewModelResponse>> get() = _reviewModelResponse
+
+    fun mealDishReviewApiCall(id:Int) = viewModelScope.launch {
+        _reviewModelResponse.value = Resource.Loading
+        _reviewModelResponse.value = repository.mealDishReviewApi(id)
+    }
+
+    // Delivery Time api
+    private val _deliveryTimeResponse: MutableLiveData<Resource<DeliveryTimeResponse>> = MutableLiveData()
+    val deliveryTimeResponse: LiveData<Resource<DeliveryTimeResponse>> get() = _deliveryTimeResponse
+
+    fun deliveryTimeApiCall() = viewModelScope.launch {
+        _deliveryTimeResponse.value = Resource.Loading
+        _deliveryTimeResponse.value = repository.deliveryTimeApi()
+    }
+
+    // Delivery Arriving api
+    private val _deliveryArrivingResponse: MutableLiveData<Resource<DeliveryArrivingResponse>> = MutableLiveData()
+    val deliveryArrivingResponse: LiveData<Resource<DeliveryArrivingResponse>> get() = _deliveryArrivingResponse
+
+    fun deliveryArrivingApiCall() = viewModelScope.launch {
+        _deliveryArrivingResponse.value = Resource.Loading
+        _deliveryArrivingResponse.value = repository.deliveryArrivingApi()
+    }
+
+    // Delivery Arriving api
+    private val _deliveryDropOffResponse: MutableLiveData<Resource<DeliveryArrivingResponse>> = MutableLiveData()
+    val deliveryDropOffResponse: LiveData<Resource<DeliveryArrivingResponse>> get() = _deliveryDropOffResponse
+
+    fun deliveryDropApiCall() = viewModelScope.launch {
+        _deliveryDropOffResponse.value = Resource.Loading
+        _deliveryDropOffResponse.value = repository.deliveryDropApi()
     }
 }
