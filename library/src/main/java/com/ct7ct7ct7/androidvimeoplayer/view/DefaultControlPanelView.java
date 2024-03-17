@@ -74,7 +74,7 @@ public class DefaultControlPanelView {
             @Override
             public void onClick(View v) {
                 vimeoPlayerView.pause();
-                dismissControls(4000);
+                dismissControls(100);
             }
         });
         vimeoPlayButton.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +126,7 @@ public class DefaultControlPanelView {
                 vimeoPlayButton.setVisibility(View.GONE);
                 vimeoReplayButton.setVisibility(View.GONE);
                 vimeoThumbnailImageView.setVisibility(View.GONE);
-                dismissControls(4000);
+                dismissControls(100);
             }
 
             @Override
@@ -174,7 +174,7 @@ public class DefaultControlPanelView {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 vimeoPlayerView.seekTo(seekBar.getProgress());
                 vimeoPlayerView.play();
-                dismissControls(4000);
+                dismissControls(100);
             }
         });
 
@@ -216,7 +216,7 @@ public class DefaultControlPanelView {
 
         controlsRootView.setVisibility(View.VISIBLE);
         if (autoMask) {
-            dismissControls(3000);
+            dismissControls(100);
         }
     }
 

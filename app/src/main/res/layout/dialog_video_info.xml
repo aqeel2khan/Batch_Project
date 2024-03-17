@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/_50sdp"
+    android:padding="@dimen/_10sdp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <RelativeLayout
+        android:id="@+id/layerActionA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:src="@drawable/ic_info"
+            app:tintMode="@color/black"/>
+
+
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+            android:id="@+id/tvVideoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="1/10"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/closeVideoInfo"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/remove"
+            app:tint="@color/black"/>
+    </RelativeLayout>
+
+    <com.dev.batchfinal.app_custom.MyCustomLightTextView
+        android:id="@+id/tvVideoShortTitleTxt"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Title"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"/>
+    <com.dev.batchfinal.app_custom.MyCustomLightTextView
+        android:id="@+id/tvVideoShortTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="txt title"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"/>
+    <com.dev.batchfinal.app_custom.MyCustomLightTextView
+        android:id="@+id/tvVideoDescriptionTxt"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Description"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"/>
+    <com.dev.batchfinal.app_custom.MyCustomLightTextView
+        android:id="@+id/tvVideoDescription"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="txt description"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"/>
+    <com.dev.batchfinal.app_custom.MyCustomLightTextView
+        android:id="@+id/tvVideoInstructionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Instruction"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"/>
+    <com.dev.batchfinal.app_custom.MyCustomLightTextView
+        android:id="@+id/tvVideoInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="txt instruction"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

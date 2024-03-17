@@ -12,6 +12,7 @@
         android:layout_height="@dimen/_160sdp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_10sdp"
+
         android:layout_marginBottom="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_20sdp">
 
@@ -28,41 +29,40 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
                 android:background="@drawable/radius_shape"
-                android:paddingStart="@dimen/_10sdp"
-                android:paddingTop="@dimen/_4sdp"
-                android:paddingEnd="@dimen/_10sdp"
-                android:paddingBottom="@dimen/_4sdp"
+                android:padding="@dimen/_5sdp"
                 android:text="@string/workout_batch_capital"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_10ssp"
-                android:textStyle="bold" />
-
+                android:textSize="@dimen/_8sdp" />
+<!--                android:background="@color/txt_light2"
+-->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_60sdp"
-                android:background="@color/txt_light2"
-                android:padding="@dimen/_10sdp">
+                android:layout_height="wrap_content"
+                android:background="@color/layer_overlaped"
+                android:layout_alignParentBottom="true"
+                android:padding="@dimen/_8sdp">
 
-                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:id="@+id/tv_workout_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/workout_batch"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/_12sdp"
+                   />
 
                 <LinearLayout
                     android:id="@+id/workOutBath"
@@ -76,15 +76,16 @@
                         android:text="4/14"
                         android:id="@+id/txt_validity"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_10ssp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold" />
 
-                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                    <com.dev.batchfinal.app_custom.MyCustomLightTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_days"
+                        android:layout_marginStart="@dimen/_2sdp"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_8ssp" />
+                        android:textSize="@dimen/_8sdp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -104,28 +105,27 @@
 
                         <ImageView
                             android:layout_width="@dimen/_13sdp"
-                            android:layout_height="@dimen/_16sdp"
-                            android:layout_marginEnd="@dimen/_3sdp"
+                            android:layout_height="@dimen/_13sdp"
                             android:src="@drawable/flash_icon"
                             app:tint="@color/white" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                        <com.dev.batchfinal.app_custom.MyCustomLightTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1700 - 1800"
                             android:id="@+id/tv_cal"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10ssp"
+                            android:textSize="@dimen/_10sdp"
+                            android:layout_marginStart="@dimen/_3sdp"
                             android:textStyle="bold" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                        <com.dev.batchfinal.app_custom.MyCustomLightTextView
                             android:id="@+id/tv_boost_kcal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-medium"
                             android:text=" kcal"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_8sdp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -135,44 +135,42 @@
                         android:layout_alignParentStart="true"
                         android:layout_toRightOf="@id/ll_one"
                         android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_8sdp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="@dimen/_13sdp"
-                            android:layout_height="@dimen/_16sdp"
+                            android:layout_height="@dimen/_13sdp"
                             android:layout_marginEnd="@dimen/_3sdp"
                             android:src="@drawable/flash_icon"
                             app:tint="@color/white" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                        <com.dev.batchfinal.app_custom.MyCustomLightTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="93"
                             android:id="@+id/txt_course_duration"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10ssp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                        <com.dev.batchfinal.app_custom.MyCustomLightTextView
                             android:id="@+id/tv_min"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-medium"
                             android:text=" mins"
-
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_8sdp" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <SeekBar
                     android:id="@+id/seekbar"
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="@dimen/_8sdp"
                     android:layout_below="@id/workOutBatchRelative"
                     android:layout_centerInParent="true"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginVertical="@dimen/_8sdp"
                     android:indeterminate="false"
                     android:max="50"
                     android:progress="0"
@@ -182,7 +180,7 @@
             </RelativeLayout>
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 

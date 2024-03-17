@@ -202,7 +202,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.recyclerMotivators.apply {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-            adapter = MotivatorListAdapter(requireContext(), coachList,"motivator_home",
+            adapter = DashboardMotivatorAdapter(requireContext(), coachList,"motivator_home",
                 object : CoachListItemPosition<Int> {
                     override fun onCoachListItemPosition(item: Data, position: Int) {
                         val coach_id = item.id
@@ -211,6 +211,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                         activity!!.startActivity(Intent(context, MotivatorDetailActivity::class.java).putExtra("id", item.id.toString()))
                     }
                 })
+
+
+
+            /*
+                        adapter = MotivatorListAdapter(requireContext(), coachList,"motivator_home",
+                            object : CoachListItemPosition<Int> {
+                                override fun onCoachListItemPosition(item: Data, position: Int) {
+                                    val coach_id = item.id
+                                    Log.e("id", coach_id.toString())
+                                    Timber.tag("id").i(coach_id.toString())
+                                    activity!!.startActivity(Intent(context, MotivatorDetailActivity::class.java).putExtra("id", item.id.toString()))
+                                }
+                            })
+            */
         }
     }
 

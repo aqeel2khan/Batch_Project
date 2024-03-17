@@ -9,11 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_160sdp"
         app:cardElevation="@dimen/_2sdp"
-        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginHorizontal="@dimen/_8sdp"
         android:elevation="@dimen/_2sdp"
         android:padding="@dimen/_2sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
         app:cardCornerRadius="@dimen/_20sdp">
 
         <LinearLayout
@@ -28,43 +28,40 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:fontFamily="@font/outfit_regular"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
                 android:background="@drawable/radius_shape"
-                android:paddingEnd="@dimen/_10sdp"
-                android:paddingStart="@dimen/_10sdp"
-                android:textSize="@dimen/_10ssp"
-                android:paddingTop="@dimen/_4sdp"
-                android:paddingBottom="@dimen/_4sdp"
+                android:padding="@dimen/_5sdp"
                 android:text="@string/meal_batch"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textColor="@color/welcome_txt"
+                android:textSize="@dimen/_8sdp" />
+
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_70sdp"
-                android:background="@color/txt_light2"
-                android:padding="@dimen/_10sdp">
+                android:layout_height="wrap_content"
+                android:background="@color/layer_overlaped"
+                android:layout_alignParentBottom="true"
+                android:padding="@dimen/_8sdp">
 
-                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:id="@+id/tv_meal_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/txt_meal_title"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_12ssp"
-                    android:textFontWeight="500"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/_12sdp"
+                    />
 
                 <LinearLayout
                     android:id="@+id/mealBath"
@@ -77,14 +74,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="4/14"
-                        android:textSize="@dimen/_12ssp"
+                        android:textSize="@dimen/_12sdp"
                         android:textColor="@color/white" />
-                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                    <com.dev.batchfinal.app_custom.MyCustomLightTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="days"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_8ssp"
+                        android:textSize="@dimen/_8sdp"
                         android:layout_marginStart="@dimen/_2sdp"
                         android:layout_marginEnd="@dimen/_2sdp"/>
                 </LinearLayout>
@@ -93,13 +90,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lorem ipsum dolor sit amet"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_10sdp"
                     android:textColor="@color/white"
                     android:layout_below="@id/mealBath"
-                    android:layout_marginTop="@dimen/_7sdp"/>
+                    android:layout_marginTop="@dimen/_5sdp"/>
             </RelativeLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 

@@ -68,7 +68,7 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
                 if (!defaultOptions.originalControls) {
                     if (defaultOptions.autoPlay) {
                         vimeoPlayer.playTwoStage();
-                        defaultControlPanelView.dismissControls(4000);
+                        defaultControlPanelView.dismissControls(100);
                     }
                 }
             }
@@ -181,6 +181,7 @@ public class VimeoPlayerView extends FrameLayout implements LifecycleObserver {
     public int getVideoId() {
         return videoId;
     }
+
 
     public String getBaseUrl() {
         return baseUrl;

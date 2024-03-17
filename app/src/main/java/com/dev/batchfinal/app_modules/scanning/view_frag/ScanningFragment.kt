@@ -378,19 +378,14 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         })
     }
     private fun setAllCourseOrderAdapter(courseList: ArrayList<OrderList>) {
-        binding.recyclerCourseOrder.layoutManager =
-            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerCourseOrder.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerCourseOrder.adapter = CourseOrderAdapter(context, courseList, object :
             CourseOrderListItemPosition<Int> {
             override fun onCourseOrderListItemPosition(item: OrderList, position: Int) {
                 try {
                     val gson = Gson()
-                    var mIntent= Intent(requireContext(), WeightLossActivity::class.java)
-                    if(item!=null){
-                        mIntent .putExtra("order_list", gson.toJson(item))
-                    }else{
-                        mIntent .putExtra("order_list", "")
-                    }
+                    val mIntent= Intent(requireContext(), WeightLossActivity::class.java)
+                    mIntent .putExtra("order_list", gson.toJson(item))
                     requireContext().startActivity(mIntent)
                 } catch (e: Exception) {
                     e.printStackTrace()

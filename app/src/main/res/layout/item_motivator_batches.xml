@@ -28,7 +28,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="@dimen/_16sdp"
                 android:src="@drawable/food" />
 
         </LinearLayout>
@@ -55,12 +54,15 @@
                 android:textSize="@dimen/_10ssp"
                 android:textStyle="bold"
                 android:visibility="gone" />
+<!--
+                android:background="@drawable/ic_layer_workout_batch"
 
+-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="@drawable/ic_layer_workout_batch"
+                android:background="@color/layer_overlaped"
                 android:padding="@dimen/_8sdp">
 
                 <com.dev.batchfinal.app_custom.MyCustomBoldTV
@@ -197,7 +199,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="@dimen/_5sdp"
                         android:text="Bessie Cooper"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_10sdp"

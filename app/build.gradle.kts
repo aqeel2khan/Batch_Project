@@ -116,5 +116,7 @@ dependencies {
     implementation("com.myfatoorah:myfatoorah:2.2.17")
     //FITNESS API
   // implementation("com.google.android.gms:play-services-fitness:20.0.0")
+   // implementation("com.ct7ct7ct7.androidvimeoplayer:library:1.2.2")
+
 
 }

@@ -40,7 +40,7 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
     private  var courseData: OrderList?= null
     private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
-    var REQUEST_CODE = 1234
+    private var REQUEST_CODE = 1234
     private lateinit var courseDetailData: Data
     var name = ArrayList(
         Arrays.asList(
@@ -123,7 +123,7 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
                             courseDurationData?.course_duration_exercise?.get(0)?.video_detail?.video_id
                         if (videoId != null) {
 
-                            var videoIdInt = videoId.toInt()
+                            val videoIdInt = videoId.toInt()
 
                             binding.vimeoPlayerView.initialize(true, videoIdInt)
 
@@ -149,11 +149,10 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
-            var playAt = data!!.getFloatExtra(VimeoPlayerActivity.RESULT_STATE_VIDEO_PLAY_AT, 0f)
+            val playAt = data!!.getFloatExtra(VimeoPlayerActivity.RESULT_STATE_VIDEO_PLAY_AT, 0f)
             binding.vimeoPlayerView.seekTo(playAt)
 
-            var playerState =
-                PlayerState.valueOf(data!!.getStringExtra(VimeoPlayerActivity.RESULT_STATE_PLAYER_STATE)!!)
+            val playerState = PlayerState.valueOf(data!!.getStringExtra(VimeoPlayerActivity.RESULT_STATE_PLAYER_STATE)!!)
             when (playerState) {
                 PlayerState.PLAYING -> binding.vimeoPlayerView.play()
                 PlayerState.PAUSED -> binding.vimeoPlayerView.pause()
@@ -195,12 +194,7 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
         binding.startWorkout.setOnClickListener {
             try {
                 val gson = Gson()
-
-//                var data = ""
                 var data2 = ""
-
-
-
                 if (courseData != null) {
                     data2 = gson.toJson(courseData)
                 }

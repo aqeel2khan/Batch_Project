@@ -1,43 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/uvv_black">
+
+<!--
+    <WebView
+        android:id="@+id/vimeoPlayerView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+-->
+
+    <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView
+        android:id="@+id/vimeoPlayerView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        app:autoPlay="true"
+        app:showFullscreenOption="true"
+        app:showOriginalControls="false"
+        app:showMenuOption="false"
+        app:showTitle="false"
+        app:topicColor="#FFFF00"/>
+
 
     <RelativeLayout
+        android:id="@+id/layerActionA"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp">
 
-        <FrameLayout
-            android:id="@+id/video_layout"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/black">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:src="@drawable/ic_vedio_remains" />
 
-            <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView
-                android:id="@+id/vimeoPlayerView"
-                android:layout_width="match_parent"
-                app:autoPlay="true"
-                app:showFullscreenOption="true"
-                android:layout_height="match_parent" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_finish_workout"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="bottom"
-                android:layout_marginHorizontal="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_button"
-                android:backgroundTint="#516634"
-                android:text="@string/finish_workout"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_10ssp" />
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+            android:id="@+id/tvVideoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Lorem Ipsum Doller"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp" />
 
-        </FrameLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/closeVideoMode"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:src="@drawable/remove" />
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/_70sdp">
+
+
+        <com.dev.batchfinal.app_custom.MyCustomLightTextView
+            android:id="@+id/tvVideoOutOff"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_1sdp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/vedioInformation"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_info"
+           />
+
 
     </RelativeLayout>
 
-</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVideoCurrentPos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_80sdp"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_finish_workout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/border_button"
+        android:backgroundTint="#516634"
+        android:text="@string/finish_workout"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        android:visibility="gone" />
+
+
+</FrameLayout>

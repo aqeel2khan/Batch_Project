@@ -16,6 +16,8 @@
         app:showFullscreenOption="true"
         app:showMenuOption="false"
         app:showOriginalControls="false"
-        app:showTitle="true"
+        app:showTitle="false"
         />
+    <!--        app:showTitle="true"
+-->
 </FrameLayout>

@@ -76,11 +76,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                      >
-
+<!--                            android:background="@drawable/ic_layer_workout_batch"
+-->
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/ic_layer_workout_batch"
+                            android:background="@color/layer_overlaped"
+
                             android:layout_alignParentBottom="true"
                             android:padding="@dimen/_8sdp">
 

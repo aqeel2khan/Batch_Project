@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_4sdp"
+        android:layout_margin="@dimen/_8sdp"
         android:elevation="@dimen/_2sdp"
         android:padding="@dimen/_4sdp"
         app:cardCornerRadius="@dimen/_20sdp"
@@ -39,62 +39,62 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_95sdp"
-                android:background="@color/txt_light2">
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/layer_overlaped"
+                android:padding="@dimen/_8sdp"
+                >
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginHorizontal="@dimen/_8sdp"
                     android:orientation="vertical">
 
-                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                    <com.dev.batchfinal.app_custom.MyCustomBoldTV
                         android:id="@+id/product_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_6sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/outfit_extra_bold"
                         android:singleLine="true"
                         android:text="Batch Meal Plan"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_12ssp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/_12sdp"
+                        />
 
                     <LinearLayout
                         android:id="@+id/ll_one"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
                         android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="@dimen/_13sdp"
-                            android:layout_height="@dimen/_16sdp"
+                            android:layout_height="@dimen/_13sdp"
                             android:layout_marginEnd="@dimen/_3sdp"
                             android:src="@drawable/flash_icon"
                             app:tint="@color/white" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                        <com.dev.batchfinal.app_custom.MyCustomLightTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1700 - 1800"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10ssp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                        <com.dev.batchfinal.app_custom.MyCustomLightTextView
                             android:id="@+id/tv_boost_kcal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-medium"
+                            android:layout_marginStart="@dimen/_2sdp"
                             android:text="kcal"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_8sdp" />
                     </LinearLayout>
                 </LinearLayout>
 

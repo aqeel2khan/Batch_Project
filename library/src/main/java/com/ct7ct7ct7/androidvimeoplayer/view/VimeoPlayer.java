@@ -243,6 +243,10 @@ public class VimeoPlayer extends WebView {
                     return result;
             }
         });
+        /*
+        * +\"var vimeoControls = player.contentDocument.getElementsByClassName('controls');\" +\n" +
+                        "                            \"if (vimeoControls.length > 0) {\" +\n" +
+                        "                            \"  vimeoControls[0].style.display = 'none';\"*/
 
         WebViewClient webViewClient = new WebViewClient() {
             @Override

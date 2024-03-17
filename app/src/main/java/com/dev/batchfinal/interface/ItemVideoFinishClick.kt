@@ -5,4 +5,7 @@ import com.dev.batchfinal.model.courseorderlist.Course_duration_exercise
 interface ItemVideoFinishClick<T>  {
 
     fun onPositionItemVideoFinish(item: Course_duration_exercise, postions: T)
+    fun onCloseVideoView(item: Course_duration_exercise, postions: T)
+    fun onClickVideoInformation(item: Course_duration_exercise, postions: T)
+
 }

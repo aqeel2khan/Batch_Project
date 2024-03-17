@@ -29,6 +29,7 @@
     <color name="txt_light">#C2625D5D</color>
     <color name="txt_light2">#E9CDCACA</color>
     <color name="bg_light2">#33FFFFFF</color>
+    <color name="layer_overlaped">#C2C9C5C1</color>
     <color name="card_bg_color">#F1E6DA</color>
 
     <color name="cnb_default_badge_color">#F44336</color>
