@@ -145,7 +145,7 @@ interface ApiService {
     suspend fun getDishDetails(@Body jsonObject: JsonObject): ChosenMealDetailsResponse
 
     @POST(MEAL_SUBSCRIBE)
-    suspend fun mealSubscribe(@Body mealSubscribedRequest: MealSubscribedRequest): MealsSubscribedRespnse
+    suspend fun mealSubscribe(@Body jsonObject: JsonObject): MealsSubscribedRespnse
 
     @POST(MEAL_SUBSCRIBE_LIST)
     suspend fun mealSubscribeList(@Body mealSubscribeListRequest: MealSubscribeListRequest): MealSubscribeListResponse

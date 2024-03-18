@@ -246,9 +246,9 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     private val _mealsSubscribedRespnse: MutableLiveData<Resource<MealsSubscribedRespnse>> = MutableLiveData()
     val mealsSubscribedRespnse: LiveData<Resource<MealsSubscribedRespnse>> get() = _mealsSubscribedRespnse
 
-    fun mealSubscribeApiCall(mealSubscribedRequest: MealSubscribedRequest) = viewModelScope.launch {
+    fun mealSubscribeApiCall(jsonObject: JsonObject) = viewModelScope.launch {
         _mealsSubscribedRespnse.value = Resource.Loading
-        _mealsSubscribedRespnse.value = repository.mealSubscribe(mealSubscribedRequest)
+        _mealsSubscribedRespnse.value = repository.mealSubscribe(jsonObject)
     }
 
     // meal Subscribe List api

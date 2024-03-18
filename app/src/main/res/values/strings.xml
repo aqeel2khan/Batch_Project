@@ -154,6 +154,7 @@ Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagitt
     <string name="txt_start_date_plan">Start date of plan</string>
     <string name="txt_delivery_place">Delivery place </string>
 
+
     <string name="txt_call">Call</string>
     <string name="txt_ring_bell">Ring bell</string>
     <string name="txt_notification">Notification</string>

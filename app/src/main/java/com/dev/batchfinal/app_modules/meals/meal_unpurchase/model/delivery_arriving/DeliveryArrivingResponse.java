@@ -82,7 +82,7 @@ public class DeliveryArrivingResponse {
         private String mOptions;
 
         @SerializedName("isSelected")
-        private Boolean isSelected;
+        private Boolean isSelected=false;
 
         public Long getId() {
             return mId;
@@ -104,8 +104,8 @@ public class DeliveryArrivingResponse {
             return isSelected;
         }
 
-        public void setIsSelected(Boolean isSelected) {
-            isSelected = isSelected;
+        public void setIsSelected(Boolean selected) {
+            isSelected = selected;
         }
 
     }

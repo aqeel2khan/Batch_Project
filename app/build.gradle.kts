@@ -114,6 +114,7 @@ dependencies {
 
     //fatoora sdk
     implementation("com.myfatoorah:myfatoorah:2.2.17")
+
     //FITNESS API
   // implementation("com.google.android.gms:play-services-fitness:20.0.0")
 

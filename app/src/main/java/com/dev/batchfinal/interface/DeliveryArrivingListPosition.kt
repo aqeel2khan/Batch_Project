@@ -6,5 +6,5 @@ import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_arriv
 
 interface DeliveryArrivingListPosition<T> {
 
-    fun onCategoryListItemPosition(item: DeliveryArrivingResponse.Internaldatum, position: T)
+    fun onCategoryListItemPosition(item: List<DeliveryArrivingResponse.Internaldatum>, position: T)
 }
