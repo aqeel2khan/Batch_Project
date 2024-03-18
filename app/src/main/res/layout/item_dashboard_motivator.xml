@@ -7,8 +7,8 @@
     android:elevation="@dimen/_2sdp"
     android:orientation="vertical"
     android:layout_centerHorizontal="true"
-    android:padding="@dimen/_8sdp"
-    android:layout_marginHorizontal="@dimen/_8sdp"
+    android:paddingHorizontal="@dimen/_8sdp"
+    android:layout_marginEnd="@dimen/_8sdp"
     tools:ignore="MissingDefaultResource">
 
     <de.hdodenhof.circleimageview.CircleImageView

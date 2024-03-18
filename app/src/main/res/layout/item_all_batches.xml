@@ -10,12 +10,10 @@
           android:id="@+id/img_2"/>-->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_185sdp"
+        android:layout_height="@dimen/_180sdp"
         android:layout_gravity="center"
-        android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
+       android:layout_marginHorizontal="@dimen/_8sdp"
         android:elevation="@dimen/_2sdp"
         android:padding="@dimen/_2sdp"
         app:cardCornerRadius="@dimen/_17sdp"
@@ -67,7 +65,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:background="@color/layer_overlaped"
-
                 android:padding="@dimen/_8sdp">
 
                 <com.dev.batchfinal.app_custom.MyCustomBoldTV
@@ -106,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/workOutBath"
-                    android:layout_marginVertical="@dimen/_8sdp"
+                    android:layout_marginVertical="@dimen/_3sdp"
                     android:orientation="horizontal"
                     >
 

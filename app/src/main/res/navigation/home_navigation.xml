@@ -40,9 +40,27 @@
         tools:layout="@layout/fragment_training">
 
 
-        <action
+       <action
             android:id="@+id/action_trainingFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+           app:enterAnim="@anim/anim_enter"
+           app:exitAnim="@anim/anim_exit"
+           app:popEnterAnim="@anim/anim_pop_enter"
+           app:popExitAnim="@anim/anim_pop_exit"/>
+        <action
+            android:id="@+id/action_trainingFragment_to_mealFragment"
+            app:destination="@id/mealFragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit"/>
+        <action
+            android:id="@+id/action_trainingFragment_to_shopFragment"
+            app:destination="@id/shopFragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit"/>
     </fragment>
     <fragment
         android:id="@+id/mealFragment"
@@ -52,8 +70,27 @@
 
 
         <action
+            android:id="@+id/action_mealFragment_to_trainingFragment"
+            app:destination="@id/trainingFragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit"/>
+        <action
             android:id="@+id/action_mealFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit"/>
+        <action
+            android:id="@+id/action_mealFragment_to_shopFragment"
+            app:destination="@id/shopFragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit"/>
+
     </fragment>
     <fragment
         android:id="@+id/shopFragment"
@@ -63,8 +100,26 @@
 
 
         <action
+            android:id="@+id/action_shopFragment_to_mealFragment"
+            app:destination="@id/mealFragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit"/>
+        <action
+            android:id="@+id/action_shopFragment_to_trainingFragment"
+            app:destination="@id/trainingFragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit"/>
+        <action
             android:id="@+id/action_shopFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit"/>
     </fragment>
 
 

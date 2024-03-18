@@ -18,17 +18,12 @@ class DashboardMotivatorAdapter(
 ) : RecyclerView.Adapter<DashboardMotivatorAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemDashboardMotivatorBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: Data, position: Int) {
+        fun bind(data: Data, position: Int)
+        {
             binding.txtTrainerName.text = data.name
             binding.txtProfesion.text = "Yoga, pilates"
-            MyUtils.loadImage(
-                binding.imgTrainerProfile,
-                MyConstant.IMAGE_BASE_URL + data.profilePhotoPath
-            )
-
-            binding.root.setOnClickListener {
-                listener.onCoachListItemPosition(data, position)
-            }
+            MyUtils.loadImage(binding.imgTrainerProfile, MyConstant.IMAGE_BASE_URL + data.profilePhotoPath)
+            binding.root.setOnClickListener { listener.onCoachListItemPosition(data, position) }
         }
     }
 

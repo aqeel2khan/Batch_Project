@@ -1,36 +1,25 @@
 package com.dev.batchfinal.app_modules.batchboard.view_frag
 
 import android.content.Intent
-import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.*
 import com.dev.batchfinal.app_common.BaseFragment
 import com.dev.batchfinal.databinding.FragmentHomeBinding
-import com.dev.batchfinal.`interface`.PositionItemClickListener
 import com.dev.batchfinal.app_modules.workout_motivator.view.MotivatorDetailActivity
-import com.dev.batchfinal.app_modules.activity.WeightLossActivity
-import com.dev.batchfinal.app_modules.batchboard.model.toprated.TopRatedResponse.Internaldatum
-import com.dev.batchfinal.app_modules.fragments.NetworkConnectivityFragment.Companion.showLoader
 import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.MealDetailsActivity
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.fragment.MealFragment
 import com.dev.batchfinal.app_modules.shopping.view.CourseDetailActivity
-import com.dev.batchfinal.app_modules.shopping.view_frag.ShoppingFragment
 import com.dev.batchfinal.app_modules.workout_motivator.view_frag.TrainingFragment
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.app_utils.showToast
-import com.dev.batchfinal.databinding.FragmentTrainingBinding
 import com.dev.batchfinal.`interface`.CoachListItemPosition
 import com.dev.batchfinal.`interface`.CourseListItemPosition
 import com.dev.batchfinal.`interface`.MealListItemPosition
@@ -46,7 +35,6 @@ import com.smarteist.autoimageslider.SliderAnimations
 import com.smarteist.autoimageslider.SliderView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import org.jetbrains.annotations.ApiStatus
 import timber.log.Timber
 import java.util.ArrayList
 import java.util.Arrays
@@ -62,16 +50,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         R.drawable.meal_bg,
         R.drawable.exercise_image
     )
-    var name = ArrayList(
-        Arrays.asList("Workout Batch", "Weight Loss", "Workout Batch" ))
-    var techerName = ArrayList(
-        Arrays.asList(
-            "Bessie Cooper", "Leslie Alexander", "Jenny Wilson", "Bessie Cooper", "Leslie Alexander", "Jenny Wilson" )
-    )
-    var profesion = ArrayList(
-        Arrays.asList(
-            "Yoga, pilates", "Cardio stretching", "Mobility", "Yoga, pilates", "Cardio stretching", "Mobility" )
-    )
+    var name = ArrayList(Arrays.asList("Workout Batch", "Weight Loss", "Workout Batch" ))
+    var techerName = ArrayList(Arrays.asList("Bessie Cooper", "Leslie Alexander", "Jenny Wilson", "Bessie Cooper", "Leslie Alexander", "Jenny Wilson" ))
+    var profesion = ArrayList(Arrays.asList("Yoga, pilates", "Cardio stretching", "Mobility", "Yoga, pilates", "Cardio stretching", "Mobility" ))
     var courseImg = ArrayList(Arrays.asList(
         R.drawable.avtar, R.drawable.normal_boy,
         R.drawable.profile_image, R.drawable.avtar, R.drawable.normal_boy,
@@ -98,9 +79,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.imageSlider.startAutoCycle()
         //setUpBatchesAdapter()
         getCourseListApi()
-    }
 
+    }
     override fun getViewBinding()= FragmentHomeBinding.inflate(layoutInflater)
+
+
 
 
     // Training Api Integration
@@ -138,7 +121,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                         MyCustom.errorBody(binding.root.context, it.errorBody, "")
                     }
 
-                    else -> {}
+                    else -> {
+                        hideLoader()
+                    }
                 }
             }
         }else{
@@ -146,12 +131,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
     private fun setAllBatchesAdapter(courseList: ArrayList<ListData>) {
+        binding.layerWorkoutBatch.visibility=View.VISIBLE
+
         binding.recyclerWorkbatches.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
        var allBatchesAdapter = AllBatchesAdapter(context, courseList,"home_screen", object :
             CourseListItemPosition<Int> {
             override fun onCourseListItemPosition(item: ListData, position: Int) {
                 val course_id = item.courseId
-                activity!!.startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
+                requireContext().startActivity(Intent(requireContext(), CourseDetailActivity::class.java).putExtra("course_id", course_id.toString()))
             }
         })
         binding.recyclerWorkbatches.adapter = allBatchesAdapter
@@ -199,6 +186,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun setMotivatorListAdapter(coachList: List<Data>) {
+        binding.layerMotivators.visibility=View.VISIBLE
         binding.recyclerMotivators.apply {
 
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -209,7 +197,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                         val coach_id = item.id
                         Log.e("id", coach_id.toString())
                         Timber.tag("id").i(coach_id.toString())
-                        activity!!.startActivity(Intent(context, MotivatorDetailActivity::class.java).putExtra("id", item.id.toString()))
+                        requireContext().startActivity(Intent(context, MotivatorDetailActivity::class.java).putExtra("id", item.id.toString()))
                     }
                 })
 
@@ -274,11 +262,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun setMealBatchPlanAdapter(mealList: List<MealList>) {
+        binding.layerMealBatch.visibility=View.VISIBLE
+
         binding.recyclerMeal.apply {
             layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
             adapter = MealBatchPlanAdapter(context, mealList,"meal_home", object : MealListItemPosition<Int> {
                 override fun onMealListItemPosition(item: MealList, position: Int) {
-                    activity!!.startActivity(Intent(requireContext(), MealDetailsActivity::class.java).putExtra("id", item.id.toString()))
+                    requireContext().startActivity(Intent(requireContext(), MealDetailsActivity::class.java).putExtra("id", item.id.toString()))
                 }
             })
         }
@@ -287,6 +277,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
     private fun getTopRatedList() {
+
         if (CheckNetworkConnection.isConnection(requireContext(),binding.root, true)) {
             showLoader()
             authViewModel.topRatedApiCall()
@@ -329,11 +320,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun setTopRatedMealAdapter(mealList: List<MealList>) {
+        binding.layerTopRatedMeal.visibility=View.VISIBLE
+
         binding.recyclerToprated.apply {
             layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
             adapter = MealBatchPlanAdapter(context, mealList,"meal_top_home", object : MealListItemPosition<Int> {
                 override fun onMealListItemPosition(item: MealList, position: Int) {
-                    activity!!.startActivity(Intent(requireContext(), MealDetailsActivity::class.java).putExtra("id", item.id.toString()))
+                    requireContext().startActivity(Intent(requireContext(), MealDetailsActivity::class.java).putExtra("id", item.id.toString()))
                 }
             })
         }
@@ -343,6 +336,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun buttonClicks() {
         binding.tvWorkoutShowAll.setOnClickListener {
+
             findNavController().navigate(
                 R.id.action_batchboardFragment_to_trainingFragment,
                 TrainingFragment.getBundle("")

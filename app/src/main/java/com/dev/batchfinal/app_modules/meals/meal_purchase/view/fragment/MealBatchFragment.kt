@@ -44,8 +44,7 @@ class MealBatchFragment : BaseFragment<FragmentMealBatchBinding>() {
         super.onCreate(savedInstanceState)
         activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                requireActivity().startActivity(
-                    Intent(requireContext(), MainActivity::class.java))
+                requireActivity().startActivity(Intent(requireContext(), MainActivity::class.java))
                 // in here you can do logic when backPress is clicked
             }
         })

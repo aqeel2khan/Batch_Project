@@ -18,6 +18,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.AllBatchesAdapter
 import com.dev.batchfinal.adapter.MotivatorListAdapter
+import com.dev.batchfinal.app_common.BaseFragment
+import com.dev.batchfinal.app_modules.shopping.view.CourseDetailActivity
+import com.dev.batchfinal.app_modules.workout_motivator.view.MotivatorDetailActivity
+import com.dev.batchfinal.app_utils.CheckNetworkConnection
+import com.dev.batchfinal.app_utils.MyConstant
+import com.dev.batchfinal.app_utils.MyConstant.jsonObject
+import com.dev.batchfinal.app_utils.MyCustom
+import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.databinding.FilterDialogBinding
 import com.dev.batchfinal.databinding.FragmentTrainingBinding
 import com.dev.batchfinal.`interface`.CoachListItemPosition
@@ -30,14 +38,7 @@ import com.dev.batchfinal.model.course_filter_model.BatchLevel
 import com.dev.batchfinal.model.course_filter_model.WorkoutType
 import com.dev.batchfinal.model.course_model.ListData
 import com.dev.batchfinal.out.AuthViewModel
-import com.dev.batchfinal.app_utils.CheckNetworkConnection
-import com.dev.batchfinal.app_utils.MyConstant
-import com.dev.batchfinal.app_utils.MyConstant.jsonObject
-import com.dev.batchfinal.app_utils.MyCustom
-import com.dev.batchfinal.app_utils.showToast
-import com.dev.batchfinal.app_common.BaseFragment
-import com.dev.batchfinal.app_modules.workout_motivator.view.MotivatorDetailActivity
-import com.dev.batchfinal.app_modules.shopping.view.CourseDetailActivity
+import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -45,7 +46,6 @@ import com.google.gson.JsonObject
 import com.zhy.view.flowlayout.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import com.dev.batchfinal.out.Resource
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -70,8 +70,13 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
     override fun initUi() {
         buttonClicks()
-        getCourseListApi("")
         print(sharedPreferences.token)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        getCourseListApi("")
+
     }
 
     override fun getViewBinding() = FragmentTrainingBinding.inflate(layoutInflater)
@@ -673,4 +678,5 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         handleTitle(resources.getString(R.string.workout_batchs))
         super.onResume()
     }
+
 }

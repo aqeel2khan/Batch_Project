@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="46" />
+                            <option name="x" value="-340" />
+                            <option name="y" value="-363" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -44,13 +44,23 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="368" />
+                            <option name="x" value="893" />
+                            <option name="y" value="-375" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_mealFragment_to_homeFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_mealFragment_to_shopFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_mealFragment_to_trainingFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -65,13 +75,23 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="500" />
-                            <option name="y" value="46" />
+                            <option name="x" value="236" />
+                            <option name="y" value="133" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_shopFragment_to_homeFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_shopFragment_to_mealFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_shopFragment_to_trainingFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -86,13 +106,23 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="98" />
+                            <option name="y" value="-857" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_trainingFragment_to_homeFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_trainingFragment_to_mealFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_trainingFragment_to_shopFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

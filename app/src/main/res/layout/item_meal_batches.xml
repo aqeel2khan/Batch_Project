@@ -12,10 +12,8 @@
         app:cardElevation="@dimen/_2sdp"
         android:elevation="@dimen/_2sdp"
         android:padding="@dimen/_2sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginVertical="@dimen/_8sdp"
         app:cardCornerRadius="@dimen/_20sdp">
 
         <LinearLayout
