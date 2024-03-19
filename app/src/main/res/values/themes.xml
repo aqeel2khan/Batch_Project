@@ -77,4 +77,8 @@
     <style name="MySnackBarStyleBack" parent="Widget.MaterialComponents.Snackbar">
         <item name="android:background">@color/black</item>
     </style>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/light_gry</item>
+        <item name="colorControlActivated">@color/golden_color</item>
+    </style>
 </resources>

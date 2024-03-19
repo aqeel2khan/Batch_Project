@@ -264,7 +264,7 @@ Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagitt
     <string name="txt_workout_goal">Goal</string>
     <string name="pay_now">Pay Now</string>
     <string name="english">English</string>
-    <string name="already_subscription">You have already a subscription on this Meal</string>
+    <string name="already_subscription">User can not subscribed more than 1 Meal Plan</string>
 
     <string-array name="optionGender">
         <item>Select Gender</item>

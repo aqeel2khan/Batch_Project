@@ -15,6 +15,7 @@ import com.dev.batchfinal.MainActivity
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.MyItemRecyclerViewAdapter
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_custom.MyCustomEditText
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.adapter.DeliveryArrivingAdapter
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_arriving.DeliveryArrivingResponse
@@ -93,6 +94,11 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     var selectedDeliveryDropId: Int? = null
     val deliveryTimeList: ArrayList<String> = ArrayList()
 
+    var address_area: String? = null
+    var address_block: String? = null
+    var address_house: String? = null
+    var address_street: String? = null
+    var address_type: String? = null
 
 
     val request = MFInitiatePaymentRequest(0.100, MFCurrencyISO.KUWAIT_KWD)
@@ -180,14 +186,14 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
                                     product_count="5"
                                     product_updated=response.data.updatedAt.toString()
 
-                                    MyUtils.loadImage(
+                                  /*  MyUtils.loadImage(
                                         binding.coachProfile,
                                         MyConstant.IMAGE_BASE_URL + response.data.coachDetail.profilePhotoPath
                                     )
                                     MyUtils.loadBackgroundImage(
                                         binding.backgroundBg,
                                         MyConstant.IMAGE_BASE_URL + response.data.courseImage
-                                    )
+                                    )*/
                                     binding.tvDuration.text = response.data.duration + " mins"
                                 }
                             }
@@ -371,8 +377,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         val view = layoutInflater.inflate(R.layout.bottom_sheet, null)
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(view)
-        val ll_bottom_change_course =
-            dialog.findViewById<LinearLayout>(R.id.ll_bottom_change_course)
+        val ll_bottom_change_course = dialog.findViewById<LinearLayout>(R.id.ll_bottom_change_course)
         val ll_select_date_plan = dialog.findViewById<LinearLayout>(R.id.ll_select_date_plan)
         val ll_select_calender = dialog.findViewById<LinearLayout>(R.id.ll_select_calender)
         val btn_date_apply = dialog.findViewById<Button>(R.id.btn_date_apply)
@@ -380,11 +385,17 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         val txt_title = dialog.findViewById<TextView>(R.id.txt_title)
         val btn_home = dialog.findViewById<CardView>(R.id.card_home)
         val btn_work = dialog.findViewById<CardView>(R.id.card_work)
+
         btn_home!!.setOnClickListener {
-            btn_home.setCardBackgroundColor(Color.parseColor("##F1E6DA"))
+            btn_work!!.setCardBackgroundColor(Color.parseColor("#F5F6F4"))
+            btn_home.setCardBackgroundColor(Color.parseColor("#F1E6DA"))
+            address_type="Home"
         }
         btn_work!!.setOnClickListener {
-            btn_home.setCardBackgroundColor(Color.parseColor("EEE8E8"))
+            btn_work.setCardBackgroundColor(Color.parseColor("#F1E6DA"))
+            btn_home.setCardBackgroundColor(Color.parseColor("#F5F6F4"))
+            address_type="Work"
+
         }
         txt_title!!.text = resources.getString(R.string.txt_add_address)
         ll_bottom_change_course!!.visibility = View.GONE
@@ -393,6 +404,18 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         ll_map!!.visibility = View.VISIBLE
         btn_date_apply!!.setOnClickListener {
             //code for save week price
+            val area = dialog.findViewById<MyCustomEditText>(R.id.edit_area)
+            val block = dialog.findViewById<MyCustomEditText>(R.id.edit_block)
+            val house = dialog.findViewById<MyCustomEditText>(R.id.edit_house)
+            val street = dialog.findViewById<MyCustomEditText>(R.id.edit_street)
+
+            address_area= area!!.text.toString()
+            address_block= block!!.text.toString()
+            address_house= house!!.text.toString()
+            address_street= street!!.text.toString()
+            binding.txtAddress.visibility=View.VISIBLE
+            binding.txtAddress.text=address_area+" "+address_block+" "+address_house+" "+address_street
+
             dialog.dismiss()
         }
 
@@ -426,6 +449,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
 
             // set this date in TextView for Display
             Log.d("date", Date!!)
+            binding.txtSelectedDate.text=Date
             edit_calender!!.setText(Date)
         })
         btn_date_apply!!.setOnClickListener {
@@ -697,6 +721,8 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         sp_plan_duration.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View, position: Int, id: Long) {
                 selectedDeliveryTimeValue = dataList[position]
+                binding.txtSelectedDeliveryTime.visibility=View.VISIBLE
+                binding.txtSelectedDeliveryTime.text=selectedDeliveryTimeValue
                 selectedDeliveryTimeId=position+1
                 // Append the selected value to the string variable
 //                Toast.makeText(this@BuySubscriptionActivity, selectedValue, Toast.LENGTH_SHORT).show()
@@ -758,6 +784,29 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
                         position: Int
                     ) {
                         selectedDeliveryArrivngValue=item[position].options
+                        binding.txtDeliveryArrivingTime.visibility=View.VISIBLE
+                        binding.txtDeliveryArrivingTime.text=selectedDeliveryArrivngValue
+
+                        selectedDeliveryArrivingId=item[position].id.toInt()
+
+                    }
+                }                )
+        }
+    }
+    private fun setupDeliveryDropAdapter(delivery_list:List<DeliveryArrivingResponse.Internaldatum>,delivery_recycler: RecyclerView) {
+        delivery_recycler.apply {
+            layoutManager = LinearLayoutManager(this@CheckOutActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = DeliveryArrivingAdapter(this@CheckOutActivity,delivery_list,
+                object :
+                    DeliveryArrivingListPosition<Int> {
+                    override fun onCategoryListItemPosition(
+                        item: List<DeliveryArrivingResponse.Internaldatum>,
+                        position: Int
+                    ) {
+                        selectedDeliveryArrivngValue=item[position].options
+                        binding.txtDropOff.visibility=View.VISIBLE
+                        binding.txtDropOff.text=selectedDeliveryArrivngValue
+
                         selectedDeliveryArrivingId=item[position].id.toInt()
 
                     }
@@ -781,7 +830,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
                                 // showToast(response.message)
 
                                 if (response.status == MyConstant.success) {
-                                    setupDeliveryArrivingAdapter(response.data.internaldata,delivery_recycler);
+                                    setupDeliveryDropAdapter(response.data.internaldata,delivery_recycler);
 
 
                                 }
@@ -892,13 +941,13 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
             jsonObject.addProperty("payment_status", paymentStatus)
             jsonObject.addProperty("start_date", Date)
             jsonObject.addProperty("duration", duration)
-            jsonObject.addProperty("latitude", "")
-            jsonObject.addProperty("longitude", "")
-            jsonObject.addProperty("area", "")
-            jsonObject.addProperty("block", "")
-            jsonObject.addProperty("house", "")
-            jsonObject.addProperty("street", "")
-            jsonObject.addProperty("address_type", "")
+            jsonObject.addProperty("latitude", "28.421619")
+            jsonObject.addProperty("longitude", "76.748520")
+            jsonObject.addProperty("area", address_area)
+            jsonObject.addProperty("block", address_block)
+            jsonObject.addProperty("house", address_house)
+            jsonObject.addProperty("street", address_street)
+            jsonObject.addProperty("address_type", address_type)
             jsonObject.addProperty("delivery_time", selectedDeliveryTimeValue)
             jsonObject.addProperty("delivery_arriving", selectedDeliveryArrivngValue)
             jsonObject.addProperty("delivery_dropoff", selectedDeliveryArrivngValue)

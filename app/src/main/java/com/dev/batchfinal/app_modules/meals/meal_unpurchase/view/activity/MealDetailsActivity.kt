@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.MealPlanListAdapter
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_custom.CustomToast.Companion.showToast
 import com.dev.batchfinal.app_modules.account.view.LoginActivity
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.CheckOutActivity
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.ChosenMealDetailActivity
@@ -33,6 +34,7 @@ import com.dev.batchfinal.`interface`.MealDishListItemPosition
 import com.dev.batchfinal.model.meal_detail_model.Category
 import com.dev.batchfinal.model.meal_detail_model.MealDetails
 import com.dev.batchfinal.model.meal_dish_model.MealDishData
+import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListRequest
 import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.viewmodel.AllViewModel
@@ -260,8 +262,8 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
         }
         binding.btnSubscribePlan.setOnClickListener {
             if (sessionManager.getTokenID() != "") {
-                checkMealSubscribeStatus(sessionManager.getUserId()!!,meal_id!!)
-
+                //checkMealSubscribeStatus(sessionManager.getUserId()!!,meal_id!!)
+                getMealSubscribeListApi()
 
             } else {
                 startActivity(
@@ -328,6 +330,63 @@ class MealDetailsActivity : BaseActivity<ActivityMealDetailsBinding>() {
             binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
         }
     }
+
+    private fun getMealSubscribeListApi() {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            val mealSubscribeListRequest = MealSubscribeListRequest()
+            mealSubscribeListRequest.userId=sessionManager.getUserId()
+            authViewModel.mealSubscribeListApiCall(mealSubscribeListRequest)
+            Log.d("Token","Bearer " + sessionManager.getTokenID());
+            authViewModel.mealSubscribeListResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.mealSubscribeListResponse.removeObservers(this)
+                        if (authViewModel.mealSubscribeListResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                Log.d("response_order",response.data.toString())
+                                if (response.status == MyConstant.success) {
+                                    if (sessionManager.isloggin()){
+                                        if (response.data.recordsTotal=="0"){
+                                            startActivity(
+                                                Intent(this@MealDetailsActivity, CheckOutActivity::class.java)
+                                                    .putExtra("screen", "meal_batch")
+                                                    .putExtra("product_id", meal_id)
+                                            )
+                                        }else{
+                                            showCheckSubscriptionDialog()
+                                        }
+                                    } else {
+                                        startActivity(
+                                            Intent(this@MealDetailsActivity, LoginActivity::class.java)
+                                                .putExtra("screen", "meal_batch")
+                                                .putExtra("product_id", meal_id)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+                    is Resource.Failure -> {
+                        authViewModel.mealSubscribeListResponse.removeObservers(this)
+                        if (authViewModel.mealSubscribeListResponse.hasObservers()) return@observe
+                        hideLoader()
+//                        snackBarWithRedBackground(binding.root,errorBody(binding.root.context, it.errorBody, ""))
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
 
     private fun showCheckSubscriptionDialog() {
         dialogBinding = AlreadyMealSubscribeDialogBinding.inflate(layoutInflater)

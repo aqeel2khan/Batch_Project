@@ -11,6 +11,7 @@ import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscriptio
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_arriving.DeliveryArrivingResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_drop_off.DeliveryDropOffResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_time.DeliveryTimeResponse
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.rating.RatingResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.review_list.ReviewModelResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.subscribe.CheckSubscribeModel
 import com.dev.batchfinal.app_modules.question.model.all_question.SubmitAllQueResponse
@@ -376,5 +377,14 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     fun deliveryDropApiCall() = viewModelScope.launch {
         _deliveryDropOffResponse.value = Resource.Loading
         _deliveryDropOffResponse.value = repository.deliveryDropApi()
+    }
+
+    // Save Rating api
+    private val _ratingResponse: MutableLiveData<Resource<RatingResponse>> = MutableLiveData()
+    val ratingResponse: LiveData<Resource<RatingResponse>> get() = _ratingResponse
+
+    fun saveReviewApiCall(jsonObject: JsonObject) = viewModelScope.launch {
+        _ratingResponse.value = Resource.Loading
+        _ratingResponse.value = repository.saveReviewApi(jsonObject)
     }
 }

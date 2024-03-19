@@ -22,7 +22,7 @@
             android:layout_marginStart="@dimen/_20sdp"
             android:src="@drawable/app_back_icon" />
 
-        <com.dev.batchfinal.app_custom.MyCustomBoldTV
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -45,7 +45,7 @@
             android:background="@drawable/rounded_bg_main"
             android:orientation="vertical">
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_20sdp"
@@ -79,7 +79,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/food" />
+                            android:src="@drawable/meal_bg" />
 
                     </LinearLayout>
 
@@ -279,7 +279,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/food" />
+                                android:src="@drawable/meal_bg" />
 
                         </LinearLayout>
 
@@ -452,7 +452,7 @@
                         android:layout_marginTop="@dimen/_20sdp"
                         android:orientation="vertical">
 
-                        <com.dev.batchfinal.app_custom.MyCustomBoldTV
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/outfit_regular"
@@ -544,6 +544,7 @@
                                     android:textSize="@dimen/_12ssp" />
 
                                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                                    android:id="@+id/txt_address"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/select_date_plan"
@@ -598,6 +599,7 @@
                                     android:textSize="@dimen/_12ssp" />
 
                                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                                    android:id="@+id/txt_selected_delivery_time"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/select_date_plan"
@@ -651,6 +653,7 @@
                                     android:textSize="@dimen/_12ssp" />
 
                                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                                    android:id="@+id/txt_delivery_arriving_time"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/select_date_plan"
@@ -704,6 +707,7 @@
                                     android:textSize="@dimen/_12ssp" />
 
                                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                                    android:id="@+id/txt_drop_off"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/select_date_plan"
@@ -730,6 +734,7 @@
                 </LinearLayout>
 
                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -752,6 +757,7 @@
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/ll_payment_method"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -799,6 +805,7 @@
                 </LinearLayout>
 
                 <View
+                    android:visibility="gone"
                     android:id="@+id/view2"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -831,13 +838,12 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_10sdp" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomBoldTV
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_subtotal_value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:text="$35"
-                            android:layout_centerVertical="true"
 
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp" />
@@ -859,7 +865,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_10sdp" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomBoldTV
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_promotion_value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -914,7 +920,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp" />
 
-                        <com.dev.batchfinal.app_custom.MyCustomBoldTV
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_total_value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

@@ -7,6 +7,7 @@ import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscriptio
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_arriving.DeliveryArrivingResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_drop_off.DeliveryDropOffResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_time.DeliveryTimeResponse
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.rating.RatingResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.review_list.ReviewModelResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.subscribe.CheckSubscribeModel
 import com.dev.batchfinal.app_modules.question.model.all_question.SubmitAllQueResponse
@@ -63,6 +64,7 @@ import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_LIST
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_UPDATE
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_TAGS
 import com.dev.batchfinal.app_utils.MyConstant.ORDERCREATE
+import com.dev.batchfinal.app_utils.MyConstant.POST_REVIEW
 import com.dev.batchfinal.app_utils.MyConstant.SIGNUP
 import com.dev.batchfinal.app_utils.MyConstant.STARTWORKOUTSTATUS
 import com.dev.batchfinal.app_utils.MyConstant.TOP_RATED
@@ -192,4 +194,7 @@ interface ApiService {
 
     @GET(DELIVERY_DROP)
     suspend fun deliveryDrop(): DeliveryArrivingResponse
+
+    @POST(POST_REVIEW)
+    suspend fun saveReview(@Body jsonObject: JsonObject): RatingResponse
 }
