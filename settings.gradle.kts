@@ -7,6 +7,7 @@ pluginManagement {
         maven {
             setUrl("https://jitpack.io")
         }
+
     }
 }
 dependencyResolutionManagement {
@@ -22,5 +23,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "BatchFinal"
-include(":app", ":vimeoplayer2", ":library", ":flowlayout-lib")
+include(":app", ":library", ":flowlayout-lib")
  

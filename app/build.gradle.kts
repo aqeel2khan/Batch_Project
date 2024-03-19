@@ -107,7 +107,7 @@ dependencies {
     implementation("com.github.smarteist:autoimageslider:1.4.0")
     implementation("com.github.whilu:AndroidTagView:1.1.7")
     // Dependency on a local library module
-    implementation(project(":vimeoplayer2"))
+    //implementation(project(":vimeoplayer2"))
     implementation(project(":library"))
     implementation(project(":flowlayout-lib"))
     implementation("com.zhy:base-adapter:2.0.1")
@@ -117,6 +117,8 @@ dependencies {
     //FITNESS API
   // implementation("com.google.android.gms:play-services-fitness:20.0.0")
    // implementation("com.ct7ct7ct7.androidvimeoplayer:library:1.2.2")
+   // implementation("com.hemendra:vimeoextractor:1.1.3")
+
 
 
 }

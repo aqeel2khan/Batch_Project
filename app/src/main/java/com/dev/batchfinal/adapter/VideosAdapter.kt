@@ -6,11 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebChromeClient
+import android.webkit.WebSettings
+import android.webkit.WebView
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerStateListener
 import com.dev.batchfinal.*
+import com.dev.batchfinal.app_utils.VimeoExtractor
+import com.dev.batchfinal.app_utils.VimeoExtractor.OnExtractionListener
 import com.dev.batchfinal.databinding.ItemVideoPlayBinding
 import com.dev.batchfinal.`interface`.ItemVideoFinishClick
 import com.dev.batchfinal.model.courseorderlist.Course_duration_exercise
@@ -25,43 +30,26 @@ class VideosAdapter(
 ) : RecyclerView.Adapter<VideosAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: ItemVideoPlayBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+
         @SuppressLint("SuspiciousIndentation", "SetJavaScriptEnabled", "SetTextI18n")
-        fun bind(videoItem: Course_duration_exercise, position: Int) {
+        fun bind(videoItem: Course_duration_exercise, position: Int)
+        {
             val videDetail = videoItem.video_detail
             try {
-                //With Vimeo play
-                val id = videDetail.video_id.toInt()
-                //  val emabadedURL= "https://player.vimeo.com/video/$id?controls=0"
-                //                binding.vimeoPlayerView.initialize(true, id,"",emabadedURL)
-                /* val settings = VimeoPlayerSetting.Builder()
-                     .setControls(false) // Hide controls
-                     .build()*/
-                // binding.vimeoPlayerView.initialize( id,settings)
-                binding.vimeoPlayerView.initialize(true, id)
+                /**
+                 *
+                 * OTHER VIDEO LAYER MATERIALS CONTENT@BBh
+                 *
+                 * */
                 binding.tvVideoTitle.text = videDetail.video_title
                 binding.tvVideoOutOff.text = position.toString() + "/" + videoItems.size.toString()
-                val menuCout = binding.vimeoPlayerView.menuItemCount
-                Log.e("MENU COUNT", menuCout.toString())
-                if (menuCout > 0) {
-                    binding.vimeoPlayerView.removeMenuItem(menuCout)
-                }
+
                 if (videoItems.size > 0) {
                     val innerAdapter = InnerAdapter(mContext, videoItems, position)
                     binding.rvVideoCurrentPos.layoutManager = LinearLayoutManager(mContext)
                     binding.rvVideoCurrentPos.adapter = innerAdapter
                 }
-
-                binding.vimeoPlayerView.addStateListener(object : VimeoPlayerStateListener {
-                    override fun onPlaying(duration: Float) {
-                    }
-
-                    override fun onPaused(seconds: Float) {
-                    }
-
-                    override fun onEnded(duration: Float) {
-                        Log.d("TAG", "onCompletion ")
-                    }
-                })
                 binding.closeVideoMode.setOnClickListener {
                     listener.onCloseVideoView(videoItem, position)
                 }
@@ -69,31 +57,65 @@ class VideosAdapter(
                     listener.onClickVideoInformation(videoItem, position)
 
                 }
-                //With webview option
-                /* val webSettings: WebSettings = binding.vimeoPlayerView.settings
-                 webSettings.javaScriptEnabled = true
-                 val videoId = videDetail.video_id.toInt()
-                 val iframeEmbedCode = "<iframe src=\"https://player.vimeo.com/video/$videoId?controls=0\" width=\"640\" height=\"360\" frameborder=\"0\" allowfullscreen></iframe>"
-                 binding.vimeoPlayerView.loadData(iframeEmbedCode, "text/html", "utf-8");
-                 binding.vimeoPlayerView.webChromeClient = object : WebChromeClient() {
-                     override fun onProgressChanged(view: WebView, newProgress: Int) {
-                         super.onProgressChanged(view, newProgress)
-                         if (newProgress == 100) {
-                             binding.vimeoPlayerView.loadUrl(
-                                 "javascript:(function() { " +
-                                         "var player = document.querySelector('iframe');" +
-                                         "var playerOrigin = '*';" +
-                                         "player.contentWindow.postMessage(JSON.stringify({ method: 'setLoop', value: false }), playerOrigin);" +
-                                         "player.contentWindow.postMessage(JSON.stringify({ method: 'setAutopause', value: false }), playerOrigin);" +
-                                         "var vimeoControls = player.contentDocument.getElementsByClassName('controls');" +
-                                         "if (vimeoControls.length > 0) {" +
-                                         "  vimeoControls[0].style.display = 'none';" +  // Hide the controls bar
-                                         "}" +
-                                         "})()"
-                             )
-                         }
+                /**
+                 *
+                 *
+                 *PLAY-WITH VIMEO PLAYER @BBh
+                 *
+                 * */
+
+                val vimeoVideoKey = videDetail.video_id.toInt()
+                 videDetail.player_embed_url
+                 Log.e("VimeoEmbededURL",  videDetail.player_embed_url)
+
+                 binding.vimeoPlayerView.initialize(true, vimeoVideoKey)
+                 binding.vimeoPlayerView.setFullscreenVisibility(true)
+                 binding.vimeoPlayerView.fitsSystemWindows
+                 binding.tvVideoTitle.text = videDetail.video_title
+                 binding.tvVideoOutOff.text = position.toString() + "/" + videoItems.size.toString()
+
+                 if (videoItems.size > 0) {
+                     val innerAdapter = InnerAdapter(mContext, videoItems, position)
+                     binding.rvVideoCurrentPos.layoutManager = LinearLayoutManager(mContext)
+                     binding.rvVideoCurrentPos.adapter = innerAdapter
+                 }
+
+                 binding.vimeoPlayerView.addStateListener(object : VimeoPlayerStateListener {
+                     override fun onPlaying(duration: Float) {
                      }
-                 }*/
+
+                     override fun onPaused(seconds: Float) {
+                     }
+
+                     override fun onEnded(duration: Float) {
+                         Log.d("TAG", "onCompletion ")
+                     }
+                 })
+                //Test for Extracting URL from vimeo vds key
+                /*   val vimeoUrl = "https://vimeo.com/$vimeoVideoKey"
+                     VimeoExtractor.extractVideoUrl(vimeoUrl, object : OnExtractionListener {
+                      override fun onExtractionComplete(videoUrl: String?) {
+                          // Use the extracted video URL
+                          Log.d("VimeoExtractor", "Video URL: $videoUrl")
+                      }
+
+                      override fun onExtractionFailed(e: java.lang.Exception?) {
+                          // Handle extraction failure
+                          Log.e("VimeoExtractor", "Extraction failed: " + e!!.message)
+                      }
+                  })*/
+
+
+                /**
+                 *
+                 * PLAY-WITH WEBVIEW OPTION @BBh
+                 *
+                 * */
+
+              //  setupWebView(binding.vimeoPlayerView)
+
+              //  loadVimeoUrl(binding.vimeoPlayerView, videDetail.player_embed_url)
+
 
 
             } catch (_: Exception) {
@@ -106,7 +128,76 @@ class VideosAdapter(
                 listener.onPositionItemVideoFinish(videoItem, position)
 
             }
+
+
         }
+
+    }
+
+    private fun loadVimeoUrl(vimeoPlayerView: WebView, playerEmbedUrl: String) {
+        try {
+
+            vimeoPlayerView.loadUrl(playerEmbedUrl)
+            //vimeoPlayerView.loadData(playerEmbedUrl, "text/html", "utf-8");
+
+
+        } catch (_: Exception) {
+        }
+    }
+
+    private fun setupWebView(vimeoPlayerView: WebView) {
+        try {
+            val webSettings: WebSettings = vimeoPlayerView.settings
+            webSettings.javaScriptEnabled = true // Enable JavaScript
+            webSettings.domStorageEnabled = true // Enable DOM Storage
+            webSettings.mediaPlaybackRequiresUserGesture = true // Allow autoplay of media
+            // vimeoPlayerView.webChromeClient = WebChromeClient() // Handle video playback controls
+            vimeoPlayerView.webChromeClient = object : WebChromeClient() {
+                override fun onProgressChanged(view: WebView, newProgress: Int) {
+                    super.onProgressChanged(view, newProgress)
+                    if (newProgress == 100) {
+
+                        vimeoPlayerView.loadUrl(
+                            "javascript:(function() { " +
+                                    "var player = document.querySelector('iframe');" +
+                                    "var playerOrigin = '*';" +
+                                    "player.contentWindow.postMessage(JSON.stringify({ method: 'setLoop', value: false }), playerOrigin);" +
+                                    "player.contentWindow.postMessage(JSON.stringify({ method: 'setAutopause', value: false }), playerOrigin);" +
+                                    "player.style.width = '100%';" +
+                                    "player.style.height = '800px';" +
+                                    "var vimeoControls = player.contentDocument.getElementsByClassName('controls');" +
+                                    "if (vimeoControls.length > 0) {" +
+                                    "  vimeoControls[0].style.display = 'none';" +  // Hide the controls bar
+                                    "}" +
+                                    "})()"
+                        )
+                        /*             val script = """
+                            (function() {
+                            var player = document.querySelector('iframe');
+                            var playerOrigin = '*';
+                             player.contentWindow.postMessage(JSON.stringify({ method: 'setLoop', value: false }), playerOrigin);
+                    player.contentWindow.postMessage(JSON.stringify({ method: 'setAutopause', value: false }), playerOrigin);
+               var vimeoControls = player.contentDocument.getElementsByClassName('controls');
+               if (vimeoControls.length > 0) {
+                   vimeoControls[0].style.display = 'none'; // Hide the controls bar
+               }
+               player.style.width = '100%'; // Set width to 100% of the container
+               player.style.height = '400px'; // Set height to 400 pixels (adjust as needed)/400px
+           })()
+       """.trimIndent()
+
+                       vimeoPlayerView.post {
+                           vimeoPlayerView.evaluateJavascript(script, null)
+                       }*/
+
+
+                    }
+                }
+            }
+
+        } catch (_: Exception) {
+        }
+
 
     }
 
@@ -166,5 +257,7 @@ class InnerAdapter(
             viewItem = itemView.findViewById<View>(R.id.videoBar)
         }
     }
+
+
 }
 

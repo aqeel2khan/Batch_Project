@@ -49,4 +49,5 @@
 
 
     <color name="item_title_bg" tools:ignore="MissingDefaultResource">#0000</color>
+    <color name="uv_color">#585354</color>
 </resources>
