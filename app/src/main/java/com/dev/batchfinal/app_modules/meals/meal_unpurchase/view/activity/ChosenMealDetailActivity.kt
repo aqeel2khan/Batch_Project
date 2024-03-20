@@ -7,16 +7,18 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.RatingBar
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
 import com.dev.batchfinal.app_common.BaseActivity
-
+import com.dev.batchfinal.app_custom.MyCustomEditText
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.adapter.IngredientsAdapter
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.adapter.NutritionListAdapter
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.adapter.ReviewListAdapter
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.review_list.ReviewModelResponse
+import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyCustom
@@ -27,16 +29,17 @@ import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
-
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+
 @AndroidEntryPoint
 class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>() {
     private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
+    private lateinit var sessionManager: UserSessionManager
 
     private var dish_id: String? = null
     private var meal_id: String? = null
@@ -47,6 +50,8 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
     }
 
     override fun initUi() {
+        sessionManager= UserSessionManager(this)
+
         buttonClicks()
         dish_id = intent.getStringExtra("dish_id")
         meal_id = intent.getStringExtra("meal_id")
@@ -196,7 +201,13 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
         ll_rate_meal!!.visibility = View.VISIBLE
         btn_submit!!.setOnClickListener {
             //code for save week price
-            showReviewSubmitDialog()
+            val ratingBar = dialog.findViewById<RatingBar>(R.id.ratingBar)
+            val review = dialog.findViewById<MyCustomEditText>(R.id.write_review)
+            val msg = ratingBar!!.rating.toString()
+
+            //code for save week price
+            postReview(msg,review!!.text.toString())
+           // showReviewSubmitDialog()
             dialog.dismiss()
         }
         write_review!!.addTextChangedListener(object : TextWatcher {
@@ -221,15 +232,23 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
     }
 
     private fun showReviewSubmitDialog() {
+
         val view = layoutInflater.inflate(R.layout.bottom_sheet, null)
+
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(view)
         val ll_bottom_change_course = dialog.findViewById<LinearLayout>(R.id.ll_bottom_change_course)
         val ll_review_submit = dialog.findViewById<LinearLayout>(R.id.ll_review_submit)
+
+
+
         val btn_ok = dialog.findViewById<Button>(R.id.btn_ok)
         ll_bottom_change_course!!.visibility = View.GONE
         ll_review_submit!!.visibility = View.VISIBLE
+
         btn_ok!!.setOnClickListener {
+            getReviewList(dish_id!!.toInt())
+
             //code for save week price
             dialog.dismiss()
         }
@@ -237,6 +256,53 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
 
         dialog.show()
     }
+
+    private fun postReview(rating:String,review:String) {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            val jsonObject = JsonObject()
+            jsonObject.addProperty("user_id",sessionManager.getUserId())
+            jsonObject.addProperty("dish_id",dish_id)
+            jsonObject.addProperty("rating",rating)
+            jsonObject.addProperty("review",review)
+            jsonObject.addProperty("user_name",sessionManager.getName())
+            authViewModel.saveReviewApiCall(jsonObject)
+            authViewModel.ratingResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.ratingResponse.removeObservers(this)
+                        if (authViewModel.ratingResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                // showToast(response.message)
+
+                                if (response.status == MyConstant.success) {
+                                    showReviewSubmitDialog()
+
+                                }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.dishDetailsResponse.removeObservers(this)
+                        if (authViewModel.dishDetailsResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
 
     override fun getViewBinding() = ActivityChosenMealDetailBinding.inflate(layoutInflater)
 

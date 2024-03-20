@@ -54,7 +54,7 @@ public class MealSubscribeListResponse {
         @SerializedName("data")
         private List<InternalDatum> mInternalData;
         @SerializedName("recordsTotal")
-        private Long mRecordsTotal;
+        private String mRecordsTotal;
         @SerializedName("status")
         private String mStatus;
 
@@ -66,11 +66,11 @@ public class MealSubscribeListResponse {
             mInternalData = internalData;
         }
 
-        public Long getRecordsTotal() {
+        public String getRecordsTotal() {
             return mRecordsTotal;
         }
 
-        public void setRecordsTotal(Long recordsTotal) {
+        public void setRecordsTotal(String recordsTotal) {
             mRecordsTotal = recordsTotal;
         }
 

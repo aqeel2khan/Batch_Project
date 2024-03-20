@@ -589,7 +589,7 @@
                 android:layout_height="@dimen/_30sdp"
                 android:src="@drawable/icon_down"
                 android:id="@+id/img_down4"/>
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_rate_meal"
@@ -613,30 +613,15 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_marginTop="@dimen/_15sdp">
-            <ImageView
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:src="@drawable/star"/>
-            <ImageView
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:src="@drawable/star"/>
-            <ImageView
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:src="@drawable/star"/>
-            <ImageView
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:src="@drawable/star"/>
-            <ImageView
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:src="@drawable/star"/>
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/RatingBar"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="1" />
+
         </LinearLayout>
 
         <com.dev.batchfinal.app_custom.MyCustomBoldTV
@@ -919,7 +904,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <RelativeLayout
+                <!--<RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginTop="@dimen/_20sdp"
@@ -1011,8 +996,48 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp" />
                     </LinearLayout>
-                </RelativeLayout>
+                </RelativeLayout>-->
 
+                <com.dev.batchfinal.app_custom.MyCustomEditText
+                    android:id="@+id/edit_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:background="@drawable/form_shape"
+                    android:fontFamily="@font/outfit_regular"
+                    android:hint="Area #"
+                    android:textSize="@dimen/_12ssp"
+                    android:textAlignment="viewStart"
+                    android:padding="@dimen/_12sdp"
+                    android:elevation="@dimen/_2sdp"
+                    android:inputType="textMultiLine"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    android:textColor="@color/welcome_txt"
+                    android:textColorHighlight="@color/welcome_txt"
+                    android:textColorHint="@color/hint_txt_gry"
+                    tools:ignore="TextFields" />
+                <com.dev.batchfinal.app_custom.MyCustomEditText
+                    android:id="@+id/edit_block"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:background="@drawable/form_shape"
+                    android:fontFamily="@font/outfit_regular"
+                    android:hint="Block #"
+                    android:textSize="@dimen/_12ssp"
+                    android:textAlignment="viewStart"
+                    android:padding="@dimen/_12sdp"
+                    android:elevation="@dimen/_2sdp"
+                    android:inputType="textMultiLine"
+                    android:paddingHorizontal="@dimen/_14sdp"
+                    android:textColor="@color/welcome_txt"
+                    android:textColorHighlight="@color/welcome_txt"
+                    android:textColorHint="@color/hint_txt_gry"
+                    tools:ignore="TextFields" />
                 <com.dev.batchfinal.app_custom.MyCustomEditText
                     android:id="@+id/edit_house"
                     android:layout_width="match_parent"

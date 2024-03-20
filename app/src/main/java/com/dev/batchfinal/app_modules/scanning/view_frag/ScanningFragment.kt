@@ -1,16 +1,29 @@
 package com.dev.batchfinal.app_modules.scanning.view_frag
 
-import android.content.Context
+
+//import com.google.android.gms.auth.api.signin.GoogleSignIn
+//import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+//import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+//import com.google.android.gms.common.api.ApiException
+//import com.google.android.gms.fitness.Fitness
+//import com.google.android.gms.fitness.data.DataType
+//import com.google.android.gms.fitness.data.Field
+//import com.google.android.gms.fitness.request.DataReadRequest
 import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.CourseOrderAdapter
-import com.dev.batchfinal.app_custom.CustomToast.Companion.showToast
+import com.dev.batchfinal.adapter.MealSubscribeListAdapter
+import com.dev.batchfinal.app_common.BaseFragment
+import com.dev.batchfinal.app_modules.account.view.LoginActivity
+import com.dev.batchfinal.app_modules.activity.WeightLossActivity
+import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.CurrentMealDetailActivity
+import com.dev.batchfinal.app_session.UserSessionManager
+import com.dev.batchfinal.app_utils.*
 import com.dev.batchfinal.databinding.FragmentScaningBinding
 import com.dev.batchfinal.databinding.HomeMealDialogBinding
 import com.dev.batchfinal.databinding.ProfileEditDialogBinding
@@ -21,38 +34,16 @@ import com.dev.batchfinal.model.courseorderlist.OrderList
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListRequest
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListResponse
 import com.dev.batchfinal.out.AuthViewModel
-import com.dev.batchfinal.app_session.UserSessionManager
-import com.dev.batchfinal.app_utils.CheckNetworkConnection
-import com.dev.batchfinal.app_utils.MyConstant
-import com.dev.batchfinal.app_utils.MyCustom
-import com.dev.batchfinal.app_common.BaseFragment
-import com.dev.batchfinal.app_modules.account.view.LoginActivity
-import com.dev.batchfinal.app_modules.activity.WeightLossActivity
+import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
-
-
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
+import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import com.dev.batchfinal.out.Resource
-import com.dev.batchfinal.adapter.MealSubscribeListAdapter
-import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.CurrentMealDetailActivity
-import com.dev.batchfinal.app_modules.meals.meal_purchase.view.fragment.MealBatchFragment
-
-//import com.google.android.gms.auth.api.signin.GoogleSignIn
-//import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-//import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-//import com.google.android.gms.common.api.ApiException
-//import com.google.android.gms.fitness.Fitness
-//import com.google.android.gms.fitness.data.DataType
-//import com.google.android.gms.fitness.data.Field
-//import com.google.android.gms.fitness.request.DataReadRequest
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import java.util.Calendar
-import java.util.concurrent.TimeUnit
+import java.text.DecimalFormat
+import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
@@ -69,6 +60,12 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
     lateinit var dialogBinding: HomeMealDialogBinding
 
     var courseList: ArrayList<OrderList> = ArrayList()
+    var meal_id:String=""
+    var subscribe_id:String=""
+    var calories:String=""
+    var fat:Double=0.0
+    var carbs:Double=0.0
+    var protein:Double=0.0
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
@@ -80,7 +77,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
         {
             getMealSubscribeListApi()
             getCourseOrderListApi()
-            setAllCourseOrderAdapter(courseList)
+            //setAllCourseOrderAdapter(courseList)
         }else
         {
            askUserForLogin("Required authorization to access scanning batch.")
@@ -278,6 +275,9 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                                 val response = it.value
                                 Log.d("response_order",response.data.toString())
                                 if (response.status == MyConstant.success) {
+                                    meal_id=response.data.internalData.first().id.toString()
+                                    subscribe_id=response.data.internalData.first().subscribedId.toString()
+                                    getMecro(meal_id,subscribe_id)
 
                                     setAllMealSubscribeListAdapter(response.data.internalData)
                                 }
@@ -303,7 +303,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
 
     private fun getCourseOrderListApi() {
         if (CheckNetworkConnection.isConnection(requireContext(), binding.root, true)) {
-            showLoader()
+           // showLoader()
             //authViewModel.courseOrderListApiCall("Bearer " + sharedPreferences.token)
             authViewModel.courseOrderListApiCall("Bearer " + sessionManager.getUserToken())
             Log.e("Token","Bearer " + sessionManager.getUserToken());
@@ -330,19 +330,23 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                         hideLoader()
                     }
                     is Resource.Failure -> {
+                        hideLoader()
                         authViewModel.courseOrderListResponse.removeObservers(this)
                         if (authViewModel.courseOrderListResponse.hasObservers()) return@observe
-                        hideLoader()
                         Log.e("RES_SCANNING",it.errorBody.toString())
-                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                       // MyCustom.errorBody(binding.root.context, it.errorBody, "")
 
                     }
                 }
             }
         } else {
+            hideLoader()
+
             binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
         }
     }
+
+
 
     private fun setAllMealSubscribeListAdapter(internalDatum: List<MealSubscribeListResponse.InternalDatum>) {
         binding.recyclerMealSubscribe.layoutManager =
@@ -393,6 +397,68 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
             }
         })
     }
+
+
+
+    private fun getMecro(meal_id:String,subscribe_id:String) {
+        if (CheckNetworkConnection.isConnection(requireContext(), binding.root, true)) {
+            showLoader()
+            val jsonObject = JsonObject()
+            jsonObject.addProperty("user_id",sessionManager.getUserId())
+            jsonObject.addProperty("subscribed_id",subscribe_id)
+            jsonObject.addProperty("meal_id",meal_id)
+
+            authViewModel.getMecrosApiCall(jsonObject)
+            authViewModel.mecrosResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.mecrosResponse.removeObservers(this)
+                        if (authViewModel.mecrosResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                // showToast(response.message)
+
+                                if (response.status == MyConstant.success) {
+                                    calories=response.data.internaldata.calories
+                                     fat=response.data.internaldata.fat
+                                     carbs=response.data.internaldata.carbs
+                                     protein=response.data.internaldata.protein
+                                     val per_fat: Double = fat / 100.0f * 10
+                                     val per_carbs: Double = carbs / 100.0f * 10
+                                     val per_protein: Double = protein / 100.0f * 10
+
+
+                                    binding.txtCal.text=calories
+                                    binding.txtFat.text=fat.roundToInt().toString()+"% Fat"
+                                    binding.txtCarbs.text=carbs.roundToInt().toString()+"% Carbs"
+                                    binding.txtProteins.text=protein.roundToInt().toString()+"% Protein"
+                                    binding.seekbarFat.progress=fat.roundToInt()
+                                    binding.seekbarCarb.progress=carbs.roundToInt()
+                                    binding.seekbarProtein.progress=protein.roundToInt()
+                                }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.mecrosResponse.removeObservers(this)
+                        if (authViewModel.mecrosResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
 
     override fun getViewBinding() = FragmentScaningBinding.inflate(layoutInflater)
     /*override fun onCreateView(

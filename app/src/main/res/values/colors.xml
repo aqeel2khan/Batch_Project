@@ -46,6 +46,7 @@
 
     <color name="item_bg_color">#F5F6F4</color>
     <color name="item_select_color">#CCDEC1</color>
+    <color name="golden_color">#FFD700</color>
 
 
     <color name="item_title_bg" tools:ignore="MissingDefaultResource">#0000</color>

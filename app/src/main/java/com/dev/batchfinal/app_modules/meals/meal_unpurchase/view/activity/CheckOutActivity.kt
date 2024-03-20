@@ -1,11 +1,13 @@
 package com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity
 
 import android.content.Intent
+import android.graphics.Color
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +15,7 @@ import com.dev.batchfinal.MainActivity
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.MyItemRecyclerViewAdapter
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_custom.MyCustomEditText
 import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_plan_subscribe.MealSubscribedRequest
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.adapter.DeliveryArrivingAdapter
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_arriving.DeliveryArrivingResponse
@@ -25,10 +28,8 @@ import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.databinding.ActivityCheckoutBinding
 import com.dev.batchfinal.databinding.BottomSheetBinding
-import com.dev.batchfinal.`interface`.CategoryListItemPosition
 import com.dev.batchfinal.`interface`.DeliveryArrivingListPosition
 import com.dev.batchfinal.`interface`.OnListFragmentInteractionListener
-import com.dev.batchfinal.model.meal_detail_model.Category
 import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.viewmodel.AllViewModel
@@ -86,8 +87,18 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
     var product_updated: String? = null
 
     var selectedDeliveryTimeValue: String? = null
+    var selectedDeliveryArrivngValue: String? = null
+    var selectedDeliveryDropValue: String? = null
+    var selectedDeliveryTimeId: Int? = null
+    var selectedDeliveryArrivingId: Int? = null
+    var selectedDeliveryDropId: Int? = null
     val deliveryTimeList: ArrayList<String> = ArrayList()
 
+    var address_area: String? = null
+    var address_block: String? = null
+    var address_house: String? = null
+    var address_street: String? = null
+    var address_type: String? = null
 
 
     val request = MFInitiatePaymentRequest(0.100, MFCurrencyISO.KUWAIT_KWD)
@@ -175,14 +186,14 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
                                     product_count="5"
                                     product_updated=response.data.updatedAt.toString()
 
-                                    MyUtils.loadImage(
+                                  /*  MyUtils.loadImage(
                                         binding.coachProfile,
                                         MyConstant.IMAGE_BASE_URL + response.data.coachDetail.profilePhotoPath
                                     )
                                     MyUtils.loadBackgroundImage(
                                         binding.backgroundBg,
                                         MyConstant.IMAGE_BASE_URL + response.data.courseImage
-                                    )
+                                    )*/
                                     binding.tvDuration.text = response.data.duration + " mins"
                                 }
                             }
@@ -366,13 +377,26 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         val view = layoutInflater.inflate(R.layout.bottom_sheet, null)
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(view)
-        val ll_bottom_change_course =
-            dialog.findViewById<LinearLayout>(R.id.ll_bottom_change_course)
+        val ll_bottom_change_course = dialog.findViewById<LinearLayout>(R.id.ll_bottom_change_course)
         val ll_select_date_plan = dialog.findViewById<LinearLayout>(R.id.ll_select_date_plan)
         val ll_select_calender = dialog.findViewById<LinearLayout>(R.id.ll_select_calender)
         val btn_date_apply = dialog.findViewById<Button>(R.id.btn_date_apply)
         val ll_map = dialog.findViewById<LinearLayout>(R.id.ll_map)
         val txt_title = dialog.findViewById<TextView>(R.id.txt_title)
+        val btn_home = dialog.findViewById<CardView>(R.id.card_home)
+        val btn_work = dialog.findViewById<CardView>(R.id.card_work)
+
+        btn_home!!.setOnClickListener {
+            btn_work!!.setCardBackgroundColor(Color.parseColor("#F5F6F4"))
+            btn_home.setCardBackgroundColor(Color.parseColor("#F1E6DA"))
+            address_type="Home"
+        }
+        btn_work!!.setOnClickListener {
+            btn_work.setCardBackgroundColor(Color.parseColor("#F1E6DA"))
+            btn_home.setCardBackgroundColor(Color.parseColor("#F5F6F4"))
+            address_type="Work"
+
+        }
         txt_title!!.text = resources.getString(R.string.txt_add_address)
         ll_bottom_change_course!!.visibility = View.GONE
         ll_select_calender!!.visibility = View.GONE
@@ -380,6 +404,18 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         ll_map!!.visibility = View.VISIBLE
         btn_date_apply!!.setOnClickListener {
             //code for save week price
+            val area = dialog.findViewById<MyCustomEditText>(R.id.edit_area)
+            val block = dialog.findViewById<MyCustomEditText>(R.id.edit_block)
+            val house = dialog.findViewById<MyCustomEditText>(R.id.edit_house)
+            val street = dialog.findViewById<MyCustomEditText>(R.id.edit_street)
+
+            address_area= area!!.text.toString()
+            address_block= block!!.text.toString()
+            address_house= house!!.text.toString()
+            address_street= street!!.text.toString()
+            binding.txtAddress.visibility=View.VISIBLE
+            binding.txtAddress.text=address_area+" "+address_block+" "+address_house+" "+address_street
+
             dialog.dismiss()
         }
 
@@ -409,10 +445,11 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
             // such as year, month and day of month
             // on below line we are creating a variable
             // in which we are adding all the variables in it.
-            Date = (dayOfMonth.toString() + "." + (month + 1) + "." + year)
+            Date = (dayOfMonth.toString() + "-" + (month + 1) + "-" + year)
 
             // set this date in TextView for Display
             Log.d("date", Date!!)
+            binding.txtSelectedDate.text=Date
             edit_calender!!.setText(Date)
         })
         btn_date_apply!!.setOnClickListener {
@@ -684,6 +721,9 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
         sp_plan_duration.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View, position: Int, id: Long) {
                 selectedDeliveryTimeValue = dataList[position]
+                binding.txtSelectedDeliveryTime.visibility=View.VISIBLE
+                binding.txtSelectedDeliveryTime.text=selectedDeliveryTimeValue
+                selectedDeliveryTimeId=position+1
                 // Append the selected value to the string variable
 //                Toast.makeText(this@BuySubscriptionActivity, selectedValue, Toast.LENGTH_SHORT).show()
             }
@@ -740,9 +780,36 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
                 object :
                     DeliveryArrivingListPosition<Int> {
                     override fun onCategoryListItemPosition(
-                        item: DeliveryArrivingResponse.Internaldatum,
+                        item: List<DeliveryArrivingResponse.Internaldatum>,
                         position: Int
-                    ) {}
+                    ) {
+                        selectedDeliveryArrivngValue=item[position].options
+                        binding.txtDeliveryArrivingTime.visibility=View.VISIBLE
+                        binding.txtDeliveryArrivingTime.text=selectedDeliveryArrivngValue
+
+                        selectedDeliveryArrivingId=item[position].id.toInt()
+
+                    }
+                }                )
+        }
+    }
+    private fun setupDeliveryDropAdapter(delivery_list:List<DeliveryArrivingResponse.Internaldatum>,delivery_recycler: RecyclerView) {
+        delivery_recycler.apply {
+            layoutManager = LinearLayoutManager(this@CheckOutActivity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = DeliveryArrivingAdapter(this@CheckOutActivity,delivery_list,
+                object :
+                    DeliveryArrivingListPosition<Int> {
+                    override fun onCategoryListItemPosition(
+                        item: List<DeliveryArrivingResponse.Internaldatum>,
+                        position: Int
+                    ) {
+                        selectedDeliveryArrivngValue=item[position].options
+                        binding.txtDropOff.visibility=View.VISIBLE
+                        binding.txtDropOff.text=selectedDeliveryArrivngValue
+
+                        selectedDeliveryArrivingId=item[position].id.toInt()
+
+                    }
                 }                )
         }
     }
@@ -763,7 +830,7 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
                                 // showToast(response.message)
 
                                 if (response.status == MyConstant.success) {
-                                    setupDeliveryArrivingAdapter(response.data.internaldata,delivery_recycler);
+                                    setupDeliveryDropAdapter(response.data.internaldata,delivery_recycler);
 
 
                                 }
@@ -862,7 +929,35 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
             mealSubscribedRequest.startDate=startDate
             mealSubscribedRequest.duration=duration
 
-            authViewModel.mealSubscribeApiCall(mealSubscribedRequest)
+            val jsonObject = JsonObject()
+            jsonObject.addProperty("user_id", sessionManager.getUserId())
+            jsonObject.addProperty("meal_id", product_id)
+            jsonObject.addProperty("subtotal", product_price)
+            jsonObject.addProperty("discount", "0")
+            jsonObject.addProperty("tax", "0")
+            jsonObject.addProperty("total", product_price)
+            jsonObject.addProperty("payment_type", paymentType)
+            jsonObject.addProperty("transaction_id", transactionId)
+            jsonObject.addProperty("payment_status", paymentStatus)
+            jsonObject.addProperty("start_date", Date)
+            jsonObject.addProperty("duration", duration)
+            jsonObject.addProperty("latitude", "28.421619")
+            jsonObject.addProperty("longitude", "76.748520")
+            jsonObject.addProperty("area", address_area)
+            jsonObject.addProperty("block", address_block)
+            jsonObject.addProperty("house", address_house)
+            jsonObject.addProperty("street", address_street)
+            jsonObject.addProperty("address_type", address_type)
+            jsonObject.addProperty("delivery_time", selectedDeliveryTimeValue)
+            jsonObject.addProperty("delivery_arriving", selectedDeliveryArrivngValue)
+            jsonObject.addProperty("delivery_dropoff", selectedDeliveryArrivngValue)
+            jsonObject.addProperty("delivery_time_id", selectedDeliveryTimeId)
+            jsonObject.addProperty("delivery_arriving_id", selectedDeliveryArrivingId)
+            jsonObject.addProperty("delivery_dropoff_id", selectedDeliveryArrivingId)
+
+
+
+            authViewModel.mealSubscribeApiCall(jsonObject)
             authViewModel.mealsSubscribedRespnse.observe(this) {
                 when (it) {
                     is Resource.Success -> {

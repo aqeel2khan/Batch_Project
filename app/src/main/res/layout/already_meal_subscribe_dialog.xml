@@ -23,7 +23,7 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:orientation="horizontal">
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
                 android:fontFamily="@font/outfit_regular"
                 android:text="Alert"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="@dimen/_15ssp" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:orientation="horizontal">
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomLightTextView
                 android:id="@+id/txt_sub_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                 android:fontFamily="@font/outfit_regular"
                 android:text="@string/already_subscription"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="@dimen/_13ssp" />
         </RelativeLayout>
 
 
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/rectangle_button"
             android:fontFamily="@font/outfit_regular"
             android:outlineSpotShadowColor="#516634"

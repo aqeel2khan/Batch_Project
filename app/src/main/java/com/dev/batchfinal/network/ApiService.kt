@@ -7,12 +7,14 @@ import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscriptio
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_arriving.DeliveryArrivingResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_drop_off.DeliveryDropOffResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_time.DeliveryTimeResponse
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.rating.RatingResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.review_list.ReviewModelResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.subscribe.CheckSubscribeModel
 import com.dev.batchfinal.app_modules.question.model.all_question.SubmitAllQueResponse
 import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergiesResponse
 import com.dev.batchfinal.app_modules.question.model.meal_goals.MealGoalsResponse
 import com.dev.batchfinal.app_modules.question.model.meal_tags.MealTagsResponse
+import com.dev.batchfinal.app_modules.scanning.model.mecros.MecrosResponse
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
 import com.dev.batchfinal.model.coach_detail_model.CoachDetailResponse
 import com.dev.batchfinal.model.coach_filter_list.CoachFilterListResponse
@@ -63,8 +65,10 @@ import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_LIST
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_SUBSCRIBE_UPDATE
 import com.dev.batchfinal.app_utils.MyConstant.MEAL_TAGS
 import com.dev.batchfinal.app_utils.MyConstant.ORDERCREATE
+import com.dev.batchfinal.app_utils.MyConstant.POST_REVIEW
 import com.dev.batchfinal.app_utils.MyConstant.SIGNUP
 import com.dev.batchfinal.app_utils.MyConstant.STARTWORKOUTSTATUS
+import com.dev.batchfinal.app_utils.MyConstant.SUBSCRIPTION_MECROS
 import com.dev.batchfinal.app_utils.MyConstant.TOP_RATED
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListRequest
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListResponse
@@ -145,7 +149,7 @@ interface ApiService {
     suspend fun getDishDetails(@Body jsonObject: JsonObject): ChosenMealDetailsResponse
 
     @POST(MEAL_SUBSCRIBE)
-    suspend fun mealSubscribe(@Body mealSubscribedRequest: MealSubscribedRequest): MealsSubscribedRespnse
+    suspend fun mealSubscribe(@Body jsonObject: JsonObject): MealsSubscribedRespnse
 
     @POST(MEAL_SUBSCRIBE_LIST)
     suspend fun mealSubscribeList(@Body mealSubscribeListRequest: MealSubscribeListRequest): MealSubscribeListResponse
@@ -192,4 +196,10 @@ interface ApiService {
 
     @GET(DELIVERY_DROP)
     suspend fun deliveryDrop(): DeliveryArrivingResponse
+
+    @POST(POST_REVIEW)
+    suspend fun saveReview(@Body jsonObject: JsonObject): RatingResponse
+
+    @POST(SUBSCRIPTION_MECROS)
+    suspend fun getMecros(@Body jsonObject: JsonObject): MecrosResponse
 }

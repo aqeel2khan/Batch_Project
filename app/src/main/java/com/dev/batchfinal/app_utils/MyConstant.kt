@@ -63,6 +63,8 @@ object MyConstant {
     const val DELIVERY_TIME = "subscription/delivery_time"
     const val DELIVERY_ARRIVING = "subscription/delivery_arriving"
     const val DELIVERY_DROP = "subscription/delivery_drop"
+    const val POST_REVIEW = "dish/reviews/save"
+    const val SUBSCRIPTION_MECROS = "subscription/macro"
 
 //    const val DOLLER_SIGN = "$"
 }

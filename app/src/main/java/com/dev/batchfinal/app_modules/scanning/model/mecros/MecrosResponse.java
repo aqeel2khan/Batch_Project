@@ -1,12 +1,10 @@
 
-package com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_arriving;
+package com.dev.batchfinal.app_modules.scanning.model.mecros;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
 
-
-public class DeliveryArrivingResponse {
+public class MecrosResponse {
 
     @SerializedName("data")
     private Data mData;
@@ -52,15 +50,15 @@ public class DeliveryArrivingResponse {
     public class Data {
 
         @SerializedName("data")
-        private List<Internaldatum> mInternaldata;
+        private Internaldata mInternaldata;
         @SerializedName("status")
         private String mStatus;
 
-        public List<Internaldatum> getInternaldata() {
+        public Internaldata getInternaldata() {
             return mInternaldata;
         }
 
-        public void setInternaldata(List<Internaldatum> internaldata) {
+        public void setInternaldata(Internaldata internaldata) {
             mInternaldata = internaldata;
         }
 
@@ -74,42 +72,50 @@ public class DeliveryArrivingResponse {
 
     }
 
-    public class Internaldatum {
+    public class Internaldata {
 
-        @SerializedName("id")
-        private Long mId;
-        @SerializedName("options")
-        private String mOptions;
+        @SerializedName("calories")
+        private String mCalories;
+        @SerializedName("carbs")
+        private Double mCarbs;
+        @SerializedName("fat")
+        private Double mFat;
+        @SerializedName("protein")
+        private Double mProtein;
 
-        @SerializedName("isSelected")
-        private Boolean isSelected=false;
-
-        public Long getId() {
-            return mId;
+        public String getCalories() {
+            return mCalories;
         }
 
-        public void setId(Long id) {
-            mId = id;
+        public void setCalories(String calories) {
+            mCalories = calories;
         }
 
-        public String getOptions() {
-            return mOptions;
+        public Double getCarbs() {
+            return mCarbs;
         }
 
-        public void setOptions(String options) {
-            mOptions = options;
+        public void setCarbs(Double carbs) {
+            mCarbs = carbs;
         }
 
-        public Boolean getIsSelected() {
-            return isSelected;
+        public Double getFat() {
+            return mFat;
         }
 
-        public void setIsSelected(Boolean selected) {
-            isSelected = selected;
+        public void setFat(Double fat) {
+            mFat = fat;
+        }
+
+        public Double getProtein() {
+            return mProtein;
+        }
+
+        public void setProtein(Double protein) {
+            mProtein = protein;
         }
 
     }
-
     public class Error {
 
 

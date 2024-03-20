@@ -11,12 +11,14 @@ import com.dev.batchfinal.app_modules.meals.meal_purchase.model.meal_subscriptio
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_arriving.DeliveryArrivingResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_drop_off.DeliveryDropOffResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.delivery_time.DeliveryTimeResponse
+import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.rating.RatingResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.review_list.ReviewModelResponse
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.model.subscribe.CheckSubscribeModel
 import com.dev.batchfinal.app_modules.question.model.all_question.SubmitAllQueResponse
 import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergiesResponse
 import com.dev.batchfinal.app_modules.question.model.meal_goals.MealGoalsResponse
 import com.dev.batchfinal.app_modules.question.model.meal_tags.MealTagsResponse
+import com.dev.batchfinal.app_modules.scanning.model.mecros.MecrosResponse
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
 import com.dev.batchfinal.model.coach_detail_model.CoachDetailResponse
 import com.dev.batchfinal.model.coach_filter_list.CoachFilterListResponse
@@ -246,9 +248,9 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     private val _mealsSubscribedRespnse: MutableLiveData<Resource<MealsSubscribedRespnse>> = MutableLiveData()
     val mealsSubscribedRespnse: LiveData<Resource<MealsSubscribedRespnse>> get() = _mealsSubscribedRespnse
 
-    fun mealSubscribeApiCall(mealSubscribedRequest: MealSubscribedRequest) = viewModelScope.launch {
+    fun mealSubscribeApiCall(jsonObject: JsonObject) = viewModelScope.launch {
         _mealsSubscribedRespnse.value = Resource.Loading
-        _mealsSubscribedRespnse.value = repository.mealSubscribe(mealSubscribedRequest)
+        _mealsSubscribedRespnse.value = repository.mealSubscribe(jsonObject)
     }
 
     // meal Subscribe List api
@@ -376,5 +378,23 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     fun deliveryDropApiCall() = viewModelScope.launch {
         _deliveryDropOffResponse.value = Resource.Loading
         _deliveryDropOffResponse.value = repository.deliveryDropApi()
+    }
+
+    // Save Rating api
+    private val _ratingResponse: MutableLiveData<Resource<RatingResponse>> = MutableLiveData()
+    val ratingResponse: LiveData<Resource<RatingResponse>> get() = _ratingResponse
+
+    fun saveReviewApiCall(jsonObject: JsonObject) = viewModelScope.launch {
+        _ratingResponse.value = Resource.Loading
+        _ratingResponse.value = repository.saveReviewApi(jsonObject)
+    }
+
+    // Mecros api
+    private val _mecrosResponse: MutableLiveData<Resource<MecrosResponse>> = MutableLiveData()
+    val mecrosResponse: LiveData<Resource<MecrosResponse>> get() = _mecrosResponse
+
+    fun getMecrosApiCall(jsonObject: JsonObject) = viewModelScope.launch {
+        _mecrosResponse.value = Resource.Loading
+        _mecrosResponse.value = repository.getMecrosApi(jsonObject)
     }
 }

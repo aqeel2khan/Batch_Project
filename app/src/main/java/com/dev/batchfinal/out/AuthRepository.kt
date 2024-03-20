@@ -102,8 +102,8 @@ class AuthRepository @Inject constructor(private val api: ApiService) : SafeApiC
         api.getDishDetails(jsonObject)
     }
 
-    suspend fun mealSubscribe(mealSubscribedRequest: MealSubscribedRequest) = safeApiCall {
-        api.mealSubscribe(mealSubscribedRequest)
+    suspend fun mealSubscribe(jsonObject: JsonObject) = safeApiCall {
+        api.mealSubscribe(jsonObject)
     }
 
     suspend fun mealSubscribeList(mealSubscribeListRequest: MealSubscribeListRequest) = safeApiCall {
@@ -156,6 +156,13 @@ class AuthRepository @Inject constructor(private val api: ApiService) : SafeApiC
     }
     suspend fun deliveryDropApi() = safeApiCall {
         api.deliveryDrop()
+    }
+
+    suspend fun saveReviewApi(jsonObject: JsonObject) = safeApiCall {
+        api.saveReview(jsonObject)
+    }
+    suspend fun getMecrosApi(jsonObject: JsonObject) = safeApiCall {
+        api.getMecros(jsonObject)
     }
 
 }
