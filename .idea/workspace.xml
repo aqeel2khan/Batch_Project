@@ -431,37 +431,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DEBUGGABLE_DEVICE": "vivo-v2059-96386080180006H",
-    "DEBUGGABLE_PROCESS": "com.dev.batchfinal",
-    "DEBUGGER_ID": "Auto",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHOW_ALL_PROCESSES": "false",
-    "android-custom-viewC:/Users/Hp/Desktop/ws_batch_07_03_24/library/src/main/java/com/ct7ct7ct7/androidvimeoplayer/view/VimeoPlayerView.java_SELECTED": "VimeoPlayerView",
-    "android-custom-viewC:/Users/user/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.1/f0f93e67af3f7417bdd560d5142f6dec4fe629c3/recyclerview-1.2.1-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED": "RecyclerView",
-    "android-custom-viewD:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java/com/example/bottomanimationmydemo/custom/MyCustomButton.kt_SELECTED": "MyCustomButton",
-    "android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomTextView.kt_SELECTED": "MyCustomTextView",
-    "android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/RulerView.java_SELECTED": "RulerView",
-    "android-custom-viewD:/BBh_Bag/Github_Batch_WS/library/src/main/java/com/ct7ct7ct7/androidvimeoplayer/view/VimeoPlayer.java_SELECTED": "VimeoPlayer",
-    "android-custom-viewD:/BBh_Bag/Github_Batch_WS/library/src/main/java/com/ct7ct7ct7/androidvimeoplayer/view/VimeoPlayerView.java_SELECTED": "VimeoPlayerView",
-    "android-custom-viewD:/BBh_Bag/Github_Batch_WS/vimeoplayer2/src/main/java/com/example/vimeoplayer2/UniversalMediaController.java_SELECTED": "UniversalMediaController",
-    "android-custom-viewD:/BBh_Bag/Github_Batch_WS/vimeoplayer2/src/main/java/com/example/vimeoplayer2/UniversalVideoView.java_SELECTED": "UniversalVideoView",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "development__18__march__bharat",
-    "last_directory_selection": "D:/BBh_Bag/Github_Batch_WS/app/src/main/res/drawable",
-    "last_opened_file_path": "D:/BBh_Bag/Github_Batch_WS/app/src/main/res/drawable",
-    "memory.settings.postsync.last.time.stamp": "1710533617134",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;vivo-v2059-96386080180006H&quot;,
+    &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.dev.batchfinal&quot;,
+    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
+    &quot;android-custom-viewC:/Users/Hp/Desktop/ws_batch_07_03_24/library/src/main/java/com/ct7ct7ct7/androidvimeoplayer/view/VimeoPlayerView.java_SELECTED&quot;: &quot;VimeoPlayerView&quot;,
+    &quot;android-custom-viewC:/Users/user/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.1/f0f93e67af3f7417bdd560d5142f6dec4fe629c3/recyclerview-1.2.1-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED&quot;: &quot;RecyclerView&quot;,
+    &quot;android-custom-viewD:/BBh_Bag/BatchFinal/Batch_Final_BBh/app/src/main/java/com/example/bottomanimationmydemo/custom/MyCustomButton.kt_SELECTED&quot;: &quot;MyCustomButton&quot;,
+    &quot;android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/MyCustomTextView.kt_SELECTED&quot;: &quot;MyCustomTextView&quot;,
+    &quot;android-custom-viewD:/BBh_Bag/Github_Batch_WS/app/src/main/java/com/dev/batchfinal/app_custom/RulerView.java_SELECTED&quot;: &quot;RulerView&quot;,
+    &quot;android-custom-viewD:/BBh_Bag/Github_Batch_WS/library/src/main/java/com/ct7ct7ct7/androidvimeoplayer/view/VimeoPlayer.java_SELECTED&quot;: &quot;VimeoPlayer&quot;,
+    &quot;android-custom-viewD:/BBh_Bag/Github_Batch_WS/library/src/main/java/com/ct7ct7ct7/androidvimeoplayer/view/VimeoPlayerView.java_SELECTED&quot;: &quot;VimeoPlayerView&quot;,
+    &quot;android-custom-viewD:/BBh_Bag/Github_Batch_WS/vimeoplayer2/src/main/java/com/example/vimeoplayer2/UniversalMediaController.java_SELECTED&quot;: &quot;UniversalMediaController&quot;,
+    &quot;android-custom-viewD:/BBh_Bag/Github_Batch_WS/vimeoplayer2/src/main/java/com/example/vimeoplayer2/UniversalVideoView.java_SELECTED&quot;: &quot;UniversalVideoView&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development__18__march__bharat&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/BBh_Bag/Github_Batch_WS/app/src/main/res/drawable&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/BBh_Bag/Github_Batch_WS/app/src/main/res/drawable&quot;,
+    &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1710533617134&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\drawable" />
@@ -944,7 +944,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710867547940</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="raw">
+      <option name="closed" value="true" />
+      <created>1710966578527</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1710966578527</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -958,7 +966,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="development_17_march_pradeep" />
+                        <option value="development_18_march_bharat" />
                       </list>
                     </value>
                   </entry>
@@ -988,11 +996,11 @@
     <MESSAGE value="home_with_top_rated_filter" />
     <MESSAGE value="set image on weighloss activity and detail activity,set orientation vertical on workout activity" />
     <MESSAGE value="Batchboard design + Bottom tab device back navigation(-In back sequence mode)" />
-    <MESSAGE value="raw" />
     <MESSAGE value="Worked with Webview &amp; Vimeo-player | Removed unused module library" />
     <MESSAGE value=" Vimeo extractor file" />
     <MESSAGE value="dialog &amp; vimeo player rnd" />
-    <option name="LAST_COMMIT_MESSAGE" value="dialog &amp; vimeo player rnd" />
+    <MESSAGE value="raw" />
+    <option name="LAST_COMMIT_MESSAGE" value="raw" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
