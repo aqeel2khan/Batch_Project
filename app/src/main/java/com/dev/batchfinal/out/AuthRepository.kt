@@ -161,5 +161,8 @@ class AuthRepository @Inject constructor(private val api: ApiService) : SafeApiC
     suspend fun saveReviewApi(jsonObject: JsonObject) = safeApiCall {
         api.saveReview(jsonObject)
     }
+    suspend fun getMecrosApi(jsonObject: JsonObject) = safeApiCall {
+        api.getMecros(jsonObject)
+    }
 
 }

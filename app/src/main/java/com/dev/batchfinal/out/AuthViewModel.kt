@@ -18,6 +18,7 @@ import com.dev.batchfinal.app_modules.question.model.all_question.SubmitAllQueRe
 import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergiesResponse
 import com.dev.batchfinal.app_modules.question.model.meal_goals.MealGoalsResponse
 import com.dev.batchfinal.app_modules.question.model.meal_tags.MealTagsResponse
+import com.dev.batchfinal.app_modules.scanning.model.mecros.MecrosResponse
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
 import com.dev.batchfinal.model.coach_detail_model.CoachDetailResponse
 import com.dev.batchfinal.model.coach_filter_list.CoachFilterListResponse
@@ -386,5 +387,14 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     fun saveReviewApiCall(jsonObject: JsonObject) = viewModelScope.launch {
         _ratingResponse.value = Resource.Loading
         _ratingResponse.value = repository.saveReviewApi(jsonObject)
+    }
+
+    // Mecros api
+    private val _mecrosResponse: MutableLiveData<Resource<MecrosResponse>> = MutableLiveData()
+    val mecrosResponse: LiveData<Resource<MecrosResponse>> get() = _mecrosResponse
+
+    fun getMecrosApiCall(jsonObject: JsonObject) = viewModelScope.launch {
+        _mecrosResponse.value = Resource.Loading
+        _mecrosResponse.value = repository.getMecrosApi(jsonObject)
     }
 }

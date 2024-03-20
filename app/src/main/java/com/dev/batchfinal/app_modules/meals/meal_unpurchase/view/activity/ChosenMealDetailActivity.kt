@@ -201,7 +201,13 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
         ll_rate_meal!!.visibility = View.VISIBLE
         btn_submit!!.setOnClickListener {
             //code for save week price
-            showReviewSubmitDialog()
+            val ratingBar = dialog.findViewById<RatingBar>(R.id.ratingBar)
+            val review = dialog.findViewById<MyCustomEditText>(R.id.write_review)
+            val msg = ratingBar!!.rating.toString()
+
+            //code for save week price
+            postReview(msg,review!!.text.toString())
+           // showReviewSubmitDialog()
             dialog.dismiss()
         }
         write_review!!.addTextChangedListener(object : TextWatcher {
@@ -227,14 +233,8 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
 
     private fun showReviewSubmitDialog() {
 
-        var rating_value="";
         val view = layoutInflater.inflate(R.layout.bottom_sheet, null)
-        val ratingBar = view.findViewById<RatingBar>(R.id.ratingBar)
 
-        ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
-            showToast(rating.toString())
-            rating_value=rating.toString()
-            showToast(rating_value)        }
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(view)
         val ll_bottom_change_course = dialog.findViewById<LinearLayout>(R.id.ll_bottom_change_course)
@@ -245,14 +245,9 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
         val btn_ok = dialog.findViewById<Button>(R.id.btn_ok)
         ll_bottom_change_course!!.visibility = View.GONE
         ll_review_submit!!.visibility = View.VISIBLE
-        ll_review_submit!!.setOnClickListener {
-            val review = dialog.findViewById<MyCustomEditText>(R.id.write_review)
 
-            //code for save week price
-            postReview(rating_value,review!!.text.toString())
-            dialog.dismiss()
-        }
         btn_ok!!.setOnClickListener {
+            getReviewList(dish_id!!.toInt())
 
             //code for save week price
             dialog.dismiss()
@@ -284,7 +279,7 @@ class ChosenMealDetailActivity : BaseActivity<ActivityChosenMealDetailBinding>()
                                 // showToast(response.message)
 
                                 if (response.status == MyConstant.success) {
-
+                                    showReviewSubmitDialog()
 
                                 }
                             }
