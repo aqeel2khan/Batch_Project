@@ -92,7 +92,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
     override fun onStart() {
 
         super.onStart()
-       /* val calendar = Calendar.getInstance()
+        /*val calendar = Calendar.getInstance()
         calendar.timeInMillis = System.currentTimeMillis()
 
         val endTime = calendar.timeInMillis
@@ -104,43 +104,43 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
             .aggregate(DataType.TYPE_STEP_COUNT_DELTA, DataType.AGGREGATE_STEP_COUNT_DELTA)
             .bucketByTime(1, TimeUnit.DAYS) // Specify the bucketing strategy (1 day in this example)
             .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
-            .build()
+            .build()*/
 
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+       /* val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
             .requestIdToken("756744687216-0trk334visimpv57ifig6bhg4bdkh8pu.apps.googleusercontent.com")
             .build()
 
         val googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
 
-        val account = GoogleSignIn.getLastSignedInAccount(requireContext())
-        if(account!=null)
-        {
-            Fitness.getHistoryClient(requireContext(), GoogleSignIn.getLastSignedInAccount(requireContext()))
-                .readData(readRequest)
-                .addOnSuccessListener { dataReadResponse ->
-                    val dataSet = dataReadResponse.getDataSet(DataType.TYPE_STEP_COUNT_DELTA)
-                    for (dataPoint in dataSet.dataPoints) {
-                        // Access data from the data point
-                        val timestamp = dataPoint.getTimestamp(TimeUnit.MILLISECONDS)
-                        val stepCount = dataPoint.getValue(Field.FIELD_STEPS).asInt()
-                        Log.e("STEPCOUT",stepCount.toString())
-                        Log.e("TIMESTAMP",timestamp.toString())
+        val account = GoogleSignIn.getLastSignedInAccount(requireContext())*/
+        /* if(account!=null)
+         {
+             Fitness.getHistoryClient(requireContext(), GoogleSignIn.getLastSignedInAccount(requireContext()))
+                 .readData(readRequest)
+                 .addOnSuccessListener { dataReadResponse ->
+                     val dataSet = dataReadResponse.getDataSet(DataType.TYPE_STEP_COUNT_DELTA)
+                     for (dataPoint in dataSet.dataPoints) {
+                         // Access data from the data point
+                         val timestamp = dataPoint.getTimestamp(TimeUnit.MILLISECONDS)
+                         val stepCount = dataPoint.getValue(Field.FIELD_STEPS).asInt()
+                         Log.e("STEPCOUT",stepCount.toString())
+                         Log.e("TIMESTAMP",timestamp.toString())
 
-                    }
-                }
-                .addOnFailureListener { e ->
-                    Log.e("", "There was an error reading data from Google Fit", e)
-                }
+                     }
+                 }
+                 .addOnFailureListener { e ->
+                     Log.e("", "There was an error reading data from Google Fit", e)
+                 }
 
-        }else
-        {
-            Log.e("", "account is null")
-            val signInIntent = googleSignInClient.signInIntent
-            startActivityForResult(signInIntent, RC_SIGN_IN)
+         }else
+         {
+             Log.e("", "account is null")
+             val signInIntent = googleSignInClient.signInIntent
+             startActivityForResult(signInIntent, RC_SIGN_IN)
 
-        }
-*/
+         }
+ */
 
     }
 

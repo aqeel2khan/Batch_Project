@@ -65,13 +65,16 @@ class VideosAdapter(
                  * */
 
                 val vimeoVideoKey = videDetail.video_id.toInt()
+
                  videDetail.player_embed_url
                  Log.e("VimeoEmbededURL",  videDetail.player_embed_url)
+                binding.vimeoPlayerView.initialize(true, vimeoVideoKey)
 
-                 binding.vimeoPlayerView.initialize(true, vimeoVideoKey)
-                 binding.vimeoPlayerView.setFullscreenVisibility(true)
-                 binding.vimeoPlayerView.fitsSystemWindows
-                 binding.tvVideoTitle.text = videDetail.video_title
+
+                //binding.vimeoPlayerView.initialize(true, 925514545)
+                //binding.vimeoPlayerView.setAspectRatio(9.0 / 16.0); // Portrait || Landsacpe aspect ratio -(16:9)
+
+                binding.tvVideoTitle.text = videDetail.video_title
                  binding.tvVideoOutOff.text = position.toString() + "/" + videoItems.size.toString()
 
                  if (videoItems.size > 0) {

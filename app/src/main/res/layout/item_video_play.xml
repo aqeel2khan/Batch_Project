@@ -20,16 +20,16 @@
         android:id="@+id/vimeoPlayerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         app:autoPlay="true"
-        android:scaleType="fitXY"
         app:aspectRatio="@integer/material_motion_duration_long_2"
         app:showFullscreenOption="true"
-        app:showOriginalControls="false"
-        app:showMenuOption="false"
         app:showTitle="false"
         app:topicColor="#FFFF00"/>
 
-
+<!--   app:showFullscreenOption="true"
+        app:showOriginalControls="false"
+        app:showMenuOption="false"-->
 
     <RelativeLayout
         android:id="@+id/layerActionA"

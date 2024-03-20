@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.dev.batchfinal.R
@@ -19,7 +20,8 @@ class LoaderFragment : DialogFragment() {
                 e.printStackTrace()
             }
         }
-        fun dismissLoader(fragmentManager: FragmentManager){
+        fun dismissLoader(fragmentManager: FragmentManager)
+        {
             try {
                // (fragmentManager.findFragmentByTag("LoaderFragment") as DialogFragment).dismiss()
 
@@ -39,10 +41,20 @@ class LoaderFragment : DialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isCancelable = false
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.layout_loader, container, false)
+        return inflater.inflate(R.layout.layout_loader_upgraded, container, false)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
+       // progressBar.background = null
+        progressBar.setBackgroundResource(R.drawable.transparent_bg)
+
     }
 
 }
