@@ -371,47 +371,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="raw">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_common/ImagePickerActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/helper/URIPathHelper.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/minterface/ImageResizeCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_button.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_button_green_border.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_circle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_corner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_camera_icon.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_image_picker.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_select_camera_gallery.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/provider_paths.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/model/AccountModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/model/AccountModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/network_service/AccountNetworkService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/network_service/AccountNetworkService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/repository/AccountRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/repository/AccountRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/ProfileActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/ProfileActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/viewmodel/AccountViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/viewmodel/AccountViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view_frag/ScanningFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_utils/CommonUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_utils/CommonUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_utils/MyConstant.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_utils/MyConstant.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_weight_loss.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_weight_loss.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_work_out_detail_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_work_out_detail_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-    </list>
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="1.Image Picker -from camera &amp; Gallery&#10;2. Image Cropping&#10;3. Design- Weight Loss | Workout Details | Image Picker Dialog&#10;4. Network setup for Image Upload" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -1011,7 +971,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710966578527</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="1.Image Picker -from camera &amp; Gallery&#10;2. Image Cropping&#10;3. Design- Weight Loss | Workout Details | Image Picker Dialog&#10;4. Network setup for Image Upload">
+      <option name="closed" value="true" />
+      <created>1711042377661</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1711042377661</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1059,7 +1027,8 @@
     <MESSAGE value=" Vimeo extractor file" />
     <MESSAGE value="dialog &amp; vimeo player rnd" />
     <MESSAGE value="raw" />
-    <option name="LAST_COMMIT_MESSAGE" value="raw" />
+    <MESSAGE value="1.Image Picker -from camera &amp; Gallery&#10;2. Image Cropping&#10;3. Design- Weight Loss | Workout Details | Image Picker Dialog&#10;4. Network setup for Image Upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.Image Picker -from camera &amp; Gallery&#10;2. Image Cropping&#10;3. Design- Weight Loss | Workout Details | Image Picker Dialog&#10;4. Network setup for Image Upload" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
