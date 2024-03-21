@@ -12,6 +12,7 @@ package com.dev.batchfinal.app_modules.scanning.view_frag
 import android.content.Intent
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -275,11 +276,17 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                                 val response = it.value
                                 Log.d("response_order",response.data.toString())
                                 if (response.status == MyConstant.success) {
-                                    meal_id=response.data.internalData.first().id.toString()
-                                    subscribe_id=response.data.internalData.first().subscribedId.toString()
-                                    getMecro(meal_id,subscribe_id)
+                                    if (response.data.internalData.size>0)
+                                    {
+                                        meal_id=response.data.internalData.first().id.toString()
+                                        subscribe_id=response.data.internalData.first().subscribedId.toString()
+                                        getMecro(meal_id,subscribe_id)
 
-                                    setAllMealSubscribeListAdapter(response.data.internalData)
+                                        setAllMealSubscribeListAdapter(response.data.internalData)
+                                    }else{
+                                        Toast.makeText(requireContext(),"Meal subscriber list is empty",Toast.LENGTH_SHORT).show()
+                                    }
+
                                 }
                             }
                         }

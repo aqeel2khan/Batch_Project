@@ -15,5 +15,7 @@ class AccountRepository constructor(private val retrofitService: AccountNetworkS
             = retrofitService.requestGetDeliveryAddress(headersMap)
     fun requestSignUp(requestMap: HashMap<String, String>) = retrofitService.requestSignUp(requestMap)
 
+    fun requestProfileImgUpdate(headersMap: HashMap<String, String>,requestBody: RequestBody)=retrofitService.requestProfileImgUpdate(headersMap,requestBody)
+
 
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_corner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:background="@drawable/bg_circle"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="@dimen/_70sdp"
+            android:gravity="center"
+            android:layout_height="@dimen/_70sdp">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_camera_icon" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_camera"
+            android:background="@drawable/bg_button"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:fontFamily="@font/outfit_medium"
+            android:textStyle="normal"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:text="@string/camera" />
+        <Button
+            android:id="@+id/btn_gallery"
+            android:background="@drawable/bg_button_green_border"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:fontFamily="@font/outfit_medium"
+            android:textStyle="normal"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/greenColor"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:textAllCaps="false"
+            android:text="@string/upload_from_gallery" />
+    </LinearLayout>
+</LinearLayout>

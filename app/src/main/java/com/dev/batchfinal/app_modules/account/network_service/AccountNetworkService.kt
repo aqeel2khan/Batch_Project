@@ -4,6 +4,7 @@ import com.dev.batchfinal.app_modules.account.model.DeliveryAddressModel
 import com.dev.batchfinal.app_modules.account.model.GetDelivaryAddressModel
 import com.dev.batchfinal.app_modules.account.model.SignInModel
 import com.dev.batchfinal.app_modules.account.model.SignUpModel
+import com.dev.batchfinal.app_modules.account.model.UpdateProfileImg
 import com.dev.batchfinal.app_modules.account.model.UpdateProfileModel
 import com.dev.batchfinal.app_utils.MyConstant.BASE_URL
 import com.google.gson.Gson
@@ -40,6 +41,9 @@ interface AccountNetworkService {
 
     @POST("auth/signup")
     fun requestSignUp(@Body params: Map<String, String>): retrofit2.Call<SignUpModel>
+
+    @POST("account/profileimage")
+    fun requestProfileImgUpdate(@HeaderMap headersMap: Map<String, String>,@Body request: RequestBody): retrofit2.Call<UpdateProfileImg>
 
     companion object {
         var logging = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

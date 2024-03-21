@@ -130,3 +130,39 @@ data class Errors (
 
 )
 
+
+//PROFILE IMAGE
+
+data class UpdateProfileImg
+    (
+    @SerializedName("status")
+    val status: Boolean,
+    @SerializedName("message")
+    val message: String,
+    @SerializedName("data")
+    val data: UpdateProfileImgData
+            )
+
+data class UpdateProfileImgData
+    (
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("name")
+    val name: String,
+    @SerializedName("mobile")
+    val mobile: String,
+    @SerializedName("email")
+    val email: String,
+    @SerializedName("dob")
+    val dob: String,
+    @SerializedName("gender")
+    val gender: String,
+    @SerializedName("profile_photo_path")
+    val profilePhotoPath: String,
+    @SerializedName("created_at")
+    val createdAt: String,
+    @SerializedName("updated_at")
+    val updatedAt: String
+
+            )
+

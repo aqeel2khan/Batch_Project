@@ -1,30 +1,57 @@
 package com.dev.batchfinal.app_modules.account.view
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
+import android.os.Build
+import android.util.Log
 import android.view.View
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatTextView
+import android.widget.Button
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dev.batchfinal.BuildConfig
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.FollowingListAdapter
 import com.dev.batchfinal.app_common.AppBaseActivity
+import com.dev.batchfinal.app_common.ImagePickerActivity
+import com.dev.batchfinal.app_common.ImagePickerActivity.INTENT_ASPECT_RATIO_X
+import com.dev.batchfinal.app_common.ImagePickerActivity.INTENT_ASPECT_RATIO_Y
+import com.dev.batchfinal.app_common.ImagePickerActivity.INTENT_BITMAP_MAX_HEIGHT
+import com.dev.batchfinal.app_common.ImagePickerActivity.INTENT_BITMAP_MAX_WIDTH
+import com.dev.batchfinal.app_common.ImagePickerActivity.INTENT_IMAGE_PICKER_OPTION
+import com.dev.batchfinal.app_common.ImagePickerActivity.INTENT_LOCK_ASPECT_RATIO
+import com.dev.batchfinal.app_common.ImagePickerActivity.INTENT_SET_BITMAP_MAX_WIDTH_HEIGHT
+import com.dev.batchfinal.app_common.ImagePickerActivity.REQUEST_IMAGE_CAPTURE
+import com.dev.batchfinal.app_modules.account.minterface.ImageResizeCallback
 import com.dev.batchfinal.app_modules.account.network_service.AccountNetworkService
 import com.dev.batchfinal.app_modules.account.repository.AccountRepository
 import com.dev.batchfinal.app_modules.account.viewmodel.AccountFactoryModel
 import com.dev.batchfinal.app_modules.account.viewmodel.AccountViewModel
+import com.dev.batchfinal.app_session.UserSessionManager
+import com.dev.batchfinal.app_utils.CommonUtils.Companion.checkPermissions
+import com.dev.batchfinal.app_utils.CommonUtils.Companion.getResizedImageBase64String
 import com.dev.batchfinal.databinding.ActivityProfileBinding
 import com.dev.batchfinal.databinding.ProfileEditDialogBinding
-import com.dev.batchfinal.app_session.UserSessionManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.yalantis.ucrop.UCrop
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.File
 import java.util.*
 
 @AndroidEntryPoint
-class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
+class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCallback {
+     private val REQUEST_IMAGE = 100
+    private val SAMPLE_CROPPED_IMAGE_NAME = "BatchImage"
+    private val requestMode=1
+    private val resumeMode = 2
+    private var userChoosenTask = ""
+    private lateinit var mListener: ImageResizeCallback
+
     private lateinit var mViewModel: AccountViewModel
     private val retrofitService = AccountNetworkService.create()
     private lateinit var profileEditBinding: ProfileEditDialogBinding
@@ -36,6 +63,7 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
 
     override fun initUI() {
         sessionManager = UserSessionManager(this@ProfileActivity)
+        mListener=this
         setProfileDetails()
         onClickOperation()
     }
@@ -96,6 +124,8 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
     private fun onClickOperation() {
         binding.tvUpdateProfilePic.setOnClickListener {
 
+        openOtionDialog()
+
         }
         binding.llPersonalInfo.setOnClickListener {
             if (sessionManager.isloggin()) {
@@ -139,6 +169,141 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
             finish()
         }
     }
+
+    private fun openOtionDialog() {
+        val bottomSheetDialog = BottomSheetDialog(this, R.style.BottomSheetDialog)
+        bottomSheetDialog.setContentView(R.layout.row_select_camera_gallery)
+        val btnCamera = bottomSheetDialog.findViewById<Button>(R.id.btn_camera)
+        val btnGallery = bottomSheetDialog.findViewById<Button>(R.id.btn_gallery)
+
+        btnCamera!!.setOnClickListener {
+            userChoosenTask = "CAMERA"
+            val result: Boolean = checkPermissions(this@ProfileActivity)
+            if (result) {
+                launchCameraIntent()
+                //dispatchTakePictureIntent();
+                bottomSheetDialog.dismiss()
+            } else {
+                bottomSheetDialog.dismiss()
+            }
+        }
+        btnGallery!!.setOnClickListener {
+            userChoosenTask = "GALLERY"
+            val result: Boolean = checkPermissions(this@ProfileActivity)
+            if (result) {
+                //galleryIntent();
+                //launchGalleryIntent();
+                pickFromGallery()
+                bottomSheetDialog.dismiss()
+            } else {
+                bottomSheetDialog.dismiss()
+            }
+        }
+        bottomSheetDialog.show()
+
+
+    }
+    private fun launchCameraIntent() {
+        val intent = Intent(
+            this@ProfileActivity,
+            ImagePickerActivity::class.java
+        )
+        intent.putExtra(INTENT_IMAGE_PICKER_OPTION, REQUEST_IMAGE_CAPTURE)
+        // setting aspect ratio
+        intent.putExtra(INTENT_LOCK_ASPECT_RATIO, true)
+        intent.putExtra(INTENT_ASPECT_RATIO_X, 1) // 16x9, 1x1, 3:4, 3:2
+        intent.putExtra(INTENT_ASPECT_RATIO_Y, 1)
+        // setting maximum bitmap width and height
+        intent.putExtra(INTENT_SET_BITMAP_MAX_WIDTH_HEIGHT, true)
+        intent.putExtra(INTENT_BITMAP_MAX_WIDTH, 1000)
+        intent.putExtra(INTENT_BITMAP_MAX_HEIGHT, 1000)
+        startActivityForResult(intent, REQUEST_IMAGE)
+    }
+    private fun pickFromGallery() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+            .setType("image/*")
+            .addCategory(Intent.CATEGORY_OPENABLE)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            val mimeTypes = arrayOf("image/jpeg", "image/png")
+            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
+        }
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), requestMode)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == requestMode) {
+                val selectedUri = data!!.data
+                if (selectedUri != null) {
+                    startCrop(selectedUri)
+                } else {
+                    Toast.makeText(
+                        this@ProfileActivity,
+                        "Cannot retrieve selected image",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } else if (requestCode == UCrop.REQUEST_CROP) {
+                val resultUri = UCrop.getOutput(data!!)
+                if (resultUri != null) {
+                    onCaptureImageResult(resultUri)
+                } else {
+                    Toast.makeText(
+                        this@ProfileActivity,
+                        "Cannot retrieve selected image",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } else if (requestCode == REQUEST_IMAGE) {
+                val uri = data!!.getParcelableExtra<Uri>("path")
+                uri?.let { onCaptureImageResult(it) }
+            }
+
+        }
+
+    }
+
+    private fun startCrop(uri: Uri) {
+        var destinationFileName: String = SAMPLE_CROPPED_IMAGE_NAME
+        destinationFileName += ".png"
+        var uCrop = UCrop.of(uri, Uri.fromFile(File(cacheDir, destinationFileName)))
+        uCrop = basisConfig(uCrop)
+        uCrop = advancedConfig(uCrop)
+
+        // else start uCrop Activity
+        uCrop.start(this@ProfileActivity)
+    }
+    private fun basisConfig(uCrop: UCrop): UCrop? {
+        return uCrop
+    }
+    private fun advancedConfig(uCrop: UCrop): UCrop? {
+        val options = UCrop.Options()
+        options.setCompressionFormat(Bitmap.CompressFormat.PNG)
+        options.setCompressionQuality(100)
+        options.setToolbarColor(ContextCompat.getColor(this, R.color.header_color))
+        options.setStatusBarColor(ContextCompat.getColor(this, R.color.header_color))
+        options.setActiveControlsWidgetColor(ContextCompat.getColor(this, R.color.white))
+        options.setToolbarWidgetColor(ContextCompat.getColor(this, R.color.white))
+        options.setRootViewBackgroundColor(ContextCompat.getColor(this, R.color.white))
+        options.setHideBottomControls(true)
+        options.setFreeStyleCropEnabled(false)
+        //options.withAspectRatio(520f, 130f) //Mobile
+
+         //options.withAspectRatio(425f,106f);//Mobile
+        options.withAspectRatio(1f,1f);//Mobile
+
+        return uCrop.withOptions(options)
+    }
+
+    private fun onCaptureImageResult(uri: Uri) {
+        try {
+            getResizedImageBase64String(this@ProfileActivity, File(uri.path), mListener,this@ProfileActivity)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
 
     private fun showLogOutDialog() {
         profileEditBinding = ProfileEditDialogBinding.inflate(layoutInflater)
@@ -330,6 +495,16 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>() {
         } else {
             showAlertInfo("Please check internet connection", this)
         }
+
+    }
+
+    override fun onSuccess(base64String: String?, bitmap: Bitmap?, file: File?) {
+        //upload data
+        Log.e("TO UPLOAD",base64String.toString())
+    }
+
+    override fun onFailure(msg: String?) {
+        Log.e("FAILURE",msg.toString())
 
     }
 

@@ -1,6 +1,7 @@
 package com.dev.batchfinal.app_modules.account.viewmodel
 
 import android.util.Log
+import android.webkit.MimeTypeMap
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dev.batchfinal.app_modules.account.model.DeliveryAddressModel
@@ -8,6 +9,7 @@ import com.dev.batchfinal.app_modules.account.model.GetDelivaryAddressModel
 import com.dev.batchfinal.app_modules.account.model.SignInModel
 import com.dev.batchfinal.app_modules.account.model.SignUpError
 import com.dev.batchfinal.app_modules.account.model.SignUpModel
+import com.dev.batchfinal.app_modules.account.model.UpdateProfileImg
 import com.dev.batchfinal.app_modules.account.model.UpdateProfileModel
 import com.dev.batchfinal.app_modules.account.repository.AccountRepository
 import com.dev.batchfinal.app_utils.LogUtil
@@ -15,11 +17,14 @@ import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.app_utils.RequestHeadersUtility
 import com.google.gson.Gson
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
 
 
 class AccountViewModel constructor(private val repository: AccountRepository) : ViewModel(){
@@ -27,6 +32,7 @@ class AccountViewModel constructor(private val repository: AccountRepository) : 
     val getLoginDetails = MutableLiveData<SignInModel>()
     val getSignUpResponse= MutableLiveData<SignUpModel>()
     val getUpdatedProfile = MutableLiveData<UpdateProfileModel>()
+    val getUpdatedProfileImg=MutableLiveData<UpdateProfileImg>()
     val getAddDelivaryAddress=MutableLiveData<DeliveryAddressModel>()
     val getGetDelivaryAddress=MutableLiveData<GetDelivaryAddressModel>()
 
@@ -155,6 +161,43 @@ class AccountViewModel constructor(private val repository: AccountRepository) : 
     }
 
 
+    fun requestProfileImgUpdate(mProfileImg:String, authToken:String) {
+        val requestHeaders = RequestHeadersUtility.requestHeaderAuthorization(authToken)
+        val profileImgFile = File(mProfileImg)
+        val mimeProfileImg= getMimeType(profileImgFile)
+        val  requestBody= MultipartBody.Builder()
+            .setType(MultipartBody.FORM)
+            .addFormDataPart("profile_img",profileImgFile.name,profileImgFile.asRequestBody(mimeProfileImg?.toMediaTypeOrNull()))
+            .build()
+        val res = repository.requestProfileImgUpdate(requestHeaders,requestBody)
+        res.enqueue(object : Callback<UpdateProfileImg> {
+            override fun onResponse(
+                call: Call<UpdateProfileImg>?,
+                response: Response<UpdateProfileImg>?
+            ) {
+                if (response!!.isSuccessful) {
+                    LogUtil.showLog("LOGIN RES", response!!.body().toString())
+
+                    if (response.body()?.status!!)
+                    {
+                        getUpdatedProfileImg.postValue(response.body())
+                    }else
+                    {
+
+                        errorMessage.postValue(response.body()!!.message+" ERROR CODE-" + response.code())
+                    }
+                } else {
+
+                    errorMessage.postValue("Some error occurred, ERROR CODE-" + response.code())
+                }
+            }
+            override fun onFailure(call: Call<UpdateProfileImg>?, t: Throwable?) {
+                errorMessage.postValue(t?.message)
+            }
+        })
+    }
+
+
     fun requestAddDelivaryAddress(authToken: String, mCountry: String,mState: String,mCity: String
                                   ,mAddress1: String,mAddress2: String,mPostalCode: String,mType: String,isDefault: String) {
         val requestHeaders = RequestHeadersUtility.requestHeaderAuthorization(authToken)
@@ -230,6 +273,16 @@ class AccountViewModel constructor(private val repository: AccountRepository) : 
             }
         })
     }
+
+    fun getMimeType(file: File): String? {
+        var type: String? = null
+        val extension = MimeTypeMap.getFileExtensionFromUrl(file.path)
+        if (extension != null) {
+            type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)
+        }
+        return type
+    }
+
 
 
 

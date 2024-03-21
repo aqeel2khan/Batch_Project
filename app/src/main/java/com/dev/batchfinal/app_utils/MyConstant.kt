@@ -67,4 +67,9 @@ object MyConstant {
     const val SUBSCRIPTION_MECROS = "subscription/macro"
 
 //    const val DOLLER_SIGN = "$"
+
+
+    /**********************PERMISSION CONST**************/
+
+   const val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE  = 123
 }

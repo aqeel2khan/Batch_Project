@@ -121,6 +121,14 @@ dependencies {
    // implementation("com.ct7ct7ct7.androidvimeoplayer:library:1.2.2")
    // implementation("com.hemendra:vimeoextractor:1.1.3")
 
+    implementation("com.karumi:dexter:5.0.0")
+    implementation("com.github.yalantis:ucrop:2.2.6")
+    implementation("id.zelory:compressor:1.0.4")
+    implementation("io.reactivex:rxandroid:1.2.1")
+
+
+
+
 
 
 }

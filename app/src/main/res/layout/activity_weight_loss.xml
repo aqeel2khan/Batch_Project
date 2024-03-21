@@ -81,19 +81,18 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_15sdp">
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                >
 
-                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:id="@+id/weight_loss_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
                     android:text="Weight Loss"
                     android:textColor="@color/welcome_txt"
                     android:textFontWeight="500"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_12sdp" />
 
                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/dollerText"
@@ -124,19 +123,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/weight_loss_text"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:text="Our weight loss training plan is designed to help you reach your fitness goals through a combination of strength training, and cardiovascular exercise"
                     android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_10sdp" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/messageText"
-                    android:layout_marginTop="@dimen/_10sdp">
+                    android:layout_marginTop="@dimen/_8sdp">
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/profile_image"
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
@@ -148,9 +147,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:textSize="@dimen/_10ssp"
+                        android:textSize="@dimen/_12sdp"
                         android:textColor="@color/txt_color"
-                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_8sdp"
                         android:text="Cameron Williasom" />
                 </LinearLayout>
 
@@ -159,7 +158,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayout"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -168,74 +167,76 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="@dimen/_80sdp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_20sdp"
                             android:gravity="center"
+                            android:paddingHorizontal="@dimen/_2sdp"
                             android:background="@drawable/radius_shape">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/_5sdp">
-
                                 <ImageView
-                                    android:layout_width="@dimen/_15sdp"
-                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_width="@dimen/_13sdp"
+                                    android:layout_height="@dimen/_13sdp"
                                     android:layout_gravity="center"
                                     android:src="@drawable/accessibility" />
-
-                                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                                <com.dev.batchfinal.app_custom.MyCustomLightTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:text="20 trainings"
                                     android:layout_marginStart="@dimen/_2sdp"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_8ssp" />
+                                    android:textSize="@dimen/_8sdp" />
                             </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/_20sdp"
                             android:layout_marginStart="@dimen/_5sdp"
+                            android:paddingHorizontal="@dimen/_2sdp"
                             android:background="@drawable/radius_shape">
 
                             <LinearLayout
-                                android:layout_width="@dimen/_60sdp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:layout_margin="@dimen/_5sdp">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_15sdp"
-                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_width="@dimen/_11sdp"
+                                    android:layout_height="@dimen/_11sdp"
                                     android:layout_gravity="center"
                                     android:src="@drawable/clock" />
 
-                                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                                <com.dev.batchfinal.app_custom.MyCustomLightTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:text="@string/_15_20_min"
                                     android:layout_marginStart="@dimen/_2sdp"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_8ssp" />
+                                    android:textSize="@dimen/_8sdp" />
                             </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/_20sdp"
                             android:layout_marginStart="@dimen/_5sdp"
+                            android:paddingHorizontal="@dimen/_2sdp"
                             android:background="@drawable/radius_shape">
 
                             <LinearLayout
-                                android:layout_width="@dimen/_60sdp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-                                android:layout_margin="@dimen/_5sdp">
+                                android:layout_margin="@dimen/_5sdp"
+                                android:paddingHorizontal="@dimen/_2sdp">
 
                                 <ImageView
                                     android:layout_width="@dimen/_12sdp"
@@ -243,15 +244,16 @@
                                     android:layout_gravity="center"
                                     android:src="@drawable/chat_icon" />
 
-                                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                                <com.dev.batchfinal.app_custom.MyCustomLightTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:text="Beginner"
                                     android:id="@+id/txt_level"
                                     android:layout_marginStart="@dimen/_2sdp"
+
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_8ssp" />
+                                    android:textSize="@dimen/_8sdp" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -264,87 +266,90 @@
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/_20sdp"
+                            android:paddingHorizontal="@dimen/_5sdp"
                             android:background="@drawable/radius_shape">
 
                             <LinearLayout
-                                android:layout_width="@dimen/_60sdp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:layout_margin="@dimen/_5sdp">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_15sdp"
-                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_width="@dimen/_13sdp"
+                                    android:layout_height="@dimen/_13sdp"
                                     android:layout_gravity="center"
                                     android:src="@drawable/accessibility" />
 
-                                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                                <com.dev.batchfinal.app_custom.MyCustomLightTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:text="yoga"
                                     android:textColor="@color/black"
                                     android:layout_marginStart="@dimen/_2sdp"
-                                    android:textSize="@dimen/_8ssp" />
+                                    android:textSize="@dimen/_8sdp" />
                             </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/_20sdp"
                             android:layout_marginLeft="@dimen/_5sdp"
+                            android:paddingHorizontal="@dimen/_2sdp"
                             android:background="@drawable/radius_shape">
 
                             <LinearLayout
-                                android:layout_width="@dimen/_60sdp"
+                                android:layout_width="wrap_content"
                                 android:gravity="center"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="@dimen/_5sdp">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_15sdp"
-                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_width="@dimen/_13sdp"
+                                    android:layout_height="@dimen/_13sdp"
                                     android:layout_gravity="center"
                                     android:src="@drawable/accessibility" />
 
-                                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                                <com.dev.batchfinal.app_custom.MyCustomLightTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:text="stretching"
                                     android:textColor="@color/black"
                                     android:layout_marginStart="@dimen/_2sdp"
-                                    android:textSize="@dimen/_8ssp"  />
+                                    android:textSize="@dimen/_8sdp"  />
                             </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/_20sdp"
                             android:layout_marginLeft="@dimen/_5sdp"
+                            android:paddingHorizontal="@dimen/_2sdp"
                             android:background="@drawable/radius_shape">
 
                             <LinearLayout
-                                android:layout_width="@dimen/_60sdp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:layout_margin="@dimen/_5sdp">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_15sdp"
-                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_width="@dimen/_13sdp"
+                                    android:layout_height="@dimen/_13sdp"
                                     android:layout_gravity="center"
                                     android:src="@drawable/accessibility" />
 
-                                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                                <com.dev.batchfinal.app_custom.MyCustomLightTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:text="cardio"
                                     android:textColor="@color/black"
                                     android:layout_marginStart="@dimen/_2sdp"
-                                    android:textSize="@dimen/_8ssp"  />
+                                    android:textSize="@dimen/_8sdp"  />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -374,11 +379,11 @@
                         android:text="Today Exercise"
                         android:textStyle="bold"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_10sdp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_23sdp"
                         android:layout_alignParentRight="true"
                         android:background="@drawable/radius_shape"
                         android:backgroundTint="#F5F6F4">
@@ -394,7 +399,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:textColor="@color/welcome_txt_gry"
-                            android:textSize="@dimen/_10ssp" />
+                            android:textSize="@dimen/_10sdp" />
 
                         <Spinner
                             android:visibility="gone"
@@ -411,20 +416,19 @@
                     android:layout_below="@id/relativeLayout"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:background="@color/gry2"/>
 
-                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                <com.dev.batchfinal.app_custom.MyCustomBoldTV
                     android:id="@+id/workout_text"
                     android:layout_below="@id/view1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
                     android:text="Workouts"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:textColor="@color/black"
                     android:textFontWeight="500"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_12sdp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
@@ -460,7 +464,7 @@
             android:padding="@dimen/_10sdp"
             android:textAllCaps="false"
             android:textStyle="bold"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_12sdp"
             android:textFontWeight="500"
             tools:ignore="UnusedAttribute"
             android:text="@string/txt_start_workout"
@@ -481,7 +485,7 @@
                 android:textStyle="bold"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/terms_color"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="@dimen/_10sdp" />
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
