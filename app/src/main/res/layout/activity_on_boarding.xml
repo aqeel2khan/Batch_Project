@@ -104,7 +104,7 @@
 
             </LinearLayout>
 
-            <Button
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/onClickSelectCountry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -115,14 +115,15 @@
                 android:outlineSpotShadowColor="#516634"
                 android:text="@string/select_country"
                 android:textSize="@dimen/_16ssp"
-                android:padding="@dimen/_12sdp"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
                 android:elevation="@dimen/_2sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 tools:ignore="UnusedAttribute" />
 
-            <Button
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/onClickLookArround"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,9 +133,10 @@
                 android:fontFamily="@font/outfit_medium"
                 android:text="@string/i_want_look"
                 android:textSize="@dimen/_16ssp"
+                android:gravity="center"
                 android:textAllCaps="false"
                 android:layout_marginBottom="@dimen/_5sdp"
-                android:padding="@dimen/_12sdp"
+                android:padding="@dimen/_10sdp"
                 android:elevation="@dimen/_2sdp"
                 android:textColor="@color/light_green"/>
         </LinearLayout>
