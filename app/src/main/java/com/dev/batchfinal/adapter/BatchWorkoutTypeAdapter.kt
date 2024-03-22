@@ -4,17 +4,18 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel
 import com.dev.batchfinal.databinding.ItemWorkoutTypeBinding
-import com.dev.batchfinal.model.course_detail.CourseDuration
 
 
-class BatchWorkoutTypeAdapter(val context: Context?, var courseDuration: List<CourseDuration>) : RecyclerView.Adapter<BatchWorkoutTypeAdapter.ViewHolder>(){
+class BatchWorkoutTypeAdapter(val context: Context?, var workout: List<CourseDetailResponseModel.Workout>) : RecyclerView.Adapter<BatchWorkoutTypeAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: ItemWorkoutTypeBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(courseDuration: CourseDuration, position: Int) {
+        fun bind(courseDuration: CourseDetailResponseModel.Workout, position: Int) {
 
             binding.weightLossText.text = courseDuration.dayName
             binding.tvBoost.text = courseDuration.calorieBurn
             binding.tvBoostMin.text = courseDuration.workoutTime
+            binding.tvIndex.text = (position+1).toString()
             binding.root.setOnClickListener {
 //                lister.onPositionItemSelected(name, position)
             }
@@ -27,11 +28,11 @@ class BatchWorkoutTypeAdapter(val context: Context?, var courseDuration: List<Co
     }
 
     override fun getItemCount(): Int {
-        return courseDuration.size
+        return workout.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.bind(courseDuration[position], position)
+        holder.bind(workout[position], position)
     }
 }
