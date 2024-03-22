@@ -1,6 +1,8 @@
 package com.dev.batchfinal.app_modules.account.view
 
 import android.content.Intent
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
@@ -25,6 +27,7 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
     private lateinit var dialogBinding: CountryLangDialogBinding
     private val countriesWithEmojis: MutableList<String> = mutableListOf()
     val list: ArrayList<Country> = ArrayList()
+    var mAdapter: CountryAdapter? = null
     override fun getViewModel(): BaseViewModel {
        return viewModel
     }
@@ -68,8 +71,39 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
     private fun showCountryDailog() {
         dialogBinding = CountryLangDialogBinding.inflate(layoutInflater)
         val dialog = BottomSheetDialog(this)
+
         dialog.setContentView(dialogBinding.root)
         setUpcountryAdapter(dialogBinding, list)
+
+        dialogBinding.iconClose.setOnClickListener {
+
+            if(list!=null && list.size>0) {
+                mAdapter?.updateData(list)
+
+                dialogBinding.editQuery.setText("")
+
+            }
+        }
+
+        dialogBinding.editQuery.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if(!s.isNullOrEmpty() && s!=null){
+
+
+                     mAdapter?.filter(s.toString())
+//                    if(listData!=null && listData.isNotEmpty()){
+//
+//                        dialogBinding.recyclerCounty.adapter.notifyDataSetChanged()
+//                    }
+                }
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
         dialogBinding.llCountry.setOnClickListener {
             dialogBinding.llCountry.background = resources.getDrawable(R.drawable.tab_sele_bg)
             dialogBinding.llLanguage.background = resources.getDrawable(R.drawable.tab_un_sel_bg)
@@ -77,6 +111,7 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
             dialogBinding.tvLanguage.setTextColor(ContextCompat.getColor(this,R.color.welcome_txt_gry))
             dialogBinding.llCountryLayout.visibility = View.VISIBLE
             dialogBinding.llLanguageLayout.visibility = View.GONE
+            dialogBinding.rlCountrySearch.visibility = View.VISIBLE
         }
         dialogBinding.llLanguage.setOnClickListener {
             dialogBinding.llCountry.background = resources.getDrawable(R.drawable.tab_un_sel_bg)
@@ -111,11 +146,17 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
     ) {
         dialogBinding.recyclerCounty.apply {
             layoutManager = LinearLayoutManager(this@OnBoardingActivity, LinearLayoutManager.VERTICAL, false)
-            adapter = CountryAdapter(list)
+           mAdapter=  CountryAdapter(list,this@OnBoardingActivity)
+            dialogBinding.recyclerCounty.adapter =mAdapter
         }
     }
 
     override fun getViewBinding() = ActivityOnBoardingBinding.inflate(layoutInflater)
+    fun setEdittextBlank() {
+
+        dialogBinding.editQuery.setText("")
+        dialogBinding.rlCountrySearch.visibility = View.GONE
+    }
 
 }
 
