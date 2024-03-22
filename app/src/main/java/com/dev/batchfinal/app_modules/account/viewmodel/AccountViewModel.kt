@@ -167,7 +167,7 @@ class AccountViewModel constructor(private val repository: AccountRepository) : 
         val mimeProfileImg= getMimeType(profileImgFile)
         val  requestBody= MultipartBody.Builder()
             .setType(MultipartBody.FORM)
-            .addFormDataPart("profile_img",profileImgFile.name,profileImgFile.asRequestBody(mimeProfileImg?.toMediaTypeOrNull()))
+            .addFormDataPart("profile_image",profileImgFile.name,profileImgFile.asRequestBody(mimeProfileImg?.toMediaTypeOrNull()))
             .build()
         val res = repository.requestProfileImgUpdate(requestHeaders,requestBody)
         res.enqueue(object : Callback<UpdateProfileImg> {
@@ -176,7 +176,7 @@ class AccountViewModel constructor(private val repository: AccountRepository) : 
                 response: Response<UpdateProfileImg>?
             ) {
                 if (response!!.isSuccessful) {
-                    LogUtil.showLog("LOGIN RES", response!!.body().toString())
+                    LogUtil.showLog("LOGIN RES", response.body().toString())
 
                     if (response.body()?.status!!)
                     {

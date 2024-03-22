@@ -35,6 +35,9 @@ import com.dev.batchfinal.app_modules.account.viewmodel.AccountViewModel
 import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.CommonUtils.Companion.checkPermissions
 import com.dev.batchfinal.app_utils.CommonUtils.Companion.getResizedImageBase64String
+import com.dev.batchfinal.app_utils.MyConstant
+import com.dev.batchfinal.app_utils.MyUtils
+import com.dev.batchfinal.databinding.ActivityMainBinding
 import com.dev.batchfinal.databinding.ActivityProfileBinding
 import com.dev.batchfinal.databinding.ProfileEditDialogBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -55,6 +58,8 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
     private lateinit var mViewModel: AccountViewModel
     private val retrofitService = AccountNetworkService.create()
     private lateinit var profileEditBinding: ProfileEditDialogBinding
+    private lateinit var actMainBinding: ActivityMainBinding
+
     private lateinit var sessionManager: UserSessionManager
     private var courseImg =
         ArrayList(listOf(R.drawable.profile_image, R.drawable.normal_boy, R.drawable.profile_image))
@@ -63,6 +68,18 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
 
     override fun initUI() {
         sessionManager = UserSessionManager(this@ProfileActivity)
+
+        if (sessionManager.getProfileImgPath()!="null")
+        {
+            actMainBinding = ActivityMainBinding.inflate(layoutInflater)
+            MyUtils.loadImage(
+                actMainBinding.imProfile, MyConstant.IMAGE_BASE_URL+sessionManager.getProfileImgPath()
+            )
+            MyUtils.loadImage(
+                binding.ivProfile, MyConstant.IMAGE_BASE_URL+sessionManager.getProfileImgPath()
+            )
+
+        }
         mListener=this
         setProfileDetails()
         onClickOperation()
@@ -77,20 +94,44 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
 
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onResume() {
         super.onResume()
-        mViewModel.getUpdatedProfile.observe(this, Observer {
+        mViewModel.getUpdatedProfile.observe(this) {
             sessionManager.updateUserSession(
                 it.data!!.mobile.toString(),
                 it.data!!.name.toString(),
                 it.data!!.dob.toString(),
-                it.data!!.gender.toString()
+                it.data!!.gender.toString(),
+                it.data!!.profilePhotoPath.toString()
             )
             binding.txtUserName.text = "Hi, ${sessionManager.getName()}"
 
             showAlertInfo(it.message.toString(), this)
             hideLoader()
-        })
+        }
+        mViewModel.getUpdatedProfileImg.observe(this) {
+            if (it.status == true) {
+                sessionManager.updateUserSession(
+                    it.data.mobile.toString(),
+                    it.data.name.toString(),
+                    it.data.dob.toString(),
+                    it.data.gender.toString(),
+                    it.data.profilePhotoPath.toString()
+                )
+                binding.txtUserName.text = "Hi, ${sessionManager.getName()}"
+                MyUtils.loadImage(
+                    binding.ivProfile,
+                    MyConstant.IMAGE_BASE_URL +sessionManager.getProfileImgPath()
+                )
+                showAlertInfo(it.message.toString(), this)
+                it.status = false
+
+            }
+
+            hideLoader()
+        }
+
         mViewModel.errorMessage.observe(this, Observer {
             showAlertInfo(it.toString(), this)
             hideLoader()
@@ -498,9 +539,10 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
 
     }
 
-    override fun onSuccess(base64String: String?, bitmap: Bitmap?, file: File?) {
+    override fun onSuccess(imagePath: String?, bitmap: Bitmap?, file: File?) {
         //upload data
-        Log.e("TO UPLOAD",base64String.toString())
+        Log.e("TO UPLOAD",imagePath.toString())
+        mViewModel.requestProfileImgUpdate(imagePath.toString(),sessionManager.getUserToken())
     }
 
     override fun onFailure(msg: String?) {

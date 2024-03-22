@@ -39,10 +39,12 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
             var strObj :String?= null
             if(intent!=null){
 
-                if(intent.hasExtra("duration_work_position")){
+                if(intent.hasExtra("duration_work_position"))
+                {
                     strObj = intent.getStringExtra("duration_work_position").toString()
                 }
-                if(strObj?.isNotEmpty() == true){
+                if(strObj?.isNotEmpty() == true)
+                {
                     workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
                 }
 

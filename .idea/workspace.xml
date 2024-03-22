@@ -371,7 +371,30 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="1.Image Picker -from camera &amp; Gallery&#10;2. Image Cropping&#10;3. Design- Weight Loss | Workout Details | Image Picker Dialog&#10;4. Network setup for Image Upload" />
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="raw">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_user_second.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/model/AccountModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/model/AccountModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/ProfileActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/ProfileActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/viewmodel/AccountViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/viewmodel/AccountViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_session/UserSessionManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_session/UserSessionManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/meal_cal_bg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/meal_cal_bg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/view_circle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/view_circle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -380,7 +403,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\user\.android\avd\Pixel_3a_API_34_extension_level_7_x86_64.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[96386080180006H]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -469,7 +492,7 @@
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "development__18__march__bharat",
     "last_directory_selection": "D:/BBh_Bag/Github_Batch_WS/app/src/main/res/drawable",
-    "last_opened_file_path": "D:/BBh_Bag/Github_Batch_WS/app/src/main/res/xml",
+    "last_opened_file_path": "D:/BBh_Bag/Github_Batch_WS/app/src/main/res/drawable",
     "memory.settings.postsync.last.time.stamp": "1710533617134",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
@@ -479,8 +502,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\xml" />
       <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\drawable" />
+      <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\xml" />
       <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\res\layout" />
       <recent name="D:\BBh_Bag\Github_Batch_WS\app\src\main\java\com\dev\batchfinal\app_modules\scanning\view_frag" />
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
@@ -979,7 +1002,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711042377661</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="raw">
+      <option name="closed" value="true" />
+      <created>1711042748001</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1711042748001</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1026,9 +1057,9 @@
     <MESSAGE value="Worked with Webview &amp; Vimeo-player | Removed unused module library" />
     <MESSAGE value=" Vimeo extractor file" />
     <MESSAGE value="dialog &amp; vimeo player rnd" />
-    <MESSAGE value="raw" />
     <MESSAGE value="1.Image Picker -from camera &amp; Gallery&#10;2. Image Cropping&#10;3. Design- Weight Loss | Workout Details | Image Picker Dialog&#10;4. Network setup for Image Upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.Image Picker -from camera &amp; Gallery&#10;2. Image Cropping&#10;3. Design- Weight Loss | Workout Details | Image Picker Dialog&#10;4. Network setup for Image Upload" />
+    <MESSAGE value="raw" />
+    <option name="LAST_COMMIT_MESSAGE" value="raw" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
