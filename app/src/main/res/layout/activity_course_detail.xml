@@ -60,17 +60,18 @@
                 android:layout_marginHorizontal="@dimen/_8sdp"
                 >
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTV
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/course_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Weight Loss"
                     android:textColor="@color/black"
+                    android:layout_marginRight="@dimen/_10sdp"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold"
-                   />
+                    />
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTV
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/course_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,7 +82,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTV
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/fromText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -93,7 +94,7 @@
                     android:paddingBottom="@dimen/_2ssp"
                     android:textSize="@dimen/_10sdp" />
 
-                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                <com.dev.batchfinal.app_custom.MyCustomLightTextView
                     android:id="@+id/course_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -135,7 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayout"
-                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -144,7 +145,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_80sdp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/radius_shape"
                             android:gravity="center">
@@ -155,8 +156,8 @@
                                 android:layout_margin="@dimen/_5sdp">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_14sdp"
-                                    android:layout_height="@dimen/_14sdp"
+                                    android:layout_width="@dimen/_15sdp"
+                                    android:layout_height="@dimen/_15sdp"
                                     android:layout_gravity="center"
                                     android:src="@drawable/accessibility" />
 
@@ -186,8 +187,8 @@
                                 android:gravity="center">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_14sdp"
-                                    android:layout_height="@dimen/_14sdp"
+                                    android:layout_width="@dimen/_15sdp"
+                                    android:layout_height="@dimen/_15sdp"
                                     android:layout_gravity="center"
                                     android:src="@drawable/clock" />
 
@@ -211,15 +212,15 @@
                             android:background="@drawable/radius_shape">
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="@dimen/_60sdp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_margin="@dimen/_5sdp"
                                 android:gravity="center">
 
                                 <ImageView
-                                    android:layout_width="@dimen/_14sdp"
-                                    android:layout_height="@dimen/_14sdp"
+                                    android:layout_width="@dimen/_12sdp"
+                                    android:layout_height="@dimen/_12sdp"
                                     android:layout_gravity="center"
                                     android:src="@drawable/chat_icon" />
 
@@ -339,23 +340,15 @@
 
                 </LinearLayout>
 
-                <View
-                    android:id="@+id/view2"
-                    android:visibility="visible"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@id/linearLayout2"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:background="@color/gry2" />
 
                 <RelativeLayout
                     android:id="@+id/relativeLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/view2"
-                    android:layout_marginTop="@dimen/_20sdp">
+                    android:layout_below="@id/linearLayout2"
+                    android:layout_marginTop="@dimen/_10sdp">
 
-                    <com.dev.batchfinal.app_custom.MyCustomBoldTV
+                    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:id="@+id/grantText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -368,18 +361,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:background="@drawable/radius_shape"
-                        android:backgroundTint="#F5F6F4">
+                        android:background="@drawable/rounded_all_sides"
+                        android:backgroundTint="#E2E4E1">
 
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/_15sdp"
+                            android:textSize="@dimen/_13sdp"
                             android:id="@+id/tv_duration"
                             android:paddingTop="@dimen/_5sdp"
                             android:paddingLeft="@dimen/_10sdp"
                             android:paddingBottom="@dimen/_5sdp"
                             android:paddingRight="@dimen/_10sdp"
+                            android:textColor="@color/black"
                             ></com.dev.batchfinal.app_custom.MyCustomMediumTextView>
 
 
@@ -395,12 +389,12 @@
 
                 <View
                     android:id="@+id/view1"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_below="@id/relativeLayout"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:background="@color/gry2" />
+                    android:background="@color/light_gry" />
 
                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/workout_text"
@@ -410,7 +404,6 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/outfit_bold"
                     android:text="Workouts"
-                    android:visibility="gone"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp" />
 
@@ -442,7 +435,7 @@
             android:layout_height="wrap_content"
             >
 
-            <com.dev.batchfinal.app_custom.MyCustomExtraBoldTv
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/durationText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -451,9 +444,9 @@
                 android:text="Grand total"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
-                 />
+                />
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/dollerText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

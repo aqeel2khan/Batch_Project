@@ -4,12 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel
 import com.dev.batchfinal.databinding.ItemWorkoutTypeListBinding
-import com.dev.batchfinal.model.course_detail.WorkoutType
 
-class WorkoutTypeListAdapter(val context: Context?, val typeList: List<WorkoutType>) : RecyclerView.Adapter<WorkoutTypeListAdapter.ViewHolder>(){
+class WorkoutTypeListAdapter(val context: Context?, val typeList: List<CourseDetailResponseModel.WorkoutType>) : RecyclerView.Adapter<WorkoutTypeListAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: ItemWorkoutTypeListBinding) : RecyclerView.ViewHolder(binding.root){
-         fun bind(typeList: WorkoutType, position: Int) {
+         fun bind(typeList: CourseDetailResponseModel.WorkoutType, position: Int) {
              binding.typeName.text = typeList.workoutdetail.workoutType
          }
     }

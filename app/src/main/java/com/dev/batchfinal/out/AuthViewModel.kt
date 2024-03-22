@@ -19,6 +19,7 @@ import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergie
 import com.dev.batchfinal.app_modules.question.model.meal_goals.MealGoalsResponse
 import com.dev.batchfinal.app_modules.question.model.meal_tags.MealTagsResponse
 import com.dev.batchfinal.app_modules.scanning.model.mecros.MecrosResponse
+import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
 import com.dev.batchfinal.model.coach_detail_model.CoachDetailResponse
 import com.dev.batchfinal.model.coach_filter_list.CoachFilterListResponse
@@ -106,8 +107,8 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
 
 
     // course detail api
-    private val _courseDetailResponse: MutableLiveData<Resource<CourseDetailResponse>> = MutableLiveData()
-    val courseDetailResponse: LiveData<Resource<CourseDetailResponse>> get() = _courseDetailResponse
+    private val _courseDetailResponse: MutableLiveData<Resource<CourseDetailResponseModel>> = MutableLiveData()
+    val courseDetailResponse: LiveData<Resource<CourseDetailResponseModel>> get() = _courseDetailResponse
 
     fun courseDetailApiCall(user_type: String) = viewModelScope.launch {
         _courseDetailResponse.value = Resource.Loading

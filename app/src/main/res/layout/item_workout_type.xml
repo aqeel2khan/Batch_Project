@@ -7,17 +7,19 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cd_employee"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginHorizontal="@dimen/_2sdp"
         app:cardBackgroundColor="@color/search_color"
+        android:elevation="0dp"
         app:cardCornerRadius="@dimen/_10sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
             android:layout_gravity="center">
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_bg"
@@ -25,19 +27,21 @@
                 android:layout_height="@dimen/_50sdp"
                 app:cardCornerRadius="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_5sdp"
-                app:cardBackgroundColor="@color/hint_txt_gry"
+                app:cardBackgroundColor="@color/light_gry"
+
                 android:layout_gravity="center">
 
                 <com.dev.batchfinal.app_custom.MyCustomBoldTV
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="01"
-                    android:textSize="@dimen/_20ssp"
-                    android:textColor="@color/terms_color"
-                    android:layout_gravity="center"
-                    android:gravity="center"
                     android:id="@+id/tv_index"
-                    android:fontFamily="@font/outfit_extra_bold"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="51dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/outfit_extra_bold"
+                    android:gravity="center"
+                    android:text="01"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20ssp" />
 
                 <ImageView
                     android:visibility="gone"
@@ -61,7 +65,7 @@
                     android:layout_marginTop="@dimen/_4sdp"
                     android:textColor="@color/welcome_txt"
                     android:textFontWeight="500"
-                    android:textSize="@dimen/_10ssp" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -85,7 +89,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text="131"
                             android:layout_marginStart="@dimen/_3sdp"
-                            android:textColor="@color/black"
+                            android:textColor="@color/gry"
                             android:textFontWeight="500"
                             android:textSize="@dimen/_12ssp" />
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
@@ -113,7 +117,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text="93"
                             android:layout_marginStart="@dimen/_3sdp"
-                            android:textColor="@color/black"
+                            android:textColor="@color/gry"
                             android:textFontWeight="500"
                             android:textSize="@dimen/_12ssp" />
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView

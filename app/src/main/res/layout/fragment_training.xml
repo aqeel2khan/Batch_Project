@@ -24,7 +24,7 @@
             android:background="@drawable/tab_sele_bg"
             android:gravity="center">
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/tv_batch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             android:layout_weight="1"
             android:gravity="center">
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/tv_motivator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -141,7 +141,7 @@
         android:layout_below="@id/rl_filter_search"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/_65sdp"
-         />
+        />
 
 
 </RelativeLayout>

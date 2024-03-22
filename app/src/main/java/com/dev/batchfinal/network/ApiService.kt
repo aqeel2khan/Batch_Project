@@ -15,6 +15,7 @@ import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergie
 import com.dev.batchfinal.app_modules.question.model.meal_goals.MealGoalsResponse
 import com.dev.batchfinal.app_modules.question.model.meal_tags.MealTagsResponse
 import com.dev.batchfinal.app_modules.scanning.model.mecros.MecrosResponse
+import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
 import com.dev.batchfinal.model.coach_detail_model.CoachDetailResponse
 import com.dev.batchfinal.model.coach_filter_list.CoachFilterListResponse
@@ -100,8 +101,11 @@ interface ApiService {
     @POST(COURSE)
     suspend fun filterCourseList(@Body jsonObject: JsonObject): CourseListResponse
 
+   /* @GET(COURSEDETAIL)
+    suspend fun courseDetail(@Path("id") id: String): CourseDetailResponse*/
+
     @GET(COURSEDETAIL)
-    suspend fun courseDetail(@Path("id") id: String): CourseDetailResponse
+    suspend fun courseDetail(@Path("id") id: String): CourseDetailResponseModel
 
     @GET(COURSEWORKOUTLIST)
     suspend fun courseWorkoutList(@Path("id") id: String): CourseWorkoutListResponse

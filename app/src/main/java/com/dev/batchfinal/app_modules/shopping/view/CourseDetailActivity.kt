@@ -15,14 +15,14 @@ import com.dev.batchfinal.adapter.WorkoutTypeListAdapter
 import com.dev.batchfinal.app_custom.CustomToast.Companion.showToast
 import com.dev.batchfinal.databinding.ActivityCourseDetailBinding
 import com.dev.batchfinal.model.course_detail.CourseDuration
-import com.dev.batchfinal.model.course_detail.Data
-import com.dev.batchfinal.model.course_detail.WorkoutType
 import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel
+import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel.Workout
 import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
@@ -39,7 +39,7 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
 
     private var course_id: String? = null
     private var course_price: String? = null
-    private lateinit var courseDetailData: Data
+    private lateinit var courseDetailData: CourseDetailResponseModel.Data
     val durationList: ArrayList<String> = ArrayList()
     val dataList: ArrayList<String> = ArrayList()
     val weekString = " days "
@@ -100,7 +100,7 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setUpDetails(courseData: Data) {
+    private fun setUpDetails(courseData: CourseDetailResponseModel.Data) {
         //Check added by BBh
         try
         {
@@ -116,11 +116,11 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
             binding.levelType.text = courseData.courseLevel.levelName
             binding.dollerText2.text = courseData.coursePrice + "KWD"
             if (courseData.workoutType.isNotEmpty()) {
-                setWorkoutType(courseData.workoutType as List<WorkoutType>)
+                setWorkoutType(courseData.workoutType as List<CourseDetailResponseModel.WorkoutType>)
             }
             //  setWorkoutType(courseData.workoutType as List<WorkoutType>)
-            if (courseData.courseDuration.isNotEmpty()) {
-                setWorkoutTypeAdapter(courseData.courseDuration as List<CourseDuration>)
+            if (courseData.workouts.isNotEmpty()) {
+                setWorkoutTypeAdapter(courseData.workouts)
             }
 
             durationList.add(courseData.duration)
@@ -160,7 +160,7 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
         }
     }
 
-    private fun setWorkoutType(workoutType: List<WorkoutType>) {
+    private fun setWorkoutType(workoutType: List<CourseDetailResponseModel.WorkoutType>) {
         binding.workType.apply {
             layoutManager = LinearLayoutManager(
                 this@CourseDetailActivity,
@@ -195,11 +195,11 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
         dialog.show()
     }
 
-    private fun setWorkoutTypeAdapter(courseDuration: List<CourseDuration>) {
+    private fun setWorkoutTypeAdapter(workout: List<Workout>) {
         binding.recyclerWorkoutType.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.recyclerWorkoutType.adapter =
-            BatchWorkoutTypeAdapter(this@CourseDetailActivity, courseDuration)
+            BatchWorkoutTypeAdapter(this@CourseDetailActivity, workout)
     }
 
     override fun getViewBinding() = ActivityCourseDetailBinding.inflate(layoutInflater)

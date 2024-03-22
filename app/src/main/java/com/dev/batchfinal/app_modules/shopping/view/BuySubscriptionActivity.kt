@@ -15,7 +15,6 @@ import androidx.lifecycle.lifecycleScope
 import com.dev.batchfinal.R
 import com.dev.batchfinal.databinding.ActivityBuySubscriptionBinding
 import com.dev.batchfinal.model.StatusModel
-import com.dev.batchfinal.model.course_detail.Data
 import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
@@ -25,6 +24,7 @@ import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.app_modules.account.view.LoginActivity
 import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.activity.CheckOutActivity
+import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -107,7 +107,7 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setUpDetails(courseData: Data) {
+    private fun setUpDetails(courseData: CourseDetailResponseModel.Data) {
         binding.courseName.text = courseData.courseName
         binding.coursePrice.text = courseData.coursePrice + "KWD"
         binding.coachName.text = courseData.coachDetail.name
