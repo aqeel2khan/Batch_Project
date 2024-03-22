@@ -43,7 +43,7 @@
                     android:layout_marginStart="@dimen/_5sdp"
                     android:text="@string/ar"
                     android:textColor="@color/white"
-                    android:textStyle="bold" />
+                    />
             </LinearLayout>
         </RelativeLayout>
 
