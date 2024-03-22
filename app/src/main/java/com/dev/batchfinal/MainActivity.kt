@@ -11,6 +11,8 @@ import com.dev.batchfinal.app_common.AppBaseActivity
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.app_modules.account.view.ProfileActivity
 import com.dev.batchfinal.app_session.UserSessionManager
+import com.dev.batchfinal.app_utils.MyConstant
+import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_utils.makeGone
 import com.dev.batchfinal.app_utils.makeVisible
 import com.dev.batchfinal.databinding.ActivityLoginBinding
@@ -24,13 +26,27 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
     private lateinit var navController: NavController
     private val DOUBLE_CLICK_TIME_DELTA: Long = 2000
     private var lastClickTime: Long = 0
+    private lateinit var sessionManager: UserSessionManager
     override fun getViewBinding() = ActivityMainBinding.inflate(layoutInflater)
     override fun initUI() {
+        sessionManager= UserSessionManager(this)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_container) as NavHostFragment
         navController = navHostFragment.navController
         binding.ivHome.setImageResource(R.drawable.sel_home)
         bottomNavigationClicks()
         bottonClicks()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        when {
+            sessionManager.getProfileImgPath()!="null" -> {
+                MyUtils.loadImage(
+                    binding.imProfile, MyConstant.IMAGE_BASE_URL+sessionManager.getProfileImgPath()
+                )
+            }
+        }
+
     }
 
     /*    override fun onCreate(savedInstanceState: Bundle?) {

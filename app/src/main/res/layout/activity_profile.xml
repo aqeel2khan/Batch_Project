@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="@drawable/top_bg_final"
     android:orientation="vertical"
     tools:context="com.dev.batchfinal.app_modules.account.view.ProfileActivity">
 
@@ -65,8 +65,8 @@
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="@dimen/_60sdp"
                 android:background="@drawable/view_circle"
-                android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_dummy_user"/>
+                android:src="@drawable/ic_user"
+                />
 
             <com.dev.batchfinal.app_custom.MyCustomBoldTV
                 android:id="@+id/txtUserName"

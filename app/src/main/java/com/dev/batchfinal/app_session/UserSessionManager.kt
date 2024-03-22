@@ -66,13 +66,16 @@ class UserSessionManager(con: Context?) {
         mobile_no: String,
         user_name: String,
         user_dob: String,
-        user_gender: String
+        user_gender: String,
+        user_img:String
     ) {
 
         editor.putString(KEY_MOBILE_NO, mobile_no)
         editor.putString(KEY_USER_NAME, user_name)
         editor.putString(KEY_DOB, user_dob)
         editor.putString(KEY_GENDER, user_gender)
+        editor.putString(KEY_USER_IMG, user_img)
+
         editor.commit()
     }
 
