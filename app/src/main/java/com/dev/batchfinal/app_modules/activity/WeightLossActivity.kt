@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerReadyListener
 import com.ct7ct7ct7.androidvimeoplayer.listeners.VimeoPlayerStateListener
@@ -17,22 +18,28 @@ import com.ct7ct7ct7.androidvimeoplayer.model.TextTrack
 import com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerActivity
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.WorkoutTypeAdapter
+import com.dev.batchfinal.adapter.WorkoutTypeListAdapter
 //import com.dev.batchfinal.databinding.ActivityWeightLossBinding
 import com.dev.batchfinal.`interface`.PositionCourseWorkoutClick
-import com.dev.batchfinal.model.course_detail.Data
 import com.dev.batchfinal.model.courseorderlist.Course_duration
 import com.dev.batchfinal.model.courseorderlist.OrderList
 import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_custom.CustomToast.Companion.showToast
+import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel
 import com.dev.batchfinal.app_modules.workout_motivator.view.WorkOutDetailScreen
+import com.dev.batchfinal.app_utils.CheckNetworkConnection
+import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.databinding.ActivityWeightLossBinding
+import com.dev.batchfinal.out.Resource
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.util.*
 
 @AndroidEntryPoint
@@ -41,7 +48,7 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
     private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
     private var REQUEST_CODE = 1234
-    private lateinit var courseDetailData: Data
+    private lateinit var courseDetailData: CourseDetailResponseModel.Data
     var name = ArrayList(
         Arrays.asList(
             "Workout Batch",
@@ -76,7 +83,9 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             binding.messageText.text = courseData?.course_detail?.description?.toString()
             binding.userName.text = courseData?.course_detail?.coach_detail?.name?.toString()
             binding.txtLevel.text = courseData?.course_detail?.course_level?.level_name?.toString()
+
             binding.tvExerciseDay.text = ("day " + courseData?.course_detail?.duration)
+            getCourseDetailData(courseData?.course_id.toString())
             MyUtils.loadImage(
                 binding.profileImage,
                 (MyConstant.IMAGE_BASE_URL + courseData?.course_detail?.coach_detail?.profile_photo_path)
@@ -102,6 +111,62 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             e.printStackTrace()
         }
     }
+
+    private fun getCourseDetailData(course_id: String?) {
+        if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
+            showLoader()
+            authViewModel.courseDetailApiCall(course_id!!)
+            authViewModel.courseDetailResponse.observe(this) {
+                when (it) {
+                    is Resource.Success -> {
+                        hideLoader()
+                        authViewModel.courseDetailResponse.removeObservers(this)
+                        if (authViewModel.courseDetailResponse.hasObservers()) return@observe
+                        lifecycleScope.launch {
+                            it.let {
+                                val response = it.value
+                                if (response.status == MyConstant.success) {
+                                    courseDetailData = response.data
+                                    try {
+                                        binding.levelType.text = courseDetailData.courseLevel.levelName
+
+                                    }catch (e:Exception){}
+                                    if (courseDetailData.workoutType.isNotEmpty()) {
+
+                                        setWorkoutType(courseDetailData.workoutType as List<CourseDetailResponseModel.WorkoutType>)
+                                    }                                }
+                            }
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        hideLoader()
+                    }
+
+                    is Resource.Failure -> {
+                        authViewModel.courseDetailResponse.removeObservers(this)
+                        if (authViewModel.courseDetailResponse.hasObservers()) return@observe
+                        hideLoader()
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                    }
+                }
+            }
+        } else {
+            binding.root.context.showToast(binding.root.context.getString(R.string.internet_is_not_available))
+        }
+    }
+
+
+    private fun setWorkoutType(workoutType: List<CourseDetailResponseModel.WorkoutType>) {
+        binding.workType.apply {
+            layoutManager = LinearLayoutManager(
+                this@WeightLossActivity,
+                LinearLayoutManager.HORIZONTAL,
+                false)
+            adapter = WorkoutTypeListAdapter(this@WeightLossActivity, workoutType)
+        }
+    }
+
 
     @SuppressLint("SuspiciousIndentation")
     private fun setVideoOnBanner() {

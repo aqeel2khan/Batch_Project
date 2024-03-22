@@ -3,6 +3,7 @@ package com.dev.batchfinal.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -24,14 +25,23 @@ class WorkoutTypeAdapter(
             try {
                 val pos = position + 1
                 if(mCoursedurationData!=null){
-                    if (!mCoursedurationData.day_name.isNullOrEmpty())
-                        binding.weightLossText.text = mCoursedurationData.day_name
-                    if (!mCoursedurationData.calorie_burn.isNullOrEmpty())
-                    binding.tvBoost.text = mCoursedurationData.calorie_burn.toString()
-                    if (!mCoursedurationData.workout_time.isNullOrEmpty())
-                        binding.tvBoostMin.text = mCoursedurationData.workout_time.toString()
+                    if (mCoursedurationData.status==0){
+                        binding.weightLossText.text="Day Off"
+                        binding.tvIndex.text = ""
+                        binding.llCal.visibility=View.GONE
+
+                    }else{
+                        if (!mCoursedurationData.day_name.isNullOrEmpty())
+                            binding.weightLossText.text = mCoursedurationData.day_name
+                        if (!mCoursedurationData.calorie_burn.isNullOrEmpty())
+                            binding.tvBoost.text = mCoursedurationData.calorie_burn.toString()
+                        if (!mCoursedurationData.workout_time.isNullOrEmpty())
+                            binding.tvBoostMin.text = mCoursedurationData.workout_time.toString()
+                        binding.tvIndex.text = "$pos"
+
+                    }
+
                 }
-                binding.tvIndex.text = "0$pos"
                 if (todayDuration == pos.toString()){
                     binding.cardBg.setBackgroundResource(R.drawable.card_bg_select)
                     binding.tvIndex.setTextColor(ContextCompat.getColor(context!!,R.color.light_gry))
