@@ -381,7 +381,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="country adapter" />
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="raw" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -619,14 +619,6 @@
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
       <updated>1710105124484</updated>
-    </task>
-    <task id="LOCAL-00019" summary="try catch on start activity">
-      <option name="closed" value="true" />
-      <created>1710454935731</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1710454935731</updated>
     </task>
     <task id="LOCAL-00020" summary="null check on Weight loss , workout details ,slide workout activity">
       <option name="closed" value="true" />
@@ -998,7 +990,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711225669912</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="raw">
+      <option name="closed" value="true" />
+      <created>1711226006787</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1711226006787</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1048,9 +1048,9 @@
     <MESSAGE value="on Board design" />
     <MESSAGE value="ratio" />
     <MESSAGE value="Country adapter search implementation" />
-    <MESSAGE value="raw" />
     <MESSAGE value="country adapter" />
-    <option name="LAST_COMMIT_MESSAGE" value="country adapter" />
+    <MESSAGE value="raw" />
+    <option name="LAST_COMMIT_MESSAGE" value="raw" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
