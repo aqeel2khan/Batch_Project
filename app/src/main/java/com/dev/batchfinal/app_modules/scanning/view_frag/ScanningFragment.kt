@@ -16,6 +16,9 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.CourseOrderAdapter
 import com.dev.batchfinal.adapter.MealSubscribeListAdapter
@@ -23,6 +26,7 @@ import com.dev.batchfinal.app_common.BaseFragment
 import com.dev.batchfinal.app_modules.account.view.LoginActivity
 import com.dev.batchfinal.app_modules.activity.WeightLossActivity
 import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.CurrentMealDetailActivity
+import com.dev.batchfinal.app_modules.scanning.work_manager.VimeoVideoWorker
 import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.*
 import com.dev.batchfinal.databinding.FragmentScaningBinding
@@ -43,6 +47,8 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import java.text.DecimalFormat
 import kotlin.math.roundToInt
 
@@ -323,10 +329,21 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                         lifecycleScope.launch {
                             it.let {
                                 val response = it.value
-                                Log.e("RES_SCANNING",response.data.toString())
+                               // Log.e("RES_SCANNING",response.data.toString())
                                 // Log.d("response_order",response.data.toString())
                                 if (response.status == MyConstant.success) {
                                     courseList = response.data.list
+
+                                    // NOTE - NEW WAY IMPLEMENTATION OF VIMEO-IN PROGRESS
+                                    /*val videoKey= courseList[1].course_detail.course_duration[0].course_duration_exercise[0].video_id
+                                      Log.e("VIDEO_KEY",videoKey)
+                                     val inputData = workDataOf("videoKey" to "911682062")
+                                     val workRequest = OneTimeWorkRequest.Builder(VimeoVideoWorker::class.java)
+                                        .setInputData(inputData)
+                                        .build()
+                                    // Enqueue the WorkRequest
+                                    WorkManager.getInstance(requireContext()).enqueue(workRequest)*/
+
                                     courseData = response.data
                                     setAllCourseOrderAdapter(courseList)
                                 }
@@ -341,7 +358,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                         authViewModel.courseOrderListResponse.removeObservers(this)
                         if (authViewModel.courseOrderListResponse.hasObservers()) return@observe
                         Log.e("RES_SCANNING",it.errorBody.toString())
-                       // MyCustom.errorBody(binding.root.context, it.errorBody, "")
+                        MyCustom.errorBody(binding.root.context, it.errorBody, "")
 
                     }
                 }

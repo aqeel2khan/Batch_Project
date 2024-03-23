@@ -1,9 +1,13 @@
 package com.dev.batchfinal.app_modules.workout_motivator.view
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
+import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.lifecycle.lifecycleScope
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.VideosAdapter
@@ -41,10 +45,73 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
+    override fun initUi() {
 
+
+        val gson = Gson()
+        var strObj= ""
+
+        if(intent.hasExtra("duration_work_position")){
+            strObj = intent.getStringExtra("duration_work_position").toString()
+        }
+        if(strObj.isNotEmpty()){
+            workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
+        }
+
+        val strObj1 = intent.getStringExtra("course_data")
+        courseData = gson.fromJson(strObj1, OrderList::class.java)
+
+        /*
+              //  val videoItems: MutableList<VideoItem> = ArrayList<VideoItem>()
+
+        val item = VideoItem()
+        item.videoURL = "https://player.vimeo.com/video/913068330"
+        item.videoTitle = "Women In Tech"
+        videoItems.add(item)
+
+        val item2 = VideoItem()
+        item2.videoURL = "https://player.vimeo.com/video/913068229"
+        item2.videoTitle = "Sasha Solomon"
+        videoItems.add(item2)
+
+        val item3 = VideoItem()
+        item3.videoURL = "https://player.vimeo.com/video/911555330"
+        item3.videoTitle = "Happy Hour Wednesday"
+        videoItems.add(item3)
+
+        val item4 = VideoItem()
+        item4.videoURL = "https://player.vimeo.com/video/913068330"
+        item4.videoTitle = "Happy 4 Wednesday"
+        videoItems.add(item4)
+        */
+
+        if (courseData.course_detail.course_duration.size>0)
+        {
+            Log.e("COURSE LIST",courseData.course_detail.course_duration.toString())
+
+            setVideoOnBanner()
+
+
+        }else
+        {
+            val builder = AlertDialog.Builder(this)
+                .create()
+            val view = layoutInflater.inflate(R.layout.alert_info_batch, null)
+            val userInfo = view.findViewById<TextView>(R.id.alertMessage)
+            val onCLickOkay = view.findViewById<AppCompatTextView>(R.id.txt_okay)
+            userInfo.text = "No course found to play"
+            builder.setView(view)
+            onCLickOkay.setOnClickListener {
+                finish()
+                builder.dismiss()
+            }
+            builder.setCanceledOnTouchOutside(true)
+            builder.show()
+        }
+
+    }
     private fun setVideoOnBanner() {
 
-        // CourseDetail > CourseDuration List =  Total Duration > 1 Day > get 0 index > course duration excersize for 1 day
         val course_duration_exerciseList : ArrayList<Course_duration_exercise>
         val courseDurationList=  courseData.course_detail.course_duration
         if(courseDurationList.isNotEmpty()){
@@ -55,18 +122,18 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
 
                 if(!course_duration_exerciseList.isNullOrEmpty()){
                     binding.viewPagerVideos.adapter = VideosAdapter(this@SlideWorkoutVideoActivity,course_duration_exerciseList, object :
-                            ItemVideoFinishClick<Int> {
+                        ItemVideoFinishClick<Int> {
 
-                            override fun onPositionItemVideoFinish(item: Course_duration_exercise, postions: Int) {
-                                try {
-                                    MyConstant.jsonObject.addProperty("course_id", courseData.course_id)
-                                    MyConstant.jsonObject.addProperty("workout_id", workout_duration_detail?.course_duration_id)
-                                    MyConstant.jsonObject.addProperty("workout_exercise_id", workout_duration_detail?.course_duration_exercise!![0].course_duration_exercise_id)
-                                    MyConstant.jsonObject.addProperty("exercise_status", "completed")
-                                    updateFinishWorkoutStaus(MyConstant.jsonObject)
-                                }catch (_:Exception){}
+                        override fun onPositionItemVideoFinish(item: Course_duration_exercise, postions: Int) {
+                            try {
+                                MyConstant.jsonObject.addProperty("course_id", courseData.course_id)
+                                MyConstant.jsonObject.addProperty("workout_id", workout_duration_detail?.course_duration_id)
+                                MyConstant.jsonObject.addProperty("workout_exercise_id", workout_duration_detail?.course_duration_exercise!![0].course_duration_exercise_id)
+                                MyConstant.jsonObject.addProperty("exercise_status", "completed")
+                                updateFinishWorkoutStaus(MyConstant.jsonObject)
+                            }catch (_:Exception){}
 
-                            }
+                        }
 
                         override fun onClickVideoInformation(
                             item: Course_duration_exercise,
@@ -82,7 +149,7 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
                             finish()
                         }
 
-                        })
+                    })
                 }
 
                 val videoId=      courseDurationData?.course_duration_exercise?.get(0)?.video_detail?.video_id
@@ -97,6 +164,7 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
 
 
     }
+
 
     @SuppressLint("SetTextI18n")
     private fun showVideoInformation(item: Course_duration_exercise) {
@@ -142,47 +210,8 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
     }
 
 
-    override fun initUi() {
 
-        val videoItems: MutableList<VideoItem> = ArrayList<VideoItem>()
 
-        val gson = Gson()
-
-        var strObj= ""
-        if(intent.hasExtra("duration_work_position")){
-            strObj = intent.getStringExtra("duration_work_position").toString()
-        }
-
-        if(strObj.isNotEmpty()){
-            workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
-        }
-
-        val strObj1 = intent.getStringExtra("course_data")
-        courseData = gson.fromJson(strObj1, OrderList::class.java)
-
-        val item = VideoItem()
-        item.videoURL = "https://player.vimeo.com/video/913068330"
-        item.videoTitle = "Women In Tech"
-        videoItems.add(item)
-
-        val item2 = VideoItem()
-        item2.videoURL = "https://player.vimeo.com/video/913068229"
-        item2.videoTitle = "Sasha Solomon"
-        videoItems.add(item2)
-
-        val item3 = VideoItem()
-        item3.videoURL = "https://player.vimeo.com/video/911555330"
-        item3.videoTitle = "Happy Hour Wednesday"
-        videoItems.add(item3)
-
-        val item4 = VideoItem()
-        item4.videoURL = "https://player.vimeo.com/video/913068330"
-        item4.videoTitle = "Happy 4 Wednesday"
-        videoItems.add(item4)
-
-        setVideoOnBanner()
-
-    }
 
     fun updateFinishWorkoutStaus(jsonObject: JsonObject) {
         if (CheckNetworkConnection.isConnection(this, binding.root, true)) {

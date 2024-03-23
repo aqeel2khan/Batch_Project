@@ -9,8 +9,9 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_2sdp"
         android:layout_marginBottom="@dimen/_5sdp"
+        android:padding="@dimen/_3sdp"
         android:gravity="center">
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
             android:layout_weight="0.1"
             android:layout_width="0dp"
@@ -30,9 +31,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/outfit_extra_bold"
-                android:text="Bessie Cooper"
+                android:text="Bharat Bhushan"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="@dimen/_11sdp" />
 
             <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/txt_profesion"
@@ -40,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="Yoga teacher"
                 android:textColor="@color/welcome_txt_gry"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_10sdp"
                 android:textStyle="normal" />
         </LinearLayout>
 
@@ -58,12 +59,13 @@
             android:id="@+id/btn_following"
             android:layout_width="0dp"
             android:layout_height="@dimen/_25sdp"
+            android:fontFamily="@font/outfit_regular"
             android:layout_weight="0.2"
             android:background="@drawable/border_button"
             android:text="Following"
             android:textAllCaps="false"
             android:textColor="@color/terms_color"
-            android:textSize="@dimen/_8sdp" />
+            android:textSize="@dimen/_10sdp" />
     </LinearLayout>
 
 </LinearLayout>

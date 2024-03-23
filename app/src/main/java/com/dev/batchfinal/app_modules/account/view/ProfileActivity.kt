@@ -14,9 +14,8 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dev.batchfinal.BuildConfig
 import com.dev.batchfinal.R
-import com.dev.batchfinal.adapter.FollowingListAdapter
+import com.dev.batchfinal.app_modules.account.adapter.FollowingListAdapter
 import com.dev.batchfinal.app_common.AppBaseActivity
 import com.dev.batchfinal.app_common.ImagePickerActivity
 import com.dev.batchfinal.app_common.ImagePickerActivity.INTENT_ASPECT_RATIO_X
@@ -27,7 +26,10 @@ import com.dev.batchfinal.app_common.ImagePickerActivity.INTENT_IMAGE_PICKER_OPT
 import com.dev.batchfinal.app_common.ImagePickerActivity.INTENT_LOCK_ASPECT_RATIO
 import com.dev.batchfinal.app_common.ImagePickerActivity.INTENT_SET_BITMAP_MAX_WIDTH_HEIGHT
 import com.dev.batchfinal.app_common.ImagePickerActivity.REQUEST_IMAGE_CAPTURE
+import com.dev.batchfinal.app_modules.account.minterface.FollowingCallback
 import com.dev.batchfinal.app_modules.account.minterface.ImageResizeCallback
+import com.dev.batchfinal.app_modules.account.model.GetDelivaryAddresData
+import com.dev.batchfinal.app_modules.account.model.MotivatorFollowingData
 import com.dev.batchfinal.app_modules.account.network_service.AccountNetworkService
 import com.dev.batchfinal.app_modules.account.repository.AccountRepository
 import com.dev.batchfinal.app_modules.account.viewmodel.AccountFactoryModel
@@ -47,22 +49,27 @@ import java.io.File
 import java.util.*
 
 @AndroidEntryPoint
-class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCallback {
+class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCallback,FollowingCallback {
      private val REQUEST_IMAGE = 100
     private val SAMPLE_CROPPED_IMAGE_NAME = "BatchImage"
     private val requestMode=1
     private val resumeMode = 2
     private var userChoosenTask = ""
     private lateinit var mListener: ImageResizeCallback
+    private lateinit var mFollowingListner:FollowingCallback
 
     private lateinit var mViewModel: AccountViewModel
     private val retrofitService = AccountNetworkService.create()
     private lateinit var profileEditBinding: ProfileEditDialogBinding
+
+    private lateinit var mProfileBottomSheetDialog:BottomSheetDialog
     private lateinit var actMainBinding: ActivityMainBinding
 
     private lateinit var sessionManager: UserSessionManager
-    private var courseImg =
-        ArrayList(listOf(R.drawable.profile_image, R.drawable.normal_boy, R.drawable.profile_image))
+
+    private var courseImg = ArrayList(listOf(R.drawable.profile_image, R.drawable.normal_boy, R.drawable.profile_image))
+    private var mMotivatorFollowingList=ArrayList<MotivatorFollowingData>()
+    private var mSavedAddress= GetDelivaryAddresData()
 
     override fun getViewBinding() = ActivityProfileBinding.inflate(layoutInflater)
 
@@ -81,9 +88,11 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
 
         }
         mListener=this
+        mFollowingListner=this
         setProfileDetails()
         onClickOperation()
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -91,8 +100,13 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
             this,
             AccountFactoryModel(AccountRepository(retrofitService))
         )[AccountViewModel::class.java]
+        requestFollowing()
+        requestSavedAddress()
+
 
     }
+
+
 
     @SuppressLint("SetTextI18n")
     override fun onResume() {
@@ -131,6 +145,37 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
 
             hideLoader()
         }
+        mViewModel.getMotivatorFollowing.observe(this, Observer {
+            hideLoader()
+            if (it.status==true)
+            {
+                mMotivatorFollowingList.clear()
+                mMotivatorFollowingList=it.data
+
+            }
+        })
+        mViewModel.getGetDelivaryAddress.observe(this, Observer {
+           // hideLoader()
+            if (it.status==true)
+            {
+                mSavedAddress= it.data!!
+
+            }
+        })
+
+        mViewModel.getMotivatorUnfollow.observe(this, Observer {
+            hideLoader()
+            if (it.status==true)
+            {
+                it.status = false
+                mProfileBottomSheetDialog.dismiss()
+                requestFollowing()
+                showAlertInfo(it.message.toString(), this)
+
+
+            }
+        })
+
 
         mViewModel.errorMessage.observe(this, Observer {
             showAlertInfo(it.toString(), this)
@@ -177,7 +222,14 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
         }
         binding.rlFollowing.setOnClickListener {
             if (sessionManager.isloggin()) {
-                showPersonalDialog("following")
+                if (mMotivatorFollowingList.size>0)
+                {
+                    showPersonalDialog("following")
+
+                }else
+                {
+                   showAlertInfo("You haven't been following any motivator",this@ProfileActivity)
+                }
             } else {
                 askUserForLogin("Required authorization to access following.", this)
             }
@@ -211,6 +263,39 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
         }
     }
 
+    private fun requestFollowing() {
+        if (checkNetwork(this))
+        {
+            showLoader()
+            mViewModel.requestMotivatorFollowing(sessionManager.getUserToken())
+        }else
+        {
+            showAlertInfo("Please check internet connection",this)
+        }
+    }
+
+    private fun requestSavedAddress() {
+
+        if (checkNetwork(this))
+        {
+           // mViewModel.requestGetDelivaryAddress(sessionManager.getUserToken())
+        }else
+        {
+            showAlertInfo("Please check internet connection",this)
+        }
+
+    }
+
+
+    private fun requestUnfollow(motivatorID:String) {
+        if (checkNetwork(this))
+        {
+            mViewModel.requestMotivatorUnfollow(sessionManager.getUserToken(),motivatorID)
+        }else
+        {
+            showAlertInfo("Please check internet connection",this)
+        }
+    }
     private fun openOtionDialog() {
         val bottomSheetDialog = BottomSheetDialog(this, R.style.BottomSheetDialog)
         bottomSheetDialog.setContentView(R.layout.row_select_camera_gallery)
@@ -311,7 +396,6 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
         var uCrop = UCrop.of(uri, Uri.fromFile(File(cacheDir, destinationFileName)))
         uCrop = basisConfig(uCrop)
         uCrop = advancedConfig(uCrop)
-
         // else start uCrop Activity
         uCrop.start(this@ProfileActivity)
     }
@@ -368,8 +452,8 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
 
     private fun showPersonalDialog(strValue: String) {
         profileEditBinding = ProfileEditDialogBinding.inflate(layoutInflater)
-        val dialog = BottomSheetDialog(this)
-        dialog.setContentView(profileEditBinding.root)
+        mProfileBottomSheetDialog = BottomSheetDialog(this)
+        mProfileBottomSheetDialog.setContentView(profileEditBinding.root)
         when (strValue) {
             "personal_info" -> {
                 profileEditBinding.llPersonaData.visibility = View.VISIBLE
@@ -421,7 +505,7 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
                      showDatePickerDialog(profileEditBinding.editDob,this@ProfileActivity)
                  }
                 profileEditBinding.closePersonalInfo.setOnClickListener {
-                    dialog.dismiss()
+                    mProfileBottomSheetDialog.dismiss()
                 }
                 profileEditBinding.btnSave.setOnClickListener {
                     //code for save week price
@@ -451,7 +535,7 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
                                 profileEditBinding.editDob.text.toString(),
                                 profileEditBinding.spinnerGender.selectedItem.toString()
                             )
-                            dialog.dismiss()
+                            mProfileBottomSheetDialog.dismiss()
 
 
                         }
@@ -475,10 +559,10 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
                             LinearLayoutManager.VERTICAL,
                             false
                         )
-                    adapter = FollowingListAdapter(this@ProfileActivity, courseImg)
+                    adapter = FollowingListAdapter(this@ProfileActivity, mMotivatorFollowingList,mFollowingListner)
                 }
                 profileEditBinding.closePersonalInfo.setOnClickListener {
-                    dialog.dismiss()
+                    mProfileBottomSheetDialog.dismiss()
                 }
             }
 
@@ -486,14 +570,21 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
                 profileEditBinding.llMap.visibility = View.VISIBLE
                 profileEditBinding.txtTitle.text = resources.getString(R.string.txt_delivery_detail)
                 profileEditBinding.btnSave.text = ("Apply")
-                //profileEditBinding.btnSave.visibility=View.GONE
-               // profileEditBinding.btnApply.visibility=View.VISIBLE
+                try {
+                    profileEditBinding.editState.setText(mSavedAddress.state.toString())
+                    profileEditBinding.editCity.setText(mSavedAddress.city.toString())
+                    profileEditBinding.editHouse.setText(mSavedAddress.addressLine1.toString())
+                    profileEditBinding.editStreet.setText(mSavedAddress.addressLine2.toString())
+                    profileEditBinding.editAvenue.setText(mSavedAddress.country.toString()+"-"+mSavedAddress.postalCode.toString())
+                }catch (_:Exception){}
+
                 profileEditBinding.btnSave.setOnClickListener {
-                    //code for save week price
-                    dialog.dismiss()
+                    //call api for save address
+
+                    mProfileBottomSheetDialog.dismiss()
                 }
                 profileEditBinding.closePersonalInfo.setOnClickListener {
-                    dialog.dismiss()
+                    mProfileBottomSheetDialog.dismiss()
                 }
             }
 
@@ -505,17 +596,17 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
                 //profileEditBinding.btnApply.visibility=View.GONE
                 profileEditBinding.btnSave.setOnClickListener {
                     //code for save week price
-                    dialog.dismiss()
+                    mProfileBottomSheetDialog.dismiss()
                 }
                 profileEditBinding.closePersonalInfo.setOnClickListener {
-                    dialog.dismiss()
+                    mProfileBottomSheetDialog.dismiss()
                 }
 
             }
         }
 
 
-        dialog.show()
+        mProfileBottomSheetDialog.show()
     }
 
     private fun requestProfileUpdate(
@@ -540,14 +631,18 @@ class ProfileActivity : AppBaseActivity<ActivityProfileBinding>(),ImageResizeCal
     }
 
     override fun onSuccess(imagePath: String?, bitmap: Bitmap?, file: File?) {
-        //upload data
-        Log.e("TO UPLOAD",imagePath.toString())
+        //requestUpdateProfileImg
         mViewModel.requestProfileImgUpdate(imagePath.toString(),sessionManager.getUserToken())
     }
 
     override fun onFailure(msg: String?) {
         Log.e("FAILURE",msg.toString())
 
+    }
+
+    override fun onClickMotivator(position: Int, posData: MotivatorFollowingData) {
+        //requestUnfolloMotivator
+        requestUnfollow(posData.id.toString())
     }
 
 }

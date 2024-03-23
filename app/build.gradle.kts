@@ -126,6 +126,8 @@ dependencies {
     implementation("id.zelory:compressor:1.0.4")
     implementation("io.reactivex:rxandroid:1.2.1")
 
+//Work manger
+    implementation("androidx.work:work-runtime-ktx:2.7.0")
 
 
 

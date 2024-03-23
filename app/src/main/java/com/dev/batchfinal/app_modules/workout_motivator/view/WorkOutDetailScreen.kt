@@ -24,8 +24,8 @@ import com.dev.batchfinal.out.Resource
 
 @AndroidEntryPoint
 class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
-    private  var workout_duration_detail: Course_duration?= null
-    private  var courseData: OrderList?= null
+    private var workout_duration_detail: Course_duration? = null
+    private var courseData: OrderList? = null
     private val viewModel: AllViewModel by viewModels()
 
     private val authViewModel by viewModels<AuthViewModel>()
@@ -36,30 +36,28 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
     override fun initUi() {
         try {
             val gson = Gson()
-            var strObj :String?= null
-            if(intent!=null){
+            var strObj: String? = null
+            if (intent != null) {
 
-                if(intent.hasExtra("duration_work_position"))
-                {
+                if (intent.hasExtra("duration_work_position")) {
                     strObj = intent.getStringExtra("duration_work_position").toString()
                 }
-                if(strObj?.isNotEmpty() == true)
-                {
+                if (strObj?.isNotEmpty() == true) {
                     workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
                 }
 
 
             }
-            var strObj1 =""
-            if(intent.hasExtra("course_data")){
-                 strObj1 = intent.getStringExtra("course_data").toString()
+            var strObj1 = ""
+            if (intent.hasExtra("course_data")) {
+                strObj1 = intent.getStringExtra("course_data").toString()
 
-                if(strObj1.isNotEmpty()){
+                if (strObj1.isNotEmpty()) {
                     courseData = gson.fromJson(strObj1, OrderList::class.java)
                 }
             }
 
-            if(strObj?.isNotEmpty() == true){
+            if (strObj?.isNotEmpty() == true) {
                 workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
             }
 
@@ -87,11 +85,15 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
 
         try {
             MyConstant.jsonObject.addProperty("course_id", courseData?.course_id)
-            MyConstant.jsonObject.addProperty("workout_id", workout_duration_detail?.course_duration_id)
+            MyConstant.jsonObject.addProperty(
+                "workout_id",
+                workout_duration_detail?.course_duration_id
+            )
 //        MyConstant.jsonObject.addProperty("subtotal", sub_total.toDouble())
-            var mworkout_exercise_id= ""
-            if(workout_duration_detail?.course_duration_exercise!=null && workout_duration_detail?.course_duration_exercise?.size!!>0){
-                mworkout_exercise_id= workout_duration_detail?.course_duration_exercise?.get(0)!!.course_duration_exercise_id.toString()
+            var mworkout_exercise_id = ""
+            if (workout_duration_detail?.course_duration_exercise != null && workout_duration_detail?.course_duration_exercise?.size!! > 0) {
+                mworkout_exercise_id =
+                    workout_duration_detail?.course_duration_exercise?.get(0)!!.course_duration_exercise_id.toString()
             }
 
             MyConstant.jsonObject.addProperty(
@@ -100,37 +102,36 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
             )
             MyConstant.jsonObject.addProperty("exercise_status", "started")
 
-
+            /***
+             * START WORKOUT VIDEO
+             * */
             binding.btnStartWorkout.setOnClickListener {
                 val gson = Gson()
                 startWorkoutApi(MyConstant.jsonObject)
-             var mIntent=   Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java)
+                val mIntent = Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java)
 
-                var mCouseduration=""
-                if( courseData?.course_detail?.course_duration!=null && courseData?.course_detail?.course_duration?.size!!>0){
-                    mCouseduration=  gson.toJson(courseData?.course_detail?.course_duration?.get(0)!!)
+                var mCouseduration = ""
+                var mCourseData = ""
+                if (courseData?.course_detail?.course_duration != null && courseData?.course_detail?.course_duration?.size!! > 0) {
+                    mCouseduration = gson.toJson(courseData?.course_detail?.course_duration?.get(0)!!)
+                }
+                if (courseData != null) {
+                    mCourseData = gson.toJson(courseData)
                 }
 
-                var mCourseData=""
-                if(courseData!=null ){
-                    mCourseData =  gson.toJson(courseData)
-                }
-                mIntent.putExtra("duration_work_position",mCouseduration)
-                mIntent.  putExtra("course_data", mCourseData)
+                mIntent.putExtra("duration_work_position", mCouseduration)
+                mIntent.putExtra("course_data", mCourseData)
                 startActivity(mIntent)
-//                startActivity(Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java).putExtra(
-//                    "duration_work_position",
-//                    gson.toJson(courseData.course_detail.course_duration.get(0))
-//                ).putExtra("course_data", gson.toJson(courseData)))
+
             }
         } catch (e: Exception) {
-           e.printStackTrace()
+            e.printStackTrace()
         }
 
 //            startActivity(Intent(this@WorkOutDetailScreen, PlayWorkoutVideoActivity::class.java)) }
     }
 
-    fun startWorkoutApi(jsonObject: JsonObject) {
+    private fun startWorkoutApi(jsonObject: JsonObject) {
         if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
 //            showLoader()
             authViewModel.courseStartApiCall("Bearer " + sharedPreferences.token, jsonObject)

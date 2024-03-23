@@ -10,6 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.dev.batchfinal.app_common.AppBaseActivity
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.app_modules.account.view.ProfileActivity
+import com.dev.batchfinal.app_modules.notifications.view.NotificationsActivity
 import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyUtils
@@ -67,6 +68,10 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
     private fun bottonClicks() {
         binding.imProfile.setOnClickListener {
             startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+        }
+        binding.imNotification.setOnClickListener {
+            startActivity(Intent(this@MainActivity, NotificationsActivity::class.java))
+
         }
     }
 
