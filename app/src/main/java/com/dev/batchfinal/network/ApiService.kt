@@ -14,6 +14,7 @@ import com.dev.batchfinal.app_modules.question.model.all_question.SubmitAllQueRe
 import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergiesResponse
 import com.dev.batchfinal.app_modules.question.model.meal_goals.MealGoalsResponse
 import com.dev.batchfinal.app_modules.question.model.meal_tags.MealTagsResponse
+import com.dev.batchfinal.app_modules.scanning.model.course_order_list.CourseOrderListResponse
 import com.dev.batchfinal.app_modules.scanning.model.mecros.MecrosResponse
 import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
@@ -126,7 +127,7 @@ interface ApiService {
     suspend fun courseOrderCreate(@Header(AUTHORIZATION) token: String, @Body jsonObject: JsonObject): OrederCreateResponse
 
     @POST(COURSEORDERLIST)
-    suspend fun courseOrderList(@Header(AUTHORIZATION) token: String): CourseOrderList
+    suspend fun courseOrderList(@Header(AUTHORIZATION) token: String): CourseOrderListResponse
 
     @POST(STARTWORKOUTSTATUS)
     suspend fun startWorkout(@Header(AUTHORIZATION) token: String, @Body jsonObject: JsonObject): OrederCreateResponse

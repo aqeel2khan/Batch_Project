@@ -8,12 +8,12 @@ import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.R
 import com.dev.batchfinal.databinding.ActivityWorkOutDetailScreenBinding
 import com.dev.batchfinal.model.courseorderlist.Course_duration
-import com.dev.batchfinal.model.courseorderlist.OrderList
 import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_modules.scanning.model.course_order_list.List
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.gson.Gson
@@ -25,7 +25,7 @@ import com.dev.batchfinal.out.Resource
 @AndroidEntryPoint
 class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
     private  var workout_duration_detail: Course_duration?= null
-    private  var courseData: OrderList?= null
+    private  var courseData: List?= null
     private val viewModel: AllViewModel by viewModels()
 
     private val authViewModel by viewModels<AuthViewModel>()
@@ -38,7 +38,6 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
             val gson = Gson()
             var strObj :String?= null
             if(intent!=null){
-
                 if(intent.hasExtra("duration_work_position"))
                 {
                     strObj = intent.getStringExtra("duration_work_position").toString()
@@ -55,7 +54,7 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
                  strObj1 = intent.getStringExtra("course_data").toString()
 
                 if(strObj1.isNotEmpty()){
-                    courseData = gson.fromJson(strObj1, OrderList::class.java)
+                    courseData = gson.fromJson(strObj1, List::class.java)
                 }
             }
 
@@ -64,17 +63,21 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
             }
 
 
-            binding.weightLossText.text = workout_duration_detail?.day_name
+            binding.weightLossText.text = courseData?.todayWorkouts!!.dayName.toString()
             binding.txtDetailContent.text = workout_duration_detail?.description
-            binding.userName.text = courseData?.course_detail?.coach_detail?.name.toString()
+            binding.userName.text = courseData?.courseDetail?.coachDetail?.name.toString()
+            binding.txtExercise.text = courseData?.todayWorkouts!!.noOfExercise.toString()+"Exercise"
+            binding.txtTime.text = courseData?.todayWorkouts!!.workoutTime.toString()+"min"
+            binding.txtCal.text = courseData?.todayWorkouts!!.calorieBurn.toString()+"Kcal"
+            binding.txtDetailContent.text = courseData?.todayWorkouts!!.description
             MyUtils.loadImage(
                 binding.profileImage,
-                MyConstant.IMAGE_BASE_URL + courseData?.course_detail?.coach_detail?.profile_photo_path
+                MyConstant.IMAGE_BASE_URL + courseData?.courseDetail?.coachDetail?.profilePhotoPath
             )
 
             MyUtils.loadBackgroundImage(
                 binding.backgroundImg,
-                MyConstant.IMAGE_BASE_URL + courseData?.course_detail?.course_image
+                MyConstant.IMAGE_BASE_URL + courseData?.courseDetail?.courseImage
             )
             buttonClicks()
             startRelativeAnimation(binding.relWeightDetailLayout)
@@ -86,29 +89,23 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
     private fun buttonClicks() {
 
         try {
-            MyConstant.jsonObject.addProperty("course_id", courseData?.course_id)
+            MyConstant.jsonObject.addProperty("course_id", courseData?.courseId)
             MyConstant.jsonObject.addProperty("workout_id", workout_duration_detail?.course_duration_id)
 //        MyConstant.jsonObject.addProperty("subtotal", sub_total.toDouble())
             var mworkout_exercise_id= ""
             if(workout_duration_detail?.course_duration_exercise!=null && workout_duration_detail?.course_duration_exercise?.size!!>0){
                 mworkout_exercise_id= workout_duration_detail?.course_duration_exercise?.get(0)!!.course_duration_exercise_id.toString()
             }
-
-            MyConstant.jsonObject.addProperty(
-                "workout_exercise_id",
-                mworkout_exercise_id
-            )
+            MyConstant.jsonObject.addProperty("workout_exercise_id", mworkout_exercise_id)
             MyConstant.jsonObject.addProperty("exercise_status", "started")
-
-
             binding.btnStartWorkout.setOnClickListener {
                 val gson = Gson()
                 startWorkoutApi(MyConstant.jsonObject)
              var mIntent=   Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java)
 
                 var mCouseduration=""
-                if( courseData?.course_detail?.course_duration!=null && courseData?.course_detail?.course_duration?.size!!>0){
-                    mCouseduration=  gson.toJson(courseData?.course_detail?.course_duration?.get(0)!!)
+                if( courseData?.courseDetail?.courseDuration!=null && courseData?.courseDetail?.courseDuration?.size!!>0){
+                    mCouseduration=  gson.toJson(courseData?.courseDetail?.courseDuration?.get(0)!!)
                 }
 
                 var mCourseData=""
@@ -117,6 +114,7 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
                 }
                 mIntent.putExtra("duration_work_position",mCouseduration)
                 mIntent.  putExtra("course_data", mCourseData)
+                mIntent.  putExtra("position",courseData?.todayWorkouts!!.row.toString() )
                 startActivity(mIntent)
 //                startActivity(Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java).putExtra(
 //                    "duration_work_position",

@@ -18,6 +18,7 @@ import com.dev.batchfinal.app_modules.question.model.all_question.SubmitAllQueRe
 import com.dev.batchfinal.app_modules.question.model.meal_allergies.MealAllergiesResponse
 import com.dev.batchfinal.app_modules.question.model.meal_goals.MealGoalsResponse
 import com.dev.batchfinal.app_modules.question.model.meal_tags.MealTagsResponse
+import com.dev.batchfinal.app_modules.scanning.model.course_order_list.CourseOrderListResponse
 import com.dev.batchfinal.app_modules.scanning.model.mecros.MecrosResponse
 import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel
 import com.dev.batchfinal.model.chosen_meal_details_model.ChosenMealDetailsResponse
@@ -169,8 +170,8 @@ class AuthViewModel @Inject constructor(private val repository: AuthRepository) 
     }
 
     //course order List
-    private val _courseOrderListResponse: MutableLiveData<Resource<CourseOrderList>> = MutableLiveData()
-    val courseOrderListResponse: LiveData<Resource<CourseOrderList>> get() = _courseOrderListResponse
+    private val _courseOrderListResponse: MutableLiveData<Resource<CourseOrderListResponse>> = MutableLiveData()
+    val courseOrderListResponse: LiveData<Resource<CourseOrderListResponse>> get() = _courseOrderListResponse
 
     fun courseOrderListApiCall(token: String) = viewModelScope.launch {
         _courseOrderListResponse.value = Resource.Loading

@@ -425,14 +425,14 @@
                         android:text="Today Exercise"
                         android:textStyle="bold"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_14sdp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_23sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_alignParentRight="true"
                         android:background="@drawable/rounded_all_sides"
-                        android:backgroundTint="#F5F6F4">
+                        >
 
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_exercise_day"
@@ -445,7 +445,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:textColor="@color/welcome_txt_gry"
-                            android:textSize="@dimen/_10sdp" />
+                            android:textSize="@dimen/_12sdp" />
 
                         <Spinner
                             android:visibility="gone"

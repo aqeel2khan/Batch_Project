@@ -23,6 +23,7 @@ import com.dev.batchfinal.app_common.BaseFragment
 import com.dev.batchfinal.app_modules.account.view.LoginActivity
 import com.dev.batchfinal.app_modules.activity.WeightLossActivity
 import com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.CurrentMealDetailActivity
+import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel
 import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.*
 import com.dev.batchfinal.databinding.FragmentScaningBinding
@@ -30,8 +31,7 @@ import com.dev.batchfinal.databinding.HomeMealDialogBinding
 import com.dev.batchfinal.databinding.ProfileEditDialogBinding
 import com.dev.batchfinal.`interface`.CourseOrderListItemPosition
 import com.dev.batchfinal.`interface`.MealSubscribeListPosition
-import com.dev.batchfinal.model.courseorderlist.Data
-import com.dev.batchfinal.model.courseorderlist.OrderList
+
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListRequest
 import com.dev.batchfinal.model.subscribe_list_model.MealSubscribeListResponse
 import com.dev.batchfinal.out.AuthViewModel
@@ -43,13 +43,12 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.text.DecimalFormat
 import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
     private val RC_SIGN_IN=200
-    private lateinit var courseData: Data
+    private lateinit var courseData: CourseDetailResponseModel.Data
     lateinit var dialogOptionBinding: ProfileEditDialogBinding
     private lateinit var sessionManager: UserSessionManager
 
@@ -60,7 +59,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
 
     lateinit var dialogBinding: HomeMealDialogBinding
 
-    var courseList: ArrayList<OrderList> = ArrayList()
+    var courseList: List<com.dev.batchfinal.app_modules.scanning.model.course_order_list.List> = ArrayList()
     var meal_id:String=""
     var subscribe_id:String=""
     var calories:String=""
@@ -327,7 +326,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                                 // Log.d("response_order",response.data.toString())
                                 if (response.status == MyConstant.success) {
                                     courseList = response.data.list
-                                    courseData = response.data
+                                    //courseData = response.data
                                     setAllCourseOrderAdapter(courseList)
                                 }
                             }
@@ -388,11 +387,11 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
             }
         })
     }
-    private fun setAllCourseOrderAdapter(courseList: ArrayList<OrderList>) {
+    private fun setAllCourseOrderAdapter(courseList: List<com.dev.batchfinal.app_modules.scanning.model.course_order_list.List>) {
         binding.recyclerCourseOrder.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerCourseOrder.adapter = CourseOrderAdapter(context, courseList, object :
             CourseOrderListItemPosition<Int> {
-            override fun onCourseOrderListItemPosition(item: OrderList, position: Int) {
+            override fun onCourseOrderListItemPosition(item: com.dev.batchfinal.app_modules.scanning.model.course_order_list.List, position: Int) {
                 try {
                     val gson = Gson()
                     val mIntent= Intent(requireContext(), WeightLossActivity::class.java)

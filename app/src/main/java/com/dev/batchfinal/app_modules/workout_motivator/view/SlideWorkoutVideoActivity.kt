@@ -20,6 +20,7 @@ import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.app_common.BaseActivity
 import com.dev.batchfinal.databinding.DialogVideoInfoBinding
+import com.dev.batchfinal.`interface`.CoachListItemPosition
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.gson.Gson
@@ -42,13 +43,13 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
         return viewModel
     }
 
-    private fun setVideoOnBanner() {
+    private fun setVideoOnBanner(position: Int) {
 
         // CourseDetail > CourseDuration List =  Total Duration > 1 Day > get 0 index > course duration excersize for 1 day
         val course_duration_exerciseList : ArrayList<Course_duration_exercise>
         val courseDurationList=  courseData.course_detail.course_duration
         if(courseDurationList.isNotEmpty()){
-            val courseDurationData= courseDurationList[0] // first day
+            val courseDurationData= courseDurationList[position] // first day
             if(courseDurationData!=null && !courseDurationData.course_duration_exercise.isNullOrEmpty()){
                 // Get First Day all video
                 course_duration_exerciseList=      courseDurationData?.course_duration_exercise!!
@@ -180,7 +181,9 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
         item4.videoTitle = "Happy 4 Wednesday"
         videoItems.add(item4)
 
-        setVideoOnBanner()
+        var position=intent.getStringExtra("position")
+
+        setVideoOnBanner(position!!.toInt()-1)
 
     }
 

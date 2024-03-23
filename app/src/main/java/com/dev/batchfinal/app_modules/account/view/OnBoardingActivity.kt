@@ -124,6 +124,13 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
         }
         dialogBinding.btnEnglish.setOnClickListener {
             dialogBinding.btnEnglish.setBackgroundResource(R.drawable.rectangle_btn_lag_select)
+            dialogBinding.btnArabic.setBackgroundResource(R.drawable.tab_un_sel_bg)
+            sharedPreferences.saveLanguage("English")
+        }
+        dialogBinding.btnArabic.setOnClickListener {
+            dialogBinding.btnArabic.setBackgroundResource(R.drawable.rectangle_btn_lag_select)
+            dialogBinding.btnEnglish.setBackgroundResource(R.drawable.tab_un_sel_bg)
+            sharedPreferences.saveLanguage("Arabic")
         }
         dialogBinding.btnCountryNext.setOnClickListener {
             dialogBinding.llCountry.background = resources.getDrawable(R.drawable.tab_un_sel_bg)

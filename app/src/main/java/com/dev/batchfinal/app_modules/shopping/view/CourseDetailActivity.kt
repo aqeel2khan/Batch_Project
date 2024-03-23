@@ -11,10 +11,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.BatchWorkoutTypeAdapter
-import com.dev.batchfinal.adapter.WorkoutTypeListAdapter
+import com.dev.batchfinal.adapter.WorkoutTypeDetailListAdapter
 import com.dev.batchfinal.app_custom.CustomToast.Companion.showToast
 import com.dev.batchfinal.databinding.ActivityCourseDetailBinding
-import com.dev.batchfinal.model.course_detail.CourseDuration
 import com.dev.batchfinal.out.AuthViewModel
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
@@ -166,7 +165,7 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
                 this@CourseDetailActivity,
                 LinearLayoutManager.HORIZONTAL,
                 false)
-            adapter = WorkoutTypeListAdapter(this@CourseDetailActivity, workoutType)
+            adapter = WorkoutTypeDetailListAdapter(this@CourseDetailActivity, workoutType)
         }
     }
 
