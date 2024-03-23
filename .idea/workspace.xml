@@ -381,11 +381,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="raw">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/CountryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/CountryAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/OnBoardingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/account/view/OnBoardingActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt" afterDir="false" />
-    </list>
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="country adapter" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -623,14 +619,6 @@
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
       <updated>1710105124484</updated>
-    </task>
-    <task id="LOCAL-00018" summary="null check on click of meal and batch click listener">
-      <option name="closed" value="true" />
-      <created>1710454743064</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1710454743064</updated>
     </task>
     <task id="LOCAL-00019" summary="try catch on start activity">
       <option name="closed" value="true" />
@@ -1002,7 +990,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711197526953</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="country adapter">
+      <option name="closed" value="true" />
+      <created>1711225669912</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1711225669912</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1029,7 +1025,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Account Flow" />
     <MESSAGE value="Login Screen code revamp w.r to New Arch|Network Architecture|Profile detail code revamp w.r to New Arch| Personal Info Data Binding" />
     <MESSAGE value="unused import" />
     <MESSAGE value="Account Network|Tab Module Creation| Merge Fixing|Profile" />
@@ -1054,7 +1049,8 @@
     <MESSAGE value="ratio" />
     <MESSAGE value="Country adapter search implementation" />
     <MESSAGE value="raw" />
-    <option name="LAST_COMMIT_MESSAGE" value="raw" />
+    <MESSAGE value="country adapter" />
+    <option name="LAST_COMMIT_MESSAGE" value="country adapter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1231,12 +1227,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/CourseOrderAdapter.kt</url>
-          <line>43</line>
+          <line>42</line>
           <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/CourseOrderAdapter.kt</url>
-          <line>45</line>
+          <line>44</line>
           <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
