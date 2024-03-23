@@ -1,9 +1,9 @@
 package com.dev.batchfinal.`interface`
 
-import com.dev.batchfinal.model.courseorderlist.Course_duration
+import com.dev.batchfinal.app_modules.scanning.model.course_order_list.CourseDuration
 
 
 interface PositionCourseWorkoutClick<T> {
 
-    fun onCourseWorkoutItemPosition(item: Course_duration, position: T)
+    fun onCourseWorkoutItemPosition(item: CourseDuration, position: T)
 }

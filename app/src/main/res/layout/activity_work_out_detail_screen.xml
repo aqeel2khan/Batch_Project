@@ -93,6 +93,7 @@
             </LinearLayout>
 
             <LinearLayout
+
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -124,10 +125,42 @@
                                 android:src="@drawable/accessibility" />
 
                             <com.dev.batchfinal.app_custom.MyCustomLightTextView
+                                android:id="@+id/txt_exercise"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="20 trainings"
+                                android:layout_marginStart="@dimen/_2sdp"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_8sdp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_20sdp"
+                        android:paddingHorizontal="@dimen/_2sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:background="@drawable/radius_shape">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/_5sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_12sdp"
+                                android:layout_height="@dimen/_12sdp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/chat_icon" />
+
+                            <com.dev.batchfinal.app_custom.MyCustomLightTextView
+                                android:id="@+id/txt_cal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Beginner"
                                 android:layout_marginStart="@dimen/_2sdp"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_8sdp" />
@@ -154,6 +187,7 @@
                                 android:src="@drawable/clock" />
 
                             <com.dev.batchfinal.app_custom.MyCustomLightTextView
+                                android:id="@+id/txt_time"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -164,39 +198,10 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_20sdp"
-                        android:paddingHorizontal="@dimen/_2sdp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:background="@drawable/radius_shape">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:layout_margin="@dimen/_5sdp">
-
-                            <ImageView
-                                android:layout_width="@dimen/_12sdp"
-                                android:layout_height="@dimen/_12sdp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/chat_icon" />
-
-                            <com.dev.batchfinal.app_custom.MyCustomLightTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="Beginner"
-                                android:layout_marginStart="@dimen/_2sdp"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_8sdp" />
-                        </LinearLayout>
-                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"

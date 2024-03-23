@@ -168,24 +168,52 @@
             android:layout_marginHorizontal="@dimen/_15sdp"
             android:orientation="vertical">
 
-            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
-                android:id="@+id/btn_english"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rectangle_button_gry"
-                android:fontFamily="@font/outfit_regular"
-                android:outlineSpotShadowColor="#516634"
-                android:text="@string/english"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:textAllCaps="false"
-                android:textAlignment="center"
-                android:padding="@dimen/_15sdp"
-                android:elevation="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_6sdp"
-                android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_10ssp"
-                android:textStyle="bold"
-                tools:ignore="UnusedAttribute" />
+                android:orientation="vertical"
+                >
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                    android:id="@+id/btn_english"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_button_gry"
+                    android:fontFamily="@font/outfit_regular"
+                    android:outlineSpotShadowColor="#516634"
+                    android:text="@string/english"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:textAllCaps="false"
+                    android:textAlignment="center"
+                    android:padding="@dimen/_15sdp"
+                    android:elevation="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:textColor="@color/welcome_txt"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    tools:ignore="UnusedAttribute" />
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                    android:id="@+id/btn_arabic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle_button_gry"
+                    android:fontFamily="@font/outfit_regular"
+                    android:outlineSpotShadowColor="#516634"
+                    android:text="@string/arabic"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:textAllCaps="false"
+                    android:textAlignment="center"
+                    android:padding="@dimen/_15sdp"
+                    android:elevation="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:textColor="@color/welcome_txt"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    tools:ignore="UnusedAttribute" />
+            </LinearLayout>
+
+
+
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_next"
