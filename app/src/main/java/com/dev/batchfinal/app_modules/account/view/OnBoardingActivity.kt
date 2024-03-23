@@ -23,6 +23,7 @@ import java.util.Locale
 
 @AndroidEntryPoint
 class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
+    private var selctedcountry: String = ""
     private val viewModel: AllViewModel by viewModels()
     private lateinit var dialogBinding: CountryLangDialogBinding
     private val countriesWithEmojis: MutableList<String> = mutableListOf()
@@ -144,9 +145,11 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
         dialogBinding: CountryLangDialogBinding,
         list: ArrayList<Country>
     ) {
+
+        selctedcountry = "Kuwait"
         dialogBinding.recyclerCounty.apply {
             layoutManager = LinearLayoutManager(this@OnBoardingActivity, LinearLayoutManager.VERTICAL, false)
-           mAdapter=  CountryAdapter(list,this@OnBoardingActivity)
+           mAdapter=  CountryAdapter(list,this@OnBoardingActivity,selctedcountry)
             dialogBinding.recyclerCounty.adapter =mAdapter
         }
     }
