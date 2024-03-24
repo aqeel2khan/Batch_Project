@@ -66,16 +66,16 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     var courseList: ArrayList<ListData> = ArrayList()
     var typeId: Int = 0
     var goalId: Int = 0
-    var goal_position: Int = 0
+    var goal_position: Int = -1
     var levelId: Int = 0
-    var level_posistion: Int = 0
+    var level_posistion: Int = -1
     var cource_workout_Id: Int = 0
-    var cource_workout_position: Int = 0
+    var cource_workout_position: Int = -1
 
     var motivator_exp_Id: Int = 0
-    var motivator_exp_position: Int = 0
+    var motivator_exp_position: Int = -1
     var motivator_type_Id: Int = 0
-    var motivator_type_posistion: Int = 0
+    var motivator_type_posistion: Int = -1
 
     private var allBatchesAdapter: AllBatchesAdapter? = null
 
@@ -243,6 +243,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                     jsonObject.addProperty("experience",motivator_exp_Id)
                     jsonObject.addProperty("workout_type",motivator_type_Id)
                     authViewModel.searchCoachListApiCall(jsonObject)
+                    binding.iconFilter.setBackgroundResource(R.drawable.ic_workout_filter_apply)
+
                 }
                 else -> {
                     hideLoader()
@@ -420,10 +422,14 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 tv.text = t!!.experience
                 return tv
             }
+            override fun setSelected(position: Int, t: Experience?): Boolean {
+                return position ==motivator_exp_position
+            }
         })
 
         dialogBinding.idCoachExperience.setOnTagClickListener(ExperienceTagFlowLayout.OnTagClickListener { view, position, parent ->
             motivator_exp_Id = experiences[position].id
+            motivator_exp_position=position
             //requireActivity().showToast(experiences[position].id.toString())
             true
         })
@@ -442,10 +448,14 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 tv.text = t!!.workoutType
                 return tv
             }
+            override fun setSelected(position: Int, t: Workouttype?): Boolean {
+                return position ==motivator_type_posistion
+            }
         })
 
         dialogBinding.idCoachWt.setOnTagClickListener(CoachWtTagFlowLayout.OnTagClickListener { view, position, parent ->
             motivator_type_Id = workoutType[position].id
+            motivator_type_posistion=position
            // requireActivity().showToast(workoutType[position].id.toString())
             true
         })
