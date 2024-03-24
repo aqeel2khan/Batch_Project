@@ -2,6 +2,8 @@ package com.dev.batchfinal.app_modules.account.network_service
 
 import com.dev.batchfinal.app_modules.account.model.DeliveryAddressModel
 import com.dev.batchfinal.app_modules.account.model.GetDelivaryAddressModel
+import com.dev.batchfinal.app_modules.account.model.MotivatorFollowingModel
+import com.dev.batchfinal.app_modules.account.model.MotivatorUnfollowModel
 import com.dev.batchfinal.app_modules.account.model.SignInModel
 import com.dev.batchfinal.app_modules.account.model.SignUpModel
 import com.dev.batchfinal.app_modules.account.model.UpdateProfileImg
@@ -22,6 +24,7 @@ import retrofit2.http.Header
 import retrofit2.http.HeaderMap
 import retrofit2.http.POST
 import retrofit2.http.PUT
+import retrofit2.http.Path
 import java.util.concurrent.TimeUnit
 
 interface AccountNetworkService {
@@ -44,6 +47,14 @@ interface AccountNetworkService {
 
     @POST("account/profileimage")
     fun requestProfileImgUpdate(@HeaderMap headersMap: Map<String, String>,@Body request: RequestBody): retrofit2.Call<UpdateProfileImg>
+
+    @GET("account/following")
+    fun requestMotivatorFollowing(@HeaderMap headersMap: Map<String, String>,): retrofit2.Call<MotivatorFollowingModel>
+
+    @GET("coach/unfollow")
+    fun requestMotivatorUnfollow(@HeaderMap headersMap: Map<String, String>,@Path("id") id: String): retrofit2.Call<MotivatorUnfollowModel>
+
+
 
     companion object {
         var logging = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

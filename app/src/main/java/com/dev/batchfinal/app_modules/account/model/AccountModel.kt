@@ -155,3 +155,55 @@ data class UpdateProfileImgData
 
             )
 
+
+// ACCOUNT-> MOTIVATOR FOLLOWING
+
+data class MotivatorFollowingModel
+    (
+    @SerializedName("status"  ) var status  : Boolean?        = null,
+    @SerializedName("message" ) var message : String?         = null,
+    @SerializedName("data"    ) var data    : ArrayList<MotivatorFollowingData> = arrayListOf(),
+    @SerializedName("error"   ) var error   : Error?          = Error()
+            )
+data class MotivatorFollowingData
+    (
+    @SerializedName("id"                 ) var id               : Int?    = null,
+    @SerializedName("name"               ) var name             : String? = null,
+    @SerializedName("email"              ) var email            : String? = null,
+    @SerializedName("profile_photo_path" ) var profilePhotoPath : String? = null
+
+            )
+
+// UNFOLLOW MOTIVATOR
+
+data class MotivatorUnfollowModel
+    (
+    @SerializedName("status"  ) var status  : Boolean? = null,
+    @SerializedName("message" ) var message : String?  = null,
+    @SerializedName("data"    ) var data    : MotivatorUnfollowData?    = MotivatorUnfollowData()
+            )
+data class MotivatorUnfollowData
+    (
+    @SerializedName("id"                 ) var id               : Int?    = null,
+    @SerializedName("user_type"          ) var userType         : Int?    = null,
+    @SerializedName("name"               ) var name             : String? = null,
+    @SerializedName("email"              ) var email            : String? = null,
+    @SerializedName("profile_photo_path" ) var profilePhotoPath : String? = null,
+    @SerializedName("fname"              ) var fname            : String? = null,
+    @SerializedName("lname"              ) var lname            : String? = null,
+    @SerializedName("phone"              ) var phone            : String? = null,
+    @SerializedName("dob"                ) var dob              : String? = null,
+    @SerializedName("gender"             ) var gender           : String? = null,
+    @SerializedName("website"            ) var website          : String? = null,
+    @SerializedName("currency"           ) var currency         : String? = null,
+    @SerializedName("user_status"        ) var userStatus       : Int?    = null,
+    @SerializedName("device_token"       ) var deviceToken      : String? = null,
+    @SerializedName("verification_code"  ) var verificationCode : String? = null,
+    @SerializedName("email_verified_at"  ) var emailVerifiedAt  : String? = null,
+    @SerializedName("avatar"             ) var avatar           : String? = null,
+    @SerializedName("created_at"         ) var createdAt        : String? = null,
+    @SerializedName("updated_at"         ) var updatedAt        : String? = null,
+    @SerializedName("last_login_at"      ) var lastLoginAt      : String? = null,
+    @SerializedName("last_login_ip"      ) var lastLoginIp      : String? = null
+            )
+

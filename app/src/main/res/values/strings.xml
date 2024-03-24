@@ -282,4 +282,5 @@ Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagitt
     <string name="finish">Finish</string>
     <string name="upload_from_gallery">Upload from Gallery</string>
     <string name="camera">Camera</string>
+    <string name="txt_notifications">Notifications</string>
 </resources>

@@ -6,6 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dev.batchfinal.app_modules.account.model.DeliveryAddressModel
 import com.dev.batchfinal.app_modules.account.model.GetDelivaryAddressModel
+import com.dev.batchfinal.app_modules.account.model.MotivatorFollowingModel
+import com.dev.batchfinal.app_modules.account.model.MotivatorUnfollowModel
 import com.dev.batchfinal.app_modules.account.model.SignInModel
 import com.dev.batchfinal.app_modules.account.model.SignUpError
 import com.dev.batchfinal.app_modules.account.model.SignUpModel
@@ -34,6 +36,8 @@ class AccountViewModel constructor(private val repository: AccountRepository) : 
     val getUpdatedProfile = MutableLiveData<UpdateProfileModel>()
     val getUpdatedProfileImg=MutableLiveData<UpdateProfileImg>()
     val getAddDelivaryAddress=MutableLiveData<DeliveryAddressModel>()
+    val getMotivatorFollowing=MutableLiveData<MotivatorFollowingModel>()
+    val getMotivatorUnfollow=MutableLiveData<MotivatorUnfollowModel>()
     val getGetDelivaryAddress=MutableLiveData<GetDelivaryAddressModel>()
 
 
@@ -198,6 +202,67 @@ class AccountViewModel constructor(private val repository: AccountRepository) : 
     }
 
 
+    fun requestMotivatorFollowing( authToken:String) {
+        val requestHeaders = RequestHeadersUtility.requestHeaderAuthorization(authToken)
+        val res = repository.requestMotivatorFollowing(requestHeaders)
+        res.enqueue(object : Callback<MotivatorFollowingModel> {
+            override fun onResponse(
+                call: Call<MotivatorFollowingModel>?,
+                response: Response<MotivatorFollowingModel>?
+            ) {
+                if (response!!.isSuccessful) {
+                    LogUtil.showLog("LOGIN RES", response!!.body().toString())
+
+                    if (response.body()?.status!!)
+                    {
+                        getMotivatorFollowing.postValue(response.body())
+                    }else
+                    {
+
+                        errorMessage.postValue(response.body()!!.message+" ERROR CODE-" + response.code())
+                    }
+                } else {
+
+                    errorMessage.postValue("Some error occurred, ERROR CODE-" + response.code())
+                }
+            }
+            override fun onFailure(call: Call<MotivatorFollowingModel>?, t: Throwable?) {
+                errorMessage.postValue(t?.message)
+            }
+        })
+    }
+    fun requestMotivatorUnfollow( authToken:String,motivatorId:String) {
+        val requestHeaders = RequestHeadersUtility.requestHeaderAuthorization(authToken)
+        val res = repository.requestMotivatorUnfollow(requestHeaders,motivatorId)
+        res.enqueue(object : Callback<MotivatorUnfollowModel> {
+            override fun onResponse(
+                call: Call<MotivatorUnfollowModel>,
+                response: Response<MotivatorUnfollowModel>
+            ) {
+                if (response.isSuccessful) {
+                    LogUtil.showLog("LOGIN RES", response!!.body().toString())
+
+                    if (response.body()?.status!!)
+                    {
+                        getMotivatorUnfollow.postValue(response.body())
+                    }else
+                    {
+
+                        errorMessage.postValue(response.body()!!.message+" ERROR CODE-" + response.code())
+                    }
+                } else {
+
+                    errorMessage.postValue("Some error occurred, ERROR CODE-" + response.code())
+                }
+            }
+            override fun onFailure(call: Call<MotivatorUnfollowModel>, t: Throwable) {
+                errorMessage.postValue(t.message)
+            }
+        })
+    }
+
+
+
     fun requestAddDelivaryAddress(authToken: String, mCountry: String,mState: String,mCity: String
                                   ,mAddress1: String,mAddress2: String,mPostalCode: String,mType: String,isDefault: String) {
         val requestHeaders = RequestHeadersUtility.requestHeaderAuthorization(authToken)
@@ -244,7 +309,7 @@ class AccountViewModel constructor(private val repository: AccountRepository) : 
         })
     }
 
-    fun getGetDelivaryAddress(authToken: String) {
+    fun requestGetDelivaryAddress(authToken: String) {
         val requestHeaders = RequestHeadersUtility.requestHeaderAuthorization(authToken)
         val res = repository.requestGetDelivaryAddress(requestHeaders)
         res.enqueue(object : Callback<GetDelivaryAddressModel> {
@@ -253,7 +318,7 @@ class AccountViewModel constructor(private val repository: AccountRepository) : 
                 response: Response<GetDelivaryAddressModel>?
             ) {
                 if (response!!.isSuccessful) {
-                    LogUtil.showLog("LOGIN RES", response!!.body().toString())
+                    LogUtil.showLog("DELIVERY ADDRESS", response!!.body().toString())
 
                     if (response.body()?.status!!)
                     {

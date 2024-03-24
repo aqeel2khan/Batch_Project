@@ -1,9 +1,13 @@
 package com.dev.batchfinal.app_modules.workout_motivator.view
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
+import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.lifecycle.lifecycleScope
 import com.dev.batchfinal.R
 import com.dev.batchfinal.adapter.VideosAdapter
@@ -98,6 +102,7 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
 
 
     }
+
 
     @SuppressLint("SetTextI18n")
     private fun showVideoInformation(item: Course_duration_exercise) {

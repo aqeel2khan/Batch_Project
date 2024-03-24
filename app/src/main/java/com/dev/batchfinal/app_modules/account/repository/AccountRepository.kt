@@ -17,5 +17,9 @@ class AccountRepository constructor(private val retrofitService: AccountNetworkS
 
     fun requestProfileImgUpdate(headersMap: HashMap<String, String>,requestBody: RequestBody)=retrofitService.requestProfileImgUpdate(headersMap,requestBody)
 
+    fun requestMotivatorFollowing(headersMap: HashMap<String, String>) = retrofitService.requestMotivatorFollowing(headersMap)
+
+    fun requestMotivatorUnfollow(headersMap: HashMap<String, String>,id:String) = retrofitService.requestMotivatorUnfollow(headersMap,id)
+
 
 }
