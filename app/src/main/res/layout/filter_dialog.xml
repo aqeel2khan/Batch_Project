@@ -159,7 +159,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_7sdp"
-                        zhy:max_select="1"
+                        zhy:max_select="-1"
                         >
                     </com.zhy.view.flowlayout.TagFlowLayout>
                     <com.dev.batchfinal.app_custom.MyCustomBoldTV

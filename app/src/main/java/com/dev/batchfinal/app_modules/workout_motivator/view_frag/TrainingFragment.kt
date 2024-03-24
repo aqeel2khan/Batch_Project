@@ -43,7 +43,17 @@ import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.JsonObject
-import com.zhy.view.flowlayout.*
+import com.zhy.view.flowlayout.CoachWtTagAdapter
+import com.zhy.view.flowlayout.CoachWtTagFlowLayout
+import com.zhy.view.flowlayout.ExperienceTagAdapter
+import com.zhy.view.flowlayout.ExperienceTagFlowLayout
+import com.zhy.view.flowlayout.FlowLayout
+import com.zhy.view.flowlayout.GoalTagAdapter
+import com.zhy.view.flowlayout.GoalTagFlowLayout
+import com.zhy.view.flowlayout.LevelTagAdapter
+import com.zhy.view.flowlayout.LevelTagFlowLayout
+import com.zhy.view.flowlayout.TagAdapter
+import com.zhy.view.flowlayout.TagFlowLayout
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -56,11 +66,16 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     var courseList: ArrayList<ListData> = ArrayList()
     var typeId: Int = 0
     var goalId: Int = 0
+    var goal_position: Int = -1
     var levelId: Int = 0
+    var level_posistion: Int = -1
     var cource_workout_Id: Int = 0
+    var cource_workout_position: Int = -1
 
     var motivator_exp_Id: Int = 0
+    var motivator_exp_position: Int = -1
     var motivator_type_Id: Int = 0
+    var motivator_type_posistion: Int = -1
 
     private var allBatchesAdapter: AllBatchesAdapter? = null
 
@@ -105,7 +120,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
             searchCoachData()
             getCoachListApi("")
         }
-        binding.rlWorkoutFilter.setOnClickListener {
+        binding.iconWorkoutFilter.setOnClickListener {
             showFilterDialog("workoutFilter")
         }
         binding.iconFilter.setOnClickListener {
@@ -131,6 +146,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                    // authViewModel.searchCoachListApiCall(jsonObject)
                     //authViewModel.searchCourseFilterListApiCall(jsonObject)
                     authViewModel.filterCourseListApiCall(jsonObject)
+                    binding.iconWorkoutFilter.setBackgroundResource(R.drawable.ic_workout_filter_apply)
+
 
                 }
                 else -> {
@@ -226,6 +243,8 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                     jsonObject.addProperty("experience",motivator_exp_Id)
                     jsonObject.addProperty("workout_type",motivator_type_Id)
                     authViewModel.searchCoachListApiCall(jsonObject)
+                    binding.iconFilter.setBackgroundResource(R.drawable.ic_workout_filter_apply)
+
                 }
                 else -> {
                     hideLoader()
@@ -403,10 +422,14 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 tv.text = t!!.experience
                 return tv
             }
+            override fun setSelected(position: Int, t: Experience?): Boolean {
+                return position ==motivator_exp_position
+            }
         })
 
         dialogBinding.idCoachExperience.setOnTagClickListener(ExperienceTagFlowLayout.OnTagClickListener { view, position, parent ->
             motivator_exp_Id = experiences[position].id
+            motivator_exp_position=position
             //requireActivity().showToast(experiences[position].id.toString())
             true
         })
@@ -425,10 +448,14 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 tv.text = t!!.workoutType
                 return tv
             }
+            override fun setSelected(position: Int, t: Workouttype?): Boolean {
+                return position ==motivator_type_posistion
+            }
         })
 
         dialogBinding.idCoachWt.setOnTagClickListener(CoachWtTagFlowLayout.OnTagClickListener { view, position, parent ->
             motivator_type_Id = workoutType[position].id
+            motivator_type_posistion=position
            // requireActivity().showToast(workoutType[position].id.toString())
             true
         })
@@ -489,13 +516,18 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 return tv
             }
 
-            fun setSelected(position: Int, s: String): Boolean {
-                return s == "Android"
+            override fun setSelected(position: Int, t: WorkoutType?): Boolean {
+                return position ==cource_workout_position
             }
+
+
+
+
         })
 
         dialogBinding.idFlowlayout.setOnTagClickListener(TagFlowLayout.OnTagClickListener { view, position, parent ->
             cource_workout_Id = workoutTypes[position].id
+            cource_workout_position = position
             //requireActivity().showToast(workoutTypes[position].id.toString())
 
             //view.setVisibility(View.GONE);
@@ -536,14 +568,16 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 return tv
             }
 
-            fun setSelected(position: Int, s: String): Boolean {
-                return s == "Android"
+            override fun setSelected(position: Int, t: BatchLevel?): Boolean {
+                return position ==level_posistion
             }
         })
 
         dialogBinding.idFlowlayoutLevel.setOnTagClickListener(LevelTagFlowLayout.OnTagClickListener { view, position, parent ->
             levelId = batchLevel[position].id
-           // requireActivity().showToast(batchLevel[position].id.toString())
+            level_posistion = position
+
+            // requireActivity().showToast(batchLevel[position].id.toString())
             //view.setVisibility(View.GONE);
             true
         })
@@ -582,13 +616,14 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
                 return tv
             }
 
-            fun setSelected(position: Int, s: String): Boolean {
-                return s == "Android"
+            override fun setSelected(position: Int, t: BatchGoal?): Boolean {
+                return position ==goal_position
             }
         })
 
         dialogBinding.idFlowlayoutGole.setOnTagClickListener(GoalTagFlowLayout.OnTagClickListener { view, position, parent ->
             goalId = batchGoal[position].id
+            goal_position=position
             //requireActivity().showToast(batchGoal[position].id.toString())
             //view.setVisibility(View.GONE);
             true
