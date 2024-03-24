@@ -13,10 +13,7 @@ import com.dev.batchfinal.`interface`.PositionCourseWorkoutClick
 import com.dev.batchfinal.model.courseorderlist.Course_duration
 
 
-class WorkoutTypeAdapter(
-    val context: Context?,
-    var courseDuration: ArrayList<Course_duration>?,
-    var todayDuration: String,
+class WorkoutTypeAdapter(val context: Context?, var courseDuration: ArrayList<Course_duration>?, var todayDuration: String,
     val listener: PositionCourseWorkoutClick<Int>
 ) : RecyclerView.Adapter<WorkoutTypeAdapter.ViewHolder>(){
     inner class ViewHolder(val binding: ItemWorkoutTypeBinding) : RecyclerView.ViewHolder(binding.root){
@@ -37,11 +34,17 @@ class WorkoutTypeAdapter(
                             binding.tvBoost.text = mCoursedurationData.calorie_burn.toString()
                         if (!mCoursedurationData.workout_time.isNullOrEmpty())
                             binding.tvBoostMin.text = mCoursedurationData.workout_time.toString()
+                        if (!mCoursedurationData.description.isNullOrEmpty())
+                            binding.weightLossDescription.text = mCoursedurationData.description.toString()
+                        if (mCoursedurationData.course_duration_exercise.size>0)
+                            binding.tvTotalVideos.text = mCoursedurationData.course_duration_exercise.size.toString()
+
                         binding.tvIndex.text = "$pos"
 
                     }
 
                 }
+
                 if (todayDuration == pos.toString()){
                     binding.cardBg.setBackgroundResource(R.drawable.card_bg_select)
                     binding.tvIndex.setTextColor(ContextCompat.getColor(context!!,R.color.light_gry))

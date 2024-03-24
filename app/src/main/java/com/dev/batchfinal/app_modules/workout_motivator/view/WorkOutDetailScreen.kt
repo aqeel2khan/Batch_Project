@@ -1,8 +1,13 @@
 package com.dev.batchfinal.app_modules.workout_motivator.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.R
@@ -14,6 +19,7 @@ import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_modules.scanning.work_manager.VimeoVideoWorker
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.gson.Gson
@@ -21,12 +27,16 @@ import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.dev.batchfinal.out.Resource
+import kotlin.system.exitProcess
+
 
 @AndroidEntryPoint
 class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
     private var workout_duration_detail: Course_duration? = null
     private var courseData: OrderList? = null
     private val viewModel: AllViewModel by viewModels()
+
+    private val mVimeoURLs=ArrayList<HashMap<String,String>>()
 
     private val authViewModel by viewModels<AuthViewModel>()
     override fun getViewModel(): BaseViewModel {
@@ -49,7 +59,8 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
 
             }
             var strObj1 = ""
-            if (intent.hasExtra("course_data")) {
+            if (intent.hasExtra("course_data"))
+            {
                 strObj1 = intent.getStringExtra("course_data").toString()
 
                 if (strObj1.isNotEmpty()) {
@@ -61,7 +72,23 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
                 workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
             }
 
+            for (i in 0 until courseData!!.course_detail.course_duration.size) {
+                for (j in 0 until courseData!!.course_detail.course_duration[i].course_duration_exercise.size) {
+                    // Perform operations here
+                    println("Row: $i, Column: $j")
+                    val map=HashMap<String,String>()
+                    if (!courseData!!.course_detail.course_duration[i].course_duration_exercise[j].video_detail.video_id.isNullOrEmpty())
+                    {
+                        map["videoKey"] = courseData!!.course_detail.course_duration[i].course_duration_exercise[j].video_detail.video_id.toString()
+                        map["videoId"] = courseData!!.course_detail.course_duration[i].course_duration_exercise[j].course_duration_exercise_id.toString()
+                        mVimeoURLs.add(map)
+                    }
 
+                }
+                exitProcess(0)
+            }
+
+        Log.e("V_Key",mVimeoURLs.toString())
             binding.weightLossText.text = workout_duration_detail?.day_name
             binding.txtDetailContent.text = workout_duration_detail?.description
             binding.userName.text = courseData?.course_detail?.coach_detail?.name.toString()
@@ -81,6 +108,7 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun buttonClicks() {
 
         try {
@@ -107,18 +135,29 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
              * */
             binding.btnStartWorkout.setOnClickListener {
                 val gson = Gson()
-                startWorkoutApi(MyConstant.jsonObject)
-                val mIntent = Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java)
-
                 var mCouseduration = ""
                 var mCourseData = ""
+                startWorkoutApi(MyConstant.jsonObject)
+
+                val mIntent = Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java)
                 if (courseData?.course_detail?.course_duration != null && courseData?.course_detail?.course_duration?.size!! > 0) {
                     mCouseduration = gson.toJson(courseData?.course_detail?.course_duration?.get(0)!!)
                 }
                 if (courseData != null) {
                     mCourseData = gson.toJson(courseData)
                 }
+                // NOTE - NEW WAY IMPLEMENTATION OF VIMEO-IN PROGRESS
+                //   val videoKey= courseData?.course_detail?.course_duration?.get(0)!!.course_duration_exercise[0].video_id
+                // Log.e("VIDEO_KEY",videoKey)
 
+
+
+                 val inputData = workDataOf("videoKey" to "911682062")
+                 val workRequest = OneTimeWorkRequest.Builder(VimeoVideoWorker::class.java)
+                    .setInputData(inputData)
+                    .build()
+                // Enqueue the WorkRequest
+                WorkManager.getInstance(this@WorkOutDetailScreen).enqueue(workRequest)
                 mIntent.putExtra("duration_work_position", mCouseduration)
                 mIntent.putExtra("course_data", mCourseData)
                 startActivity(mIntent)
@@ -167,6 +206,8 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
                         hideLoader()
                         MyCustom.errorBody(binding.root.context, it.errorBody, "")
                     }
+
+                    else -> {}
                 }
             }
         } else {

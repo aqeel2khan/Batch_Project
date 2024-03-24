@@ -44,7 +44,7 @@ import java.util.*
 
 @AndroidEntryPoint
 class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
-    private  var courseData: OrderList?= null
+    private var courseData: OrderList? = null
     private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
     private var REQUEST_CODE = 1234
@@ -67,19 +67,19 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
     override fun initUi() {
         try {
             val gson = Gson()
-            var strObj= ""
-            if(intent!=null){
-                if(intent.hasExtra("order_list")){
+            var strObj = ""
+            if (intent != null) {
+                if (intent.hasExtra("order_list")) {
                     strObj = intent.getStringExtra("order_list").toString()
                 }
-                if(strObj.isNotEmpty()){
+                if (strObj.isNotEmpty()) {
                     courseData = gson.fromJson(strObj, OrderList::class.java)
                 }
             }
 
 
 
-            binding.weightLossText.text = courseData?.course_detail?.course_name?:""
+            binding.weightLossText.text = courseData?.course_detail?.course_name ?: ""
             binding.messageText.text = courseData?.course_detail?.description?.toString()
             binding.userName.text = courseData?.course_detail?.coach_detail?.name?.toString()
             binding.txtLevel.text = courseData?.course_detail?.course_level?.level_name?.toString()
@@ -104,12 +104,27 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
                 AnimationUtils.loadAnimation(applicationContext, R.anim.bottom_top)
             binding.relWeightLayout.startAnimation(aniSlide)
 
-        //    setVideoOnBanner()
+            //    setVideoOnBanner()
 
-            setWorkoutTypeAdapter()
+            setWorkoutDayWise()
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    //Day wise workout list list
+    private fun setWorkoutDayWise() {
+
+
+        binding.rvWorkoutDayWise.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.rvWorkoutDayWise.adapter = WorkoutTypeAdapter(this@WeightLossActivity,
+            courseData?.course_detail?.course_duration,
+            courseData?.course_detail?.duration!!,
+            object : PositionCourseWorkoutClick<Int> {
+                override fun onCourseWorkoutItemPosition(item: Course_duration, postions: Int) {
+
+                }
+            })
     }
 
     private fun getCourseDetailData(course_id: String?) {
@@ -128,13 +143,16 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
                                 if (response.status == MyConstant.success) {
                                     courseDetailData = response.data
                                     try {
-                                        binding.levelType.text = courseDetailData.courseLevel.levelName
+                                        binding.levelType.text =
+                                            courseDetailData.courseLevel.levelName
 
-                                    }catch (e:Exception){}
+                                    } catch (e: Exception) {
+                                    }
                                     if (courseDetailData.workoutType.isNotEmpty()) {
 
                                         setWorkoutType(courseDetailData.workoutType as List<CourseDetailResponseModel.WorkoutType>)
-                                    }                                }
+                                    }
+                                }
                             }
                         }
                     }
@@ -162,7 +180,8 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             layoutManager = LinearLayoutManager(
                 this@WeightLossActivity,
                 LinearLayoutManager.HORIZONTAL,
-                false)
+                false
+            )
             adapter = WorkoutTypeListAdapter(this@WeightLossActivity, workoutType)
         }
     }
@@ -202,9 +221,8 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             }
 
 
-
         } catch (e: Exception) {
-           e.printStackTrace()
+            e.printStackTrace()
         }
 
 
@@ -217,7 +235,8 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             val playAt = data!!.getFloatExtra(VimeoPlayerActivity.RESULT_STATE_VIDEO_PLAY_AT, 0f)
             binding.vimeoPlayerView.seekTo(playAt)
 
-            val playerState = PlayerState.valueOf(data!!.getStringExtra(VimeoPlayerActivity.RESULT_STATE_PLAYER_STATE)!!)
+            val playerState =
+                PlayerState.valueOf(data!!.getStringExtra(VimeoPlayerActivity.RESULT_STATE_PLAYER_STATE)!!)
             when (playerState) {
                 PlayerState.PLAYING -> binding.vimeoPlayerView.play()
                 PlayerState.PAUSED -> binding.vimeoPlayerView.pause()
@@ -227,25 +246,6 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
     }
 
 
-    private fun setWorkoutTypeAdapter() {
-        binding.recyclerWorkoutType.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.recyclerWorkoutType.adapter = WorkoutTypeAdapter(this@WeightLossActivity,
-            courseData?.course_detail?.course_duration,
-            courseData?.course_detail?.duration!!,
-            object :
-                PositionCourseWorkoutClick<Int> {
-                override fun onCourseWorkoutItemPosition(item: Course_duration, postions: Int) {
-//                    startActivity(
-//                        Intent(
-//                            this@WeightLossActivity,
-//                            CourseDetailActivity::class.java
-//                        ).putExtra("course_id", item.course_id.toString())
-//                    )
-                }
-
-            })
-    }
 
     @SuppressLint("SuspiciousIndentation")
     private fun buttonClicks() {
@@ -264,18 +264,19 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
                     data2 = gson.toJson(courseData)
                 }
 
-             var mIntent=   Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java)
-                    if (courseData != null && courseData?.course_detail != null && courseData?.course_detail?.course_duration != null && courseData?.course_detail?.course_duration!!.size>0) {
-                     val   data = gson.toJson(courseData?.course_detail!!.course_duration[0]!!)
+                var mIntent = Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java)
+                if (courseData != null && courseData?.course_detail != null && courseData?.course_detail?.course_duration != null && courseData?.course_detail?.course_duration!!.size > 0) {
+                    val data = gson.toJson(courseData?.course_detail!!.course_duration[0]!!)
 
-                        mIntent. putExtra(
-                            "duration_work_position",
-                            data)
-                    }
+                    mIntent.putExtra(
+                        "duration_work_position",
+                        data
+                    )
+                }
 
-                if(data2!=null) {
+                if (data2 != null) {
                     if (courseData != null) {
-                     val   data2 = gson.toJson(courseData)
+                        val data2 = gson.toJson(courseData)
                         mIntent.putExtra("course_data", data2)
                     }
                     mIntent.putExtra("course_data", data2)
@@ -283,11 +284,6 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
 
                 startActivity(mIntent)
 
-//                startActivity(
-//                    Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java).putExtra(
-//                        "duration_work_position",
-//                        gson.toJson(data)
-//                    ).putExtra("course_data", data2))
 
             } catch (e: Exception) {
                 e.printStackTrace()

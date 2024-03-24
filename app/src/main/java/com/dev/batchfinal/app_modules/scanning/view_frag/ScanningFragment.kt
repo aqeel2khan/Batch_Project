@@ -334,15 +334,7 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
                                 if (response.status == MyConstant.success) {
                                     courseList = response.data.list
 
-                                    // NOTE - NEW WAY IMPLEMENTATION OF VIMEO-IN PROGRESS
-                                    /*val videoKey= courseList[1].course_detail.course_duration[0].course_duration_exercise[0].video_id
-                                      Log.e("VIDEO_KEY",videoKey)
-                                     val inputData = workDataOf("videoKey" to "911682062")
-                                     val workRequest = OneTimeWorkRequest.Builder(VimeoVideoWorker::class.java)
-                                        .setInputData(inputData)
-                                        .build()
-                                    // Enqueue the WorkRequest
-                                    WorkManager.getInstance(requireContext()).enqueue(workRequest)*/
+
 
                                     courseData = response.data
                                     setAllCourseOrderAdapter(courseList)

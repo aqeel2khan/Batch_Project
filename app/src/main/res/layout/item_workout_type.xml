@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
             android:layout_gravity="center">
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_bg"
@@ -65,7 +65,17 @@
                     android:layout_marginTop="@dimen/_4sdp"
                     android:textColor="@color/welcome_txt"
                     android:textFontWeight="500"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_12sdp" />
+                <com.dev.batchfinal.app_custom.MyCustomLightTextView
+                    android:id="@+id/weight_loss_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lower-Body Burn"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textColor="@color/welcome_txt"
+                    android:textFontWeight="500"
+                    android:textSize="@dimen/_10ssp" />
+
 
                 <LinearLayout
                     android:id="@+id/ll_cal"
@@ -80,8 +90,8 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/_8sdp">
                         <ImageView
-                            android:layout_width="@dimen/_14sdp"
-                            android:layout_height="@dimen/_14sdp"
+                            android:layout_width="@dimen/_13sdp"
+                            android:layout_height="@dimen/_13sdp"
                             android:src="@drawable/flash_icon"/>
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_boost"
@@ -92,7 +102,7 @@
                             android:layout_marginStart="@dimen/_3sdp"
                             android:textColor="@color/gry"
                             android:textFontWeight="500"
-                            android:textSize="@dimen/_12ssp" />
+                            android:textSize="@dimen/_10sdp" />
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_boost_kcal"
                             android:layout_width="wrap_content"
@@ -100,7 +110,7 @@
                             android:fontFamily="sans-serif-medium"
                             android:text=" kcal"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_8sdp" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -120,7 +130,7 @@
                             android:layout_marginStart="@dimen/_3sdp"
                             android:textColor="@color/gry"
                             android:textFontWeight="500"
-                            android:textSize="@dimen/_12ssp" />
+                            android:textSize="@dimen/_10sdp" />
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:id="@+id/tv_boost_min_txt"
                             android:layout_width="wrap_content"
@@ -132,6 +142,35 @@
                             android:textFontWeight="500"
                             android:textSize="@dimen/_8ssp" />
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp">
+                        <ImageView
+                            android:layout_width="@dimen/_14sdp"
+                            android:layout_height="@dimen/_14sdp"
+                            android:background="@drawable/ic_vedio_remains"
+                            android:backgroundTint="@color/black"/>
+                        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                            android:id="@+id/tv_total_videos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="00"
+                            android:layout_marginStart="@dimen/_3sdp"
+                            android:textColor="@color/gry"
+                            android:textFontWeight="500"
+                            android:textSize="@dimen/_10sdp" />
+                        <com.dev.batchfinal.app_custom.MyCustomLightTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" videos"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_8ssp" />
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

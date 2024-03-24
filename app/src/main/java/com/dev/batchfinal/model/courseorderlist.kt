@@ -95,17 +95,17 @@ data class Course_duration_exercise(
 
 data class Video_detail(
 
-    @SerializedName("id") val id: Int,
-    @SerializedName("user_id") val user_id: Int,
-    @SerializedName("folder_id") val folder_id: Int,
-    @SerializedName("video_title") val video_title: String,
-    @SerializedName("video_description") val video_description: String,
-    @SerializedName("video_id") val video_id: String,
-    @SerializedName("duration") val duration: String,
-    @SerializedName("width") val width: String,
-    @SerializedName("height") val height: String,
-    @SerializedName("status") val status: Int,
-    @SerializedName("player_embed_url") val player_embed_url: String
+    @SerializedName("id") val id: Int?=null,
+    @SerializedName("user_id") val user_id: Int?=null,
+    @SerializedName("folder_id") val folder_id: Int?=null,
+    @SerializedName("video_title") val video_title: String?=null,
+    @SerializedName("video_description") val video_description: String?=null,
+    @SerializedName("video_id") val video_id: String?=null,
+    @SerializedName("duration") val duration: String?=null,
+    @SerializedName("width") val width: String?=null,
+    @SerializedName("height") val height: String?=null,
+    @SerializedName("status") val status: Int?=null,
+    @SerializedName("player_embed_url") val player_embed_url: String?=null
 //    @SerializedName("created_at") val created_at: String,
 //    @SerializedName("updated_at") val updated_at: String
 )

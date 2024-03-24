@@ -23,19 +23,7 @@
             app:backgroundColor="#00FFFF"
             />
 
-        <!--            <com.example.vimeoplayer2.UniversalVideoView-->
-        <!--                android:id="@+id/videoView"-->
-        <!--                android:layout_width="fill_parent"-->
-        <!--                android:layout_height="fill_parent"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                app:uvv_autoRotation="true"-->
-        <!--                app:uvv_fitXY="false" />-->
 
-        <!--            <com.example.vimeoplayer2.UniversalMediaController-->
-        <!--                android:id="@+id/media_controller"-->
-        <!--                android:layout_width="fill_parent"-->
-        <!--                android:layout_height="fill_parent"-->
-        <!--                app:uvv_scalable="true" />-->
 
     </FrameLayout>
     <LinearLayout
@@ -482,7 +470,7 @@
                     android:layout_below="@id/workout_text"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
-                    android:id="@+id/recycler_workout_type"/>
+                    android:id="@+id/rvWorkoutDayWise"/>
             </RelativeLayout>
 
         </ScrollView>

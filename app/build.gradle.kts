@@ -128,7 +128,17 @@ dependencies {
 
 //Work manger
     implementation("androidx.work:work-runtime-ktx:2.7.0")
-
+    //Exo player
+    implementation("com.google.android.exoplayer:exoplayer:2.10.5")
+    implementation("com.google.android.exoplayer:exoplayer-core:2.10.5")
+    implementation("com.google.android.exoplayer:exoplayer-hls:2.10.5")
+    implementation("com.google.android.exoplayer:exoplayer-ui:2.10.5")
+    implementation("com.google.android.exoplayer:exoplayer-dash:2.10.5")
+    implementation("com.google.android.exoplayer:exoplayer-smoothstreaming:2.10.5")
+    implementation("com.yahoo.mobile.client.android.util.rangeseekbar:rangeseekbar-library:0.1.0")
+    /*for shape*/
+    implementation("com.joooonho:selectableroundedimageview:1.0.1")
+    implementation("com.allattentionhere:autoplayvideos:0.2.0")
 
 
 

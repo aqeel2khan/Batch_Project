@@ -64,10 +64,10 @@ class VideosAdapter(
                  *
                  * */
 
-                val vimeoVideoKey = videDetail.video_id.toInt()
+                val vimeoVideoKey = videDetail.video_id!!.toInt()
 
                  videDetail.player_embed_url
-                 Log.e("VimeoEmbededURL",  videDetail.player_embed_url)
+                videDetail.player_embed_url?.let { Log.e("VimeoEmbededURL", it) }
                 binding.vimeoPlayerView.initialize(true, vimeoVideoKey)
 
 
