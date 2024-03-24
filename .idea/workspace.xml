@@ -386,9 +386,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="rw">
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-    </list>
+    <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="rw" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -624,28 +622,12 @@
       <option name="presentableId" value="Default" />
       <updated>1709652902517</updated>
     </task>
-    <task id="LOCAL-00016" summary="raw">
-      <option name="closed" value="true" />
-      <created>1710095328307</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1710095328307</updated>
-    </task>
     <task id="LOCAL-00017" summary="meal_with_branch_pradeep">
       <created>1710105124484</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
       <updated>1710105124484</updated>
-    </task>
-    <task id="LOCAL-00018" summary="null check on click of meal and batch click listener">
-      <option name="closed" value="true" />
-      <created>1710454743064</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1710454743064</updated>
     </task>
     <task id="LOCAL-00019" summary="try catch on start activity">
       <option name="closed" value="true" />
@@ -1009,7 +991,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711296612920</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="rw">
+      <option name="closed" value="true" />
+      <created>1711296915990</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1711296915990</updated>
+    </task>
+    <task id="LOCAL-00066" summary="rw">
+      <option name="closed" value="true" />
+      <created>1711296946510</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1711296946510</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1038,7 +1036,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/development_23_march_bharat" />
+                        <option value="development_23_march_pradeep" />
                       </list>
                     </value>
                   </entry>
