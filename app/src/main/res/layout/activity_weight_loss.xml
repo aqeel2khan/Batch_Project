@@ -470,7 +470,7 @@
                     android:layout_below="@id/workout_text"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
-                    android:id="@+id/rvWorkoutDayWise"/>
+                    android:id="@+id/recycler_workout_type"/>
             </RelativeLayout>
 
         </ScrollView>

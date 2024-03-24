@@ -166,25 +166,7 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
         val strObj1 = intent.getStringExtra("course_data")
         courseData = gson.fromJson(strObj1, OrderList::class.java)
 
-        val item = VideoItem()
-        item.videoURL = "https://player.vimeo.com/video/913068330"
-        item.videoTitle = "Women In Tech"
-        videoItems.add(item)
 
-        val item2 = VideoItem()
-        item2.videoURL = "https://player.vimeo.com/video/913068229"
-        item2.videoTitle = "Sasha Solomon"
-        videoItems.add(item2)
-
-        val item3 = VideoItem()
-        item3.videoURL = "https://player.vimeo.com/video/911555330"
-        item3.videoTitle = "Happy Hour Wednesday"
-        videoItems.add(item3)
-
-        val item4 = VideoItem()
-        item4.videoURL = "https://player.vimeo.com/video/913068330"
-        item4.videoTitle = "Happy 4 Wednesday"
-        videoItems.add(item4)
 
         var position=intent.getStringExtra("position")
 
