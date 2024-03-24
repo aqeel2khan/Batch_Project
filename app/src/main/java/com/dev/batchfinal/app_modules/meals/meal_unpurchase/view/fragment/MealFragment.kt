@@ -27,6 +27,7 @@ import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.databinding.FilterDialogBinding
 import com.dev.batchfinal.databinding.FragmentMealBinding
 import com.dev.batchfinal.`interface`.MealListItemPosition
+import com.dev.batchfinal.model.coach_filter_list.Experience
 import com.dev.batchfinal.model.meal_filter_model.BatchGoal
 import com.dev.batchfinal.model.meal_filter_model.MealCalory
 import com.dev.batchfinal.model.meal_filter_model.MealTag
@@ -61,8 +62,11 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
 
     private var calories_from: Int = 0
     private var calories_to: Int = 0
+    private var calories_position: Int = -1
     private var teg_id: Int = 0
-    private var goal_id: Int = 0
+    private var teg_position: Int = -1
+    private var goal_id: Int = -1
+    private var goal_position: Int = -1
 
     override fun getViewModel(): BaseViewModel {
         return viewModel
@@ -114,6 +118,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
                     MyConstant.jsonObject.addProperty("calories_from",calories_from)
                     MyConstant.jsonObject.addProperty("calories_to",calories_to)
                     authViewModel.mealListFilterApiCall(MyConstant.jsonObject)
+                    binding.iconFilter.setBackgroundResource(R.drawable.ic_workout_filter_apply)
 
                 }
                 else -> {
@@ -250,13 +255,17 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
                 tv.text = t!!.fromValue.toString() + "-" + t.toValue
                 return tv
             }
+            override fun setSelected(position: Int, t: MealCalory?): Boolean {
+                return position ==calories_position
+            }
         })
 
         dialogBinding.idCalories.setOnTagClickListener(CaloriesTagFlowLayout.OnTagClickListener { view, position, parent ->
 //            typeId = workoutTypes[position].id
             calories_from=mealCalories[position].fromValue
             calories_to=mealCalories[position].toValue
-            requireActivity().showToast(mealCalories[position].id.toString())
+            calories_position=position
+            //requireActivity().showToast(mealCalories[position].id.toString())
             //view.setVisibility(View.GONE);
             true
         })
@@ -280,12 +289,17 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
                 tv.text = t!!.name
                 return tv
             }
+            override fun setSelected(position: Int, t: BatchGoal?): Boolean {
+                return position ==goal_position
+            }
         })
 
         dialogBinding.idMealGoal.setOnTagClickListener(MealGoalTagFlowLayout.OnTagClickListener { view, position, parent ->
 //            typeId = workoutTypes[position].id
             goal_id=batchGoals[position].id
-            requireActivity().showToast(batchGoals[position].id.toString())
+            goal_position=position
+
+            //requireActivity().showToast(batchGoals[position].id.toString())
             //view.setVisibility(View.GONE);
             true
         })
@@ -307,12 +321,16 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
                 tv.text = t!!.name
                 return tv
             }
+            override fun setSelected(position: Int, t: MealTag?): Boolean {
+                return position ==teg_position
+            }
         })
 
         dialogBinding.idMealTags.setOnTagClickListener(MealTagsTagFlowLayout.OnTagClickListener { view, position, parent ->
            // typeId = workoutTypes[position].id
             teg_id=mealTags[position].id
-            requireActivity().showToast(mealTags[position].id.toString())
+            teg_position=position
+            //requireActivity().showToast(mealTags[position].id.toString())
             //view.setVisibility(View.GONE);
             true
         })
