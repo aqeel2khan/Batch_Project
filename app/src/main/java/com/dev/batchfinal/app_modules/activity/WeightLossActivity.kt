@@ -237,29 +237,33 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             showBottomSheetDialog()
         }
         binding.startWorkout.setOnClickListener {
-            try {
-                val gson = Gson()
-                var data2 = ""
-                if (courseData != null) {
-                    data2 = gson.toJson(courseData)
-                }
+            if(courseData!!.todayWorkouts.status.toInt()==0){
+                showToast("Today is off")
 
-             var mIntent=   Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java)
+            }else{
+                try {
+                    val gson = Gson()
+                    var data2 = ""
+                    if (courseData != null) {
+                        data2 = gson.toJson(courseData)
+                    }
+
+                    var mIntent=   Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java)
                     if (courseData != null && courseData?.courseDetail != null && courseData?.courseDetail?.courseDuration != null && courseData?.courseDetail?.courseDuration!!.size>0) {
-                     val   data = gson.toJson(courseData?.courseDetail!!.courseDuration[0]!!)
+                        val   data = gson.toJson(courseData?.courseDetail!!.courseDuration[0]!!)
 
                         mIntent. putExtra("duration_work_position", data)
                     }
 
-                if(data2!=null) {
-                    if (courseData != null) {
-                     val   data2 = gson.toJson(courseData)
+                    if(data2!=null) {
+                        if (courseData != null) {
+                            val   data2 = gson.toJson(courseData)
+                            mIntent.putExtra("course_data", data2)
+                        }
                         mIntent.putExtra("course_data", data2)
                     }
-                    mIntent.putExtra("course_data", data2)
-                }
 
-                startActivity(mIntent)
+                    startActivity(mIntent)
 
 //                startActivity(
 //                    Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java).putExtra(
@@ -267,9 +271,11 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
 //                        gson.toJson(data)
 //                    ).putExtra("course_data", data2))
 
-            } catch (e: Exception) {
-                e.printStackTrace()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
+
 
         }
     }
