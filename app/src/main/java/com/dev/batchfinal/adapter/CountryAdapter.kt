@@ -1,5 +1,6 @@
 package com.dev.batchfinal.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,15 +12,20 @@ import com.dev.batchfinal.model.Country
 
 class CountryAdapter(
     private var countries: List<Country>, /*, var listener: CountryListItemPosition<Int>*/
-    private  var mContext: OnBoardingActivity,
+    private var mContext: OnBoardingActivity,
+    private var mselctedcountry: String,
 ) : RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
     private var filteredList: List<Country> = countries.toMutableList()
     private  var mcContext = this.mContext
+    private var selctedcountry = mselctedcountry
 
 
     fun updateData(newData: List<Country>) {
         countries = newData
         notifyDataSetChanged()
+    }
+    fun updateCurrentCountry(countryName:String){
+        selctedcountry =  countryName
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,7 +34,7 @@ class CountryAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(countries[position])
+        holder.bind(countries[position],selctedcountry)
     }
 
     override fun getItemCount(): Int {
@@ -36,6 +42,7 @@ class CountryAdapter(
     }
 
 
+    @SuppressLint("SuspiciousIndentation")
     fun filter(query: String) {
         filteredList = if (query.isEmpty()) {
             countries
@@ -53,9 +60,15 @@ class CountryAdapter(
     }
 
     class ViewHolder(val binding: ItemCountryListBinding,val mContext: OnBoardingActivity) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(country: Country) {
+
+        fun bind(country: Country, selctedcountry: String) {
             // Bind data to the views
             binding.countryName.text = country.name
+            if(country.name.equals(selctedcountry)){
+                binding.btnCountry.setBackgroundResource(R.drawable.rectangle_btn_lag_select)
+            }else{
+                binding.btnCountry.setBackgroundResource(R.drawable.rectangle_button_gry)
+            }
             Glide.with(binding.root.context).load(country.flag).into(binding.countryFlag)
 
             binding.root.setOnClickListener {
@@ -65,5 +78,7 @@ class CountryAdapter(
                 mContext.setEdittextBlank()
             }
         }
+
+
     }
 }
