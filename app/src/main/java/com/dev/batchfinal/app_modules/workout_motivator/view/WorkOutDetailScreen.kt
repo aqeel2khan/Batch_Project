@@ -51,7 +51,7 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
             }
             var strObj1 =""
             if(intent.hasExtra("course_data")){
-                 strObj1 = intent.getStringExtra("course_data").toString()
+                strObj1 = intent.getStringExtra("course_data").toString()
 
                 if(strObj1.isNotEmpty()){
                     courseData = gson.fromJson(strObj1, List::class.java)
@@ -101,7 +101,7 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
             binding.btnStartWorkout.setOnClickListener {
                 val gson = Gson()
                 startWorkoutApi(MyConstant.jsonObject)
-             var mIntent=   Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java)
+                var mIntent=   Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java)
 
                 var mCouseduration=""
                 if( courseData?.courseDetail?.courseDuration!=null && courseData?.courseDetail?.courseDuration?.size!!>0){
@@ -122,7 +122,7 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
 //                ).putExtra("course_data", gson.toJson(courseData)))
             }
         } catch (e: Exception) {
-           e.printStackTrace()
+            e.printStackTrace()
         }
 
 //            startActivity(Intent(this@WorkOutDetailScreen, PlayWorkoutVideoActivity::class.java)) }
