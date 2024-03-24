@@ -16,19 +16,24 @@ data class Data(
 data class BatchGoal(
     val goal_name: String,
     val id: Int,
-    val status: Int
+    val status: Int,
+    val isSelected: Boolean
 )
 
 data class BatchLevel(
     val id: Int,
     val level_name: String,
-    val status: Int
+    val status: Int,
+    val isSelected: Boolean
+
 )
 
 data class WorkoutType(
     val id: Int,
     val status: Int,
-    val workout_type: String
+    val workout_type: String,
+    val isSelected: Boolean
+
 )
 
 class Error

@@ -77,7 +77,7 @@
                 android:layout_width="@dimen/_28sdp"
                 android:layout_height="@dimen/_28sdp"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_workout_filter" />
+                android:background="@drawable/ic_workout_filter" />
         </RelativeLayout>
 
         <RelativeLayout
