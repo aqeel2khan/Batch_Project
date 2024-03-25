@@ -18,7 +18,7 @@ class MealBatchPlanAdapter(val context: Context?, var mealList: List<MealList>,v
                 binding.tvMealName.text = mealList.name
             }
             if (!mealList.price.isNullOrEmpty()){
-                binding.tvMealPrice.text = mealList.price
+                binding.tvMealPrice.text = "KD "+mealList.price.substringBefore(".")
             }
             binding.tvKcal.text = mealList.avgCalPerDay
             binding.tvMealCount.text = mealList.mealCount.toString()

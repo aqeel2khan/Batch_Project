@@ -61,6 +61,7 @@ class LoginActivity : AppBaseActivity<ActivityLoginBinding>() {
                 "" + it.data!!.name,it.data!!.dob.toString(),
                 it.data!!.gender.toString(),it.data!!.profilePhotoPath.toString(),true
             )
+
             if(screen.equals("workout_batch")){
                 startActivity(
                     Intent(this@LoginActivity, CheckOutActivity::class.java)

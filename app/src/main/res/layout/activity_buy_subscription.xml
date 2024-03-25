@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/top_bg_final"
+    android:background="@color/top_header"
 
     >
 
@@ -12,7 +12,8 @@
         android:id="@+id/header_title"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageView
@@ -23,21 +24,21 @@
             android:layout_marginStart="@dimen/_16sdp"
             android:src="@drawable/app_back_icon" />
 
-        <com.dev.batchfinal.app_custom.MyCustomBoldTV
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:gravity="center"
             android:text="@string/txt_buy_subscription"
             android:textColor="@color/black"
-            android:textSize="@dimen/_14sdp" />
+            android:textSize="@dimen/_18sdp" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_55sdp"
+        android:layout_marginTop="@dimen/_60sdp"
         android:background="@drawable/rounded_bg_main">
 
         <ScrollView
@@ -86,7 +87,7 @@
                             android:layout_alignParentBottom="true"
                             android:padding="@dimen/_8sdp">
 
-                            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+                            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                                 android:id="@+id/course_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -116,7 +117,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="$35"
                                     android:textColor="@color/white"
-                                    android:textSize="@dimen/_10sdp" />
+                                    android:textSize="@dimen/_14sdp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -332,7 +333,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.dev.batchfinal.app_custom.MyCustomBoldTV
+                <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                     android:id="@+id/durationText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -353,7 +354,7 @@
                     android:text="$35"
                     android:textColor="@color/black"
                     android:textFontWeight="500"
-                    android:textSize="@dimen/_14ssp" />
+                    android:textSize="@dimen/_18ssp" />
             </RelativeLayout>
 
             <androidx.appcompat.widget.AppCompatButton

@@ -13,8 +13,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_trainer_profile"
-        android:layout_width="@dimen/_90sdp"
-        android:layout_height="@dimen/_90sdp"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
         android:layout_gravity="center"
         android:src="@drawable/normal_boy"
         app:civ_border_color="@color/white"
@@ -22,7 +22,7 @@
         app:civ_border_width="0.5dp"
         app:civ_circle_background_color="@color/gry2" />
 
-    <com.dev.batchfinal.app_custom.MyCustomBoldTV
+    <com.dev.batchfinal.app_custom.MyCustomMediumTextView
         android:id="@+id/txt_trainer_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

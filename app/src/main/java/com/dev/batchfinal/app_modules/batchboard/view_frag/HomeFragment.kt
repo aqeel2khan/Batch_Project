@@ -19,6 +19,7 @@ import com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.fragment.MealFr
 import com.dev.batchfinal.app_modules.shopping.view.CourseDetailActivity
 import com.dev.batchfinal.app_modules.workout_motivator.view.MotivatorDetailActivity
 import com.dev.batchfinal.app_modules.workout_motivator.view_frag.TrainingFragment
+import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.CommonUtils
 import com.dev.batchfinal.app_utils.CommonUtils.Companion.dismissDialog
@@ -50,6 +51,8 @@ import java.util.Arrays
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val viewModel: AllViewModel by viewModels()
     private val authViewModel by viewModels<AuthViewModel>()
+    private lateinit var sessionManager: UserSessionManager
+
     private val images: IntArray = intArrayOf(
         R.drawable.exercise_image,
         R.drawable.food,
@@ -94,6 +97,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun getViewBinding() = FragmentHomeBinding.inflate(layoutInflater)
 
     override fun initUi() {
+        sessionManager = UserSessionManager(requireActivity())
+
         buttonClicks()
         setUpSlider()
         //setUpBatchesAdapter()
@@ -144,7 +149,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         if (CheckNetworkConnection.isConnection(requireContext(), binding.root, true)) {
             showLoader()
             //showProgressDialog(requireContext())
-            authViewModel.courseListApiCall()
+            authViewModel.courseListApiCall("Bearer " + sessionManager.getUserToken())
             authViewModel.courseListResponse.observe(this) {
                 when (it) {
                     is Resource.Success -> {
@@ -452,14 +457,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
             findNavController().navigate(
                 R.id.action_batchboardFragment_to_trainingFragment,
-                TrainingFragment.getBundle("")
+                TrainingFragment.getBundle("","workout")
             )
         }
 
         binding.tvMotivatorShowAll.setOnClickListener {
             findNavController().navigate(
                 R.id.action_batchboardFragment_to_trainingFragment,
-                TrainingFragment.getBundle("")
+                TrainingFragment.getBundle("","motivator")
             )
         }
         binding.tvMealShowAll.setOnClickListener {

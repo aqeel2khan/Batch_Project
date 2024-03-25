@@ -175,9 +175,9 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
                                     binding.cardWorkout.visibility = View.VISIBLE
                                     meal_price=response.data.coursePrice
                                     binding.courseName.text = response.data.courseName
-                                    binding.coursePrice.text = response.data.coursePrice + "KWD"
-                                    binding.tvSubtotalValue.text = response.data.coursePrice + "KWD"
-                                    binding.tvTotalValue.text = response.data.coursePrice + "KWD"
+                                    binding.coursePrice.text = "KD "+response.data.coursePrice.substringBefore(".")
+                                    binding.tvSubtotalValue.text = "KD "+response.data.coursePrice.substringBefore(".")
+                                    binding.tvTotalValue.text = "KD "+response.data.coursePrice.substringBefore(".")
                                     binding.coachName.text = response.data.coachDetail.name
 
                                     product_id=response.data.courseId.toString()
@@ -186,14 +186,14 @@ class CheckOutActivity : BaseActivity<ActivityCheckoutBinding>() {
                                     product_count="5"
                                     product_updated=response.data.updatedAt.toString()
 
-                                  /*  MyUtils.loadImage(
+                                    MyUtils.loadImage(
                                         binding.coachProfile,
                                         MyConstant.IMAGE_BASE_URL + response.data.coachDetail.profilePhotoPath
                                     )
                                     MyUtils.loadBackgroundImage(
                                         binding.backgroundBg,
                                         MyConstant.IMAGE_BASE_URL + response.data.courseImage
-                                    )*/
+                                    )
                                     binding.tvDuration.text = response.data.duration + " mins"
                                 }
                             }

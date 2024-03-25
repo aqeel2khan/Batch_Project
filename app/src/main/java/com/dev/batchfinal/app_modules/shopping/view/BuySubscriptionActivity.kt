@@ -109,12 +109,12 @@ class BuySubscriptionActivity : BaseActivity<ActivityBuySubscriptionBinding>() {
     @SuppressLint("SetTextI18n")
     private fun setUpDetails(courseData: CourseDetailResponseModel.Data) {
         binding.courseName.text = courseData.courseName
-        binding.coursePrice.text = courseData.coursePrice + "KWD"
+        binding.coursePrice.text = "KD "+courseData.coursePrice.substringBefore(".")
         binding.coachName.text = courseData.coachDetail.name
         MyUtils.loadImage(binding.coachProfile, MyConstant.IMAGE_BASE_URL + courseData.coachDetail.profilePhotoPath)
         MyUtils.loadBackgroundImage(binding.backgroundBg, MyConstant.IMAGE_BASE_URL + courseData.courseImage)
         binding.tvDuration.text = courseData.duration
-        binding.dollerText2.text = courseData.coursePrice + "KWD"
+        binding.dollerText2.text = "KD "+courseData.coursePrice.substringBefore(".")
         if (!courseData.duration.isNullOrEmpty()){
             durationList.add(courseData.duration)
         }

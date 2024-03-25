@@ -97,7 +97,7 @@ interface ApiService {
     suspend fun coachDetail(@Path("id") id: Int): CoachDetailResponse
 
     @POST(COURSE)
-    suspend fun courseList(): CourseListResponse
+    suspend fun courseList(@Header(AUTHORIZATION) token: String): CourseListResponse
 
     @POST(COURSE)
     suspend fun filterCourseList(@Body jsonObject: JsonObject): CourseListResponse

@@ -18,7 +18,7 @@ class AllBatchesAdapter(val context: Context?, var courseList: ArrayList<ListDat
             MyUtils.loadBackgroundImage(binding.backgroundImg, IMAGE_BASE_URL+courseData.courseImage)
 
             binding.tvCourseName.text = courseData.courseName
-            binding.tvCoursePrice.text = courseData.coursePrice+" KWD"
+            binding.tvCoursePrice.text = "KD "+courseData.coursePrice.substringBefore(".")
             val workoutType = courseData.workoutType
             for (i in workoutType){
                 binding.workType.text = i.workoutdetail.workoutType

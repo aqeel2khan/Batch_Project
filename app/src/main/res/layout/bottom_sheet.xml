@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/plan_duration"
                 android:fontFamily="@font/outfit_regular"
-                android:textSize="@dimen/_12ssp"
+                android:textSize="@dimen/_18ssp"
                 android:textFontWeight="500"
                 android:gravity="center"
                 android:layout_gravity="center"

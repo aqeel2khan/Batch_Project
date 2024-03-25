@@ -83,6 +83,7 @@
                     android:textSize="@dimen/_14sdp" />
 
                 <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+                    android:visibility="gone"
                     android:id="@+id/fromText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -95,6 +96,7 @@
                     android:textSize="@dimen/_10sdp" />
 
                 <com.dev.batchfinal.app_custom.MyCustomLightTextView
+                    android:layout_marginLeft="@dimen/_10sdp"
                     android:id="@+id/course_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -108,6 +110,7 @@
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_below="@id/course_description"
                     android:layout_marginTop="15dp">
 
@@ -145,6 +148,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:visibility="gone"
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/radius_shape"
@@ -175,6 +179,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_5sdp"
@@ -205,10 +210,16 @@
                             </LinearLayout>
                         </LinearLayout>
 
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:orientation="horizontal">
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_5sdp"
                             android:background="@drawable/radius_shape">
 
                             <LinearLayout
@@ -236,15 +247,9 @@
                                     android:textSize="@dimen/_9ssp" />
                             </LinearLayout>
                         </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:orientation="horizontal">
 
                         <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginLeft="@dimen/_10sdp"
                             android:id="@+id/work_type"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -346,7 +351,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearLayout2"
-                    android:layout_marginTop="@dimen/_10sdp">
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_20sdp">
 
                     <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                         android:id="@+id/grantText"
@@ -363,17 +369,23 @@
                         android:layout_alignParentRight="true"
                         android:background="@drawable/rounded_all_sides"
                         android:backgroundTint="#E2E4E1">
+                        <ImageView
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/calendar_icon"
+                            android:paddingLeft="@dimen/_10sdp"
+
+                            ></ImageView>
 
                         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/_13sdp"
+                            android:textSize="@dimen/_11sdp"
                             android:id="@+id/tv_duration"
                             android:paddingTop="@dimen/_5sdp"
                             android:paddingLeft="@dimen/_10sdp"
                             android:paddingBottom="@dimen/_5sdp"
                             android:paddingRight="@dimen/_10sdp"
-                            android:textColor="@color/black"
                             ></com.dev.batchfinal.app_custom.MyCustomMediumTextView>
 
 
@@ -455,7 +467,7 @@
                 android:gravity="center_vertical"
                 android:text="$35"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_14sdp" />
+                android:textSize="@dimen/_18sdp" />
         </RelativeLayout>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -464,7 +476,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_10sdp"
             android:background="@drawable/rectangle_button"
-            android:fontFamily="@font/outfit_bold"
+            android:fontFamily="@font/outfit_medium"
             android:outlineSpotShadowColor="#516634"
             android:text="@string/subscribe_for_a_course"
             android:textAllCaps="false"

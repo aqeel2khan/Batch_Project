@@ -21,6 +21,7 @@ import com.dev.batchfinal.adapter.MotivatorListAdapter
 import com.dev.batchfinal.app_common.BaseFragment
 import com.dev.batchfinal.app_modules.shopping.view.CourseDetailActivity
 import com.dev.batchfinal.app_modules.workout_motivator.view.MotivatorDetailActivity
+import com.dev.batchfinal.app_session.UserSessionManager
 import com.dev.batchfinal.app_utils.CheckNetworkConnection
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyConstant.jsonObject
@@ -76,6 +77,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     var motivator_exp_position: Int = -1
     var motivator_type_Id: Int = 0
     var motivator_type_posistion: Int = -1
+    private lateinit var sessionManager: UserSessionManager
 
     private var allBatchesAdapter: AllBatchesAdapter? = null
 
@@ -84,13 +86,42 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     }
 
     override fun initUi() {
+        sessionManager = UserSessionManager(requireActivity())
+
         buttonClicks()
         print(sharedPreferences.token)
+
     }
 
     override fun onStart() {
         super.onStart()
-        getCourseListApi("")
+        if (arguments?.getString(_screen) ?: ""=="workout"){
+            binding.llBatch.background = resources.getDrawable(R.drawable.tab_sele_bg)
+            binding.llMotivator.background = resources.getDrawable(R.drawable.tab_un_sel_bg)
+            binding.tvBatch.setTextColor(ContextCompat.getColor(requireContext(),R.color.white))
+            binding.tvMotivator.setTextColor(ContextCompat.getColor(requireContext(),R.color.welcome_txt_gry))
+            binding.rlMotivatorSearch.visibility = View.GONE
+            binding.recyclerAllBatch.visibility = View.VISIBLE
+            binding.recyclerAllMotivator.visibility = View.GONE
+            getCourseListApi("")
+            binding.rlWorkoutFilter.visibility = View.VISIBLE
+
+        }else if (arguments?.getString(_screen) ?: ""=="motivator"){
+            binding.llBatch.background = resources.getDrawable(R.drawable.tab_un_sel_bg)
+            binding.llMotivator.background = resources.getDrawable(R.drawable.tab_sele_bg)
+            binding.tvBatch.setTextColor(ContextCompat.getColor(requireContext(),R.color.welcome_txt_gry))
+            binding.tvMotivator.setTextColor(ContextCompat.getColor(requireContext(),R.color.white))
+            binding.rlMotivatorSearch.visibility = View.VISIBLE
+            binding.rlWorkoutFilter.visibility = View.GONE
+            binding.recyclerAllBatch.visibility = View.GONE
+            binding.recyclerAllMotivator.visibility = View.VISIBLE
+            searchCoachData()
+            getCoachListApi("")
+
+        }else{
+            getCourseListApi("")
+
+        }
 
     }
 
@@ -135,7 +166,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
             when (searchQuery) {
                 "" -> {
                     showLoader()
-                    authViewModel.courseListApiCall()
+                    authViewModel.courseListApiCall("Bearer " + sessionManager.getUserToken())
                 }
                 "course_filter" -> {
                     showLoader()
@@ -702,9 +733,11 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
     companion object {
         private const val id = "id"
-        fun getBundle(id: String): Bundle {
+        private const val _screen = "screen"
+        fun getBundle(id: String,screen:String): Bundle {
             val bundle = Bundle()
             bundle.putString(id, id)
+            bundle.putString(_screen, screen)
             return bundle
         }
     }

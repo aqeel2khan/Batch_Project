@@ -39,6 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/_8sdp">
             <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/weight_loss_text"
@@ -49,7 +51,7 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:textColor="@color/welcome_txt"
                 android:textFontWeight="500"
-                android:textSize="@dimen/_12ssp" />
+                android:textSize="@dimen/_14ssp" />
 
             <LinearLayout
                 android:id="@+id/ll_cal"
@@ -83,7 +85,6 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-medium"
                         android:text=" kcal"
-                        android:textColor="@color/black"
                         android:textSize="@dimen/_8ssp" />
                 </LinearLayout>
                 <LinearLayout
@@ -112,7 +113,6 @@
                         android:fontFamily="sans-serif-medium"
                         android:text=" mins"
                         android:layout_marginTop="@dimen/_1sdp"
-                        android:textColor="@color/black"
                         android:textFontWeight="500"
                         android:textSize="@dimen/_8ssp" />
                 </LinearLayout>

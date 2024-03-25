@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/workout_batch"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_15sdp" />
 
                 <LinearLayout
                     android:id="@+id/workOutBath"
@@ -82,6 +82,7 @@
                     android:layout_alignParentEnd="true">
 
                     <com.dev.batchfinal.app_custom.MyCustomLightTextView
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="from "
@@ -95,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:text="$35"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textSize="@dimen/_15sdp" />
                 </LinearLayout>
 
                 <LinearLayout

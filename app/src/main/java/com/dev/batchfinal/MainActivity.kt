@@ -2,6 +2,7 @@ package com.dev.batchfinal
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -77,7 +78,10 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
 
     private fun bottomNavigationClicks() {
         binding.ivHome.setOnClickListener {
-            binding.tvHeading.text = resources.getString(R.string.batchboard)
+            //binding.tvHeading.text = resources.getString(R.string.batchboard)
+            binding.tvHeading.visibility=View.GONE
+            binding.imAppLogo.visibility=View.GONE
+            binding.imLogo.visibility=View.VISIBLE
             binding.ivHome.setImageResource(R.drawable.sel_home)
             binding.ivWorkout.setImageResource(R.drawable.iv_workout)
             binding.ivMeal.setImageResource(R.drawable.iv_meal)
@@ -87,6 +91,11 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             navigateToRootNode(R.id.home_navigation)
         }
         binding.ivWorkout.setOnClickListener {
+            binding.imLogo.visibility=View.GONE
+            binding.imAppLogo.visibility=View.VISIBLE
+
+            binding.tvHeading.visibility=View.VISIBLE
+
             binding.tvHeading.text = resources.getString(R.string.workout_batchs)
             binding.ivHome.setImageResource(R.drawable.iv_home)
             binding.ivWorkout.setImageResource(R.drawable.sel_training)
@@ -97,6 +106,10 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             navigateToRootNode(R.id.trainer_navigation)
         }
         binding.ivMeal.setOnClickListener {
+            binding.imLogo.visibility=View.GONE
+            binding.imAppLogo.visibility=View.VISIBLE
+
+            binding.tvHeading.visibility=View.VISIBLE
             binding.tvHeading.text = resources.getString(R.string.txt_meal_title)
             binding.ivHome.setImageResource(R.drawable.iv_home)
             binding.ivWorkout.setImageResource(R.drawable.iv_workout)
@@ -106,6 +119,10 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             navigateToRootNode(R.id.meal_navigation)
         }
         binding.ivShop.setOnClickListener {
+            binding.imLogo.visibility=View.GONE
+            binding.imAppLogo.visibility=View.VISIBLE
+
+            binding.tvHeading.visibility=View.VISIBLE
             binding.tvHeading.text = resources.getString(R.string.shop_title)
             binding.ivHome.setImageResource(R.drawable.iv_home)
             binding.ivWorkout.setImageResource(R.drawable.iv_workout)
@@ -115,7 +132,11 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             navigateToRootNode(R.id.shop_navigation)
         }
         binding.ivScan.setOnClickListener {
-            binding.tvHeading.text = resources.getString(R.string.scan_title)
+            binding.imLogo.visibility=View.GONE
+            binding.imAppLogo.visibility=View.VISIBLE
+
+            binding.tvHeading.visibility=View.VISIBLE
+            binding.tvHeading.text = sessionManager.getName()
             binding.ivHome.setImageResource(R.drawable.iv_home)
             binding.ivWorkout.setImageResource(R.drawable.iv_workout)
             binding.ivMeal.setImageResource(R.drawable.iv_meal)

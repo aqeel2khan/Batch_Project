@@ -56,8 +56,20 @@
                 android:src="@drawable/fillter" />
          </RelativeLayout>
 
+         <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+             android:id="@+id/tv_heading"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_vertical"
+             android:text="@string/txt_welcome"
+             android:textColor="@color/welcome_txt"
+             android:textSize="@dimen/_15sdp"
+             android:layout_marginLeft="@dimen/_10sdp"
+             android:layout_marginTop="@dimen/_10sdp"
+             />
+
          <com.google.android.material.card.MaterialCardView
-             app:cardCornerRadius="@dimen/_20sdp"
+             app:cardCornerRadius="@dimen/_17sdp"
              android:layout_marginVertical="@dimen/_8sdp"
              android:layout_marginHorizontal="@dimen/_8sdp"
              android:layout_width="match_parent"
@@ -111,12 +123,12 @@
              android:layout_marginHorizontal="@dimen/_8sdp"
              android:layout_marginTop="@dimen/_5sdp"
              >
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/workout_batchs"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_15sdp"
                 />
 
             <com.dev.batchfinal.app_custom.MyCustomMediumTextView
@@ -126,7 +138,7 @@
                 android:layout_alignParentRight="true"
                 android:text="@string/txt_show_all"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"/>
 
          </RelativeLayout>
@@ -144,12 +156,12 @@
              android:layout_marginHorizontal="@dimen/_8sdp"
              android:layout_marginTop="@dimen/_8sdp"
              >
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_motivators"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_15sdp"
                 />
             <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/tv_motivator_show_all"
@@ -157,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/txt_show_all"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_14sdp"
                 android:layout_alignParentRight="true"
                 android:textStyle="bold"
                 />
@@ -182,12 +194,12 @@
              android:layout_marginVertical="@dimen/_8sdp"
 
              >
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_meal_title"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_15sdp"
                 />
             <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/tv_meal_show_all"
@@ -195,7 +207,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/txt_show_all"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_14sdp"
                 android:layout_alignParentRight="true"
                 android:textStyle="bold"
                 />
@@ -220,12 +232,12 @@
              android:layout_marginHorizontal="@dimen/_8sdp"
 
              >
-            <com.dev.batchfinal.app_custom.MyCustomBoldTV
+            <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_top_rated_title"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_15sdp"
                 />
             <com.dev.batchfinal.app_custom.MyCustomMediumTextView
                 android:id="@+id/tv_top_rated_showw_all"
@@ -234,7 +246,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/txt_show_all"
                 android:textColor="@color/welcome_txt"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_14sdp"
                 android:layout_alignParentRight="true"
                 />
 

@@ -103,7 +103,7 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
         //Check added by BBh
         try
         {
-            course_price = courseData.coursePrice + "KWD"
+            course_price = "KD "+courseData.coursePrice.substringBefore(".")
             binding.courseName.text = courseData.courseName
             binding.courseDescription.text = courseData.description
             binding.coursePrice.text = course_price
@@ -113,7 +113,7 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
             binding.trainingDay.text = "${courseData.perDayWorkout} trainings"
             binding.validateMin.text = courseData.duration + " min"
             binding.levelType.text = courseData.courseLevel.levelName
-            binding.dollerText2.text = courseData.coursePrice + "KWD"
+            binding.dollerText2.text = "KD "+courseData.coursePrice.substringBefore(".")
             if (courseData.workoutType.isNotEmpty()) {
                 setWorkoutType(courseData.workoutType as List<CourseDetailResponseModel.WorkoutType>)
             }

@@ -14,6 +14,7 @@
     <color name="background_color">#CCE1DF</color>
     <color name="terms_color">#516634</color>
     <color name="light_green">#8B9D71</color>
+    <color name="bg_color_all">#FAF9E6</color>
     <color name="welcome_txt">#101215</color>
     <color name="welcome_txt_gry">#5B5B5B</color>
     <color name="hint_txt_gry">#9F9CB0</color>
@@ -47,6 +48,7 @@
     <color name="item_bg_color">#F5F6F4</color>
     <color name="item_select_color">#CCDEC1</color>
     <color name="golden_color">#FFD700</color>
+    <color name="top_header">#E5F8CF</color>
 
 
     <color name="item_title_bg" tools:ignore="MissingDefaultResource">#0000</color>
