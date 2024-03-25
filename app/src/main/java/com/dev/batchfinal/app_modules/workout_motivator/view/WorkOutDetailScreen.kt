@@ -44,7 +44,8 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
     }
 
     override fun initUi() {
-        try {
+        try
+        {
             val gson = Gson()
             var strObj: String? = null
             if (intent != null) {
@@ -55,9 +56,8 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
                 if (strObj?.isNotEmpty() == true) {
                     workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
                 }
-
-
             }
+
             var strObj1 = ""
             if (intent.hasExtra("course_data"))
             {
