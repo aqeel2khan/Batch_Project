@@ -31,6 +31,7 @@ import com.dev.batchfinal.app_modules.scanning.view.ExoPlayerActivity
 import com.dev.batchfinal.app_modules.scanning.work_manager.VimeoVideoWorker
 import com.dev.batchfinal.app_modules.workout_motivator.model.course_details.CourseDetailResponseModel
 import com.dev.batchfinal.app_modules.workout_motivator.view.SlideWorkoutVideoActivity
+import com.dev.batchfinal.app_modules.workout_motivator.view.WorkOutDetailScreen
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_utils.showToast
