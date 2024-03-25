@@ -37,6 +37,7 @@ abstract class AppBaseActivity<B : ViewBinding> : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
+      //  supportActionBar!!.hide()
         binding = getViewBinding()
         setContentView(binding.root)
         initUI()

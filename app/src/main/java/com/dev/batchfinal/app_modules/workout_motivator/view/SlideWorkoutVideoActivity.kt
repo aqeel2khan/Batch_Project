@@ -43,8 +43,33 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
     private  var workout_duration_detail: Course_duration?=null
     private lateinit var courseData: OrderList
 
+    override fun getViewBinding() = ActivitySlideWorkoutVideoBinding.inflate(layoutInflater)
+
     override fun getViewModel(): BaseViewModel {
         return viewModel
+    }
+    override fun initUi() {
+
+        val videoItems: MutableList<VideoItem> = ArrayList<VideoItem>()
+        val gson = Gson()
+        var strObj= ""
+        if(intent.hasExtra("duration_work_position")){
+            strObj = intent.getStringExtra("duration_work_position").toString()
+        }
+
+        if(strObj.isNotEmpty()){
+            workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
+        }
+
+        val strObj1 = intent.getStringExtra("course_data")
+        courseData = gson.fromJson(strObj1, OrderList::class.java)
+
+
+
+        var position=intent.getStringExtra("position")
+
+        setVideoOnBanner(position!!.toInt()-1)
+
     }
 
     private fun setVideoOnBanner(position: Int) {
@@ -148,31 +173,6 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
     }
 
 
-    override fun initUi() {
-
-        val videoItems: MutableList<VideoItem> = ArrayList<VideoItem>()
-
-        val gson = Gson()
-
-        var strObj= ""
-        if(intent.hasExtra("duration_work_position")){
-            strObj = intent.getStringExtra("duration_work_position").toString()
-        }
-
-        if(strObj.isNotEmpty()){
-            workout_duration_detail = gson.fromJson(strObj, Course_duration::class.java)
-        }
-
-        val strObj1 = intent.getStringExtra("course_data")
-        courseData = gson.fromJson(strObj1, OrderList::class.java)
-
-
-
-        var position=intent.getStringExtra("position")
-
-        setVideoOnBanner(position!!.toInt()-1)
-
-    }
 
     fun updateFinishWorkoutStaus(jsonObject: JsonObject) {
         if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
@@ -217,5 +217,4 @@ class SlideWorkoutVideoActivity : BaseActivity<ActivitySlideWorkoutVideoBinding>
         }
     }
 
-    override fun getViewBinding() = ActivitySlideWorkoutVideoBinding.inflate(layoutInflater)
 }

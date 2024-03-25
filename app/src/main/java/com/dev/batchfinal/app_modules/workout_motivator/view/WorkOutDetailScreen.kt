@@ -1,8 +1,10 @@
 package com.dev.batchfinal.app_modules.workout_motivator.view
 
 import android.content.Intent
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
+
 import com.dev.batchfinal.app_utils.MyCustom
 import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.R
@@ -21,12 +23,14 @@ import com.google.gson.JsonObject
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.dev.batchfinal.out.Resource
+import kotlin.system.exitProcess
 
 @AndroidEntryPoint
 class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
     private  var workout_duration_detail: Course_duration?= null
     private  var courseData: List?= null
     private val viewModel: AllViewModel by viewModels()
+
 
     private val authViewModel by viewModels<AuthViewModel>()
     override fun getViewModel(): BaseViewModel {
@@ -63,7 +67,7 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
             }
 
 
-            binding.weightLossText.text = courseData?.todayWorkouts!!.dayName.toString()
+            binding.weightLossText.text = workout_duration_detail?.day_name
             binding.txtDetailContent.text = workout_duration_detail?.description
             binding.userName.text = courseData?.courseDetail?.coachDetail?.name.toString()
             binding.txtExercise.text = courseData?.todayWorkouts!!.noOfExercise.toString()+"Exercise"
@@ -98,6 +102,30 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
             }
             MyConstant.jsonObject.addProperty("workout_exercise_id", mworkout_exercise_id)
             MyConstant.jsonObject.addProperty("exercise_status", "started")
+
+/*
+            for (i in 0 until courseData!!.courseDetail.courseDuration.size) {
+                for (j in 0 until courseData!!.courseDetail.courseDuration[i].courseDurationExercise.size) {
+                    // Perform operations here
+                    println("Row: $i, Column: $j")
+                    val map=HashMap<String,String>()
+                    if (!courseData!!.courseDetail.courseDuration[i].courseDurationExercise[j].videoDetail.videoId.isNullOrEmpty())
+                    {
+                        map["videoKey"] = courseData!!.courseDetail.courseDuration[i].courseDurationExercise[j].videoDetail.videoId.toString()
+                        map["videoId"] = courseData!!.courseDetail.courseDuration[i].courseDurationExercise[j].courseDurationExerciseId.toString()
+                        mVimeoURLs.add(map)
+                    }
+
+                }
+                exitProcess(0)
+            }
+*/
+
+
+
+
+
+
             binding.btnStartWorkout.setOnClickListener {
                 val gson = Gson()
                 startWorkoutApi(MyConstant.jsonObject)
@@ -112,14 +140,11 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
                 if(courseData!=null ){
                     mCourseData =  gson.toJson(courseData)
                 }
-                mIntent.putExtra("duration_work_position",mCouseduration)
-                mIntent.  putExtra("course_data", mCourseData)
-                mIntent.  putExtra("position",courseData?.todayWorkouts!!.row.toString() )
+
+                mIntent.putExtra("duration_work_position", mCouseduration)
+                mIntent.putExtra("course_data", mCourseData)
                 startActivity(mIntent)
-//                startActivity(Intent(this@WorkOutDetailScreen, SlideWorkoutVideoActivity::class.java).putExtra(
-//                    "duration_work_position",
-//                    gson.toJson(courseData.course_detail.course_duration.get(0))
-//                ).putExtra("course_data", gson.toJson(courseData)))
+
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -128,7 +153,7 @@ class WorkOutDetailScreen : BaseActivity<ActivityWorkOutDetailScreenBinding>() {
 //            startActivity(Intent(this@WorkOutDetailScreen, PlayWorkoutVideoActivity::class.java)) }
     }
 
-    fun startWorkoutApi(jsonObject: JsonObject) {
+    private fun startWorkoutApi(jsonObject: JsonObject) {
         if (CheckNetworkConnection.isConnection(this, binding.root, true)) {
 //            showLoader()
             authViewModel.courseStartApiCall("Bearer " + sharedPreferences.token, jsonObject)

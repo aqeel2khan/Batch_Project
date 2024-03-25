@@ -136,6 +136,9 @@ dependencies {
     implementation("com.google.android.exoplayer:exoplayer-dash:2.10.5")
     implementation("com.google.android.exoplayer:exoplayer-smoothstreaming:2.10.5")
     implementation("com.yahoo.mobile.client.android.util.rangeseekbar:rangeseekbar-library:0.1.0")
+
+    implementation("com.google.android.exoplayer:exoplayer-core:2.17.1")
+    implementation("com.google.android.exoplayer:exoplayer-ui:2.17.1")
     /*for shape*/
     implementation("com.joooonho:selectableroundedimageview:1.0.1")
     implementation("com.allattentionhere:autoplayvideos:0.2.0")
