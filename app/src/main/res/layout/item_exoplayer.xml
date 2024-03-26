@@ -39,39 +39,95 @@
 
 
     <!-- Overlay layer for additional info -->
-
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/layerActionA"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        android:layout_gravity="bottom"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:background="@color/header_color"
-        android:padding="16dp">
+        android:layout_height="?actionBarSize"
+        android:background="@color/black"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:src="@drawable/ic_vedio_remains" />
 
 
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:background="@color/header_color"
-        android:padding="16dp">
-
-        <TextView
+        <com.dev.batchfinal.app_custom.MyCustomMediumTextView
+            android:id="@+id/tvVideoTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Video Title"
-            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Lorem Ipsum Doller"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp" />
 
-            android:layout_gravity="center_horizontal"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/closeVideoMode"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:src="@drawable/remove" />
+    </RelativeLayout>
 
 
-    </LinearLayout>
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?actionBarSize"
+        android:background="@color/black"
+
+       >
+
+
+        <com.dev.batchfinal.app_custom.MyCustomLightTextView
+            android:id="@+id/tvVideoOutOff"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_1sdp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/vedioInformation"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_info"
+            />
+
+
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVideoCurrentPos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/_8sdp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/layerActionC"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/black"
+        android:layout_gravity="bottom"
+        >
+
+
+    </RelativeLayout>
+
+
 
 
 </FrameLayout>

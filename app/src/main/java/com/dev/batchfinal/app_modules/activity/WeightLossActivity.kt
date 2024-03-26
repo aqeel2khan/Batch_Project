@@ -1,6 +1,5 @@
 package com.dev.batchfinal.app_modules.activity
 
-//import com.dev.batchfinal.databinding.ActivityWeightLossBinding
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
@@ -182,8 +181,7 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             val playAt = data!!.getFloatExtra(VimeoPlayerActivity.RESULT_STATE_VIDEO_PLAY_AT, 0f)
             binding.vimeoPlayerView.seekTo(playAt)
 
-            val playerState =
-                PlayerState.valueOf(data!!.getStringExtra(VimeoPlayerActivity.RESULT_STATE_PLAYER_STATE)!!)
+            val playerState = PlayerState.valueOf(data!!.getStringExtra(VimeoPlayerActivity.RESULT_STATE_PLAYER_STATE)!!)
             when (playerState) {
                 PlayerState.PLAYING -> binding.vimeoPlayerView.play()
                 PlayerState.PAUSED -> binding.vimeoPlayerView.pause()
@@ -201,8 +199,8 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
             object :
                 PositionCourseWorkoutClick<Int> {
                 override fun onCourseWorkoutItemPosition(item: CourseDuration, postions: Int) {
-                    val pos = postions + 1
-
+                    val pos = postions
+//positions+1
                     if (item.status?.toInt() == 0) {
                         showToast("Today is off")
 
@@ -259,21 +257,12 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
                                             Gson().fromJson(dataListJson, dataListType)
                                         Log.e("VIMEO DATA LIST", dataList.toString())
 
-                                        /*
-                                                                            for (data in dataList) {
-                                                                                // Do something with each HashMap
-                                                                            }
-                                        */
                                         Handler(Looper.getMainLooper()).postDelayed({
-
-                                                                                    /* Your task here */
-
                                             val gson = Gson()
                                             val mIntent = Intent(
                                                 this@WeightLossActivity,
                                                 ExoPlayerActivity::class.java
                                             )
-
                                             var mCouseduration = ""
                                             if (courseData?.courseDetail?.courseDuration != null && courseData?.courseDetail?.courseDuration?.size!! > 0) {
                                                 mCouseduration = gson.toJson(
@@ -339,32 +328,19 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
                 try {
                     val gson = Gson()
                     var data2 = ""
+                    val mIntent=   Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java)
+                    if (courseData != null && courseData?.courseDetail != null && courseData?.courseDetail?.courseDuration != null && courseData?.courseDetail?.courseDuration!!.size>0) {
+                      //  val   data = gson.toJson(courseData?.courseDetail!!.courseDuration[0]!!)//Commented @BBh
+                        val   autoSelectedDayData = gson.toJson(courseData?.courseDetail!!.courseDuration[courseData?.todayWorkouts?.row!!.toInt()]!!)
+
+                        mIntent. putExtra("duration_work_position", autoSelectedDayData)
+                    }
                     if (courseData != null) {
                         data2 = gson.toJson(courseData)
-                    }
-
-                    var mIntent=   Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java)
-                    if (courseData != null && courseData?.courseDetail != null && courseData?.courseDetail?.courseDuration != null && courseData?.courseDetail?.courseDuration!!.size>0) {
-                        val   data = gson.toJson(courseData?.courseDetail!!.courseDuration[0]!!)
-
-                        mIntent. putExtra("duration_work_position", data)
-                    }
-
-                    if(data2!=null) {
-                        if (courseData != null) {
-                            val   data2 = gson.toJson(courseData)
-                            mIntent.putExtra("course_data", data2)
-                        }
                         mIntent.putExtra("course_data", data2)
                     }
-
                     startActivity(mIntent)
 
-//                startActivity(
-//                    Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java).putExtra(
-//                        "duration_work_position",
-//                        gson.toJson(data)
-//                    ).putExtra("course_data", data2))
 
                 } catch (e: Exception) {
                     e.printStackTrace()

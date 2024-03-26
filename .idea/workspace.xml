@@ -235,6 +235,11 @@
           <theme>@style/Theme.BatchFinal</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_exoplayer.xml">
+        <config>
+          <theme>@style/Theme.BatchFinal</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_following_list.xml">
         <config>
           <theme>@style/Theme.BatchFinal</theme>
@@ -392,9 +397,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb6bd0c4-4684-4359-a6b3-dc8eea66fbc2" name="Changes" comment="raw">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/mlistner/PlayerCallback.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -405,6 +408,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/activity/WeightLossActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/adapter/ExoPlayerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/adapter/ExoPlayerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view/ExoPlayerActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/scanning/view/ExoPlayerActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/workout_motivator/view/WorkOutDetailScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_weight_loss.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_weight_loss.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_exoplayer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_exoplayer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -415,7 +423,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[YSUCHUCYSO6HKZ6P]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[96386080180006H]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -442,9 +450,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
-        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
         <option value="resourceFile" />
+        <option value="Kotlin Interface" />
       </list>
     </option>
   </component>
@@ -486,7 +494,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;DEBUGGABLE_DEVICE&quot;: &quot;samsung-sm_e236b-RZCT30H95VY&quot;,
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;vivo-v2059-96386080180006H&quot;,
     &quot;DEBUGGABLE_PROCESS&quot;: &quot;com.dev.batchfinal&quot;,
     &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -1284,10 +1292,15 @@
           <line>176</line>
           <option name="timeStamp" value="123" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/adapter/VideosAdapter.kt</url>
+          <line>31</line>
+          <option name="timeStamp" value="128" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/CurrentMealDetailActivity.kt</url>
           <line>84</line>
-          <properties class="com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.CurrentMealDetailActivity">
+          <properties class="com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.CurrentMealDetailActivity" method="getMealSubscribeDetailsApi">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="3" />
@@ -1295,7 +1308,7 @@
         <line-breakpoint enabled="true" type="kotlin-function">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/dev/batchfinal/app_modules/meals/meal_purchase/view/activity/MealPlanActivity.kt</url>
           <line>519</line>
-          <properties class="com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.MealPlanActivity">
+          <properties class="com.dev.batchfinal.app_modules.meals.meal_purchase.view.activity.MealPlanActivity" method="checkMealSubscriptionUpdate">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="33" />
