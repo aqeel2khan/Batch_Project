@@ -26,6 +26,7 @@ import com.dev.batchfinal.app_utils.CommonUtils.Companion.dismissDialog
 import com.dev.batchfinal.app_utils.CommonUtils.Companion.progressDialog
 import com.dev.batchfinal.app_utils.MyConstant
 import com.dev.batchfinal.app_utils.MyCustom
+import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.app_utils.showToast
 import com.dev.batchfinal.databinding.FragmentHomeBinding
 import com.dev.batchfinal.`interface`.CoachListItemPosition
@@ -98,7 +99,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun initUi() {
         sessionManager = UserSessionManager(requireActivity())
-
+        if (sharedPreferences.language.equals(MyConstant.AR)){
+            MyUtils.setLocale(MyConstant.AR, requireActivity())
+        }else{
+            MyUtils.setLocale(MyConstant.EN, requireActivity())
+        }
         buttonClicks()
         setUpSlider()
         //setUpBatchesAdapter()

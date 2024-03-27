@@ -1,0 +1,272 @@
+<resources>
+    <string name="app_name">BatchFinal</string>
+    <string name="internet_is_not_available">Internet is not available</string>
+    <string name="terms_condition">I agree to the company <font color='#516634'>Terms &amp; Conditions</font></string>
+    <string name="terms_service_police">I agree to the company <font color='#516634'>Terms of Service</font> and\n<font color='#516634'>Privacy Police</font></string>
+
+    <string name="please_check_internet">Please check Internet connection and try again.</string>
+    <string name="txt_batch">باتشات</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="txt_motivators">موتيفترز</string>
+    <string name="txt_home">Batchboard</string>
+    <string name="txt_welcome">مرحباً</string>
+    <string name="continue_text">متابعة</string>
+    <string name="shop_title">Shop</string>
+
+    <string name="agree_and_continue">Agree And Continue</string><!--الموافقة والمتابعة-->
+    <string name="select_country">حدد الدولة</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account ? <font color='#516634'>Signup</font></string><!--ليس لديك حساب؟ الاشتراك-->
+    <string name="male">ذكر</string>
+    <string name="i_want_look">أريد أن أنظر حولي</string>
+    <string name="female">انثى</string>
+    <string name="already_account">Already have an account ? <font color='#516634'><b>Sign In</b></font></string><!--هل لديك حساب ؟ تسجيل الدخول-->
+    <string name="before_we_start">قبل أن نبدأ، علينا أن نعرفجنسك</string>
+    <string name="verification_code">أدخل رمز التحقق</string>
+    <string name="welcome_back">مرحبًا بعودتك!</string>
+    <string name="welcome_back_bath">مرحبا بكم في الدفعة!</string>
+
+    <string name="verification_number">لقد أرسلنا رمز التحقق إلى رقم\n هاتفك المحمول </string>
+    <string name="sign_in_account">تسجيل الدخول إلى حسابك</string>
+    <string name="sign_in_google">الدخول مع جوجل</string>
+    <string name="sign_in_outlook">قم بتسجيل الدخول باستخدام Outlook</string>
+    <string name="sign_in_facebook">قم بتسجيل الدخول باستخدام الفيسبوك</string>
+    <string name="go_to_checkout">اذهب إلى الخروج</string>
+    <string name="sign_in_apple">تسجيل الدخول مع أبل</string>
+    <string name="I_agree_term">أنا أوافق على الشركة</string>
+    <string name="term_condition"> البنود و الظروف</string>
+
+    <string name="email">البريد الالكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="txt_phone">هاتف</string>
+    <string name="batchboard">Batchboard</string>
+    <string name="or_continue">أو الاستمرار مع</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur">لوريم إيبسوم دولور الجلوس أميت المنشئ.</string>
+    <string name="lorem_ipsum_dolor_sit">لوريم إيبسوم دولور الجلوس</string>
+    <string name="the_code_is_invalid_please_try_again">الرمز غير صالح. حاول مرة اخرى.</string>
+    <string name="termCondition">Lorem ipsum dolor sit amet consectetur. Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagittis lobortis aliquam sed vestibulum. Mattis auctor hac cursus urna risus interdum et. Neque ut ultricies fringilla in nulla. \n\n
+At nulla orci egestas a lorem aliquam consectetur magna. Id id lacus eu commodo fusce tempus augue turpis vivamus. Tempus malesuada a amet eget vitae integer scelerisque tristique mauris. Eget id iaculis massa morbi ultrices tincidunt. Hac diam feugiat pretium enim nibh duis non mollis facilisi.Lorem ipsum dolor sit amet consectetur.\n\n
+Sed venenatis in nulla neque elementum nunc. Vitae est in elementum morbi sagittis lobortis aliquam sed vestibulum. Mattis auctor hac cursus urna risus interdum et. Neque ut ultricies fringilla in nulla. At nulla orci egestas a lorem aliquam consectetur magna. Id id lacus eu commodo fusce tempus augue turpis vivamus. Tempus malesuada a amet eget vitae integer scelerisque tristique mauris. Eget id iaculis massa morbi ultrices tincidunt. Hac diam feugiat pretium enim nibh duis non mollis facilisi.</string>
+    <string name="select_country_region">اختر الدولة / المنطقة</string>
+    <string name="terms_amp_conditions"><![CDATA[البنود و الظروف]]></string>
+    <string name="subscribe_for_a_course">اشترك في دورة</string>
+    <string name="_15_20_min">15-20 min</string>
+    <string name="ar">AR</string>
+
+
+    <!--workout txt-->
+    <string name="current_batch">Current Batch</string>
+    <string name="workout_batch">Workout Batch</string>
+    <string name="workout_batchs">Workout Batches</string>
+    <string name="txt_days"> أيام</string>
+    <string name="txt_Stretching">Stretching</string>
+    <string name="txt_follow">متابعة</string>
+    <string name="txt_trainer_content">Highly experienced yoga and pilates instructor \nwith over 7 years of expertise in guiding \n students towards their wellness goals.</string>
+    <string name="txt_recommended_product">Recommended Products</string>
+    <string name="txt_doller_sign">$</string>
+
+    <!--buy subscription text-->
+    <string name="workout_batch_capital">WORKOUT BATCH</string>
+    <string name="txt_weight_loss">فقدان الوزن</string>
+    <string name="txt_plan_duration">حدد مدة الخطة</string>
+    <string name="txt_batch_pro">باتش برو</string>
+    <string name="txt_get_batch_pro">Get Batch Pro</string>
+    <string name="txt_check_out">الدفع</string>
+    <string name="txt_add_pro">أضف الرمز الترويجي</string>
+    <string name="txt_remove_pro">إزالة الرمز الترويجي</string>
+    <string name="txt_meal_title">وجبات<!--Meal Batches--></string>
+    <string name="txt_top_rated_title">الوجبات الأعلى تقييمًا</string>
+    <string name="scan_title">Scanning Batch</string>
+    <string name="txt_start_workout">ابدأ التمرين</string>
+    <string name="txt_get_batch_pro_content">Get unlimited access and save up to 10% on every \ncourse with pro</string>
+    <string name="txt_channge_course">تغيير الدورة</string>
+    <string name="choosing_meal">هل تحتاج إلى مساعدة في اختيار \nمجموعة الوجبات المناسبة؟</string>
+    <string name="choosing_meal_content">أجب عن بعض الأسئلة أو تحدث إلى اختصاصي التغذية لدينا \nوستجد الدفعة الأفضل لك بناءً على\nاحتياجاتك والسعرات الحرارية</string>
+    <string name="weight_loss_content">تم تصميم خطتنا التدريبية لفقدان الوزن لمساعدتك \nفي الوصول إلى أهداف اللياقة البدنية الخاصة بك من خلال \nمجموعة من تدريبات القوة، \nوتمارين القلب والأوعية الدموية</string>
+
+    <string name="change_course">تغيير الدورة</string>
+    <string name="change_course_content">سيتم تطبيق تغيير الدفعة بعد \nانتهاء اشتراكك الحالي.</string>
+    <string name="change_course_selection">انتقل إلى اختيار الدورة</string>
+    <string name="change_course_cancel">يلغي</string>
+    <string name="txt_buy_subscription">شراء الاشتراك</string>
+    <string name="plan_duration">مدة الخطة</string>
+    <string name="txt_save">يحفظ</string>
+    <string name="txt_registration">تسجيل</string>
+    <string name="txt_sign_account">Sign In to your account</string>
+
+    <string name="workout_detail_content">يركز هذا التمرين عالي الكثافة في المقام الأول على الأرداف والفخذين والساقين. يتضمن روتين التمرين \nمجموعة من تمارين القرفصاء،\nوالاندفاع، ورفع الساق، بالإضافة إلى تمارين \nأخرى للجزء السفلي من الجسم لتوفير تمرين كامل\nلساقيك.</string>
+    <string name="start_next_workout">ابدأ التمرين التالي</string>
+    <string name="finish_workout">قم بإنهاء التمرين</string>
+    <string name="workout_completed">اكتمل التمرين!</string>
+    <string name="workout_completed_content">تهانينا على إكمال تمرين حرق الجزء السفلي من الجسم\n! واصل مجهودك الرائع \nوإلى اللقاء في تمرينك القادم!</string>
+    <string name="exercise_summary">ملخص التمرين</string>
+    <string name="query_workout">Did you enjoy the training?</string>
+    <string name="txt_continue">متابعة</string>
+    <string name="txt_skip">الغاء</string>
+    <string name="txt_next">التالي</string>
+    <string name="txt_select_time">Select time and day of \nthe next workouts</string>
+    <string name="txt_exercise">Planning your exercise routine can help you \nstay on track and achieve results faster</string>
+    <string name="txt_allow_notification">Allow Notification</string>
+    <string name="txt_allow_notification_content">Don\'t miss out on your training. Enable \nnotifications to receive alerts about your \nscheduled sessions!</string>
+    <string name="txt_allow">السماح</string>
+    <string name="txt_payment_method">Payment method</string><!--اختيارات-->
+    <string name="txt_thank_statement">Thank you for your \npurchase!</string>
+    <string name="txt_thank_content">Your course is already available in the \nTraining section</string>
+    <string name="txt_like_statement">You might also like:</string>
+    <string name="txt_go_home">Go to Homepage</string>
+
+    <string name="txt_meal_content">Our vegan meal plan offers a wide variety of plant-\nbased dishes that are not only good for you, but also \ntaste great! Our expert chefs use fresh, whole food \ningredients to create meals that are packed with \nflavor and nutrients.</string>
+    <string name="txt_meal_statement">You haven\'t chosen a dish yet. \nWe will compile the meal on our \npreference, if you don\'t make \nyour choice in time.</string>
+
+
+    <string name="txt_meal_planning">التخطيط للوجبات</string>
+    <string name="txt_meal_breakfast">الإفطار</string>
+    <string name="txt_meal_lunch_dinner">الغداء والعشاء</string>
+    <string name="txt_meal_snack">سناك</string>
+    <string name="txt_meal_desserts">Desserts</string>
+    <string name="txt_ingredient_1">Salmon</string>
+    <string name="txt_ingredient_2">Eggs</string>
+    <string name="txt_ingredient_3">Whole grain bread</string>
+    <string name="txt_ingredient_4">Cottage cheese</string>
+    <string name="txt_rate_meal">هل استمتعت بهذه الوجبة</string>
+    <string name="txt_rate_meal_write">هل استمتعت بهذه الوجبة?</string>
+    <string name="subscribe_for_a_plan">اشترك بخطة الوجبات</string>
+
+    <string name="select_date_plan">موعد بدء خطة وجباتك</string>
+    <string name="txt_add_address">أضف العنوان</string>
+    <string name="txt_delivery_time">موعد التوصيل</string>
+    <string name="txt_delivery_arriving">Delivery arriving</string>
+    <string name="txt_drop_off">الاستلام</string>
+    <string name="txt_start_date_plan">تاريخ بدء خطة الوجبات</string>
+    <string name="txt_delivery_place">Delivery place </string>
+
+    <string name="txt_call">اتصال</string>
+    <string name="txt_ring_bell">جرس المنزل</string>
+    <string name="txt_notification">التنبيهات</string>
+    <string name="txt_drop_1">الاستلام عند الباب</string>
+    <string name="txt_drop_2">الاستلام في الخارج</string>
+    <string name="txt_drop_3">تركه عند الباب</string>
+
+    <string name="txt_new_card">أضف البطاقة الجديدة</string>
+    <string name="txt_filter">البحث المتقدم</string>
+    <string name="txt_card_number">رقم البطاقة</string>
+    <string name="txt_expiration">تاريخ الانتهاء</string>
+    <string name="txt_cvv">CVV</string>
+    <string name="txt_save_card">احفظ البطاقة</string>
+    <string name="txt_questionnaire">استبيان</string>
+    <string name="txt_fitness_goal">ما هو هدفك الصحي؟</string>
+    <string name="txt_age">ما هو تاريخ ميلادك؟</string>
+    <string name="txt_weight">ما هو وزنك؟</string>
+    <string name="txt_height">ما هو طولك؟</string>
+    <string name="txt_active">ما هي درجة نشاطك؟</string>
+    <string name="txt_choose_diet">اختر نظامك الغذائي<!--Choose your type of diet--></string>
+    <string name="txt_allergic">هل تعاني من حساسية ما؟</string>
+
+    <string name="txt_loss">خسارة الوزن</string>
+    <string name="txt_gain">زيادة الوزن</string>
+    <string name="txt_maintain">الحفاظ على الوزن</string>
+    <string name="txt_cm">سم</string>
+    <string name="txt_feet">قدم</string>
+    <string name="txt_low_mobility">قليل الحركة</string>
+    <string name="txt_workout_week">1-2 workouts per week</string>
+    <string name="txt_workout_week35">3-5 workouts per week</string>
+    <string name="txt_workout_week57">5-7 workouts per week</string>
+    <string name="txt_vegan">فيغن</string>
+    <string name="txt_vegetarian">نباتي</string>
+    <string name="txt_keto_vegan">كيتو فيغن</string>
+    <string name="txt_paleo_diet">باليو</string>
+    <string name="txt_honey">عسل</string>
+    <string name="txt_milk">ألبان</string>
+    <string name="txt_cheese">أجبان</string>
+    <string name="txt_nuts">مكسرات</string>
+    <string name="txt_seafood">مأكولات بحرية</string>
+    <string name="txt_chocolate">شوكولاته</string>
+    <string name="txt_mushrooms">فطر</string>
+    <string name="txt_coffee">قهوة</string>
+    <string name="txt_berries">توت</string>
+    <string name="txt_ideal_intake">استهلاك السعرات الحرارية المثالي لك</string>
+    <string name="txt_dumy"><font><b>1340</b></font><font><h6>kcal/day</h6></font></string>
+    <string name="txt_kcal_day">سعرة حرارية\يوم</string>
+    <string name="txt_your_meal">The perfect meal batch for you</string><!--The perfect meal plan for you	خطة الوجبات المثالية لك-->
+    <string name="txt_back_to_meal">Back to Meal Batch</string>
+    <string name="txt_batch_chat">Batch Chat</string>
+    <string name="txt_your_meal_content">Based on your answers, we recommend you try this meal batch. You could go to it and take a closer look, or you could go back to the other meal plans page.</string>
+    <string name="txt_account">Account</string>
+    <string name="txt_personal_info">البيانات الشخصية</string>
+    <string name="txt_following">متابعات</string>
+    <string name="txt_delivery_detail">تفاصيل التوصيل</string>
+    <string name="txt_notification_setting">إعدادات التنبيه</string>
+    <string name="txt_change_photo"><u>Change the photo</u></string>
+    <string name="txt_log_out">تسجيل الخروج</string>
+    <string name="txt_login">تسجيل الدخول</string>
+    <string name="txt_dob">Date of Birth</string>
+    <string name="txt_gender">الجنس</string>
+    <string name="txt_all_notification">All notifications</string>
+    <string name="txt_training_notify">Training notifications</string>
+    <string name="txt_live_stream_notify">Live streams notifications</string>
+    <string name="txt_meal_plan_notify">Meal plan notifications</string>
+    <string name="txt_delivery_notify">Delivery notifications</string>
+    <string name="txt_log_msg">هل تود تسجيل الخروج؟</string>
+    <string name="txt_login_msg">Not login yet? Login Now!!</string>
+
+    <string name="txt_log_content">Lorem ipsum dolor sit amet consectetur. Habitasse commodo magna mollis commodo ullamcorper vulputate mi viverra.</string>
+    <string name="meal_batch">وجبات</string>
+    <string name="txt_kcal">سعرة حرارية</string>
+    <string name="txt_bpm">معدل النبض</string>
+    <string name="txt_apple_health">Apple Health</string>
+    <string name="txt_water">ماء</string>
+    <string name="txt_of_day"><font><h3>وحدات الماكرو اليومية</h3></font> </string>
+    <string name="txt_heart_rate">نبضات القلب</string>
+    <string name="txt_steps">خطوات</string>
+    <string name="txt_batch_meal_plan">Batch Meal Plan</string>
+    <string name="txt_status">الحالة</string>
+    <string name="txt_duration">المدة</string>
+    <string name="txt_exp_date">تاريخ الانتهاء</string>
+    <string name="txt_delivery_days">أيام التوصيل</string>
+    <string name="txt_change">Change</string>
+    <string name="txt_freeze">معلق</string>
+    <string name="txt_un_freeze">تفعيل</string>
+    <string name="txt_status_active">نشط</string>
+    <string name="txt_freeze_red"><font color="#E13131">معلق</font></string>
+    <string name="txt_freeze_plan">Freeze the Plan</string>
+    <string name="txt_change_plan">تغيير خطة الوجبات</string>
+    <string name="txt_change_plan_content">The plan change will be applied after your current subscription ends.</string>
+    <string name="txt_freeze_plan_content">Are you sure you want to freeze your current meal plan? Freezing your meal plan means you won\'t receive any new meals or updates until you unfreeze your plan. You can unfreeze your plan anytime and resume your meal delivery as usual.</string>
+    <string name="txt_un_freeze_plan_content">Are you ready to resume your meal plan?Unfreezing your meal plan means you will start receiving new meals and updates as scheduled. </string>
+    <string name="txt_go_to_meal">Go to meal plan selection</string>
+    <string name="txt_title_heart">نبضات القلب</string>
+    <string name="txt_okay">Okay</string>
+    <string name="txt_sleep">نوم</string>
+    <string name="txt_calories">سعرات</string>
+    <string name="_1800"><![CDATA[<1800]]></string>
+    <string name="txt_show_all">Show All</string>
+    <string name="txt_oops">عفواً</string>
+
+    <string name="txt_subscription">We\'re sorry, but meal subscriptions are not yet \navailable in your country</string>
+    <string name="txt_got_it">Got It</string>
+    <string name="txt_workout_type">نوع التمرين</string>
+    <string name="txt_workout_level">الدرجة</string>
+    <string name="txt_workout_goal">الهدف</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="already_subscription">You have already a subscription on this Meal</string>
+    <!---->
+    <string name="loading">Loading...</string>
+
+    <string-array name="optionGender">
+        <item>حدد نوع الجنس</item>
+        <item>ذكر</item>
+        <item>انثى</item>
+    </string-array>
+
+    <!--    Profile-->
+    <string name="lbl_set_profile_photo">تعيين صورة الملف الشخصي</string>
+    <string name="lbl_take_camera_picture">التقط صوره</string>
+    <string name="lbl_choose_from_gallery">اختر من المعرض</string>
+    <string name="toast_image_intent_null">خيار منتقي الصور مفقود!</string>
+    <string name="finish">ينهي</string>
+    <string name="upload_from_gallery">Upload from Gallery</string>
+    <string name="camera">آلة تصوير</string>
+    <string name="txt_notifications">إشعارات</string>
+</resources>

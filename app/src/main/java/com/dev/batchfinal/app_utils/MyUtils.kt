@@ -2,6 +2,7 @@ package com.dev.batchfinal.app_utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.Configuration
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.provider.OpenableColumns
@@ -90,6 +91,14 @@ object MyUtils {
             Log.e("Save File", ex.message!!)
             ex.printStackTrace()
         }
+    }
+
+    fun setLocale(lang: String?, context: Context) {
+        val locale = Locale(lang!!)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        context.resources.updateConfiguration(config, context.resources.displayMetrics)
     }
 
     private fun queryName(context: Context, uri: Uri): String {

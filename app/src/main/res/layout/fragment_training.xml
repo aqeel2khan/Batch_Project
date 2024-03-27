@@ -65,9 +65,9 @@
             android:layout_height="wrap_content">
 
             <com.dev.batchfinal.app_custom.MyCustomMediumTextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
                 android:text="@string/workout_batchs"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp" />

@@ -48,7 +48,11 @@ class CourseDetailActivity : BaseActivity<ActivityCourseDetailBinding>() {
 
     override fun initUi() {
         sessionManager= UserSessionManager(this)
-
+        if (sharedPreferences.language.equals(MyConstant.AR)){
+            MyUtils.setLocale(MyConstant.AR, this)
+        }else{
+            MyUtils.setLocale(MyConstant.EN, this)
+        }
         buttonClicks()
         startRelativeAnimation(binding.relWeightLayout)
         course_id = intent.getStringExtra("course_id")
