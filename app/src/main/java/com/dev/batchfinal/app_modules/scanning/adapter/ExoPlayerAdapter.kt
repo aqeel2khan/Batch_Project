@@ -100,7 +100,8 @@ class ExoPlayerAdapter(
             ) {
 
                 tvVideoTitle.text=courseDurationExercise.title
-                tvVideoOutOff.text = position.toString() + "/" + videoUrlsDataMap.size.toString()
+                val displyOutOfValue=position+1
+                tvVideoOutOff.text = displyOutOfValue.toString() + "/" + videoUrlsDataList.size.toString()
                 webView.webChromeClient = WebChromeClient()
                // webView.loadUrl(videoUrlsDataMap["videoUrl"].toString())
                 val parseURLData=videoUrlsDataMap["videoUrl"].toString().split("h\\u")
