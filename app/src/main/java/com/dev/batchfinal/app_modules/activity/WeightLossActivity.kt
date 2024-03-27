@@ -278,6 +278,7 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
                                             mIntent.putExtra("course_data", mCourseData)
                                             mIntent.putExtra("video_link",gson.toJson(dataList))
                                             mIntent.putExtra("position", pos.toString())
+                                            mIntent.putExtra("TARGETED_FROM","WeightLoss")
                                             startActivity(mIntent)
                                             hideLoader()
                                                                                     }, 3000)
@@ -326,21 +327,30 @@ class WeightLossActivity : BaseActivity<ActivityWeightLossBinding>() {
 
             }else{
                 try {
-                    val gson = Gson()
+                    if (courseData!!.todayWorkouts.courseDurationExercise.size>0)
+                    {
+                        startActivity(Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java)
+                            .putExtra("TODAY_WORKOUTS",Gson().toJson(courseData)))
+                    }else
+                    {
+                     showToast("Workout video content not available for the day")
+                    }
+
+                  /*  val gson = Gson()
                     var data2 = ""
                     val mIntent=   Intent(this@WeightLossActivity, WorkOutDetailScreen::class.java)
                     if (courseData != null && courseData?.courseDetail != null && courseData?.courseDetail?.courseDuration != null && courseData?.courseDetail?.courseDuration!!.size>0) {
                       //  val   data = gson.toJson(courseData?.courseDetail!!.courseDuration[0]!!)//Commented @BBh
-                        val   autoSelectedDayData = gson.toJson(courseData?.courseDetail!!.courseDuration[courseData?.todayWorkouts?.row!!.toInt()]!!)
+                        val   autoSelectedDayData = gson.toJson(courseData?.courseDetail!!.courseDuration[courseData?.todayWorkouts?.row!!.toInt()-1]!!)
 
-                        mIntent. putExtra("duration_work_position", autoSelectedDayData)
+                       // mIntent. putExtra("duration_work_position", autoSelectedDayData)
                     }
                     if (courseData != null) {
                         data2 = gson.toJson(courseData)
                         mIntent.putExtra("course_data", data2)
                     }
                     startActivity(mIntent)
-
+*/
 
                 } catch (e: Exception) {
                     e.printStackTrace()
