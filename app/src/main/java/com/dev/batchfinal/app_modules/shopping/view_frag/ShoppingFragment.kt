@@ -28,7 +28,7 @@ class ShoppingFragment : BaseFragment<FragmentShoppingBinding>() {
     override fun getViewBinding() = FragmentShoppingBinding.inflate(layoutInflater)
 
     override fun onResume() {
-       // handleTitle(resources.getString(R.string.shop_title))
+       handleTitle(resources.getString(R.string.shop_title))
         super.onResume()
     }
 

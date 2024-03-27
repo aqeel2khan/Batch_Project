@@ -86,7 +86,6 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             binding.ivMeal.setImageResource(R.drawable.iv_meal)
             binding.ivShop.setImageResource(R.drawable.iv_shoping)
             binding.ivScan.setImageResource(R.drawable.iv_scaning)
-
             navigateToRootNode(R.id.home_navigation)
         }
         binding.ivWorkout.setOnClickListener {
@@ -136,7 +135,6 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
         }
     }
 
-/*
     fun handleHeader(isVisible: Boolean = true, perform: () -> Unit = {}) {
         if (isVisible) {
             binding.headerTitle.makeVisible()
@@ -144,9 +142,9 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             binding.headerTitle.makeGone()
         }
     }
-*/
 
-/*
+
+
     fun handleBottomBar(isVisible: Boolean = true, perform: () -> Unit = {}) {
         if (isVisible) {
             binding.rlBottomLayout.makeVisible()
@@ -154,20 +152,25 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             binding.rlBottomLayout.makeGone()
         }
     }
-*/
 
-/*
-    fun handleTitle(headerTitle: String, perform: () -> Unit = {}) {
+    fun handleTitle(headerTitle: String, perform: () -> Unit = {}){
         binding.tvHeading.text = headerTitle
         when (headerTitle) {
+            resources.getString(R.string.batchboard) -> {
+                binding.ivHome.setImageResource(R.drawable.sel_home)
+                binding.ivWorkout.setImageResource(R.drawable.iv_workout)
+                binding.ivMeal.setImageResource(R.drawable.iv_meal)
+                binding.ivShop.setImageResource(R.drawable.iv_shoping)
+                binding.ivScan.setImageResource(R.drawable.iv_scaning)
+            }
             resources.getString(R.string.workout_batchs) -> {
+
                 binding.ivHome.setImageResource(R.drawable.iv_home)
                 binding.ivWorkout.setImageResource(R.drawable.sel_training)
                 binding.ivMeal.setImageResource(R.drawable.iv_meal)
                 binding.ivShop.setImageResource(R.drawable.iv_shoping)
                 binding.ivScan.setImageResource(R.drawable.iv_scaning)
             }
-
             resources.getString(R.string.txt_meal_title) -> {
                 binding.ivHome.setImageResource(R.drawable.iv_home)
                 binding.ivWorkout.setImageResource(R.drawable.iv_workout)
@@ -183,9 +186,22 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
                 binding.ivShop.setImageResource(R.drawable.sel_shopping)
                 binding.ivScan.setImageResource(R.drawable.iv_scaning)
             }
+            resources.getString(R.string.scan_title) -> {
+                binding.ivHome.setImageResource(R.drawable.iv_home)
+                binding.ivWorkout.setImageResource(R.drawable.iv_workout)
+                binding.ivMeal.setImageResource(R.drawable.iv_meal)
+                binding.ivShop.setImageResource(R.drawable.iv_shoping)
+                binding.ivScan.setImageResource(R.drawable.sel_scanning)
+            }
+            sessionManager.getName() -> {
+                binding.ivHome.setImageResource(R.drawable.iv_home)
+                binding.ivWorkout.setImageResource(R.drawable.iv_workout)
+                binding.ivMeal.setImageResource(R.drawable.iv_meal)
+                binding.ivShop.setImageResource(R.drawable.iv_shoping)
+                binding.ivScan.setImageResource(R.drawable.sel_scanning)
+            }
         }
     }
-*/
 
 
     private fun navigateToRootNode(startDestinationId: Int, bundle: Bundle? = null) {
@@ -199,6 +215,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
         navController.navigate(startDestinationId, bundle, navOptions)
     }
 
+/*
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_container)
@@ -278,6 +295,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
 
 
     }
+*/
 
 }
 

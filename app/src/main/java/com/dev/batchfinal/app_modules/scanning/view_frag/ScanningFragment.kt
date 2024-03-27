@@ -501,6 +501,13 @@ class ScanningFragment : BaseFragment<FragmentScaningBinding>() {
 
         dialog.show()
     }
+    override fun onResume() {
+        if (sessionManager.isloggin())
+        handleTitle(sessionManager.getName().toString())
+        else
+            handleTitle(resources.getString(R.string.scan_title))
 
+        super.onResume()
+    }
 
 }
