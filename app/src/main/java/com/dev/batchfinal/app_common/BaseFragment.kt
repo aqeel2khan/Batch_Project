@@ -85,17 +85,17 @@ abstract class BaseFragment<B : ViewBinding> : Fragment() {
     }
     private fun initializeCommonObservers(viewModel: BaseViewModel) {
         if (setErrorAndSpinnerObserver()) {
-            viewModel.error.observe(requireActivity(), { message ->
+            viewModel.error.observe(requireActivity()) { message ->
                 message?.let(::showError)
-            })
+            }
 
-            viewModel.spinner.observe(requireActivity(), { loading ->
+            viewModel.spinner.observe(requireActivity()) { loading ->
                 if (loading) {
 //                    showLoader()
                 } else {
 //                    hideLoader()
                 }
-            })
+            }
         }
     }
     protected fun handleHeader(isVisible: Boolean = true, perform: () -> Unit = {}){
