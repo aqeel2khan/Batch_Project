@@ -98,7 +98,7 @@ abstract class BaseFragment<B : ViewBinding> : Fragment() {
             }
         }
     }
-   /* protected fun handleHeader(isVisible: Boolean = true, perform: () -> Unit = {}){
+    protected fun handleHeader(isVisible: Boolean = true, perform: () -> Unit = {}){
         (requireActivity() as? MainActivity)?.handleHeader(isVisible, perform)
     }
 
@@ -108,7 +108,7 @@ abstract class BaseFragment<B : ViewBinding> : Fragment() {
 
     protected fun handleTitle(headerTitle: String, perform: () -> Unit = {}){
         (requireActivity() as? MainActivity)?.handleTitle(headerTitle, perform)
-    }*/
+    }
 
     abstract fun getViewModel(): BaseViewModel
     abstract fun initUi()

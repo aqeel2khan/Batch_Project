@@ -742,7 +742,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     }
 
     override fun onResume() {
-       // handleTitle(resources.getString(R.string.workout_batchs))
+        handleTitle(resources.getString(R.string.workout_batchs))
         super.onResume()
     }
 

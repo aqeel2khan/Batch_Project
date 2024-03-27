@@ -204,7 +204,7 @@ class MealBatchFragment : BaseFragment<FragmentMealBatchBinding>() {
 
     override fun onResume() {
         super.onResume()
-       // handleTitle("Meal Batch")
+       //handleTitle("Meal Batch")
        // handleBottomBar(false)
     }
 

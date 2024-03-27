@@ -475,4 +475,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
 
     }
+    override fun onResume() {
+        handleTitle(resources.getString(R.string.batchboard))
+        super.onResume()
+    }
 }
