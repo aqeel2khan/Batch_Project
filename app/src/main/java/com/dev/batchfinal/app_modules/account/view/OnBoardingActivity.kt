@@ -15,6 +15,8 @@ import com.dev.batchfinal.databinding.ActivityOnBoardingBinding
 import com.dev.batchfinal.databinding.CountryLangDialogBinding
 import com.dev.batchfinal.model.Country
 import com.dev.batchfinal.app_common.BaseActivity
+import com.dev.batchfinal.app_utils.MyConstant
+import com.dev.batchfinal.app_utils.MyUtils
 import com.dev.batchfinal.viewmodel.AllViewModel
 import com.dev.batchfinal.viewmodel.BaseViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -125,12 +127,16 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding>() {
         dialogBinding.btnEnglish.setOnClickListener {
             dialogBinding.btnEnglish.setBackgroundResource(R.drawable.rectangle_btn_lag_select)
             dialogBinding.btnArabic.setBackgroundResource(R.drawable.tab_un_sel_bg)
-            sharedPreferences.saveLanguage("English")
+            sharedPreferences.saveLanguage("en")
+            MyUtils.setLocale(MyConstant.EN, this@OnBoardingActivity)
+
         }
         dialogBinding.btnArabic.setOnClickListener {
             dialogBinding.btnArabic.setBackgroundResource(R.drawable.rectangle_btn_lag_select)
             dialogBinding.btnEnglish.setBackgroundResource(R.drawable.tab_un_sel_bg)
-            sharedPreferences.saveLanguage("Arabic")
+            sharedPreferences.saveLanguage("ar")
+            MyUtils.setLocale(MyConstant.AR, this@OnBoardingActivity)
+
         }
         dialogBinding.btnCountryNext.setOnClickListener {
             dialogBinding.llCountry.background = resources.getDrawable(R.drawable.tab_un_sel_bg)

@@ -52,8 +52,18 @@ class MotivatorDetailActivity : BaseActivity<ActivityMotivatorDetailBinding>() {
     }
 
     override fun initUi() {
+        if (sharedPreferences.language.equals(MyConstant.AR)){
+            MyUtils.setLocale(MyConstant.AR, this)
+        }else{
+            MyUtils.setLocale(MyConstant.EN, this)
+        }
         coach_id = intent.getStringExtra("id")!!.toInt()
 //        setAllBatchesAdapter()
+        if (sharedPreferences.language.equals(MyConstant.AR)){
+            MyUtils.setLocale(MyConstant.AR, this)
+        }else{
+            MyUtils.setLocale(MyConstant.EN, this)
+        }
         setUpRecommendedProductorAdapter()
         buttonClicks()
         val aniSlide: Animation =
