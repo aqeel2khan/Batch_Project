@@ -172,7 +172,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
     override fun getViewBinding() = FragmentMealBinding.inflate(layoutInflater)
 
     override fun onResume() {
-        handleTitle(resources.getString(R.string.txt_meal_title))
+      //  handleTitle(resources.getString(R.string.txt_meal_title))
         super.onResume()
     }
     private fun buttonClicks() {
@@ -271,7 +271,7 @@ class MealFragment : BaseFragment<FragmentMealBinding>() {
         })
 
         dialogBinding.idCalories.setOnSelectListener(CaloriesTagFlowLayout.OnSelectListener { selectPosSet ->
-            activity!!.title = "choose:$selectPosSet"
+            requireActivity().title = "choose:$selectPosSet"
             var setList = this.dialogBinding.idCalories.selectedList
             caloriesSize = setList.size
             totalSelected = caloriesSize

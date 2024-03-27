@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BatchFinal</string>
+    <string name="app_name">Batch</string>
     <string name="internet_is_not_available">Internet is not available</string>
     <string name="terms_condition">I agree to the company <font color='#516634'>Terms &amp; Conditions</font></string>
     <string name="terms_service_police">I agree to the company <font color='#516634'>Terms of Service</font> and\n<font color='#516634'>Privacy Police</font></string>

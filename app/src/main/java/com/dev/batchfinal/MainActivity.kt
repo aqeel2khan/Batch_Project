@@ -24,15 +24,16 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppBaseActivity<ActivityMainBinding>() {
-  //  private lateinit var binding: ActivityMainBinding
+    //  private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private val DOUBLE_CLICK_TIME_DELTA: Long = 2000
     private var lastClickTime: Long = 0
     private lateinit var sessionManager: UserSessionManager
     override fun getViewBinding() = ActivityMainBinding.inflate(layoutInflater)
     override fun initUI() {
-        sessionManager= UserSessionManager(this)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_container) as NavHostFragment
+        sessionManager = UserSessionManager(this)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_container) as NavHostFragment
         navController = navHostFragment.navController
         binding.ivHome.setImageResource(R.drawable.sel_home)
         bottomNavigationClicks()
@@ -42,9 +43,10 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
     override fun onStart() {
         super.onStart()
         when {
-            sessionManager.getProfileImgPath()!="null" -> {
+            sessionManager.getProfileImgPath() != "null" -> {
                 MyUtils.loadImage(
-                    binding.imProfile, MyConstant.IMAGE_BASE_URL+sessionManager.getProfileImgPath()
+                    binding.imProfile,
+                    MyConstant.IMAGE_BASE_URL + sessionManager.getProfileImgPath()
                 )
             }
         }
@@ -78,10 +80,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
 
     private fun bottomNavigationClicks() {
         binding.ivHome.setOnClickListener {
-            //binding.tvHeading.text = resources.getString(R.string.batchboard)
-            binding.tvHeading.visibility=View.GONE
-            binding.imAppLogo.visibility=View.GONE
-            binding.imLogo.visibility=View.VISIBLE
+            binding.tvHeading.text = resources.getString(R.string.batchboard)
             binding.ivHome.setImageResource(R.drawable.sel_home)
             binding.ivWorkout.setImageResource(R.drawable.iv_workout)
             binding.ivMeal.setImageResource(R.drawable.iv_meal)
@@ -91,10 +90,6 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             navigateToRootNode(R.id.home_navigation)
         }
         binding.ivWorkout.setOnClickListener {
-            binding.imLogo.visibility=View.GONE
-            binding.imAppLogo.visibility=View.VISIBLE
-
-            binding.tvHeading.visibility=View.VISIBLE
 
             binding.tvHeading.text = resources.getString(R.string.workout_batchs)
             binding.ivHome.setImageResource(R.drawable.iv_home)
@@ -106,10 +101,6 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             navigateToRootNode(R.id.trainer_navigation)
         }
         binding.ivMeal.setOnClickListener {
-            binding.imLogo.visibility=View.GONE
-            binding.imAppLogo.visibility=View.VISIBLE
-
-            binding.tvHeading.visibility=View.VISIBLE
             binding.tvHeading.text = resources.getString(R.string.txt_meal_title)
             binding.ivHome.setImageResource(R.drawable.iv_home)
             binding.ivWorkout.setImageResource(R.drawable.iv_workout)
@@ -119,10 +110,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             navigateToRootNode(R.id.meal_navigation)
         }
         binding.ivShop.setOnClickListener {
-            binding.imLogo.visibility=View.GONE
-            binding.imAppLogo.visibility=View.VISIBLE
 
-            binding.tvHeading.visibility=View.VISIBLE
             binding.tvHeading.text = resources.getString(R.string.shop_title)
             binding.ivHome.setImageResource(R.drawable.iv_home)
             binding.ivWorkout.setImageResource(R.drawable.iv_workout)
@@ -132,11 +120,13 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             navigateToRootNode(R.id.shop_navigation)
         }
         binding.ivScan.setOnClickListener {
-            binding.imLogo.visibility=View.GONE
-            binding.imAppLogo.visibility=View.VISIBLE
 
-            binding.tvHeading.visibility=View.VISIBLE
-            binding.tvHeading.text = sessionManager.getName()
+            if (sessionManager.isloggin()) {
+                binding.tvHeading.text = sessionManager.getName()
+            } else {
+                binding.tvHeading.text = resources.getString(R.string.scan_title)
+            }
+
             binding.ivHome.setImageResource(R.drawable.iv_home)
             binding.ivWorkout.setImageResource(R.drawable.iv_workout)
             binding.ivMeal.setImageResource(R.drawable.iv_meal)
@@ -146,6 +136,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
         }
     }
 
+/*
     fun handleHeader(isVisible: Boolean = true, perform: () -> Unit = {}) {
         if (isVisible) {
             binding.headerTitle.makeVisible()
@@ -153,7 +144,9 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             binding.headerTitle.makeGone()
         }
     }
+*/
 
+/*
     fun handleBottomBar(isVisible: Boolean = true, perform: () -> Unit = {}) {
         if (isVisible) {
             binding.rlBottomLayout.makeVisible()
@@ -161,8 +154,10 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             binding.rlBottomLayout.makeGone()
         }
     }
+*/
 
-    fun handleTitle(headerTitle: String, perform: () -> Unit = {}){
+/*
+    fun handleTitle(headerTitle: String, perform: () -> Unit = {}) {
         binding.tvHeading.text = headerTitle
         when (headerTitle) {
             resources.getString(R.string.workout_batchs) -> {
@@ -172,6 +167,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
                 binding.ivShop.setImageResource(R.drawable.iv_shoping)
                 binding.ivScan.setImageResource(R.drawable.iv_scaning)
             }
+
             resources.getString(R.string.txt_meal_title) -> {
                 binding.ivHome.setImageResource(R.drawable.iv_home)
                 binding.ivWorkout.setImageResource(R.drawable.iv_workout)
@@ -179,6 +175,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
                 binding.ivShop.setImageResource(R.drawable.iv_shoping)
                 binding.ivScan.setImageResource(R.drawable.iv_scaning)
             }
+
             resources.getString(R.string.shop_title) -> {
                 binding.ivHome.setImageResource(R.drawable.iv_home)
                 binding.ivWorkout.setImageResource(R.drawable.iv_workout)
@@ -188,6 +185,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             }
         }
     }
+*/
 
 
     private fun navigateToRootNode(startDestinationId: Int, bundle: Bundle? = null) {
@@ -198,13 +196,12 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
             .setPopExitAnim(R.anim.exit_to_bottom)
             .setPopUpTo(startDestinationId, false)
             .build()
-
         navController.navigate(startDestinationId, bundle, navOptions)
     }
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        val navHostFragment=  supportFragmentManager.findFragmentById(R.id.nav_host_container)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_container)
         val currentFragment = navHostFragment!!.childFragmentManager.primaryNavigationFragment
         if (currentFragment != null) {
             val fragmentClassName = currentFragment.javaClass.name
@@ -219,6 +216,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
                     binding.ivScan.setImageResource(R.drawable.iv_scaning)
                     navigateToRootNode(R.id.home_navigation)
                 }
+
                 fragmentClassName.equals("com.dev.batchfinal.app_modules.meals.meal_unpurchase.view.fragment.MealFragment") -> {
                     binding.tvHeading.text = resources.getString(R.string.workout_batchs)
                     binding.ivHome.setImageResource(R.drawable.iv_home)
@@ -228,6 +226,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
                     binding.ivScan.setImageResource(R.drawable.iv_scaning)
                     navigateToRootNode(R.id.trainer_navigation)
                 }
+
                 fragmentClassName.equals("com.dev.batchfinal.app_modules.shopping.view_frag.ShoppingFragment") -> {
                     binding.tvHeading.text = resources.getString(R.string.txt_meal_title)
                     binding.ivHome.setImageResource(R.drawable.iv_home)
@@ -237,8 +236,14 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
                     binding.ivScan.setImageResource(R.drawable.iv_scaning)
                     navigateToRootNode(R.id.meal_navigation)
                 }
+
                 fragmentClassName.equals("com.dev.batchfinal.app_modules.scanning.view_frag.ScanningFragment") -> {
-                    binding.tvHeading.text = resources.getString(R.string.shop_title)
+                    //binding.tvHeading.text = resources.getString(R.string.shop_title)
+                    if (sessionManager.isloggin()) {
+                        binding.tvHeading.text = sessionManager.getName()
+                    } else {
+                        binding.tvHeading.text = resources.getString(R.string.scan_title)
+                    }
                     binding.ivHome.setImageResource(R.drawable.iv_home)
                     binding.ivWorkout.setImageResource(R.drawable.iv_workout)
                     binding.ivMeal.setImageResource(R.drawable.iv_meal)
@@ -246,6 +251,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
                     binding.ivScan.setImageResource(R.drawable.iv_scaning)
                     navigateToRootNode(R.id.shop_navigation)
                 }
+
                 else -> {
                     val currentTime = System.currentTimeMillis()
                     if (currentTime - lastClickTime < DOUBLE_CLICK_TIME_DELTA) {
@@ -258,8 +264,7 @@ class MainActivity : AppBaseActivity<ActivityMainBinding>() {
                     }
                 }
             }
-        }else
-        {
+        } else {
             val currentTime = System.currentTimeMillis()
             if (currentTime - lastClickTime < DOUBLE_CLICK_TIME_DELTA) {
                 super.onBackPressed() // Or finish() if this is your main activity
