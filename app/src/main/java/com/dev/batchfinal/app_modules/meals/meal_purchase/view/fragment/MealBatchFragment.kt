@@ -166,7 +166,7 @@ class MealBatchFragment : BaseFragment<FragmentMealBatchBinding>() {
 //        indId.add(0)
         for (items in informationData) {
             Information.add(items.status.toString())
-            indId.add(items.id!!.toInt())
+            indId.add(items.id.toInt())
         }
         val activityAdapter = ArrayAdapter<String>(requireActivity(), android.R.layout.simple_spinner_item, Information)
         activityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -204,8 +204,8 @@ class MealBatchFragment : BaseFragment<FragmentMealBatchBinding>() {
 
     override fun onResume() {
         super.onResume()
-        handleTitle("Meal Batch")
-        handleBottomBar(false)
+       // handleTitle("Meal Batch")
+       // handleBottomBar(false)
     }
 
 }

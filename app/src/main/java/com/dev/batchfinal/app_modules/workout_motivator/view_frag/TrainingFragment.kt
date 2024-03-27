@@ -87,7 +87,6 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
 
     override fun initUi() {
         sessionManager = UserSessionManager(requireActivity())
-
         buttonClicks()
         print(sharedPreferences.token)
 
@@ -466,7 +465,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         })
 
         dialogBinding.idCoachExperience.setOnSelectListener(ExperienceTagFlowLayout.OnSelectListener { selectPosSet ->
-            activity!!.title = "choose:$selectPosSet"
+            requireActivity().title = "choose:$selectPosSet"
         })
     }
 
@@ -492,7 +491,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         })
 
         dialogBinding.idCoachWt.setOnSelectListener(CoachWtTagFlowLayout.OnSelectListener { selectPosSet ->
-            activity!!.title = "choose:$selectPosSet"
+            requireActivity().title = "choose:$selectPosSet"
         })
     }
 
@@ -566,7 +565,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         })
 
         dialogBinding.idFlowlayout.setOnSelectListener(TagFlowLayout.OnSelectListener { selectPosSet ->
-            activity!!.title = "choose:$selectPosSet"
+            requireActivity().title = "choose:$selectPosSet"
         })
 
         /*//sigle check
@@ -614,7 +613,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         })
 
         dialogBinding.idFlowlayoutLevel.setOnSelectListener(LevelTagFlowLayout.OnSelectListener { selectPosSet ->
-            activity!!.title = "choose:$selectPosSet"
+            requireActivity().title = "choose:$selectPosSet"
         })
 
       /*  //sigle check
@@ -661,7 +660,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
         })
 
         dialogBinding.idFlowlayoutGole.setOnSelectListener(GoalTagFlowLayout.OnSelectListener { selectPosSet ->
-            activity!!.title = "choose:$selectPosSet"
+            requireActivity().title = "choose:$selectPosSet"
         })
 
        /* //sigle check
@@ -743,7 +742,7 @@ class TrainingFragment : BaseFragment<FragmentTrainingBinding>() {
     }
 
     override fun onResume() {
-        handleTitle(resources.getString(R.string.workout_batchs))
+       // handleTitle(resources.getString(R.string.workout_batchs))
         super.onResume()
     }
 
